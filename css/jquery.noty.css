@@ -1,0 +1,111 @@
+ul.noty_container {
+	position: fixed;
+	z-index: 9999999;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	width: 400px;
+	top: 20px;
+}
+ul.noty_container li {
+	position: relative;
+	float: left;
+	clear: both;
+	list-style: none;
+	padding: 0px;
+	margin: 10px 0 0 0;
+}
+ul.noty_container.topLeft {
+	left: 20px;
+}
+ul.noty_container.topRight {
+	right: 40px;
+}
+ul.noty_container.topRight li {
+	float: right;
+}
+.noty_bar {
+	position: fixed;
+	display: none;
+	z-index: 9999999;
+	background: url(../img/alert-lines.png) repeat-x scroll left top #fff;
+	-moz-box-shadow: 0px 20px 15px #000;
+	-webkit-box-shadow: 0px 20px 15px #000;
+	box-shadow: 0px 5px 5px #ccc;
+}
+.noty_bar.top {
+	top: 0;
+	left: 0;
+	width: 100%;
+	border-bottom: 3px solid #eee;
+}
+.noty_bar.bottom {
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	border-top: 3px solid #eee;
+}
+.noty_bar.center {
+	top: 40%;
+	left: 19.5%;
+	width: 60%;
+	padding: 4px;
+	border: 3px solid #eee;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.noty_bar.topLeft, .noty_bar.topRight {
+	width: 100%;
+	clear:both;
+	position: relative;
+	padding: 4px;
+	border: 3px solid #eee;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.noty_bar .noty_message {
+	padding: 10px 30px 10px 10px;
+	font-size: 16px;
+	font-weight: bold;
+	width: 96%;
+}
+
+.noty_bar .noty_message .noty_buttons {
+	float: right;
+	font-size: 13px;
+	margin-top: -6px;
+	margin-left: -25px;
+}
+
+.noty_bar .noty_message .noty_buttons button {
+	margin-left: 5px;
+}
+
+.noty_bar .noty_close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-image: url(../img/closelabel.png);
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+}
+
+.noty_bar.alert {
+	background-color: #fff;
+	border-color: #ccc;
+}
+
+.noty_bar.error {
+	background-color: red;
+	color: #fff;
+	border-color: darkred;
+}
+
+.noty_bar.success {
+	background-color: lightgreen;
+	color: darkgreen;
+	border-color: darkgreen;
+}
