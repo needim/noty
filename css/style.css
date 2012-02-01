@@ -66,7 +66,7 @@ td { vertical-align: top; }
    Author: 
    ========================================================================== */
 
-body { background: url('../img/bg.gif') repeat; font-family:'PT Sans', Tahoma, Arial, sans-serif; }
+body { background: url('../img/bg.gif') repeat; font-family:'PT Sans', Tahoma, Arial, sans-serif; color: #666; }
 div#container { width: 960px; margin: 0 auto; }
 div#container header { text-align: center; }
 div#main ul#examples { list-style: none; text-align: center; padding: 0px; }
@@ -109,7 +109,7 @@ div#main ul#examples > li > ul > li:last-child {
 	-moz-border-radius-bottomright: 10px;
 	-webkit-border-bottom-right-radius: 10px;
 	border-bottom-right-radius: 10px;
-	}
+}
 
 div#main ul#examples > li > ul > li.header {
 	background-color: #B6B6B6;
@@ -122,10 +122,81 @@ div#main ul#examples > li > ul.ex2, div#main ul#examples > li > ul.ex4 {left: 22
 div#main ul#examples > li > ul.ex5 {left: 23px}
 div#main ul#examples > li > ul.ex3 {left: 24px}
 
-div#main div#documentation {
-	width: 770px;
-	margin: 50px auto 0 auto;
-	text-align: center;
+div#documentation {
+	background-color: #FFFFFF;
+	padding: 1px 20px 20px 20px;
+	box-shadow: 1px 1px 3px #ccc; 
+	margin-bottom: 40px;
+	font-size: 13px;
+}
+
+div#documentation h3 {
+	background-color: #D4E8C1;
+	padding: 3px 10px 3px 10px;
+	border: 1px solid #BED4A7;
+	display: inline-block;
+	-webkit-border-bottom-left-radius: 10px;
+		  -moz-border-radius-bottomleft: 10px;
+				  border-bottom-left-radius: 10px;
+	
+	-webkit-border-top-right-radius: 10px;
+			-moz-border-radius-topright: 10px;
+					border-top-right-radius: 10px;
+}
+
+div#documentation h1 {
+	color: #999;
+}
+
+div#documentation h2 {
+	color: #828277;
+}
+
+div#documentation span.hl {
+	color: #789C4E;
+	font-weight: bold;
+}
+
+div#documentation a {
+	color: #DD8888;
+	font-weight: bold;
+}
+div#documentation a:hover {
+	color: #B44B4B;
+}
+
+div#documentation pre {
+	margin: 0;
+	padding: 0;
+}
+div#documentation code {
+	display: block;
+	border-left: 5px solid #BED4A7;
+	font-size: 12px;
+}
+
+
+div#documentation table {
+	width: 100%;
+	margin: 10px 0px;
+	background-color: #444444;
+	color: #f5f5f5;
+	border-left: 5px solid #BED4A7;
+}
+
+div#documentation table th {
+	text-align: left;
+	padding: 5px 10px;
+	background-color: #BED4A7;
+	color: #444;
+}
+
+div#documentation table th.default {
+	width: 100px;
+}
+
+div#documentation table td {
+	padding: 5px 10px;
 }
 
 

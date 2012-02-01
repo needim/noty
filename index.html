@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/buttons.css">
   <link rel="stylesheet" href="js/noty/css/jquery.noty.css">
+  <link rel="stylesheet" href="js/libs/highlight/styles/dark.css">
+  
   <!-- end CSS-->
   
   <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
@@ -97,26 +99,271 @@
 				
 			</ul>
 			
-			<div id="documentation">
+			<div id="fork-me">
+					
+				<a href="https://github.com/needim/noty">
+					<img style="position: absolute; top: 0; left: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub">
+				</a>
 			
-				<div id="usage">
+			</div>
+			
+    </div>
+    
+    <div id="documentation">
+			
+			<h1>Documentation</h1>
+		
+			<div id="usage">
+			
+				<section role="installation">
+					
+					<h3>Installation</h3>
+					
+					<div class="description">
+					
+						Include <a href="http://docs.jquery.com/Downloading_jQuery#Current_Release">jQuery latest release</a> in your header. The Google AJAX Libraries API can be used for this but you could also host the library yourself.
+
+						<p>Download <span class="hl">noty</span> from the <a href="https://github.com/needim/noty/downloads">Github</a> and upload the files to your server.</p>
+						Include <span class="hl">jquery.noty.js</span> and its dependancies below jQuery.
+						Also add <span class="hl">jquery.noty.css</span> to your header. 
+						Your code should then be similar to this:
+						
+						<pre>
+						<code class="html">
+&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/jquery.noty.js"&gt;&lt;/script&gt;
+
+&lt;link rel="stylesheet" type="text/css" href="css/jquery.noty.css"/&gt;
+						</code>
+						</pre>
+						
+					</div>
 				
+				</section>
+				
+				<section role="creating-noty">
 					
-					<div id="fork-me">
+					<h3>Creating a noty</h3>
 					
-						<a href="https://github.com/needim/noty">
-							<img style="position: absolute; top: 0; left: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/bec6c51521dcc8148146135149fe06a9cc737577/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub">
-						</a>
+					<div class="description">
+					
+						We wrote a helper for creating noty easily. So you can use <span class="hl">noty(properties);</span> Just like this;
+						
+						<pre>
+						<code>
+// ex1 - alert
+$('.ex1.alert').click(function() {
+	noty({text: 'noty - a jquery notification library!'});
+});
+						</code>
+						</pre>
 					
 					</div>
 				
-					<span>Will be documented.</span>
+				</section>
 				
-				</div>
-			
-			</div>
+				<section role="options">
+					
+					<h3>Noty Options</h3>
+					
+					<div class="description">
+					
+						Available options listed below.
+						
+						<table>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th class="default">Default</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>text</td>
+								<td>string</td>
+								<td>''</td>
+								<td>Notification message</td>
+							</tr>
+							<tr>
+								<td>textAlign</td>
+								<td><a href="http://www.w3.org/wiki/CSS/Properties/text-align">CSS/Properties/text-align</a></td>
+								<td>center</td>
+								<td>Alignment of message</td>
+							</tr>
+							<tr>
+								<td>layout</td>
+								<td>top|bottom|center|topLeft|topRight</td>
+								<td>top</td>
+								<td>Layout of notification. (Customizable with CSS)</td>
+							</tr>
+							<tr>
+								<td>type</td>
+								<td>alert|error|success</td>
+								<td>alert</td>
+								<td>Style of the notification. (Customizable with CSS)</td>
+							</tr>
+							<tr>
+								<td>speed</td>
+								<td>integer (ms)</td>
+								<td>500</td>
+								<td>Speed of open and close animations.</td>
+							</tr>
+							<tr>
+								<td>timeout</td>
+								<td>integer (ms)</td>
+								<td>5000</td>
+								<td>Duration of notification on screen.</td>
+							</tr>
+							<tr>
+								<td>animateOpen</td>
+								<td><a href="http://api.jquery.com/animate/">jQuery Animate Properties</a></td>
+								<td>{height: 'toggle'}</td>
+								<td>A map of CSS properties that the animation will move toward.</td>
+							</tr>
+							<tr>
+								<td>animateClose</td>
+								<td><a href="http://api.jquery.com/animate/">jQuery Animate Properties</a></td>
+								<td>{height: 'toggle'}</td>
+								<td>A map of CSS properties that the animation will move toward.</td>
+							</tr>
+							<tr>
+								<td>easing</td>
+								<td><a href="http://api.jquery.com/animate/#easing">jQuery Easing Functions</a></td>
+								<td>swing</td>
+								<td>More easing functions are available with the use of plugins like <a href="http://jqueryui.com/">jQuery UI</a>.</td>
+							</tr>
+							<tr>
+								<td>closable</td>
+								<td>boolean</td>
+								<td>true</td>
+								<td>Enables the close button when set to true.</td>
+							</tr>
+							<tr>
+								<td>force</td>
+								<td>boolean</td>
+								<td>false</td>
+								<td>Adds notification to the beginning of que when set to true.</td>
+							</tr>
+							<tr>
+								<td>buttons</td>
+								<td>false|array</td>
+								<td>false</td>
+								<td>An array of buttons. <a href="#buttons">Like this &raquo;</a></td>
+							</tr>
+							<tr>
+								<td>onShow</td>
+								<td>false|function</td>
+								<td>false</td>
+								<td><a href="#callbacks">onShow Callback &raquo;</a></td>
+							</tr>
+							<tr>
+								<td>onClose</td>
+								<td>false|function</td>
+								<td>false</td>
+								<td><a href="#callbacks">onClose Callback &raquo;</a></td>
+							</tr>
+						</table>
+						
+					</div>
+				
+				</section>
+				
+				<section role="buttons">
+					
+					<h3 id="buttons">Buttons</h3>
+					
+					<div class="description">
+					
+						We can set button objects with an array like above;
+						
+						<pre>
+						<code>
+// ex1 - confirm
+$('.ex1.confirm').click(function() {
+	noty({
+		text: 'noty - a jquery notification library!', 
+		buttons: [
+			{type: 'button green', text: 'Ok', click: function() { /**/ } },
+			{type: 'button pink', text: 'Cancel', click: function() { /**/ } }
+		],
+		closable: false,
+		timeout: false
+	});
+});
+						</code>
+						</pre>
+						
+						Available button properties are listed below.
+						
+						<table>
+							<tr>
+								<th>Name</th>
+								<th>Type</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>type</td>
+								<td>string</td>
+								<td>Button class</td>
+							</tr>
+							<tr>
+								<td>text</td>
+								<td>string</td>
+								<td>Button text</td>
+							</tr>
+							<tr>
+								<td>click</td>
+								<td>function</td>
+								<td>Callback function of button</td>
+							</tr>
+						</table>
+						
+					</div>
+				
+				</section>
+				
+				<section role="callbacks">
+					
+					<h3 id="callbacks">Callbacks</h3>
+					
+					<div class="description">
+					
+						Noty plugin have 2 callback option for now. We will add more callback asap.
 
-    </div>
+						<table>
+							<tr>
+								<th>Name</th>
+								<th>Description</th>
+							</tr>
+							<tr>
+								<td>onShow</td>
+								<td>Triggered when notification open animation finished.</td>
+							</tr>
+							<tr>
+								<td>onClose</td>
+								<td>Triggered when notification close animation finished.</td>
+							</tr>
+						</table>
+					
+					</div>
+				
+				</section>
+				
+				<section role="api">
+					
+					<h3>Noty API</h3>
+					
+					<div class="description">
+					
+						Coming soon.
+						
+					</div>
+				
+				</section>
+				
+			</div>
+		
+		</div>
+    
     <footer>
 
     </footer>
@@ -128,6 +375,11 @@
   <script defer src="js/libs/jquery-ui-1.8.17.easing.min.js"></script>
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>
+  <script src="js/libs/highlight/highlight.pack.js"></script>
+  <script>
+	  hljs.tabReplace = '  ';
+	  hljs.initHighlightingOnLoad();
+  </script>
   
   <script defer src="js/noty/js/jquery.noty.js"></script>
   
