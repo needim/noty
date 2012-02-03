@@ -23,10 +23,8 @@
 			// Push notification to que
 			if (base.options.force || base.options.layout == 'topLeft' || base.options.layout == 'topRight') {
 				$.noty.que.unshift({options: base.options});
-				$('#noty_que_list').prepend($('<li/>').addClass(base.options.type).html(base.options.type));
 			} else {
 				$.noty.que.push({options: base.options});
-				$('#noty_que_list').append($('<li/>').addClass(base.options.type).html(base.options.type));
 			}
 
 			base.render();
@@ -99,10 +97,8 @@
 							
 							// Layout spesific cleaning
 							if (options.layout == 'topLeft' || options.layout == 'topRight') {
-								$('#noty_que_list li:last').slideUp().remove();
 								$noty.parent().remove();
 							} else {
-								$('#noty_que_list li:first').slideUp().remove();
 								$noty.remove();
 							}
 							
@@ -127,8 +123,7 @@
 						$buttons = $('<div/>').addClass('noty_buttons');
 						$noty.find('.noty_message').append($buttons);
 						
-						$.each(notification.options.buttons, function(i, v) {
-							var button = v,
+						$.each(notification.options.buttons, function(i, button) {
 							bclass = (button.type) ? button.type : 'gray';
 							$('<button/>').addClass(bclass).html(button.text).appendTo($noty.find('.noty_buttons')).one("click", function() { $noty.trigger('noty.close', button.click); });
 						});
@@ -157,8 +152,21 @@
 	};
 	
 	$.noty.que = [];
-	$.noty.available = true;
+	
+	$.noty.clearQue = function () {
+		$.noty.que = [];
+	};
+	
+	$.noty.close = function () {
+		$('.noty_bar:first').trigger('noty.close');
+	};
 
+	$.noty.closeAll = function () {
+		$.noty.clearQue();
+		$('.noty_bar').trigger('noty.close');
+	};
+
+	$.noty.available = true;
 	$.noty.defaultOptions = {
 		layout : "top",
 		animateOpen : {height: 'toggle'},
