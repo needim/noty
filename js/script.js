@@ -168,6 +168,18 @@ $(document).ready(function() {
 		});
 	});
 	
+	$('.api-func').click(function(e) {
+		
+		try {
+			var func = $(this).attr('title');
+			eval(func);
+		} catch (e) {
+			// TODO: handle exception
+		}
+		
+		e.preventDefault();
+	});
+	
 });
 
 
