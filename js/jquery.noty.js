@@ -20,24 +20,24 @@
 
 			base.options = $.extend({}, $.noty.defaultOptions, options);
 			
-			// Push notification to que
+			// Push notification to queue
 			if (base.options.force || base.options.layout == 'topLeft' || base.options.layout == 'topRight') {
-				$.noty.que.unshift({options: base.options});
+				$.noty.queue.unshift({options: base.options});
 			} else {
-				$.noty.que.push({options: base.options});
+				$.noty.queue.push({options: base.options});
 			}
 
 			base.render();
 			
 		};
 		
-		// Render the que
+		// Render the queue
 		base.render = function() {
 		 
 			if ($.noty.available) {
 				
-				// Get noty from que
-				var notification = $.noty.que.shift();
+				// Get noty from queue
+				var notification = $.noty.queue.shift();
 				
 				if (jQuery.type(notification) === 'object') {
 					
@@ -109,7 +109,7 @@
 								callback.apply();
 							}
 							
-							// Que render
+							// queue render
 							base.render();
 						});
 					});
@@ -151,10 +151,10 @@
 		base.init();
 	};
 	
-	$.noty.que = [];
+	$.noty.queue = [];
 	
-	$.noty.clearQue = function () {
-		$.noty.que = [];
+	$.noty.clearQueue = function () {
+		$.noty.queue = [];
 	};
 	
 	$.noty.close = function () {
@@ -162,7 +162,7 @@
 	};
 
 	$.noty.closeAll = function () {
-		$.noty.clearQue();
+		$.noty.clearQueue();
 		$('.noty_bar').trigger('noty.close');
 	};
 
