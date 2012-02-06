@@ -200,7 +200,7 @@ div#documentation table td {
 }
 
 
-div#noty_que {
+div#noty_queue {
 	position: fixed;
 	top: 200px;
 	left: 10px;
@@ -208,13 +208,13 @@ div#noty_que {
 	width: 100px;
 }
 
-div#noty_que span {
+div#noty_queue span {
 	border-bottom: 2px dotted #ccc;
 	display: block;
 	padding-bottom: 5px;
 }
 
-div#noty_que ul {
+div#noty_queue ul {
 	list-style: none;
 	padding: 0;
 	-moz-border-radius: 5px;
@@ -222,25 +222,25 @@ div#noty_que ul {
 	border-radius: 5px;
 }
 
-div#noty_que ul li {
+div#noty_queue ul li {
 	padding: 3px 25px;
 	text-align: center;
 	border-bottom: 2px solid #ccc;
 	background: url(../js/noty/img/alert-lines.png) repeat-x scroll left top #fff;
 }
 
-div#noty_que ul li.alert {
+div#noty_queue ul li.alert {
 	background-color: #fff;
 	border-color: #ccc;
 }
 
-div#noty_que ul li.success {
+div#noty_queue ul li.success {
 	background-color: lightgreen;
 	color: darkgreen;
 	border-color: darkgreen;
 }
 
-div#noty_que ul li.error {
+div#noty_queue ul li.error {
 	background-color: red;
 	color: #fff;
 	border-color: darkred;

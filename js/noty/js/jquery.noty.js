@@ -20,26 +20,26 @@
 
 			base.options = $.extend({}, $.noty.defaultOptions, options);
 			
-			// Push notification to que
+			// Push notification to queue
 			if (base.options.force || base.options.layout == 'topLeft' || base.options.layout == 'topRight') {
-				$.noty.que.unshift({options: base.options});
-				$('#noty_que_list').prepend($('<li/>').addClass(base.options.type).html(base.options.type));
+				$.noty.queue.unshift({options: base.options});
+				$('#noty_queue_list').prepend($('<li/>').addClass(base.options.type).html(base.options.type));
 			} else {
-				$.noty.que.push({options: base.options});
-				$('#noty_que_list').append($('<li/>').addClass(base.options.type).html(base.options.type));
+				$.noty.queue.push({options: base.options});
+				$('#noty_queue_list').append($('<li/>').addClass(base.options.type).html(base.options.type));
 			}
 
 			base.render();
 			
 		};
 		
-		// Render the que
+		// Render the queue
 		base.render = function() {
 		 
 			if ($.noty.available) {
 				
-				// Get noty from que
-				var notification = $.noty.que.shift();
+				// Get noty from queue
+				var notification = $.noty.queue.shift();
 				
 				if (jQuery.type(notification) === 'object') {
 					
@@ -99,10 +99,10 @@
 							
 							// Layout spesific cleaning
 							if (options.layout == 'topLeft' || options.layout == 'topRight') {
-								$('#noty_que_list li:last').remove();
+								$('#noty_queue_list li:last').remove();
 								$noty.parent().remove();
 							} else {
-								$('#noty_que_list li:first').remove();
+								$('#noty_queue_list li:first').remove();
 								$noty.remove();
 							}
 							
@@ -113,7 +113,7 @@
 								callback.apply();
 							}
 							
-							// Que render
+							// queue render
 							base.render();
 						});
 					});
@@ -155,11 +155,11 @@
 		base.init();
 	};
 	
-	$.noty.que = [];
+	$.noty.queue = [];
 	
-	$.noty.clearQue = function () {
-		$('#noty_que_list li').remove();
-		$.noty.que = [];
+	$.noty.clearQueue = function () {
+		$('#noty_queue_list li').remove();
+		$.noty.queue = [];
 	};
 	
 	$.noty.close = function () {
@@ -167,7 +167,7 @@
 	};
 
 	$.noty.closeAll = function () {
-		$.noty.clearQue();
+		$.noty.clearQueue();
 		$('.noty_bar').trigger('noty.close');
 	};
 
