@@ -381,50 +381,6 @@ $('.ex1.confirm').click(function() {
 
 				</section>
 
-				<section role="commit-history">
-
-					<h3>Github Commit History</h3>
-
-					<div class="description">
-
-						<?php
-								$ch = curl_init();
-
-								curl_setopt($ch, CURLOPT_URL, 'https://api.github.com/repos/needim/noty/commits');
-								curl_setopt($ch, CURLOPT_HEADER, 0);
-								curl_setopt($ch, CURLOPT_RETURNTRANSFER,1);
-								curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
-								curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,  2);
-
-								$response = json_decode(curl_exec($ch));
-								curl_close($ch);
-						?>
-
-						<table>
-							<tr>
-								<th>Committer</th>
-								<th>Message</th>
-								<th class="default">Date</th>
-								<th>Details</th>
-							</tr>
-
-							<?php foreach($response as $commit): ?>
-
-								<tr>
-									<td><?php echo $commit->commit->author->name ?></td>
-									<td><?php echo $commit->commit->message ?></td>
-									<td><?php echo date('d.m.Y H:i', strtotime($commit->commit->author->date)); ?></td>
-									<td><a href="https://github.com/needim/noty/commit/<?php echo $commit->sha ?>" title="Commit Details">view &raquo</a></td>
-								</tr>
-
-							<?php endforeach; ?>
-
-						</table>
-
-					</div>
-
-				</section>
-
 			</div>
 
 		</div>
