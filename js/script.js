@@ -5,7 +5,26 @@
 var note = 'noty - a jquery notification library!';
 
 $(document).ready(function() {
-
+	
+	$.getJSON('http://ned.im/github-commits.php', function(json) {
+		$.each(json, function(i, commit) {
+			var $col = $('<tr />');
+			var $committer = $('<td />').html(commit.commit.committer.name);
+			var $message = $('<td />').html(commit.commit.message);
+			var $date = $('<td />').html($.format.date(commit.commit.committer.date, "dd.MM.yyyy hh:mm a"));
+			var $link = $('<a />').attr('href', 'https://github.com/needim/noty/commit/' + commit.sha).html('view &raquo;');
+			var $url = $('<td />').append($link);
+			
+			$col.append($committer);
+			$col.append($message);
+			$col.append($date);
+			$col.append($url);
+			
+			$('#commit-history-json').append($col);
+			
+		});
+	});
+	
 	// EX 1 ======================	
 	
 	// ex1 - alert

@@ -380,6 +380,31 @@ $('.ex1.confirm').click(function() {
 					</div>
 
 				</section>
+				
+				<section role="commit-history">
+
+					<h3>Github Commit History</h3>
+
+					<div class="description">
+
+						<table>
+							<thead>
+								<tr>
+									<th>Committer</th>
+									<th>Message</th>
+									<th>Date</th>
+									<th>Details</th>
+								</tr>
+							</thead>
+
+							<tbody id="commit-history-json">
+							</tbody>
+
+						</table>
+
+					</div>
+
+				</section>
 
 			</div>
 
@@ -392,8 +417,9 @@ $('.ex1.confirm').click(function() {
 
 
   <!-- scripts concatenated and minified via ant build script-->
-  <script src="js/libs/jquery-1.6.2.min.js"></script>
+  <script src="js/libs/jquery-1.7.1.min.js"></script>
   <script src="js/libs/jquery-ui-1.8.17.easing.min.js"></script>
+  <script src="js/libs/jquery.dateFormat-1.0.js"></script>
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>
   <script src="js/libs/highlight/highlight.pack.js"></script>
