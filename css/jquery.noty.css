@@ -24,6 +24,12 @@ ul.noty_container.topRight {
 ul.noty_container.topRight li {
 	float: right;
 }
+
+/* Fix for: http://bugs.jquery.com/ticket/2278 */
+ul.noty_container.topLeft li, ul.noty_container.topRight li {
+	width: 400px;
+}
+
 .noty_bar {
 	position: fixed;
 	display: none;
