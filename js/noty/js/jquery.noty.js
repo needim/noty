@@ -21,25 +21,30 @@
 			base.options = $.extend({}, $.noty.defaultOptions, options);
 			
 			// Push notification to queue
-			if (base.options.force) {
-				$.noty.queue.unshift({options: base.options});
-				$('#noty_queue_list').prepend($('<li/>').addClass(base.options.type).html(base.options.type));
+			if (base.options.layout != 'topLeft' && base.options.layout != 'topRight') {
+				if (base.options.force) {
+					$.noty.queue.unshift({options: base.options});
+				} else {
+					$.noty.queue.push({options: base.options});
+				}
+				
+				base.render();
+				$.noty.available = false;
+				
 			} else {
-				$.noty.queue.push({options: base.options});
-				$('#noty_queue_list').append($('<li/>').addClass(base.options.type).html(base.options.type));
+				$.noty.available = true;
+				base.render({options: base.options});
 			}
-
-			base.render();
 			
 		};
 		
 		// Render the queue
-		base.render = function() {
+		base.render = function(noty) {
 		 
 			if ($.noty.available) {
 				
 				// Get noty from queue
-				var notification = $.noty.queue.shift();
+				var notification = (jQuery.type(noty) === 'object') ? noty : $.noty.queue.shift();
 				
 				if (jQuery.type(notification) === 'object') {
 					
@@ -54,10 +59,7 @@
 						base.$notyContainer = $('<li/>');
 						base.$noty_container.prepend(base.$notyContainer);
 						
-						$.noty.available = true;
-						
 					} else {
-						$.noty.available = false;
 						base.$notyContainer = $("body");
 					}
 					
@@ -79,6 +81,9 @@
 					// Closable option 
 					(notification.options.closable) ? $noty.find('.noty_close').show() : $noty.find('.noty_close').remove();
 					
+					// Bind close event to button 
+					$noty.find('.noty_close').bind('click', function() { $noty.trigger('noty.close'); });
+					
 					// is Modal? 
 					if (notification.options.modal) {
 						$('<div />').addClass('noty_modal').prependTo($('body')).css(notification.options.modalCss).fadeIn('fast');
@@ -88,7 +93,7 @@
 					base.$notyContainer.prepend($noty);
 					
 					// Bind close event
-					$noty.bind('noty.close', function(event, callback) {
+					$noty.one('noty.close', function(event, callback) {
 						var options = $noty.data('noty_options');
 						$noty.stop().animate(
 								$noty.data('noty_options').animateClose,
@@ -99,17 +104,13 @@
 							
 							// Layout spesific cleaning
 							if (options.layout == 'topLeft' || options.layout == 'topRight') {
-								$('#noty_queue_list li:last').remove();
 								$noty.parent().remove();
 							} else {
-								$('#noty_queue_list li:first').remove();
 								$noty.remove();
 							}
 							
 							// Modal Cleaning
 							$('.noty_modal').fadeOut('fast', function() { $(this).remove(); });
-							
-							$.noty.available = true;
 							
 							// Are we have a callback function?
 							if ($.isFunction(callback)) {
@@ -118,13 +119,11 @@
 							
 							// queue render
 							if (options.layout != 'topLeft' && options.layout != 'topRight') {
+								$.noty.available = true;
 								base.render();
 							}
 						});
 					});
-					
-					// Bind close event to button 
-					$noty.find('.noty_close').one('click', function() { $noty.trigger('noty.close'); });
 					
 					// Set buttons if available
 					if (notification.options.buttons) {
