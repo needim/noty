@@ -25,6 +25,20 @@ $(document).ready(function() {
 		});
 	});
 	
+	$(".cb-enable").click(function(){
+		var parent = $(this).parents('.switch');
+		$('.cb-disable',parent).removeClass('selected');
+		$(this).addClass('selected');
+		$.noty.defaultOptions.modal = true;
+	});
+	
+	$(".cb-disable").click(function(){
+		var parent = $(this).parents('.switch');
+		$('.cb-enable',parent).removeClass('selected');
+		$(this).addClass('selected');
+		$.noty.defaultOptions.modal = false;
+	});
+	
 	// EX 1 ======================	
 	
 	// ex1 - alert

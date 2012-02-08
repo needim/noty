@@ -44,14 +44,10 @@
 				if (jQuery.type(notification) === 'object') {
 					
 					// Layout spesific container settings
-					if(notification.options.layout == "topLeft" || notification.options.layout == "topRight")
-					{
-						if($("ul.noty_container."+notification.options.layout).length > 0)
-						{
+					if (notification.options.layout == "topLeft" || notification.options.layout == "topRight") {
+						if ($("ul.noty_container."+notification.options.layout).length > 0) {
 							base.$noty_container = $("ul.noty_container."+notification.options.layout);
-						} 
-						else 
-						{
+						} else {
 							base.$noty_container = $('<ul/>').addClass('noty_container').addClass(notification.options.layout);
 							$("body").prepend(base.$noty_container);
 						}
@@ -59,9 +55,8 @@
 						base.$noty_container.prepend(base.$notyContainer);
 						
 						$.noty.available = true;
-					} 
-					else 
-					{
+						
+					} else {
 						$.noty.available = false;
 						base.$notyContainer = $("body");
 					}
@@ -83,6 +78,11 @@
 					
 					// Closable option 
 					(notification.options.closable) ? $noty.find('.noty_close').show() : $noty.find('.noty_close').remove();
+					
+					// is Modal? 
+					if (notification.options.modal) {
+						$('<div />').addClass('noty_modal').prependTo($('body')).css(notification.options.modalCss).fadeIn('fast');
+					}
 					
 					// Prepend noty to container
 					base.$notyContainer.prepend($noty);
@@ -106,6 +106,9 @@
 								$noty.remove();
 							}
 							
+							// Modal Cleaning
+							$('.noty_modal').fadeOut('fast', function() { $(this).remove(); });
+							
 							$.noty.available = true;
 							
 							// Are we have a callback function?
@@ -122,8 +125,7 @@
 					$noty.find('.noty_close').one('click', function() { $noty.trigger('noty.close'); });
 					
 					// Set buttons if available
-					if (notification.options.buttons)
-					{
+					if (notification.options.buttons) {
 						$buttons = $('<div/>').addClass('noty_buttons');
 						$noty.find('.noty_message').append($buttons);
 						
@@ -131,7 +133,6 @@
 							bclass = (button.type) ? button.type : 'gray';
 							$('<button/>').addClass(bclass).html(button.text).appendTo($noty.find('.noty_buttons')).one("click", function() { $noty.trigger('noty.close', button.click); });
 						});
-						
 					}
 					
 					// Start the show
@@ -143,7 +144,7 @@
 					
 					// If noty is have a timeout option
 					if (notification.options.timeout) {
-						$noty.delay(notification.options.timeout).promise().done(function() {$noty.trigger('noty.close');});
+						$noty.delay(notification.options.timeout).promise().done(function() { $noty.trigger('noty.close'); });
 					}
 				
 				}
@@ -186,7 +187,9 @@
 		force : false,
 		onShow : false,
 		onClose : false,
-		buttons : false
+		buttons : false,
+		modal : false,
+		modalCss : {'opacity': 0.6}
 	};
 
 	$.fn.noty = function(options) {
@@ -196,7 +199,6 @@
 })(jQuery);
 
 // Helper
-function noty(options) 
-{
+function noty(options) {
 	$.fn.noty(options);
 }

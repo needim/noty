@@ -43,6 +43,22 @@
     		<ul id="noty_queue_list">
     		</ul>
     	</div>
+    	
+    	<div class="options-tweak">
+    		<table>
+    			<tr>
+    				<td style="padding: 7px 4px">
+    					<p>New Option - Modal</p>
+    				</td>
+    				<td>
+    					<p class="field switch">
+								<label for="radio1" class="cb-enable"><span>true</span></label>
+								<label for="radio2" class="cb-disable selected"><span>false</span></label>
+							</p>
+    				</td>
+    			</tr>
+    		</table>
+    	</div>
 
 			<ul id="examples">
 
@@ -200,6 +216,18 @@ $('.ex1.alert').click(function() {
 								<td>alert|error|success</td>
 								<td>alert</td>
 								<td>Style of the notification. (Customizable with CSS)</td>
+							</tr>
+							<tr>
+								<td>modal</td>
+								<td>boolean</td>
+								<td>false</td>
+								<td>Adds modal layer when set to true.</td>
+							</tr>
+							<tr>
+								<td>modalCss</td>
+								<td><a href="http://api.jquery.com/css/">jQuery Css Properties</a></td>
+								<td>{'opacity': 0.6}</td>
+								<td>Set one or more CSS properties for the modal layer.</td>
 							</tr>
 							<tr>
 								<td>speed</td>
