@@ -30,6 +30,16 @@ ul.noty_container.topLeft li, ul.noty_container.topRight li {
 	width: 400px;
 }
 
+div.noty_modal {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	z-index: 10000;
+	opacity: 0.6;
+	display: none;
+}
+
 .noty_bar {
 	position: fixed;
 	display: none;
