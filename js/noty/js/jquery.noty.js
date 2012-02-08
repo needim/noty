@@ -21,7 +21,7 @@
 			base.options = $.extend({}, $.noty.defaultOptions, options);
 			
 			// Push notification to queue
-			if (base.options.force || base.options.layout == 'topLeft' || base.options.layout == 'topRight') {
+			if (base.options.force) {
 				$.noty.queue.unshift({options: base.options});
 				$('#noty_queue_list').prepend($('<li/>').addClass(base.options.type).html(base.options.type));
 			} else {
@@ -117,7 +117,9 @@
 							}
 							
 							// queue render
-							base.render();
+							if (options.layout != 'topLeft' && options.layout != 'topRight') {
+								base.render();
+							}
 						});
 					});
 					
