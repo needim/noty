@@ -21,7 +21,7 @@
 			base.options = $.extend({}, $.noty.defaultOptions, options);
 			
 			// Push notification to queue
-			if (base.options.force || base.options.layout == 'topLeft' || base.options.layout == 'topRight') {
+			if (base.options.force) {
 				$.noty.queue.unshift({options: base.options});
 			} else {
 				$.noty.queue.push({options: base.options});
@@ -113,7 +113,9 @@
 							}
 							
 							// queue render
-							base.render();
+							if (options.layout != 'topLeft' && options.layout != 'topRight') {
+								base.render();
+							}
 						});
 					});
 					
@@ -183,7 +185,7 @@
 		onShow : false,
 		onClose : false,
 		buttons : false,
-		modal : true,
+		modal : false,
 		modalCss : {'opacity': 0.6}
 	};
 
