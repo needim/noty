@@ -108,7 +108,9 @@
 							}
 							
 							// Modal Cleaning
-							$('.noty_modal').fadeOut('fast', function() { $(this).remove(); });
+							if (options.modal) {
+								$('.noty_modal').fadeOut('fast', function() { $(this).remove(); });
+							}
 							
 							// Are we have a callback function?
 							if ($.isFunction(callback)) {
