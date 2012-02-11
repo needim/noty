@@ -82,6 +82,11 @@
 					// Bind close event to button 
 					$noty.find('.noty_close').bind('click', function() { $noty.trigger('noty.close'); });
 					
+					// Close on self click
+					if (notification.options.closeOnSelfClick && notification.options.closable) {
+						$noty.bind('click', function() { $noty.trigger('noty.close'); }).css('cursor', 'pointer');
+					}
+					
 					// is Modal? 
 					if (notification.options.modal) {
 						$('<div />').addClass('noty_modal').prependTo($('body')).css(notification.options.modalCss).fadeIn('fast');
@@ -184,6 +189,7 @@
 		speed : 500,
 		timeout : 5000,
 		closable : true,
+		closeOnSelfClick : true,
 		force : false,
 		onShow : false,
 		onClose : false,
