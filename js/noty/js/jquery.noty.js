@@ -1,10 +1,8 @@
 /**
  * jQuery Noty Plugin v0.1
- *
- * Copyright (c) 2011 LMS Co Inc.
  * Authors: Nedim Arabacı (http://ned.im), Muhittin Özer (http://muhittinozer.com)
  * 
- * Created: 31/10/2011
+ * http://needim.github.com/noty/
  *
  * Licensed under the MIT licenses:
  * http://www.opensource.org/licenses/mit-license.php
@@ -24,8 +22,10 @@
 			if (base.options.layout != 'topLeft' && base.options.layout != 'topRight') {
 				if (base.options.force) {
 					$.noty.queue.unshift({options: base.options});
+					$('#noty_queue_list').prepend($('<li/>').addClass(base.options.type).html(base.options.type));
 				} else {
 					$.noty.queue.push({options: base.options});
+					$('#noty_queue_list').append($('<li/>').addClass(base.options.type).html(base.options.type));
 				}
 				
 				base.render();
@@ -104,8 +104,10 @@
 							
 							// Layout spesific cleaning
 							if (options.layout == 'topLeft' || options.layout == 'topRight') {
+								$('#noty_queue_list li:last').remove();
 								$noty.parent().remove();
 							} else {
+								$('#noty_queue_list li:first').remove();
 								$noty.remove();
 							}
 							
