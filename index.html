@@ -126,6 +126,119 @@
     </div>
 
     <div id="documentation">
+    
+    	<div class="noty-creator">
+    	
+    		<h1>Noty Creator</h1>
+			
+				<form id="noty_creator">
+				<input class="big" type="text" name="text" value="Hi! I'm an example text. When I grow up I want to be a noty message." >
+			
+				<div class="creator-options">
+					
+					<table>
+    			<tr>
+    				<td>Layout</td>
+    				<td>
+    					<select name="layout">
+    						<option selected="selected" value="top">Top</option>
+    						<option value="bottom">Bottom</option>
+    						<option value="center">Center</option>
+    						<option value="topLeft">Top Left</option>
+    						<option value="topRight">Top Right</option>
+    					</select>
+    				</td>
+    				<td>Type</td>
+    				<td style="vertical-align: middle">
+    					<select name="type">
+    						<option selected="selected" value="alert">Alert</option>
+    						<option value="error">Error</option>
+    						<option value="success">Success</option>
+    					</select>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td>Text Align</td>
+    				<td>
+    					<select name="textAlign">
+    						<option value="left">Left</option>
+    						<option value="right">Right</option>
+    						<option selected="selected" value="center">Center</option>
+    						<option value="justify">Justify</option>
+    					</select>
+    				</td>
+    				<td>Easing</td>
+    				<td>
+    					<input type="text" readonly name="easing" value="swing">
+    				</td>
+    			</tr>
+    			<tr>
+    				<td>Animate - Open</td>
+    				<td>
+    					<input type="text" name="animateOpen" value="{height: 'toggle'}">
+    				</td>
+    				<td>Animate - Close</td>
+    				<td>
+    					<input type="text" name="animateClose" value="{height: 'toggle'}">
+    				</td>
+    			</tr>
+    			<tr>
+    				<td>Speed</td>
+    				<td>
+    					<input type="text" name="speed" value="500">
+    				</td>
+    				<td>Timeout</td>
+    				<td>
+    					<input type="text" name="timeout" value="5000">
+    				</td>
+    			</tr>
+    			<tr>
+    				<td>Closable</td>
+    				<td>
+    					<p class="field switch sub">
+    						<input id="closable" type="hidden" name="closable" value="true">
+								<label title="closable" for="radio3" class="cb-enable selected"><span>true</span></label>
+								<label title="closable" for="radio4" class="cb-disable"><span>false</span></label>
+							</p>
+    				</td>
+    				<td>Close on Self Click</td>
+    				<td>
+    					<p class="field switch sub">
+    						<input id="closeOnSelfClick" type="hidden" name="closeOnSelfClick" value="true">
+								<label title="closeOnSelfClick" for="radio5" class="cb-enable selected"><span>true</span></label>
+								<label title="closeOnSelfClick" for="radio6" class="cb-disable"><span>false</span></label>
+							</p>
+    				</td>
+    			</tr>
+    			<tr>
+    				<td>OnShow</td>
+    				<td>
+    					<input type="text" name="onShow" value="function(){}">
+    				</td>
+    				<td>onClose</td>
+    				<td>
+    					<input type="text" name="onClose" value="function(){}">
+    				</td>
+    			</tr>
+    			<tr>
+    				<td colspan="4" class="buttons">
+    					<span id="getCode" class="button pink">Get Code</span> or 
+    					<span id="runIt" class="button orange">Run It</span>
+    				</td>
+    			</tr>
+    			</table>
+    			
+    			<div class="getCodeResult">
+    			
+    				<textarea id="getCodeResult"></textarea>
+    			
+    			</div>
+				
+				</div>
+				
+				</form>
+			
+			</div>
 
 			<h1>Documentation</h1>
 
@@ -186,7 +299,7 @@ $('.ex1.alert').click(function() {
 
 						Available options listed below.
 
-						<table>
+						<table class="dark">
 							<tr>
 								<th>Name</th>
 								<th>Type</th>
@@ -322,7 +435,7 @@ $('.ex1.confirm').click(function() {
 
 						Available button properties are listed below.
 
-						<table>
+						<table class="dark">
 							<tr>
 								<th>Name</th>
 								<th>Type</th>
@@ -357,7 +470,7 @@ $('.ex1.confirm').click(function() {
 
 						Noty plugin have 2 callback option for now. We will add more callback asap.
 
-						<table>
+						<table class="dark">
 							<tr>
 								<th>Name</th>
 								<th>Description</th>
@@ -382,7 +495,7 @@ $('.ex1.confirm').click(function() {
 
 					<div class="description">
 
-						<table>
+						<table class="dark">
 							<tr>
 								<th>Function</th>
 								<th>Params</th>
@@ -415,7 +528,7 @@ $('.ex1.confirm').click(function() {
 
 					<div class="description">
 
-						<table>
+						<table class="dark">
 							<thead>
 								<tr>
 									<th>Committer</th>

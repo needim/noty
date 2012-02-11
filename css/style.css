@@ -176,7 +176,7 @@ div#documentation code {
 }
 
 
-div#documentation table {
+div#documentation table.dark {
 	width: 100%;
 	margin: 10px 0px;
 	background-color: #444444;
@@ -184,18 +184,18 @@ div#documentation table {
 	border-left: 5px solid #BED4A7;
 }
 
-div#documentation table th {
+div#documentation table.dark th {
 	text-align: left;
 	padding: 5px 10px;
 	background-color: #BED4A7;
 	color: #444;
 }
 
-div#documentation table th.default {
+div#documentation table.dark th.default {
 	width: 100px;
 }
 
-div#documentation table td {
+div#documentation table.dark td {
 	padding: 5px 10px;
 }
 
@@ -268,6 +268,68 @@ div.options-tweak table {
 .cb-enable.selected span { background-position: left -150px; color: #fff; }
 .switch label { cursor: pointer; }
 
+p.field.switch.sub {
+	padding: 0px; margin: 0px;
+}
+
+div.noty-creator {
+	text-align: center;
+	border-bottom: 1px solid #ccc;
+}
+div.noty-creator table {
+	margin: 0 auto;
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+div.noty-creator table td {
+	padding: 0px 7px;
+	vertical-align: middle;
+}
+div.noty-creator table td.buttons {
+	text-align: right;
+	padding-top: 15px;
+}
+
+div.noty-creator table td.buttons .button {
+	cursor: pointer;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #CCCCCC;
+  border-radius: 3px 3px 3px 3px;
+  color: #555555;
+  display: inline-block;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 4px;
+  width: 200px;
+  -moz-transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	font-family:'PT Sans', Tahoma, Arial, sans-serif;
+	vertical-align: middle;
+}
+select {
+	width: 210px;
+}
+input:focus, textarea:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 2px rgba(82, 168, 236, 0.6);
+    outline: 0 none;
+}
+input.big {
+	font-size: 18px;
+	line-height: 25px;
+	padding: 8px;
+	width: 75%;
+	text-align: center;
+}
+
+textarea#getCodeResult {
+	width: 70%;
+	margin-bottom: 20px;
+	resize: none;
+	display: none;
+}
 
 
 /* ==|== non-semantic helper classes ======================================== */

@@ -4,6 +4,27 @@
 
 var note = 'noty - a jquery notification library!';
 
+function getCode() {
+	var optionsArray = $('#noty_creator').serializeArray();
+	var options = {};
+	var objects = ['onShow', 'onClose', 'animateOpen', 'animateClose'];
+	
+	$.each(optionsArray, function(index, field) { 
+		if (jQuery.inArray(field.name, objects) > -1) {
+			options[field.name] = eval("(" + field.value + ')');
+		} else {
+			if (field.value == 'false') {
+				options[field.name] = false;
+			} else if (field.value == 'true') {
+				options[field.name] = true;
+			} else {
+				options[field.name] = field.value;
+			}
+		}
+	});
+	return options;
+}
+
 $(document).ready(function() {
 	
 	$.getJSON('http://ned.im/github-commits.php', function(json) {
@@ -29,14 +50,32 @@ $(document).ready(function() {
 		var parent = $(this).parents('.switch');
 		$('.cb-disable',parent).removeClass('selected');
 		$(this).addClass('selected');
-		$.noty.defaultOptions.modal = true;
+		if ($(this).attr('title')) {
+			$('#'+$(this).attr('title')).val('true');
+		} else {
+			$.noty.defaultOptions.modal = true;
+		}
 	});
 	
 	$(".cb-disable").click(function(){
 		var parent = $(this).parents('.switch');
 		$('.cb-enable',parent).removeClass('selected');
 		$(this).addClass('selected');
-		$.noty.defaultOptions.modal = false;
+		if ($(this).attr('title')) {
+			$('#'+$(this).attr('title')).val('false');
+		} else {
+			$.noty.defaultOptions.modal = false;
+		}
+	});
+	
+	$('#getCode').click(function() {
+		var source = getCode();
+		$('textarea#getCodeResult').html('noty'+ source.toSource() +';').slideDown();
+	});
+	
+	$('#runIt').click(function() {
+		var source = getCode();
+		noty(source);
 	});
 	
 	// EX 1 ======================	
