@@ -27,13 +27,13 @@ function getCode() {
 
 $(document).ready(function() {
 	
-	$.getJSON('http://ned.im/github-commits.php', function(json) {
-		$.each(json, function(i, commit) {
+	$.getJSON('http://github.com/api/v2/json/commits/list/needim/noty/master?callback=?', function(json) {
+		$.each(json.commits, function(i, commit) {
 			var $col = $('<tr />');
-			var $committer = $('<td />').html(commit.commit.committer.name);
-			var $message = $('<td />').html(commit.commit.message);
-			var $date = $('<td />').html($.format.date(commit.commit.committer.date, "dd.MM.yyyy hh:mm a"));
-			var $link = $('<a />').attr('href', 'https://github.com/needim/noty/commit/' + commit.sha).html('view &raquo;');
+			var $committer = $('<td />').html(commit.committer.name);
+			var $message = $('<td />').html(commit.message);
+			var $date = $('<td />').html($.format.date(commit.committed_date, "dd.MM.yyyy hh:mm a"));
+			var $link = $('<a />').attr('href', 'https://github.com/needim/noty/commit/' + commit.id).html('view &raquo;');
 			var $url = $('<td />').append($link);
 			
 			$col.append($committer);
@@ -70,7 +70,7 @@ $(document).ready(function() {
 	
 	$('#getCode').click(function() {
 		var source = getCode();
-		$('textarea#getCodeResult').html('noty'+ source.toSource() +';').slideDown();
+		$('textarea#getCodeResult').html('noty'+ JSON.stringify(source) +';').slideDown();
 	});
 	
 	$('#runIt').click(function() {
