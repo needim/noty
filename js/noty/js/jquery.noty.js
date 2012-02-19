@@ -100,6 +100,12 @@
 					// Bind close event
 					$noty.one('noty.close', function(event, callback) {
 						var options = $noty.data('noty_options');
+						
+						// Modal Cleaning
+						if (options.modal) {
+							$('.noty_modal').fadeOut('fast', function() { $(this).remove(); });
+						}
+						
 						$noty.stop().animate(
 								$noty.data('noty_options').animateClose,
 								$noty.data('noty_options').speed,
@@ -114,11 +120,6 @@
 							} else {
 								$('#noty_queue_list li:first').remove();
 								$noty.remove();
-							}
-							
-							// Modal Cleaning
-							if (options.modal) {
-								$('.noty_modal').fadeOut('fast', function() { $(this).remove(); });
 							}
 							
 							// Are we have a callback function?
