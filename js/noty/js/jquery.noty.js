@@ -73,7 +73,7 @@
 					$noty.data('noty_options', notification.options);
 					
 					// Basic layout settings
-					$noty.addClass(notification.options.layout).addClass(notification.options.type);
+					$noty.addClass(notification.options.layout).addClass(notification.options.type).addClass(notification.options.theme);
 					
 					// Message and style settings
 					$noty.find('.noty_message').html(notification.options.text).css({textAlign: notification.options.textAlign});
@@ -186,6 +186,7 @@
 	$.noty.available = true;
 	$.noty.defaultOptions = {
 		layout : "top",
+		theme : "default",
 		animateOpen : {height: 'toggle'},
 		animateClose : {height: 'toggle'},
 		easing : 'swing',

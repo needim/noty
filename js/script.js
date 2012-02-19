@@ -2,7 +2,7 @@
  * Authors: Nedim Arabacı (http://ned.im), Muhittin Özer (http://muhittinozer.com) 
 */
 
-var note = 'noty - a jquery notification library!';
+var note = 'noty - a jquery notification library! also lorem ipsun dolor sit amet';
 
 function getCode() {
 	var optionsArray = $('#noty_creator').serializeArray();
@@ -50,7 +50,9 @@ $(document).ready(function() {
 		var parent = $(this).parents('.switch');
 		$('.cb-disable',parent).removeClass('selected');
 		$(this).addClass('selected');
-		if ($(this).attr('title')) {
+		if ($(this).attr('title') == 'mitgux') {
+			$.noty.defaultOptions.theme = 'mitgux';
+		} else if ($(this).attr('title')) {
 			$('#'+$(this).attr('title')).val('true');
 		} else {
 			$.noty.defaultOptions.modal = true;
@@ -61,7 +63,9 @@ $(document).ready(function() {
 		var parent = $(this).parents('.switch');
 		$('.cb-enable',parent).removeClass('selected');
 		$(this).addClass('selected');
-		if ($(this).attr('title')) {
+		if ($(this).attr('title') == 'mitgux') {
+			$.noty.defaultOptions.theme = 'default';
+		} else if ($(this).attr('title')) {
 			$('#'+$(this).attr('title')).val('false');
 		} else {
 			$.noty.defaultOptions.modal = false;
@@ -253,24 +257,3 @@ $(document).ready(function() {
 	});
 	
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
