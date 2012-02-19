@@ -65,9 +65,11 @@
 					
 					base.$bar 		= $('<div/>').addClass('noty_bar');
 					base.$message = $('<div/>').addClass('noty_message');
+					base.$text 		= $('<div/>').addClass('noty_text');
 					base.$close 	= $('<div/>').addClass('noty_close');
 					
-					base.$bar.append(base.$message).append(base.$close);
+					base.$message.append(base.$text).append(base.$close);
+					base.$bar.append(base.$message);
 					
 					var $noty = base.$bar;
 					$noty.data('noty_options', notification.options);
@@ -76,7 +78,7 @@
 					$noty.addClass(notification.options.layout).addClass(notification.options.type).addClass(notification.options.theme);
 					
 					// Message and style settings
-					$noty.find('.noty_message').html(notification.options.text).css({textAlign: notification.options.textAlign});
+					$noty.find('.noty_text').html(notification.options.text).css({textAlign: notification.options.textAlign});
 					
 					// Closable option 
 					(notification.options.closable) ? $noty.find('.noty_close').show() : $noty.find('.noty_close').remove();
@@ -86,7 +88,11 @@
 					
 					// Close on self click
 					if (notification.options.closeOnSelfClick) {
-						$noty.bind('click', function() { $noty.trigger('noty.close'); }).css('cursor', 'pointer');
+						if (notification.options.layout == 'topCenter') {
+							$noty.find('.noty_message').bind('click', function() { $noty.trigger('noty.close'); }).css('cursor', 'pointer');
+						} else {
+							$noty.bind('click', function() { $noty.trigger('noty.close'); }).css('cursor', 'pointer');
+						}
 					}
 					
 					// is Modal? 
@@ -138,7 +144,7 @@
 					// Set buttons if available
 					if (notification.options.buttons) {
 						$buttons = $('<div/>').addClass('noty_buttons');
-						$noty.find('.noty_message').append($buttons);
+						$noty.find('.noty_text').append($buttons);
 						
 						$.each(notification.options.buttons, function(i, button) {
 							bclass = (button.type) ? button.type : 'gray';

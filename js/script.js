@@ -244,6 +244,39 @@ $(document).ready(function() {
 		});
 	});
 	
+	// EX 6 ======================
+	
+	// ex6 - alert
+	$('.ex6.alert').click(function() {
+		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: note});
+	});
+	
+	// ex6 - error
+	$('.ex6.error').click(function() {
+		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: note, type: 'error'});
+	});
+	
+	// ex6 - success
+	$('.ex6.success').click(function() {
+		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: note, type: 'success'});
+	});
+	
+	// ex6 - confirm
+	$('.ex6.confirm').click(function() {
+		noty({
+			animateOpen: {opacity: 'show'},
+			animateClose: {opacity: 'hide'},
+			layout: 'topCenter',
+			text: note, 
+			buttons: [
+		    {type: 'btn-ok', text: 'Ok', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'btn-cancel', text: 'Cancel', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: 'You clicked "Cancel" button', type: 'error'});} }
+		    ],
+		  closable: false,
+		  timeout: false
+		});
+	});
+	
 	$('.api-func').click(function(e) {
 		
 		try {

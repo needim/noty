@@ -74,7 +74,7 @@
 			<ul id="examples">
 
 				<li>
-					<img src="img/noty_example.png" alt="Example 1" />
+					<img width="140" src="img/noty_example.png" alt="Example 1" />
 					<ul class="sub-list ex1">
 						<li class="header">Top</li>
 						<li class="alert ex1">Alert</li>
@@ -84,7 +84,7 @@
 					</ul>
 				</li>
 				<li>
-					<img src="img/noty_example-02.png" alt="Example 2" />
+					<img width="140" src="img/noty_example-02.png" alt="Example 2" />
 					<ul class="sub-list ex2">
 						<li class="header">Bottom</li>
 						<li class="alert ex2">Alert</li>
@@ -94,7 +94,7 @@
 					</ul>
 				</li>
 				<li>
-					<img src="img/noty_example-03.png" alt="Example 3" />
+					<img width="140" src="img/noty_example-03.png" alt="Example 3" />
 					<ul class="sub-list ex3">
 						<li class="header">Center</li>
 						<li class="alert ex3">Alert</li>
@@ -104,7 +104,7 @@
 					</ul>
 				</li>
 				<li>
-					<img src="img/noty_example-04.png" alt="Example 4" />
+					<img width="140" src="img/noty_example-04.png" alt="Example 4" />
 					<ul class="sub-list ex4">
 						<li class="header">Left Corner</li>
 						<li class="alert ex4">Alert</li>
@@ -114,13 +114,23 @@
 					</ul>
 				</li>
 				<li>
-					<img src="img/noty_example-05.png" alt="Example 5" />
+					<img width="140" src="img/noty_example-05.png" alt="Example 5" />
 					<ul class="sub-list ex5">
 						<li class="header">Right Corner</li>
 						<li class="alert ex5">Alert</li>
 						<li class="error ex5">Error</li>
 						<li class="success ex5">Success</li>
 						<li class="confirm ex5">Confirm</li>
+					</ul>
+				</li>
+				<li>
+					<img width="140" src="img/noty_topcenter.png" alt="Example 6" />
+					<ul class="sub-list ex6">
+						<li class="header">Top Center</li>
+						<li class="alert ex6">Alert</li>
+						<li class="error ex6">Error</li>
+						<li class="success ex6">Success</li>
+						<li class="confirm ex6">Confirm</li>
 					</ul>
 				</li>
 
@@ -153,6 +163,7 @@
     				<td>
     					<select name="layout">
     						<option selected="selected" value="top">Top</option>
+    						<option value="topCenter">Top Center</option>
     						<option value="bottom">Bottom</option>
     						<option value="center">Center</option>
     						<option value="topLeft">Top Left</option>
@@ -313,7 +324,7 @@ $('.ex1.alert').click(function() {
 						<table class="dark">
 							<tr>
 								<th>Name</th>
-								<th>Type</th>
+								<th class="type">Type</th>
 								<th class="default">Default</th>
 								<th>Description</th>
 							</tr>
@@ -331,7 +342,7 @@ $('.ex1.alert').click(function() {
 							</tr>
 							<tr>
 								<td>layout</td>
-								<td>top | bottom | center | topLeft | topRight</td>
+								<td>top, topCenter, bottom, center, topLeft, topRight</td>
 								<td>top</td>
 								<td>Layout of notification. (Customizable with CSS)</td>
 							</tr>

@@ -70,7 +70,7 @@ body { background: url('../img/bg.gif') repeat; font-family:'PT Sans', Tahoma, A
 div#container { width: 960px; margin: 0 auto; }
 div#container header { text-align: center; }
 div#main ul#examples { list-style: none; text-align: center; padding: 0px; }
-div#main ul#examples > li { position: relative; display: inline; width: 159px; height: 126px; }
+div#main ul#examples > li { position: relative; display: inline; width: 140px; }
 div#main ul#examples > li > ul { 
 	visibility: hidden; 
 	position: absolute; 
@@ -78,9 +78,9 @@ div#main ul#examples > li > ul {
 	text-align: center; 
 	padding: 0px; 
 	background-color: rgba(255,255,255,0); 
-	width: 109px; 
-	left: 20px; 
-	top: 38px; 
+	width: 95px; 
+	left: 18px; 
+	top: 32px; 
 	border: 2px solid #B6B6B6;
 	border-top: none;
 	
@@ -118,9 +118,10 @@ div#main ul#examples > li > ul > li.header {
 	border-bottom: 1px solid #B6B6B6
 }
 
-div#main ul#examples > li > ul.ex2, div#main ul#examples > li > ul.ex4 {left: 22px}
-div#main ul#examples > li > ul.ex5 {left: 23px}
-div#main ul#examples > li > ul.ex3 {left: 24px}
+div#main ul#examples > li > ul.ex2, div#main ul#examples > li > ul.ex4 {left: 20px}
+div#main ul#examples > li > ul.ex5 {left: 21px}
+div#main ul#examples > li > ul.ex3 {left: 22px}
+div#main ul#examples > li > ul.ex6 {left: 22px}
 
 div#documentation {
 	background-color: #FFFFFF;
@@ -192,13 +193,12 @@ div#documentation table.dark th {
 }
 
 div#documentation table.dark th.default {
-	width: 100px;
+	width: 95px;
 }
 
 div#documentation table.dark td {
-	padding: 5px 10px;
+	padding: 5px 0px 5px 3px;
 }
-
 
 div#noty_queue {
 	position: fixed;
