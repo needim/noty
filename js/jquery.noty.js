@@ -83,7 +83,7 @@
 					$noty.find('.noty_close').bind('click', function() { $noty.trigger('noty.close'); });
 					
 					// Close on self click
-					if (notification.options.closeOnSelfClick && notification.options.closable) {
+					if (notification.options.closeOnSelfClick) {
 						$noty.bind('click', function() { $noty.trigger('noty.close'); }).css('cursor', 'pointer');
 					}
 					
