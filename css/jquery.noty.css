@@ -49,6 +49,7 @@ div.noty_modal {
 	width: 100%;
 	border-bottom: 3px solid #eee;
 }
+
 .noty_bar.bottom {
 	bottom: 0;
 	left: 0;
@@ -124,24 +125,98 @@ div.noty_modal {
 	border-color: darkgreen;
 }
 
+/* Layout: Top Center */
+.noty_bar.topCenter {
+	background: none;
+	background-color: transparent;
+	top: 0;
+	left: 0;
+	width: 100%;
+	text-align: center;
+}
+.noty_bar.topCenter.alert {
+	background-color: none;
+}
+.noty_bar.topCenter .noty_message {
+	padding: 10px 15px;
+	display: inline-block;
+	font-size: 13px;
+	width: auto;
+	margin: 0;
+	position: relative;
+	top: 8px;
+	font-weight: normal;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.noty_bar.topCenter .noty_close {
+	top: 50%;
+	margin-top: -10px;
+	border-radius: 10px;
+	right: -10px;
+}
+.noty_bar.topCenter.alert .noty_message {
+	background-color: #F9EDBE;
+	border: 1px solid #F0C36D;	
+}
+.noty_bar.topCenter.alert .noty_close {
+	border: 1px solid #F0C36D;
+}
+.noty_bar.topCenter.error .noty_message {
+	background-color: #FA5914;
+	border: 1px solid #E64906;	
+}
+.noty_bar.topCenter.error .noty_close {
+	border: 1px solid #E64906;
+}
+.noty_bar.topCenter.success .noty_message {
+	background-color: #8FEC8F;
+	border: 1px solid #50C24E;	
+}
+.noty_bar.topCenter.success .noty_close {
+	border: 1px solid #50C24E;
+}
+.noty_bar.topCenter .noty_message .noty_buttons {
+	margin-left: 15px;
+	margin-top: 0px
+}
+
+.noty_bar.topCenter .noty_message .noty_buttons button {
+	font: bold 12px/12px HelveticaNeue, Arial;
+  padding: 3px 4px;
+  color: #555;
+  background: none; 
+  border: none;
+}
+
 /* Custom Theme from Mohieddine Abd-kader (http://forrst.com/people/mitgux) Thanks :) */
 .noty_bar.mitgux {
-	border: 1px solid #D7D7D7;
+	background: none;
+	border: none;
+}
+.noty_bar.mitgux .noty_message {
+	border: 1px solid #D7D7D7 !important;
 	-webkit-border-radius: 4px;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	box-shadow: 1px 2px 4px #636363;
 	color: #6D6D6D;
 	line-height: 1.5em;
-	text-shadow: 0 1px 0 #FFFFFF;      
+	text-shadow: 0 1px 0 #FFFFFF;
+	width: 100%;      
 }
-.noty_bar.mitgux.alert {
+.noty_bar.mitgux.center .noty_message {
+	width: 95%;
+}
+.noty_bar.mitgux.alert .noty_message {
 	background: url("../img/mitgux/alert.png") no-repeat 13px center,url("../img/mitgux/bg.png") repeat scroll 0 0 transparent;           
 }
-.noty_bar.mitgux.error {
+.noty_bar.mitgux.error .noty_message {
 	background: url("../img/mitgux/error.png") no-repeat 13px center,url("../img/mitgux/bg.png") repeat scroll 0 0 transparent;	
 }
-.noty_bar.mitgux.success {
+.noty_bar.mitgux.success .noty_message {
 	background: url("../img/mitgux/done.png") no-repeat 13px center,url("../img/mitgux/bg.png") repeat scroll 0 0 transparent;
 }
 .noty_bar.mitgux .noty_close{
@@ -154,6 +229,7 @@ div.noty_modal {
 	margin-top: -10px;
 	box-shadow: 0 0 3px #3C3C3C;
 	border-radius: 10px;
+	border: none !important;
 	cursor: pointer
 }
 /* Custom theme layout extras */
@@ -166,8 +242,9 @@ div.noty_modal {
 .noty_bar.mitgux.top .noty_close, .noty_bar.mitgux.bottom .noty_close {
 	right: 8px;
 }
-.noty_bar.mitgux.topLeft .noty_message, .noty_bar.mitgux.topRight .noty_message {
+.noty_bar.mitgux.topLeft .noty_message, .noty_bar.mitgux.topRight .noty_message, .noty_bar.mitgux.topCenter .noty_message {
 	padding-left: 60px;
+	padding-right: 40px;
 	width: auto;
 }
 .noty_bar.mitgux.topLeft .noty_message .noty_buttons, .noty_bar.mitgux.topRight .noty_message .noty_buttons {
@@ -177,4 +254,11 @@ div.noty_modal {
 	float: none;
 	padding-top: 10px;
 	text-align: right;
+}
+.noty_bar.mitgux.top .noty_buttons, .noty_bar.mitgux.bottom .noty_buttons {
+	margin-top: -3px;
+	margin-right: 25px;
+}
+.noty_bar.mitgux.center .noty_buttons {
+	margin-top: -3px;
 }
