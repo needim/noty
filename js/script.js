@@ -2,7 +2,7 @@
  * Authors: Nedim Arabacı (http://ned.im), Muhittin Özer (http://muhittinozer.com) 
 */
 
-var note = 'noty - a jquery notification library! also lorem ipsun dolor sit amet';
+var note = 'noty - a jquery notification library!';
 
 function getCode() {
 	var optionsArray = $('#noty_creator').serializeArray();
