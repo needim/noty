@@ -86,11 +86,7 @@
 					
 					// Close on self click
 					if (notification.options.closeOnSelfClick) {
-						if (notification.options.layout == 'topCenter') {
-							$noty.find('.noty_message').bind('click', function() { $noty.trigger('noty.close'); }).css('cursor', 'pointer');
-						} else {
-							$noty.bind('click', function() { $noty.trigger('noty.close'); }).css('cursor', 'pointer');
-						}
+						$noty.find('.noty_message').bind('click', function() { $noty.trigger('noty.close'); }).css('cursor', 'pointer');
 					}
 					
 					// is Modal? 
