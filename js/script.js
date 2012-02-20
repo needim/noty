@@ -74,7 +74,7 @@ $(document).ready(function() {
 	
 	$('#getCode').click(function() {
 		var source = getCode();
-		$('textarea#getCodeResult').html('noty'+ JSON.stringify(source) +';').slideDown();
+		$('textarea#getCodeResult').html('noty('+ JSON.stringify(source) +');').slideDown();
 	});
 	
 	$('#runIt').click(function() {
