@@ -215,5 +215,5 @@
 
 // Helper
 function noty(options) {
-	$.fn.noty(options);
+	jQuery.fn.noty(options);
 }
