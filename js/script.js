@@ -7,7 +7,7 @@ var note = 'noty - a jquery notification library!';
 function getCode() {
 	var optionsArray = $('#noty_creator').serializeArray();
 	var options = {};
-	var objects = ['onShow', 'onClose', 'animateOpen', 'animateClose'];
+	var objects = ['onShow', 'onClose', 'animateOpen', 'animateClose', 'speed', 'timeout'];
 	
 	$.each(optionsArray, function(index, field) { 
 		if (jQuery.inArray(field.name, objects) > -1) {
@@ -77,6 +77,13 @@ $(document).ready(function() {
 		$('textarea#getCodeResult').html('noty('+ JSON.stringify(source) +');').slideDown();
 	});
 	
+	$('a.show-div').click(function() {
+		$('div.content .active').removeClass('active').hide();
+		$($(this).attr('href')).fadeIn().addClass('active');
+		$('ul a.active').removeClass('active');
+		$(this).addClass('active');
+	});
+	
 	$('#runIt').click(function() {
 		var source = getCode();
 		noty(source);
@@ -87,16 +94,19 @@ $(document).ready(function() {
 	// ex1 - alert
 	$('.ex1.alert').click(function() {
 		noty({text: note});
+		return false;
 	});
 	
 	// ex1 - error
 	$('.ex1.error').click(function() {
 		noty({text: note, type: 'error'});
+		return false;
 	});
 	
 	// ex1 - success
 	$('.ex1.success').click(function() {
 		noty({text: note, type: 'success'});
+		return false;
 	});
 	
 	// ex1 - confirm
@@ -110,6 +120,7 @@ $(document).ready(function() {
 		  closable: false,
 		  timeout: false
 		});
+		return false;
 	});
 	
 	// EX 2 ======================
@@ -117,16 +128,19 @@ $(document).ready(function() {
 	// ex2 - alert
 	$('.ex2.alert').click(function() {
 		noty({layout: 'bottom', text: note});
+		return false;
 	});
 	
 	// ex2 - error
 	$('.ex2.error').click(function() {
 		noty({layout: 'bottom', text: note, type: 'error'});
+		return false;
 	});
 	
 	// ex2 - success
 	$('.ex2.success').click(function() {
 		noty({layout: 'bottom', text: note, type: 'success'});
+		return false;
 	});
 	
 	// ex2 - confirm
@@ -141,6 +155,7 @@ $(document).ready(function() {
 		  closable: false,
 		  timeout: false
 		});
+		return false;
 	});
 	
 	// EX 3 ======================
@@ -148,16 +163,19 @@ $(document).ready(function() {
 	// ex3 - alert
 	$('.ex3.alert').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'center', text: note});
+		return false;
 	});
 	
 	// ex3 - error
 	$('.ex3.error').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'center', text: note, type: 'error'});
+		return false;
 	});
 	
 	// ex3 - success
 	$('.ex3.success').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'center', text: note, type: 'success'});
+		return false;
 	});
 	
 	// ex3 - confirm
@@ -174,6 +192,7 @@ $(document).ready(function() {
 		  closable: false,
 		  timeout: false
 		});
+		return false;
 	});
 	
 	// EX 4 ======================
@@ -181,16 +200,19 @@ $(document).ready(function() {
 	// ex4 - alert
 	$('.ex4.alert').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topLeft', text: note, textAlign: 'left'});
+		return false;
 	});
 	
 	// ex4 - error
 	$('.ex4.error').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topLeft', text: note, type: 'error', textAlign: 'left'});
+		return false;
 	});
 	
 	// ex4 - success
 	$('.ex4.success').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topLeft', text: note, type: 'success', textAlign: 'left'});
+		return false;
 	});
 	
 	// ex4 - confirm
@@ -208,6 +230,7 @@ $(document).ready(function() {
 		  timeout: false,
 		  textAlign: 'left'
 		});
+		return false;
 	});
 	
 	// EX 5 ======================
@@ -215,16 +238,19 @@ $(document).ready(function() {
 	// ex5 - alert
 	$('.ex5.alert').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topRight', text: note, textAlign: 'left'});
+		return false;
 	});
 	
 	// ex5 - error
 	$('.ex5.error').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topRight', text: note, type: 'error', textAlign: 'left'});
+		return false;
 	});
 	
 	// ex5 - success
 	$('.ex5.success').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topRight', text: note, type: 'success', textAlign: 'left'});
+		return false;
 	});
 	
 	// ex5 - confirm
@@ -242,6 +268,7 @@ $(document).ready(function() {
 		  timeout: false,
 		  textAlign: 'left'
 		});
+		return false;
 	});
 	
 	// EX 6 ======================
@@ -249,16 +276,19 @@ $(document).ready(function() {
 	// ex6 - alert
 	$('.ex6.alert').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: note});
+		return false;
 	});
 	
 	// ex6 - error
 	$('.ex6.error').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: note, type: 'error'});
+		return false;
 	});
 	
 	// ex6 - success
 	$('.ex6.success').click(function() {
 		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: note, type: 'success'});
+		return false;
 	});
 	
 	// ex6 - confirm
@@ -275,6 +305,7 @@ $(document).ready(function() {
 		  closable: false,
 		  timeout: false
 		});
+		return false;
 	});
 	
 	$('.api-func').click(function(e) {

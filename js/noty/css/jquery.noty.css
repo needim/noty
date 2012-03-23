@@ -36,6 +36,8 @@ div.noty_modal {
 	z-index: 10000;
 	opacity: 0.6;
 	display: none;
+	left: 0;
+	top: 0;
 }
 .noty_bar {
 	position: fixed;
