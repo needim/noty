@@ -114,8 +114,16 @@ $(document).ready(function() {
 		noty({
 			text: note, 
 			buttons: [
-		    {type: 'button green', text: 'Ok', click: function() {noty({force: true, text: 'You clicked "Ok" button', type: 'success'});} },
-		    {type: 'button pink', text: 'Cancel', click: function() {noty({force: true, text: 'You clicked "Cancel" button', type: 'error'});} }
+		    {type: 'button green', text: 'Ok', click: function() {
+			    	$.noty.close(); 
+			    	noty({force: true, text: 'You clicked "Ok" button', type: 'success'});
+		    	}
+		    },
+		    {type: 'button pink', text: 'Cancel', click: function() {
+			    	$.noty.close();
+			    	noty({force: true, text: 'You clicked "Cancel" button', type: 'error'});
+		    	}
+		    }
 		    ],
 		  closable: false,
 		  timeout: false
@@ -149,8 +157,8 @@ $(document).ready(function() {
 			layout: 'bottom',
 			text: note, 
 			buttons: [
-		    {type: 'button green', text: 'Ok', click: function() {noty({force: true, layout: 'bottom', text: 'You clicked "Ok" button', type: 'success'});} },
-		    {type: 'button pink', text: 'Cancel', click: function() {noty({force: true, layout: 'bottom', text: 'You clicked "Cancel" button', type: 'error'});} }
+		    {type: 'button green', text: 'Ok', click: function() {$.noty.close(); noty({force: true, layout: 'bottom', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'button pink', text: 'Cancel', click: function() {$.noty.close(); noty({force: true, layout: 'bottom', text: 'You clicked "Cancel" button', type: 'error'});} }
 		    ],
 		  closable: false,
 		  timeout: false
@@ -186,8 +194,8 @@ $(document).ready(function() {
 			layout: 'center',
 			text: note, 
 			buttons: [
-		    {type: 'button green', text: 'Ok', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'center', text: 'You clicked "Ok" button', type: 'success'});} },
-		    {type: 'button pink', text: 'Cancel', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'center', text: 'You clicked "Cancel" button', type: 'error'});} }
+		    {type: 'button green', text: 'Ok', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'center', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'button pink', text: 'Cancel', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'center', text: 'You clicked "Cancel" button', type: 'error'});} }
 		    ],
 		  closable: false,
 		  timeout: false
@@ -223,8 +231,8 @@ $(document).ready(function() {
 			layout: 'topLeft',
 			text: note, 
 			buttons: [
-		    {type: 'button green', text: 'Ok', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topLeft', text: 'You clicked "Ok" button', type: 'success', textAlign: 'left'});} },
-		    {type: 'button pink', text: 'Cancel', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topLeft', text: 'You clicked "Cancel" button', type: 'error', textAlign: 'left'});} }
+		    {type: 'button green', text: 'Ok', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topLeft', text: 'You clicked "Ok" button', type: 'success', textAlign: 'left'});} },
+		    {type: 'button pink', text: 'Cancel', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topLeft', text: 'You clicked "Cancel" button', type: 'error', textAlign: 'left'});} }
 		    ],
 		  closable: false,
 		  timeout: false,
@@ -261,8 +269,8 @@ $(document).ready(function() {
 			layout: 'topRight',
 			text: note, 
 			buttons: [
-		    {type: 'button green', text: 'Ok', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topRight', text: 'You clicked "Ok" button', type: 'success', textAlign: 'left'});} },
-		    {type: 'button pink', text: 'Cancel', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topRight', text: 'You clicked "Cancel" button', type: 'error', textAlign: 'left'});} }
+		    {type: 'button green', text: 'Ok', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topRight', text: 'You clicked "Ok" button', type: 'success', textAlign: 'left'});} },
+		    {type: 'button pink', text: 'Cancel', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topRight', text: 'You clicked "Cancel" button', type: 'error', textAlign: 'left'});} }
 		    ],
 		  closable: false,
 		  timeout: false,
@@ -299,8 +307,8 @@ $(document).ready(function() {
 			layout: 'topCenter',
 			text: note, 
 			buttons: [
-		    {type: 'btn-ok', text: 'Ok', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: 'You clicked "Ok" button', type: 'success'});} },
-		    {type: 'btn-cancel', text: 'Cancel', click: function() {noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: 'You clicked "Cancel" button', type: 'error'});} }
+		    {type: 'btn-ok', text: 'Ok', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'btn-cancel', text: 'Cancel', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'topCenter', text: 'You clicked "Cancel" button', type: 'error'});} }
 		    ],
 		  closable: false,
 		  timeout: false
