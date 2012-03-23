@@ -81,6 +81,11 @@
 					// Bind close event to button 
 					$noty.find('.noty_close').bind('click', function() { $noty.triggerHandler('noty.close'); });
 
+					// If we have a button we must disable closeOnSelfClick option
+					if (notification.options.buttons) {
+						notification.options.closeOnSelfClick = false;
+					}
+					
 					// Close on self click
 					if (notification.options.closeOnSelfClick) {
 						$noty.find('.noty_message').bind('click', function() { $noty.triggerHandler('noty.close'); }).css('cursor', 'pointer');
@@ -95,7 +100,7 @@
 					base.$notyContainer.prepend($noty);
 
 					// Bind close event
-					$noty.one('noty.close', function(event, callback) {
+					$noty.one('noty.close', function(event) {
 						var options = $noty.data('noty_options');
 
 						// Modal Cleaning
@@ -115,18 +120,12 @@
 								$noty.parent().remove();
 							} else {
 								$noty.remove();
-							}
-
-							// Are we have a callback function?
-							if ($.isFunction(callback)) {
-								callback.apply();
-							}
-
-							// queue render
-							if (options.layout != 'topLeft' && options.layout != 'topRight') {
+								
+								// queue render
 								$.noty.available = true;
 								base.render();
 							}
+
 						});
 					});
 
@@ -137,7 +136,12 @@
 
 						$.each(notification.options.buttons, function(i, button) {
 							bclass = (button.type) ? button.type : 'gray';
-							$('<button/>').addClass(bclass).html(button.text).appendTo($noty.find('.noty_buttons')).one("click", function() { $noty.triggerHandler('noty.close', button.click); });
+							$('<button/>').addClass(bclass).html(button.text).appendTo($noty.find('.noty_buttons'))
+							.bind("click", function() {
+								if ($.isFunction(button.click)) {
+									button.click.apply();
+								}
+							});
 						});
 					}
 
