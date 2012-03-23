@@ -28,9 +28,7 @@
 					$('#noty_queue_list').append($('<li/>').addClass(base.options.type).html(base.options.type));
 				}
 				base.render();
-
 			} else {
-				$.noty.available = true;
 				base.render({options: base.options});
 			}
 
@@ -39,9 +37,9 @@
 		// Render the queue
 		base.render = function(noty) {
 
-			if ($.noty.available) {
+			if ($.noty.available || (jQuery.type(noty) === 'object')) {
 
-				$.noty.available = false;
+				$.noty.available = (jQuery.type(noty) === 'object') ? $.noty.available : false;
 
 				// Get noty from queue
 				var notification = (jQuery.type(noty) === 'object') ? noty : $.noty.queue.shift();
