@@ -4,7 +4,7 @@ ul.noty_container {
 	margin: 0px;
 	padding: 0px;
 	list-style: none;
-	width: 400px;
+	width: 300px;
 	top: 20px;
 }
 ul.noty_container li {
@@ -14,6 +14,8 @@ ul.noty_container li {
 	list-style: none;
 	padding: 0px;
 	margin: 10px 0 0 0;
+	/* Fix for: http://bugs.jquery.com/ticket/2278 */
+	width: 300px;
 }
 ul.noty_container.topLeft {
 	left: 20px;
@@ -24,10 +26,7 @@ ul.noty_container.topRight {
 ul.noty_container.topRight li {
 	float: right;
 }
-/* Fix for: http://bugs.jquery.com/ticket/2278 */
-ul.noty_container.topLeft li, ul.noty_container.topRight li {
-	width: 400px;
-}
+
 div.noty_modal {
 	position: fixed;
 	width: 100%;
@@ -60,14 +59,31 @@ div.noty_modal {
 }
 .noty_bar.center {
 	top: 40%;
-	left: 19.5%;
-	width: 60%;
+	left: 0;
+	width: auto;
 	padding: 4px;
 	border: 3px solid #eee;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 }
+.noty_bar.center .noty_close {
+	right: -9px;
+  top: -10px;	
+  -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+.noty_bar.center.alert .noty_close {
+	border: 1px solid #ccc;
+}
+.noty_bar.center.error .noty_close {
+	border: 1px solid darkred;
+}
+.noty_bar.center.success .noty_close {
+	border: 1px solid darkgreen;
+}
+
 .noty_bar.topLeft, .noty_bar.topRight {
 	width: 100%;
 	clear:both;
@@ -78,6 +94,14 @@ div.noty_modal {
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 }
+.noty_bar.topLeft .noty_close, .noty_bar.topRight .noty_close {
+	right: -9px;
+  top: -10px;	
+  -webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
 .noty_bar .noty_message {
 	padding: 10px 30px 10px 10px;
 	font-size: 16px;
@@ -87,8 +111,8 @@ div.noty_modal {
 .noty_bar .noty_message .noty_buttons {
 	float: right;
 	font-size: 13px;
-	margin-top: -6px;
-	margin-left: -25px;
+	margin-top: -4px;
+	margin-left: 4px;
 }
 .noty_bar.topLeft .noty_message .noty_buttons, .noty_bar.topRight .noty_message .noty_buttons {
 	float: none;
@@ -133,7 +157,7 @@ div.noty_modal {
 	background-color: transparent;
 	top: 0;
 	left: 0;
-	width: 100%;
+	width: auto;
 	text-align: center;
 }
 .noty_bar.topCenter.alert {
@@ -156,6 +180,8 @@ div.noty_modal {
 .noty_bar.topCenter .noty_close {
 	top: 50%;
 	margin-top: -10px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
 	border-radius: 10px;
 	right: -10px;
 }
