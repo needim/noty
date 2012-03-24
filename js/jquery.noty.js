@@ -71,7 +71,7 @@
 
 					// Basic layout settings
 					$noty.addClass(notification.options.layout).addClass(notification.options.type).addClass(notification.options.theme);
-
+					
 					// Message and style settings
 					$noty.find('.noty_text').html(notification.options.text).css({textAlign: notification.options.textAlign});
 
@@ -98,6 +98,13 @@
 
 					// Prepend noty to container
 					base.$notyContainer.prepend($noty);
+					
+					// topCenter and center specific options
+					if (notification.options.layout == 'topCenter' || notification.options.layout == 'center') {
+						$noty.css({
+							'left': ($(window).width() - $noty.outerWidth()) / 2 + 'px'
+						});
+					}
 
 					// Bind close event
 					$noty.one('noty.close', function(event) {
