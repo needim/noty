@@ -17,9 +17,12 @@
 
 			base.options = $.extend({}, $.noty.defaultOptions, options);
 			base.options.id = 'noty_'+new Date().getTime();
+			
+			base.options.layout = 'noty_layout_'+base.options.layout;
+			base.options.type = 'noty_'+base.options.type;
 
 			// Push notification to queue
-			if (base.options.layout != 'topLeft' && base.options.layout != 'topRight') {
+			if (base.options.layout != 'noty_layout_topLeft' && base.options.layout != 'noty_layout_topRight') {
 				if (base.options.force) {
 					$.noty.queue.unshift({options: base.options});
 				} else {
@@ -45,7 +48,7 @@
 				if (jQuery.type(notification) === 'object') {
 
 					// Layout spesific container settings
-					if (notification.options.layout == "topLeft" || notification.options.layout == "topRight") {
+					if (notification.options.layout == "noty_layout_topLeft" || notification.options.layout == "noty_layout_topRight") {
 						if ($("ul.noty_container."+notification.options.layout).length > 0) {
 							base.$noty_container = $("ul.noty_container."+notification.options.layout);
 						} else {
@@ -93,19 +96,12 @@
 
 					// is Modal? 
 					if (notification.options.modal) {
-						$('<div />').addClass('noty_modal').prependTo($('body')).css(notification.options.modalCss).fadeIn('fast');
+						$('<div />').addClass('noty_modal').addClass(notification.options.theme).prependTo($('body')).fadeIn('fast');
 					}
 
 					// Prepend noty to container
 					base.$notyContainer.prepend($noty);
 					
-					// topCenter and center specific options
-					if (notification.options.layout == 'topCenter' || notification.options.layout == 'center') {
-						$noty.css({
-							'left': ($(window).width() - $noty.outerWidth()) / 2 + 'px'
-						});
-					}
-
 					// Bind close event
 					$noty.one('noty.close', function(event) {
 						var options = $noty.data('noty_options');
@@ -123,7 +119,7 @@
 						.promise().done(function() {
 
 							// Layout spesific cleaning
-							if (options.layout == 'topLeft' || options.layout == 'topRight') {
+							if (options.layout == 'noty_layout_topLeft' || options.layout == 'noty_layout_topRight') {
 								$noty.parent().remove();
 							} else {
 								$noty.remove();
@@ -149,6 +145,13 @@
 									button.click.apply();
 								}
 							});
+						});
+					}
+					
+					// topCenter and center specific options
+					if (notification.options.layout == 'noty_layout_topCenter' || notification.options.layout == 'noty_layout_center') {
+						$noty.css({
+							'left': ($(window).width() - $noty.outerWidth()) / 2 + 'px'
 						});
 					}
 
@@ -194,7 +197,7 @@
 	$.noty.available = true;
 	$.noty.defaultOptions = {
 		layout : "top",
-		theme : "default",
+		theme : "noty_theme_default",
 		animateOpen : {height: 'toggle'},
 		animateClose : {height: 'toggle'},
 		easing : 'swing',
@@ -203,14 +206,13 @@
 		type : "alert",
 		speed : 500,
 		timeout : 5000,
-		closable : true,
+		closable : false,
 		closeOnSelfClick : true,
 		force : false,
 		onShow : false,
 		onClose : false,
 		buttons : false,
-		modal : false,
-		modalCss : {'opacity': 0.6}
+		modal : false
 	};
 
 	$.fn.noty = function(options) {

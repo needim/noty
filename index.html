@@ -23,7 +23,11 @@
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/fluid.css">
 	<link rel="stylesheet" href="css/buttons.css">
+	
   <link rel="stylesheet" href="js/noty/css/jquery.noty.css">
+  <link rel="stylesheet" href="js/noty/css/noty_theme_default.css">
+  <link rel="stylesheet" href="js/noty/css/noty_theme_mitgux.css">
+  
   <link rel="stylesheet" href="js/libs/highlight/styles/dark.css">
 </head>
 
@@ -142,6 +146,7 @@
 							<li><a class="show-div" href="#installation">Installation</a></li>
 							<li><a class="show-div" href="#creating-a-noty">Creating a noty</a></li>
 							<li><a class="show-div" href="#options">Options</a></li>
+							<li><a class="show-div" href="#theme">Theme</a></li>
 							<li><a class="show-div" href="#buttons">Buttons</a></li>
 							<li><a class="show-div" href="#callbacks">Callbacks</a></li>
 							<li><a class="show-div" href="#api">API</a></li>
@@ -161,15 +166,15 @@
 					<p>It also has various callbacks for the buttons, opening closing the notifications and queue control.</p>
 				</div>
 				<div id="installation">
-					<h3>Installation</h3>
+					<h4>Installation</h4>
 	
 						<div id="installation" class="first description">
 	
 							Include <a href="http://docs.jquery.com/Downloading_jQuery#Current_Release">jQuery latest release</a> in your header. The Google AJAX Libraries API can be used for this but you could also host the library yourself.
 	
 							<p>Download <span class="hl">noty</span> from the <a href="https://github.com/needim/noty/downloads">Github</a> and upload the files to your server.</p>
-							Include <span class="hl">jquery.noty.js</span> and its dependancies below jQuery.
-							Also add <span class="hl">jquery.noty.css</span> to your header.
+							Include <span class="hl">jquery.noty.js</span> and its dependancies below jQuery. <br />
+							Also add <span class="hl">jquery.noty.css</span> and <span class="hl">noty_theme_default.css</span> to your header. Or some other theme.
 							
 							<p>noty is compatible with <span class="hl">jQuery 1.6+</span> for now. But if you are using older version then 1.6 you can add <span class="hl">promise.js</span> to your header. (Thanks for <a href="https://github.com/MrMaksimize" target="_blank">Maksim Pecherskiy</a>)</p>
 							
@@ -177,10 +182,11 @@
 	
 							<pre>
 							<code class="html">
-&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="js/jquery.noty.js"&gt;&lt;/script&gt;
 
 &lt;link rel="stylesheet" type="text/css" href="css/jquery.noty.css"/&gt;
+&lt;link rel="stylesheet" type="text/css" href="css/noty_theme_default.css"/&gt;
 							</code>
 							</pre>
 							
@@ -258,9 +264,9 @@
 		    				<td>Closable</td>
 		    				<td>
 		    					<p class="field switch sub">
-		    						<input id="closable" type="hidden" name="closable" value="true">
-										<label title="closable" for="radio3" class="cb-enable selected"><span>true</span></label>
-										<label title="closable" for="radio4" class="cb-disable"><span>false</span></label>
+		    						<input id="closable" type="hidden" name="closable" value="false">
+										<label title="closable" for="radio3" class="cb-enable"><span>true</span></label>
+										<label title="closable" for="radio4" class="cb-disable selected"><span>false</span></label>
 									</p>
 		    				</td>
 		    				<td>Close on Self Click</td>
@@ -276,8 +282,8 @@
 		    				<td>Theme <a href="http://forrst.com/people/mitgux" target="_blank">@mitgux</a></td>
 		    				<td>
 		    					<p class="field switch">
-										<label title="mitgux" for="radio1" class="cb-enable"><span>true</span></label>
-										<label title="mitgux" for="radio2" class="cb-disable selected"><span>false</span></label>
+										<label title="noty_theme_mitgux" for="radio1" class="cb-enable"><span>true</span></label>
+										<label title="noty_theme_mitgux" for="radio2" class="cb-disable selected"><span>false</span></label>
 									</p>
 		    				</td>
 		    				<td>Modal</td>
@@ -340,125 +346,147 @@ $('.ex1.alert').click(function() {
 						<div class="description">
 	
 							Available options listed below.
+							
+							<pre>
+							<code>
+$.noty.defaultOptions = {
+	layout : "top", // noty layout (top, topLeft, topCenter, topRight, bottom, center)
+	theme : "noty_theme_default",	// theme name (accessable with CSS)
+	animateOpen : {height: 'toggle'}, // opening animation
+	animateClose : {height: 'toggle'}, // closing animation
+	easing : 'swing', // easing
+	text : "null", // notification text
+	textAlign : "center", // notification text-align
+	type : "alert", // noty type (alert, success, error)
+	speed : 500, // opening & closing animation speed
+	timeout : 5000, // delay for closing event. Set false for sticky notifications
+	closable : true, // enables the close button when set to true
+	closeOnSelfClick : true, // close the noty on self click when set to true
+	force : false, // adds notification to the beginning of queue when set to true
+	onShow : false, // callback for on show
+	onClose : false, // callback for on close
+	buttons : false, // an array of buttons
+	modal : false // adds modal layer when set to true
+};
+							</code>
+							</pre>
 	
 							<table class="dark">
 								<tr>
 									<th>Name</th>
-									<th class="type">Type</th>
 									<th class="default">Default</th>
 									<th>Description</th>
 								</tr>
 								<tr>
 									<td>text</td>
 									<td>string</td>
-									<td>''</td>
 									<td>Notification message</td>
 								</tr>
 								<tr>
 									<td>textAlign</td>
-									<td><a href="http://www.w3.org/wiki/CSS/Properties/text-align">CSS/Properties/text-align</a></td>
 									<td>center</td>
 									<td>Alignment of message</td>
 								</tr>
 								<tr>
 									<td>layout</td>
 									<td>top, topCenter, bottom, center, topLeft, topRight</td>
-									<td>top</td>
 									<td>Layout of notification. (Customizable with CSS)</td>
 								</tr>
 								<tr>
 									<td>theme</td>
-									<td>string</td>
-									<td>default</td>
-									<td>Theme of notification. (Customizable with CSS)</td>
+									<td>noty_theme_default</td>
+									<td>Theme of notifications. (Customizable with CSS)</td>
 								</tr>
 								<tr>
 									<td>type</td>
-									<td>alert | error | success</td>
-									<td>alert</td>
+									<td>alert, error, success</td>
 									<td>Style of the notification. (Customizable with CSS)</td>
 								</tr>
 								<tr>
 									<td>modal</td>
-									<td>boolean</td>
 									<td>false</td>
 									<td>Adds modal layer when set to true.</td>
 								</tr>
 								<tr>
-									<td>modalCss</td>
-									<td><a href="http://api.jquery.com/css/">jQuery Css Properties</a></td>
-									<td>{'opacity': 0.6}</td>
-									<td>Set one or more CSS properties for the modal layer.</td>
-								</tr>
-								<tr>
 									<td>speed</td>
-									<td>integer (ms)</td>
-									<td>500</td>
+									<td>500 (ms)</td>
 									<td>Speed of open and close animations.</td>
 								</tr>
 								<tr>
 									<td>timeout</td>
-									<td>integer (ms) | false</td>
-									<td>5000</td>
-									<td>Duration of notification on screen. Set <span class="hl">false</span> for sticky notification.</td>
+									<td>5000 (ms), false</td>
+									<td>Delay for closing event. Set <span class="hl">false</span> for sticky notification.</td>
 								</tr>
 								<tr>
 									<td>animateOpen</td>
-									<td><a href="http://api.jquery.com/animate/">jQuery Animate Properties</a></td>
 									<td>{height: 'toggle'}</td>
-									<td>A map of CSS properties that the animation will move toward.</td>
+									<td>A map of CSS properties.</td>
 								</tr>
 								<tr>
 									<td>animateClose</td>
-									<td><a href="http://api.jquery.com/animate/">jQuery Animate Properties</a></td>
 									<td>{height: 'toggle'}</td>
-									<td>A map of CSS properties that the animation will move toward.</td>
+									<td>A map of CSS properties.</td>
 								</tr>
 								<tr>
 									<td>easing</td>
-									<td><a href="http://api.jquery.com/animate/#easing">jQuery Easing Functions</a></td>
 									<td>swing</td>
-									<td>More easing functions are available with the use of plugins like <a href="http://jqueryui.com/">jQuery UI</a>.</td>
+									<td>Easing effect.</td>
 								</tr>
 								<tr>
 									<td>closable</td>
-									<td>boolean</td>
 									<td>true</td>
 									<td>Enables the close button when set to true.</td>
 								</tr>
 								<tr>
 									<td>closeOnSelfClick</td>
-									<td>boolean</td>
 									<td>true</td>
 									<td>Close the noty on self click when set to true.</td>
 								</tr>
 								<tr>
 									<td>force</td>
-									<td>boolean</td>
 									<td>false</td>
-									<td>Adds notification to the beginning of queue when set to true.</td>
+									<td>Adds notification to the beginning of queue when true.</td>
 								</tr>
 								<tr>
 									<td>buttons</td>
-									<td>false | array</td>
-									<td>false</td>
-									<td>An array of buttons. <a href="#buttons">Like this &raquo;</a></td>
+									<td>false, array</td>
+									<td>An array of buttons.</td>
 								</tr>
 								<tr>
 									<td>onShow</td>
-									<td>false | function</td>
-									<td>false</td>
-									<td><a href="#callbacks">onShow Callback &raquo;</a></td>
+									<td>false, function</td>
+									<td>onShow Callback (Details are in Callbacks section)</td>
 								</tr>
 								<tr>
 									<td>onClose</td>
-									<td>false | function</td>
-									<td>false</td>
-									<td><a href="#callbacks">onClose Callback &raquo;</a></td>
+									<td>false, function</td>
+									<td>onClose Callback (Details are in Callbacks section)</td>
 								</tr>
 							</table>
 	
 						</div>
+				</div>
+				
+				<div id="theme">
+					<h4>Theme</h4>
+					
+					<p>noty is easily themable using CSS. But my English is not enough for the explain how. :(</p> 
+					
+					<p>Theme structre is in <span class="hl">noty_theme_default.css</span> file. You can copy-paste this file and change.</p>
+					
+					<p>After that you can set your new theme with noty <span class="hl">theme property</span>. Like;</p>
+					
+					<pre>
+					<code>
+$('a.noty').click(function() {
+	noty({
+		text: 'noty - a jquery notification library!',
+		theme: 'your_new_theme',
+	});
+});
+					</code>
+					</pre>
+					
 				</div>
 				
 				<div id="buttons">
@@ -578,7 +606,6 @@ $('.ex1.confirm').click(function() {
 									<th>Committer</th>
 									<th>Message</th>
 									<th>Date</th>
-									<th>Details</th>
 								</tr>
 							</thead>
 

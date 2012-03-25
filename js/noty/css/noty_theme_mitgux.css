@@ -1,0 +1,99 @@
+/* Custom Theme from Mohieddine Abd-kader (http://forrst.com/people/mitgux) Thanks :) */
+.noty_bar.noty_theme_mitgux {
+	background: none;
+	border: none;
+}
+.noty_bar.noty_theme_mitgux .noty_message {
+	border: 1px solid #D7D7D7 !important;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	box-shadow: 1px 2px 4px #636363;
+	color: #6D6D6D;
+	line-height: 1.5em;
+	text-shadow: 0 1px 0 #FFFFFF;
+	width: 100%;
+	font-weight: bold;
+	padding: 10px 30px 10px 10px;
+}
+.noty_bar.noty_theme_mitgux .noty_message .noty_buttons {
+	float: right;
+	font-size: 13px;
+	margin-top: -4px;
+	margin-left: 4px;
+}
+.noty_bar.noty_theme_mitgux .noty_message .noty_buttons button {
+	margin-left: 5px;
+}
+.noty_bar.noty_theme_mitgux.noty_layout_center .noty_message {
+	width: auto;
+	padding-left: 55px;
+}
+.noty_bar.noty_theme_mitgux.noty_alert .noty_message {
+	background: url("../img/mitgux/alert.png") no-repeat 13px center,url("../img/mitgux/bg.png") repeat scroll 0 0 transparent;           
+}
+.noty_bar.noty_theme_mitgux.noty_error .noty_message {
+	background: url("../img/mitgux/error.png") no-repeat 13px center,url("../img/mitgux/bg.png") repeat scroll 0 0 transparent;	
+}
+.noty_bar.noty_theme_mitgux.noty_success .noty_message {
+	background: url("../img/mitgux/done.png") no-repeat 13px center,url("../img/mitgux/bg.png") repeat scroll 0 0 transparent;
+}
+.noty_bar.noty_theme_mitgux .noty_close{
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	background: url("../img/mitgux/close.png") no-repeat;
+	right: -8px;
+	top: 50%;
+	margin-top: -10px;
+	box-shadow: 0 0 3px #3C3C3C;
+	border-radius: 10px;
+	border: none !important;
+	cursor: pointer
+}
+/* Custom theme layout extras */
+.noty_bar.noty_theme_mitgux.noty_layout_top {
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	border-radius: 0px;
+	box-shadow: 0px 0px 4px #636363;
+}
+.noty_bar.noty_theme_mitgux.noty_layout_top .noty_close,
+.noty_bar.noty_theme_mitgux.noty_layout_bottom .noty_close {
+	right: 8px;
+}
+.noty_bar.noty_theme_mitgux.noty_layout_topLeft .noty_message,
+.noty_bar.noty_theme_mitgux.noty_layout_topRight .noty_message,
+.noty_bar.noty_theme_mitgux.noty_layout_topCenter .noty_message {
+	padding-left: 60px;
+	padding-right: 40px;
+	width: auto;
+}
+.noty_bar.noty_theme_mitgux.noty_layout_topLeft .noty_message .noty_buttons,
+.noty_bar.noty_theme_mitgux.noty_layout_topRight .noty_message .noty_buttons {
+	border-top: 1px solid #CCCCCC;
+	margin-left: 0;
+	margin-top: 10px;
+	float: none;
+	padding-top: 10px;
+	text-align: right;
+}
+.noty_bar.noty_theme_mitgux.noty_layout_topCenter .noty_message .noty_buttons {
+	margin-left: 15px;
+	margin-top: 0px
+}
+.noty_bar.noty_theme_mitgux.noty_layout_topCenter .noty_message .noty_buttons button {
+	font: bold 12px/12px HelveticaNeue, Arial;
+  padding: 3px 4px;
+  color: #555;
+  background: none;
+  border: none;
+}
+.noty_bar.noty_theme_mitgux.noty_layout_top .noty_buttons, 
+.noty_bar.noty_theme_mitgux.noty_layout_bottom .noty_buttons {
+	margin-top: -3px;
+	margin-right: 25px;
+}
+.noty_bar.noty_theme_mitgux.noty_layout_center .noty_buttons {
+	margin-top: -3px;
+}

@@ -1,0 +1,153 @@
+
+/* CORE STYLES*/
+
+	/* noty bar */
+	.noty_bar.noty_theme_default {
+		background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAoCAYAAAAPOoFWAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAPZJREFUeNq81tsOgjAMANB2ov7/7ypaN7IlIwi9rGuT8QSc9EIDAsAznxvY4pXPKr05RUE5MEVB+TyWfCEl9LZApYopCmo9C4FKSMtYoI8Bwv79aQJU4l6hXXCZrQbokJEksxHo9KMOgc6w1atHXM8K9DVC7FQnJ0i8iK3QooGgbnyKgMDygBWyYFZoqx4qS27KqLZJjA1D0jK6QJcYEQEiWv9PGkTsbqxQ8oT+ZtZB6AkdsJnQDnMoHXHLGKOgDYuCWmYhEERCI5gaamW0bnHdA3k2ltlIN+2qKRyCND0bhqSYCyTB3CAOc4WusBEIpkeBuPgJMAAX8Hs1NfqHRgAAAABJRU5ErkJggg==') repeat-x scroll left top #fff;
+	}
+	
+	/* noty_message */
+	.noty_bar.noty_theme_default .noty_message {
+		padding: 10px 30px;
+		font-size: 16px;
+		font-weight: bold;
+		width: auto;
+	}
+	
+	/* noty_buttons */
+	.noty_bar.noty_theme_default .noty_message .noty_buttons {
+		float: right;
+		font-size: 13px;
+		margin-top: -4px;
+		margin-left: 4px;
+	}
+	
+	/* noty_button */
+	.noty_bar.noty_theme_default .noty_message .noty_buttons button {
+		margin-left: 5px;
+	}
+	
+	/* noty close button */
+	.noty_bar.noty_theme_default .noty_close {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAORJREFUeNq0lU0OgjAQhRm5gUl3rLyBB3BDQjwI4TDcgmu4NqwNJGxdueqWA4zzCJoxtvxoeckLzbz2C5ShEDNHDiXis/gkPooPY/0uvomv4ov48bUSQGUSF+Ka51WPc0kzNGwvLnm9ynHtB5B+hGkoaWDB/6t4AZOFe7ZkTxMAc1dqreU0TbnrunetbVvOsmzIPMoBrFwJYGgCY8wAgjFGDZlHFYCNK9EAXPUYmUcNgL0v1dAFMKjfRSsVx/H0hC0eOfhLmWwbfTcYozbXNsEbO/int8nhEPz4CnbAUuhfwFOAAQAA48KKOuexjwAAAABJRU5ErkJggg==');
+		width: 20px;
+		height: 20px;
+	}
+	
+	/* noty modal */
+	.noty_modal.noty_theme_default {
+		opacity: 0.7;
+	}
+	
+/* LAYOUTS */
+
+	/* noty_layout_top */
+	.noty_bar.noty_theme_default.noty_layout_top {
+		border-bottom: 3px solid #eee;
+	}
+
+	/* noty_layout_bottom */
+	.noty_bar.noty_theme_default.noty_layout_bottom {
+		border-top: 3px solid #eee;
+	}
+
+	/* noty_layout_center */
+	.noty_bar.noty_theme_default.noty_layout_center {
+		width: auto;
+		padding: 4px;
+		border: 3px solid #eee;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+	}
+	.noty_bar.noty_theme_default.noty_layout_center .noty_close {
+		right: -9px;
+	  top: -10px;	
+	}
+	
+	/* noty_layout_topLeft & noty_layout_topRight */
+	.noty_bar.noty_theme_default.noty_layout_topLeft,
+	.noty_bar.noty_theme_default.noty_layout_topRight {
+		padding: 4px;
+		border: 3px solid #eee;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+	}
+	.noty_bar.noty_theme_default.noty_layout_topLeft .noty_close,
+	.noty_bar.noty_theme_default.noty_layout_topRight .noty_close {
+		right: -9px;
+	  top: -10px;	
+	}
+	.noty_bar.noty_theme_default.noty_layout_topLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_default.noty_layout_topRight .noty_message .noty_buttons {
+		float: none;
+		font-size: 13px;
+		border-top: 1px solid #CCCCCC;
+	  margin-left: 0;
+	  margin-top: 10px;
+	  padding-top: 10px;
+	  text-align: right;
+	}
+	
+	/* noty_layout_topCenter */
+	.noty_bar.noty_theme_default.noty_layout_topCenter {
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	}
+	.noty_bar.noty_theme_default.noty_layout_topCenter .noty_message {
+		font-weight: normal;
+		font-size: 13px;
+		width: auto;
+		padding: 10px 15px;
+	}
+	.noty_bar.noty_theme_default.noty_layout_topCenter.noty_error .noty_message {
+		font-weight: bold;
+	}
+	.noty_bar.noty_theme_default.noty_layout_topCenter .noty_close {
+		top: 50%;
+		margin-top: -10px;
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		right: -10px;
+	}
+	.noty_bar.noty_theme_default.noty_layout_topCenter.noty_success {
+		border: 1px solid #50C24E;
+	}
+	.noty_bar.noty_theme_default.noty_layout_topCenter .noty_message .noty_buttons {
+		margin-left: 15px;
+		margin-top: 0px
+	}
+	.noty_bar.noty_theme_default.noty_layout_topCenter .noty_message .noty_buttons button {
+		font: bold 12px/12px HelveticaNeue, Arial;
+	  padding: 3px 4px;
+	  color: #555;
+	  background: none;
+	  border: none;
+	}
+	
+/* NOTIFICATION TYPES */
+
+	/* noty_alert */
+	.noty_bar.noty_theme_default.noty_alert {
+		background-color: #fff;
+		border-color: #ccc;
+	}
+	/* noty_error */
+	.noty_bar.noty_theme_default.noty_error {
+		background-color: red;
+		color: #fff;
+		border-color: darkred;
+	}
+	/* noty_success */
+	.noty_bar.noty_theme_default.noty_success {
+		background-color: lightgreen;
+		color: darkgreen;
+		border-color: darkgreen;
+	}

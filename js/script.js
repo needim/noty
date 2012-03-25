@@ -31,15 +31,13 @@ $(document).ready(function() {
 		$.each(json.commits, function(i, commit) {
 			var $col = $('<tr />');
 			var $committer = $('<td />').html(commit.committer.name);
-			var $message = $('<td />').html(commit.message);
-			var $date = $('<td />').html($.format.date(commit.committed_date, "dd.MM.yyyy hh:mm a"));
-			var $link = $('<a />').attr('href', 'https://github.com/needim/noty/commit/' + commit.id).html('view &raquo;');
+			var $link = $('<a />').attr('href', 'https://github.com/needim/noty/commit/' + commit.id).html(commit.message);
 			var $url = $('<td />').append($link);
+			var $date = $('<td />').html($.format.date(commit.committed_date, "dd.MM.yy hh:mm a"));
 			
 			$col.append($committer);
-			$col.append($message);
-			$col.append($date);
 			$col.append($url);
+			$col.append($date);
 			
 			$('#commit-history-json').append($col);
 			
@@ -50,8 +48,8 @@ $(document).ready(function() {
 		var parent = $(this).parents('.switch');
 		$('.cb-disable',parent).removeClass('selected');
 		$(this).addClass('selected');
-		if ($(this).attr('title') == 'mitgux') {
-			$.noty.defaultOptions.theme = 'mitgux';
+		if ($(this).attr('title') == 'noty_theme_mitgux') {
+			$.noty.defaultOptions.theme = 'noty_theme_mitgux';
 		} else if ($(this).attr('title')) {
 			$('#'+$(this).attr('title')).val('true');
 		} else {
@@ -63,8 +61,8 @@ $(document).ready(function() {
 		var parent = $(this).parents('.switch');
 		$('.cb-enable',parent).removeClass('selected');
 		$(this).addClass('selected');
-		if ($(this).attr('title') == 'mitgux') {
-			$.noty.defaultOptions.theme = 'default';
+		if ($(this).attr('title') == 'noty_theme_mitgux') {
+			$.noty.defaultOptions.theme = 'noty_theme_default';
 		} else if ($(this).attr('title')) {
 			$('#'+$(this).attr('title')).val('false');
 		} else {

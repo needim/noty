@@ -68,7 +68,7 @@ dl dd {margin-left: 1.5em}
 dt {font-family:Futura, "Century Gothic", AppleGothic, sans-serif}
 
 /* HYPERLINKS */
-a {text-decoration: none; color:#AA5B44}
+a {text-decoration: none; color: #D06A4E}
 a:hover {text-decoration: underline}
 a:focus {outline: none}
 a:hover, a:active {outline: none} /* Better CSS Outline Suppression */
@@ -218,13 +218,10 @@ table.dark th {
 	color: #444;
 }
 
-table.dark th.default {
-	width: 95px;
-}
-
 table.dark td {
-	padding: 5px 0px 5px 3px;
-	border-bottom: 1px solid #BED4A7;
+	padding: 5px 3px;
+	border-bottom: 2px solid #BED4A7;
+  font-size: 0.85em;
 }
 
 div.content > div {display: none}
