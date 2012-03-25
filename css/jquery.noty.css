@@ -49,7 +49,6 @@
 		padding: 0px;
 		list-style: none;
 		width: 300px;
-		top: 20px;
 	}
 	ul.noty_container li {
 		position: relative;
@@ -60,8 +59,10 @@
 		margin: 10px 0 0 0;
 		width: 300px; /* Fix for: http://bugs.jquery.com/ticket/2278 */
 	}
-	ul.noty_container.noty_layout_topLeft {left:20px}
-	ul.noty_container.noty_layout_topRight {right:40px}
+	ul.noty_container.noty_layout_topLeft {left:20px; top:20px;}
+	ul.noty_container.noty_layout_topRight {right:40px; top:20px;}
+	ul.noty_container.noty_layout_bottomLeft {left:20px; bottom:20px}
+	ul.noty_container.noty_layout_bottomRight {right:40px; bottom:20px}
 	ul.noty_container.noty_layout_topRight li {float:right}
 
 /* LAYOUTS */
@@ -86,7 +87,10 @@
 	}
 	
 	/* noty_layout_topLeft & noty_layout_topRight */
-	.noty_bar.noty_layout_topLeft, .noty_bar.noty_layout_topRight {
+	.noty_bar.noty_layout_topLeft, 
+	.noty_bar.noty_layout_topRight,
+	.noty_bar.noty_layout_bottomLeft,
+	.noty_bar.noty_layout_bottomRight {
 		width: 100%;
 		clear: both;
 		position: relative;

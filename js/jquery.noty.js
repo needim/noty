@@ -22,7 +22,7 @@
 			base.options.type = 'noty_'+base.options.type;
 
 			// Push notification to queue
-			if (base.options.layout != 'noty_layout_topLeft' && base.options.layout != 'noty_layout_topRight') {
+			if (jQuery.inArray(base.options.layout, $.noty.growls) == -1) {
 				if (base.options.force) {
 					$.noty.queue.unshift({options: base.options});
 				} else {
@@ -48,7 +48,7 @@
 				if (jQuery.type(notification) === 'object') {
 
 					// Layout spesific container settings
-					if (notification.options.layout == "noty_layout_topLeft" || notification.options.layout == "noty_layout_topRight") {
+					if (jQuery.inArray(base.options.layout, $.noty.growls) > -1) {
 						if ($("ul.noty_container."+notification.options.layout).length > 0) {
 							base.$noty_container = $("ul.noty_container."+notification.options.layout);
 						} else {
@@ -88,10 +88,15 @@
 					if (notification.options.buttons) {
 						notification.options.closeOnSelfClick = false;
 					}
-					
+
 					// Close on self click
 					if (notification.options.closeOnSelfClick) {
 						$noty.find('.noty_message').bind('click', function() { $noty.triggerHandler('noty.close'); }).css('cursor', 'pointer');
+					}
+
+					// Close on self click
+					if (notification.options.closeOnSelfOver) {
+						$noty.find('.noty_message').bind('mouseover', function() { $noty.triggerHandler('noty.close'); }).css('cursor', 'pointer');
 					}
 
 					// is Modal? 
@@ -119,7 +124,7 @@
 						.promise().done(function() {
 
 							// Layout spesific cleaning
-							if (options.layout == 'noty_layout_topLeft' || options.layout == 'noty_layout_topRight') {
+							if (jQuery.inArray(base.options.layout, $.noty.growls) > -1) {
 								$noty.parent().remove();
 							} else {
 								$noty.remove();
@@ -180,7 +185,8 @@
 	};
 
 	$.noty.queue = [];
-
+	$.noty.growls = ['noty_layout_topLeft', 'noty_layout_topRight', 'noty_layout_bottomLeft', 'noty_layout_bottomRight'];
+	
 	$.noty.clearQueue = function () {
 		$.noty.queue = [];
 	};
@@ -208,6 +214,7 @@
 		timeout : 5000,
 		closable : false,
 		closeOnSelfClick : true,
+		closeOnSelfOver : false,
 		force : false,
 		onShow : false,
 		onClose : false,
