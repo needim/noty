@@ -70,7 +70,9 @@
 	
 	/* noty_layout_topLeft & noty_layout_topRight */
 	.noty_bar.noty_theme_default.noty_layout_topLeft,
-	.noty_bar.noty_theme_default.noty_layout_topRight {
+	.noty_bar.noty_theme_default.noty_layout_topRight,
+	.noty_bar.noty_theme_default.noty_layout_bottomLeft,
+	.noty_bar.noty_theme_default.noty_layout_bottomRight {
 		padding: 4px;
 		border: 3px solid #eee;
 		-webkit-border-radius: 5px;
@@ -78,12 +80,16 @@
 		border-radius: 5px;
 	}
 	.noty_bar.noty_theme_default.noty_layout_topLeft .noty_close,
-	.noty_bar.noty_theme_default.noty_layout_topRight .noty_close {
+	.noty_bar.noty_theme_default.noty_layout_topRight .noty_close,
+	.noty_bar.noty_theme_default.noty_layout_bottomLeft .noty_close,
+	.noty_bar.noty_theme_default.noty_layout_bottomRight .noty_close {
 		right: -9px;
 	  top: -10px;	
 	}
 	.noty_bar.noty_theme_default.noty_layout_topLeft .noty_message .noty_buttons,
-	.noty_bar.noty_theme_default.noty_layout_topRight .noty_message .noty_buttons {
+	.noty_bar.noty_theme_default.noty_layout_topRight .noty_message .noty_buttons,
+	.noty_bar.noty_theme_default.noty_layout_bottomLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_default.noty_layout_bottomRight .noty_message .noty_buttons {
 		float: none;
 		font-size: 13px;
 		border-top: 1px solid #CCCCCC;

@@ -67,6 +67,8 @@
 }
 .noty_bar.noty_theme_mitgux.noty_layout_topLeft .noty_message,
 .noty_bar.noty_theme_mitgux.noty_layout_topRight .noty_message,
+.noty_bar.noty_theme_mitgux.noty_layout_bottomLeft .noty_message,
+.noty_bar.noty_theme_mitgux.noty_layout_bottomRight .noty_message,
 .noty_bar.noty_theme_mitgux.noty_layout_topCenter .noty_message {
 	padding-left: 60px;
 	padding-right: 40px;

@@ -86,15 +86,6 @@
 										</ul>
 									</div>
 									<div class="g1">
-										<span>Bottom</span>
-										<ul>
-											<li><a class="alert ex2" href="#">Alert</a></li>
-											<li><a class="error ex2" href="#">Error</a></li>
-											<li><a class="success ex2" href="#">Success</a></li>
-											<li><a class="confirm ex2" href="#">Confirm</a></li>
-										</ul>
-									</div>
-									<div class="g1">
 										<span>Center</span>
 										<ul>
 											<li><a class="alert ex3" href="#">Alert</a></li>
@@ -103,10 +94,19 @@
 											<li><a class="confirm ex3" href="#">Confirm</a></li>
 										</ul>
 									</div>
+									<div class="g1">
+										<span>Bottom</span>
+										<ul>
+											<li><a class="alert ex2" href="#">Alert</a></li>
+											<li><a class="error ex2" href="#">Error</a></li>
+											<li><a class="success ex2" href="#">Success</a></li>
+											<li><a class="confirm ex2" href="#">Confirm</a></li>
+										</ul>
 									</div>
-								</li>
-								<li>
-									<div class="cf">
+								</div>
+							</li>
+							<li>
+								<div class="cf">
 									<hr />
 									<div class="g1">
 										<span>Top Left</span>
@@ -118,6 +118,15 @@
 										</ul>
 									</div>
 									<div class="g1">
+										<span>Top Center</span>
+										<ul>
+											<li><a class="alert ex6" href="#">Alert</a></li>
+											<li><a class="error ex6" href="#">Error</a></li>
+											<li><a class="success ex6" href="#">Success</a></li>
+											<li><a class="confirm ex6" href="#">Confirm</a></li>
+										</ul>
+									</div>
+									<div class="g1">
 										<span>Top Right</span>
 										<ul>
 											<li><a class="alert ex5" href="#">Alert</a></li>
@@ -126,13 +135,30 @@
 											<li><a class="confirm ex5" href="#">Confirm</a></li>
 										</ul>
 									</div>
+								</div>
+							</li>
+							<li>
+									<div class="cf">
+									<hr />
 									<div class="g1">
-										<span>Top Center</span>
+										<span>Bottom Left</span>
 										<ul>
-											<li><a class="alert ex6" href="#">Alert</a></li>
-											<li><a class="error ex6" href="#">Error</a></li>
-											<li><a class="success ex6" href="#">Success</a></li>
-											<li><a class="confirm ex6" href="#">Confirm</a></li>
+											<li><a class="alert ex7" href="#">Alert</a></li>
+											<li><a class="error ex7" href="#">Error</a></li>
+											<li><a class="success ex7" href="#">Success</a></li>
+											<li><a class="confirm ex7" href="#">Confirm</a></li>
+										</ul>
+									</div>
+									<div class="g1">
+										&nbsp;
+									</div>
+									<div class="g1">
+										<span>Bottom Right</span>
+										<ul>
+											<li><a class="alert ex8" href="#">Alert</a></li>
+											<li><a class="error ex8" href="#">Error</a></li>
+											<li><a class="success ex8" href="#">Success</a></li>
+											<li><a class="confirm ex8" href="#">Confirm</a></li>
 										</ul>
 									</div>
 								</div>
@@ -160,8 +186,8 @@
 			<div class="content">
 				<div id="welcome" class="active">
 					<h4>Welcome</h4>
-					<p><span class="hl">noty</span> is a jQuery plugin that makes it easy to create <span class="hl">alert</span>, <span class="hl">success</span>, <span class="hl">error</span> and <span class="hl">confirmation</span> messages as an alternative the standard alert dialog. Each notification is added to a <span class="hl">queue</span>.</p>
-					<p>The notifications can be positioned at the <span class="hl">top</span>, <span class="hl">topCenter</span> (like GMail), <span class="hl">bottom</span>, <span class="hl">center</span>, <span class="hl">top left</span> or <span class="hl">top right</span>.</p>
+					<p><span class="hl">noty</span> is a jQuery plugin that makes it easy to create <span class="hl">alert</span>, <span class="hl">success</span>, <span class="hl">error</span> and <span class="hl">confirmation</span> messages as an alternative the standard alert dialog. Each notification is added to a <span class="hl">queue</span>. (Except growl like notifications)</p>
+					<p>The notifications can be positioned at the <span class="hl">top</span>, <span class="hl">topCenter</span> (like GMail), <span class="hl">bottom</span>, <span class="hl">center</span>, <span class="hl">top left</span>, <span class="hl">top right</span>, <span class="hl">bottom left</span> or <span class="hl">bottom right</span>.</p>
 					<p>There are lots of other options in the API to customise the text, animation, speed, buttons and much more.</p>
 					<p>It also has various callbacks for the buttons, opening closing the notifications and queue control.</p>
 				</div>
@@ -214,6 +240,8 @@
 		    						<option value="center">Center</option>
 		    						<option value="topLeft">Top Left</option>
 		    						<option value="topRight">Top Right</option>
+		    						<option value="bottomLeft">Bottom Left</option>
+		    						<option value="bottomRight">Bottom Right</option>
 		    					</select>
 		    				</td>
 		    				<td>Type</td>
@@ -350,7 +378,7 @@ $('.ex1.alert').click(function() {
 							<pre>
 							<code>
 $.noty.defaultOptions = {
-	layout : "top", // noty layout (top, topLeft, topCenter, topRight, bottom, center)
+	layout : "top", // (top, topLeft, topCenter, topRight, bottom, center, bottomLeft, bottomRight)
 	theme : "noty_theme_default",	// theme name (accessable with CSS)
 	animateOpen : {height: 'toggle'}, // opening animation
 	animateClose : {height: 'toggle'}, // closing animation
@@ -360,8 +388,9 @@ $.noty.defaultOptions = {
 	type : "alert", // noty type (alert, success, error)
 	speed : 500, // opening & closing animation speed
 	timeout : 5000, // delay for closing event. Set false for sticky notifications
-	closable : true, // enables the close button when set to true
+	closable : false, // enables the close button when set to true
 	closeOnSelfClick : true, // close the noty on self click when set to true
+	closeOnSelfHover : false, // close the noty on self mouseover when set to true
 	force : false, // adds notification to the beginning of queue when set to true
 	onShow : false, // callback for on show
 	onClose : false, // callback for on close
@@ -389,7 +418,7 @@ $.noty.defaultOptions = {
 								</tr>
 								<tr>
 									<td>layout</td>
-									<td>top, topCenter, bottom, center, topLeft, topRight</td>
+									<td>top, topCenter, bottom, center, topLeft, topRight, bottomLeft, bottomRight</td>
 									<td>Layout of notification. (Customizable with CSS)</td>
 								</tr>
 								<tr>
@@ -434,13 +463,18 @@ $.noty.defaultOptions = {
 								</tr>
 								<tr>
 									<td>closable</td>
-									<td>true</td>
+									<td>false</td>
 									<td>Enables the close button when set to true.</td>
 								</tr>
 								<tr>
 									<td>closeOnSelfClick</td>
 									<td>true</td>
 									<td>Close the noty on self click when set to true.</td>
+								</tr>
+								<tr>
+									<td>closeOnSelfHover</td>
+									<td>false</td>
+									<td>Close the noty on self mouseover when set to true.</td>
 								</tr>
 								<tr>
 									<td>force</td>

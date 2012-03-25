@@ -314,6 +314,80 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	// EX 7 ======================
+	
+	// ex7 - alert
+	$('.ex7.alert').click(function() {
+		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomLeft', text: note});
+		return false;
+	});
+	
+	// ex7 - error
+	$('.ex7.error').click(function() {
+		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomLeft', text: note, type: 'error'});
+		return false;
+	});
+	
+	// ex7 - success
+	$('.ex7.success').click(function() {
+		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomLeft', text: note, type: 'success'});
+		return false;
+	});
+	
+	// ex7 - confirm
+	$('.ex7.confirm').click(function() {
+		noty({
+			animateOpen: {opacity: 'show'},
+			animateClose: {opacity: 'hide'},
+			layout: 'bottomLeft',
+			text: note, 
+			buttons: [
+		    {type: 'button green', text: 'Ok', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomLeft', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'button pink', text: 'Cancel', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomLeft', text: 'You clicked "Cancel" button', type: 'error'});} }
+		    ],
+		  closable: false,
+		  timeout: false
+		});
+		return false;
+	});
+	
+// EX 8 ======================
+	
+	// ex8 - alert
+	$('.ex8.alert').click(function() {
+		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomRight', text: note});
+		return false;
+	});
+	
+	// ex8 - error
+	$('.ex8.error').click(function() {
+		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomRight', text: note, type: 'error'});
+		return false;
+	});
+	
+	// ex8 - success
+	$('.ex8.success').click(function() {
+		noty({animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomRight', text: note, type: 'success'});
+		return false;
+	});
+	
+	// ex8 - confirm
+	$('.ex8.confirm').click(function() {
+		noty({
+			animateOpen: {opacity: 'show'},
+			animateClose: {opacity: 'hide'},
+			layout: 'bottomRight',
+			text: note, 
+			buttons: [
+		    {type: 'button green', text: 'Ok', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomRight', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'button pink', text: 'Cancel', click: function() {$.noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomRight', text: 'You clicked "Cancel" button', type: 'error'});} }
+		    ],
+		  closable: false,
+		  timeout: false
+		});
+		return false;
+	});
+	
 	$('.api-func').click(function(e) {
 		
 		try {
