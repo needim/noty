@@ -532,17 +532,29 @@ $('a.noty').click(function() {
 	
 							<pre>
 							<code>
-// ex1 - confirm
 $('.ex1.confirm').click(function() {
 	noty({
-		text: 'noty - a jquery notification library!',
+		text: note, 
 		buttons: [
-			{type: 'button green', text: 'Ok', click: function() { /**/ } },
-			{type: 'button pink', text: 'Cancel', click: function() { /**/ } }
-		],
-		closable: false,
-		timeout: false
+	    {type: 'button green', text: 'Ok', click: function($noty) {
+	    			
+	    			// this = button element
+	    			// $noty = $noty element
+	    	
+	    			$noty.close();
+	    			noty({force: true, text: 'You clicked "Ok" button', type: 'success'});
+	    	}
+	    },
+	    {type: 'button pink', text: 'Cancel', click: function($noty) {
+	    		$noty.close();
+		    	noty({force: true, text: 'You clicked "Cancel" button', type: 'error'});
+	    	}
+	    }
+	    ],
+	  closable: false,
+	  timeout: false
 	});
+	return false;
 });
 							</code>
 							</pre>

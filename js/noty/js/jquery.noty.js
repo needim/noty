@@ -107,6 +107,10 @@
 					// Prepend noty to container
 					base.$notyContainer.prepend($noty);
 					
+					$noty.close = function() {
+						this.trigger('noty.close');
+					};
+					
 					// Bind close event
 					$noty.one('noty.close', function(event) {
 						var options = $noty.data('noty_options');
@@ -144,10 +148,10 @@
 
 						$.each(notification.options.buttons, function(i, button) {
 							bclass = (button.type) ? button.type : 'gray';
-							$('<button/>').addClass(bclass).html(button.text).appendTo($noty.find('.noty_buttons'))
+							$button = $('<button/>').addClass(bclass).html(button.text).appendTo($noty.find('.noty_buttons'))
 							.bind("click", function() {
 								if ($.isFunction(button.click)) {
-									button.click.apply();
+									button.click.call($button, $noty);
 								}
 							});
 						});
