@@ -537,18 +537,18 @@ $('.ex1.confirm').click(function() {
 		text: note, 
 		buttons: [
 	    {type: 'button green', text: 'Ok', click: function($noty) {
-	    			
-	    			// this = button element
-	    			// $noty = $noty element
-	    	
-	    			$noty.close();
-	    			noty({force: true, text: 'You clicked "Ok" button', type: 'success'});
+
+					// this = button element
+					// $noty = $noty element
+
+					$noty.close();
+					noty({force: true, text: 'You clicked "Ok" button', type: 'success'});
 	    	}
 	    },
 	    {type: 'button pink', text: 'Cancel', click: function($noty) {
-	    		$noty.close();
-		    	noty({force: true, text: 'You clicked "Cancel" button', type: 'error'});
-	    	}
+					$noty.close();
+					noty({force: true, text: 'You clicked "Cancel" button', type: 'error'});
+				}
 	    }
 	    ],
 	  closable: false,
