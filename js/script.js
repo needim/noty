@@ -25,6 +25,8 @@ function getCode() {
 				options[field.name] = field.value;
 			}
 		}
+		if ($.noty.defaultOptions.theme != 'noty_theme_default')
+			options['theme'] = $.noty.defaultOptions.theme;
 	});
 	return options;
 }
