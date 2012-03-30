@@ -79,7 +79,7 @@
 					$noty.find('.noty_text').html(notification.options.text).css({textAlign: notification.options.textAlign});
 
 					// Closable option
-					(notification.options.closable) ? $noty.find('.noty_close').show() : $noty.find('.noty_close').remove();
+					(notification.options.closable) ? $noty.addClass('noty_closable').find('.noty_close').show() : $noty.find('.noty_close').remove();
 
 					// Bind close event to button 
 					$noty.find('.noty_close').bind('click', function() { $noty.triggerHandler('noty.close'); });
@@ -215,7 +215,7 @@
 		textAlign : "center",
 		type : "alert",
 		speed : 500,
-		timeout : 5000,
+		timeout : false,
 		closable : false,
 		closeOnSelfClick : true,
 		closeOnSelfOver : false,
