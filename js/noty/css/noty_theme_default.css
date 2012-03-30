@@ -8,10 +8,13 @@
 	
 	/* noty_message */
 	.noty_bar.noty_theme_default .noty_message {
-		padding: 10px 30px;
+		padding: 8px 14px;
 		font-size: 16px;
 		font-weight: bold;
 		width: auto;
+	}
+	.noty_bar.noty_theme_default.noty_closable .noty_message {
+		padding: 8px 34px 8px 14px;
 	}
 	
 	/* noty_buttons */
@@ -54,44 +57,39 @@
 		border-top: 3px solid #eee;
 	}
 
-	/* noty_layout_center */
-	.noty_bar.noty_theme_default.noty_layout_center {
-		width: auto;
-		padding: 4px;
-		border: 3px solid #eee;
-		-webkit-border-radius: 10px;
-		-moz-border-radius: 10px;
-		border-radius: 10px;
-	}
 	.noty_bar.noty_theme_default.noty_layout_center .noty_close {
-		right: -9px;
-	  top: -10px;	
+		top: 8px;
+	}
+	
+	.noty_bar.noty_theme_default.noty_layout_center .noty_message .noty_buttons {
+		margin-top: -2px
 	}
 	
 	/* noty_layout_topLeft & noty_layout_topRight */
+	.noty_bar.noty_theme_default.noty_layout_center,
 	.noty_bar.noty_theme_default.noty_layout_topLeft,
 	.noty_bar.noty_theme_default.noty_layout_topRight,
 	.noty_bar.noty_theme_default.noty_layout_bottomLeft,
 	.noty_bar.noty_theme_default.noty_layout_bottomRight {
-		padding: 4px;
-		border: 3px solid #eee;
+		border: 1px solid #eee;
 		-webkit-border-radius: 5px;
 		-moz-border-radius: 5px;
 		border-radius: 5px;
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	}
-	.noty_bar.noty_theme_default.noty_layout_topLeft .noty_close,
-	.noty_bar.noty_theme_default.noty_layout_topRight .noty_close,
-	.noty_bar.noty_theme_default.noty_layout_bottomLeft .noty_close,
-	.noty_bar.noty_theme_default.noty_layout_bottomRight .noty_close {
-		right: -9px;
-	  top: -10px;	
+	.noty_bar.noty_theme_default.noty_layout_center .noty_message,
+	.noty_bar.noty_theme_default.noty_layout_topLeft .noty_message,
+	.noty_bar.noty_theme_default.noty_layout_topRight .noty_message,
+	.noty_bar.noty_theme_default.noty_layout_bottomLeft .noty_message,
+	.noty_bar.noty_theme_default.noty_layout_bottomRight .noty_message {
+		font-size: 13px;
+		font-weight: normal;
 	}
 	.noty_bar.noty_theme_default.noty_layout_topLeft .noty_message .noty_buttons,
 	.noty_bar.noty_theme_default.noty_layout_topRight .noty_message .noty_buttons,
 	.noty_bar.noty_theme_default.noty_layout_bottomLeft .noty_message .noty_buttons,
 	.noty_bar.noty_theme_default.noty_layout_bottomRight .noty_message .noty_buttons {
 		float: none;
-		font-size: 13px;
 		border-top: 1px solid #CCCCCC;
 	  margin-left: 0;
 	  margin-top: 10px;
@@ -109,11 +107,6 @@
 	.noty_bar.noty_theme_default.noty_layout_topCenter .noty_message {
 		font-weight: normal;
 		font-size: 13px;
-		width: auto;
-		padding: 10px 15px;
-	}
-	.noty_bar.noty_theme_default.noty_layout_topCenter.noty_error .noty_message {
-		font-weight: bold;
 	}
 	.noty_bar.noty_theme_default.noty_layout_topCenter .noty_close {
 		top: 50%;
@@ -121,7 +114,6 @@
 		-webkit-border-radius: 10px;
 		-moz-border-radius: 10px;
 		border-radius: 10px;
-		right: -10px;
 	}
 	.noty_bar.noty_theme_default.noty_layout_topCenter.noty_success {
 		border: 1px solid #50C24E;
@@ -129,13 +121,6 @@
 	.noty_bar.noty_theme_default.noty_layout_topCenter .noty_message .noty_buttons {
 		margin-left: 15px;
 		margin-top: 0px
-	}
-	.noty_bar.noty_theme_default.noty_layout_topCenter .noty_message .noty_buttons button {
-		font: bold 12px/12px HelveticaNeue, Arial;
-	  padding: 3px 4px;
-	  color: #555;
-	  background: none;
-	  border: none;
 	}
 	
 /* NOTIFICATION TYPES */
@@ -151,9 +136,18 @@
 		color: #fff;
 		border-color: darkred;
 	}
+	.noty_bar.noty_theme_default.noty_error .noty_message {
+		font-weight: bold;
+	}
 	/* noty_success */
 	.noty_bar.noty_theme_default.noty_success {
 		background-color: lightgreen;
 		color: darkgreen;
-		border-color: darkgreen;
+		border-color: #50C24E;
+	}
+	/* noty_alert */
+	.noty_bar.noty_theme_default.noty_information {
+		background-color: #57B7E2;
+		border-color: #0B90C4;
+		color: #fff;
 	}

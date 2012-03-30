@@ -27,6 +27,7 @@
   <link rel="stylesheet" href="js/noty/css/jquery.noty.css">
   <link rel="stylesheet" href="js/noty/css/noty_theme_default.css">
   <link rel="stylesheet" href="js/noty/css/noty_theme_mitgux.css">
+  <link rel="stylesheet" href="js/noty/css/noty_theme_twitter.css">
   
   <link rel="stylesheet" href="js/libs/highlight/styles/dark.css">
 </head>
@@ -41,22 +42,22 @@
 		<div class="g2">
 			<div class="top-right">
 				
-				<div class="btn">
+				<div class="btn-top">
 	    		<a href="http://flattr.com/thing/529967/noty-jQuery-Notification-Plugin" target="_blank">
 					<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
 				</div>
 				
-				<div class="btn">
+				<div class="btn-top">
 					<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=needim&repo=noty&type=watch&count=true"
   				allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
   			</div>
   			
-  			<div class="btn">
+  			<div class="btn-top">
 	  			<iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=needim&repo=noty&type=fork&count=true"
 	  			allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe>
   			</div>
   			
-  			<div class="btn">
+  			<div class="btn-top">
 				  <iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=needim&type=follow&count=true"
 				  allowtransparency="true" frameborder="0" scrolling="0" width="165px" height="20px"></iframe>
   			</div>
@@ -82,6 +83,7 @@
 											<li><a class="alert ex1" href="#">Alert</a></li>
 											<li><a class="error ex1" href="#">Error</a></li>
 											<li><a class="success ex1" href="#">Success</a></li>
+											<li><a class="information ex1" href="#">Information</a></li>
 											<li><a class="confirm ex1" href="#">Confirm</a></li>
 										</ul>
 									</div>
@@ -91,6 +93,7 @@
 											<li><a class="alert ex3" href="#">Alert</a></li>
 											<li><a class="error ex3" href="#">Error</a></li>
 											<li><a class="success ex3" href="#">Success</a></li>
+											<li><a class="information ex3" href="#">Information</a></li>
 											<li><a class="confirm ex3" href="#">Confirm</a></li>
 										</ul>
 									</div>
@@ -100,6 +103,7 @@
 											<li><a class="alert ex2" href="#">Alert</a></li>
 											<li><a class="error ex2" href="#">Error</a></li>
 											<li><a class="success ex2" href="#">Success</a></li>
+											<li><a class="information ex2" href="#">Information</a></li>
 											<li><a class="confirm ex2" href="#">Confirm</a></li>
 										</ul>
 									</div>
@@ -114,6 +118,7 @@
 											<li><a class="alert ex4" href="#">Alert</a></li>
 											<li><a class="error ex4" href="#">Error</a></li>
 											<li><a class="success ex4" href="#">Success</a></li>
+											<li><a class="information ex4" href="#">Information</a></li>
 											<li><a class="confirm ex4" href="#">Confirm</a></li>
 										</ul>
 									</div>
@@ -123,6 +128,7 @@
 											<li><a class="alert ex6" href="#">Alert</a></li>
 											<li><a class="error ex6" href="#">Error</a></li>
 											<li><a class="success ex6" href="#">Success</a></li>
+											<li><a class="information ex6" href="#">Information</a></li>
 											<li><a class="confirm ex6" href="#">Confirm</a></li>
 										</ul>
 									</div>
@@ -132,6 +138,7 @@
 											<li><a class="alert ex5" href="#">Alert</a></li>
 											<li><a class="error ex5" href="#">Error</a></li>
 											<li><a class="success ex5" href="#">Success</a></li>
+											<li><a class="information ex5" href="#">Information</a></li>
 											<li><a class="confirm ex5" href="#">Confirm</a></li>
 										</ul>
 									</div>
@@ -146,6 +153,7 @@
 											<li><a class="alert ex7" href="#">Alert</a></li>
 											<li><a class="error ex7" href="#">Error</a></li>
 											<li><a class="success ex7" href="#">Success</a></li>
+											<li><a class="information ex7" href="#">Information</a></li>
 											<li><a class="confirm ex7" href="#">Confirm</a></li>
 										</ul>
 									</div>
@@ -158,6 +166,7 @@
 											<li><a class="alert ex8" href="#">Alert</a></li>
 											<li><a class="error ex8" href="#">Error</a></li>
 											<li><a class="success ex8" href="#">Success</a></li>
+											<li><a class="information ex8" href="#">Information</a></li>
 											<li><a class="confirm ex8" href="#">Confirm</a></li>
 										</ul>
 									</div>
@@ -183,6 +192,18 @@
 			</div>
 		</div>
 		<div class="g2">
+		
+			<div class="theme-switcher">
+				
+				<label for="theme_switcher">Theme Switcher</label>
+				<select name="theme_switcher" id="theme_switcher">
+					<option selected="selected" value="noty_theme_default">Default</option>
+					<option value="noty_theme_mitgux">Mitgux</option>
+					<option value="noty_theme_twitter">Twitter Bootstrap</option>
+				</select>
+			
+			</div>
+			
 			<div class="content">
 				<div id="welcome" class="active">
 					<h4>Welcome</h4>
@@ -307,11 +328,12 @@
 		    				</td>
 		    			</tr>
 		    			<tr>
-		    				<td>Theme <a href="http://forrst.com/people/mitgux" target="_blank">@mitgux</a></td>
+		    				<td>Close on Self Hover</td>
 		    				<td>
-		    					<p class="field switch">
-										<label title="noty_theme_mitgux" for="radio1" class="cb-enable"><span>true</span></label>
-										<label title="noty_theme_mitgux" for="radio2" class="cb-disable selected"><span>false</span></label>
+		    					<p class="field switch sub">
+		    						<input id="closeOnSelfOver" type="hidden" name="closeOnSelfOver" value="false">
+										<label title="closeOnSelfOver" for="radio5" class="cb-enable"><span>true</span></label>
+										<label title="closeOnSelfOver" for="radio6" class="cb-disable selected"><span>false</span></label>
 									</p>
 		    				</td>
 		    				<td>Modal</td>
@@ -334,8 +356,8 @@
 		    			</tr>
 		    			<tr>
 		    				<td colspan="4" class="buttons">
-		    					<span id="getCode" class="button pink">Get Code</span> or 
-		    					<span id="runIt" class="button orange">Run It</span>
+		    					<span id="getCode" class="btn btn-info">Get Code</span> or 
+		    					<span id="runIt" class="btn btn-warning">Run It</span>
 		    				</td>
 		    			</tr>
 		    			</table>

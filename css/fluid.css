@@ -223,12 +223,12 @@ table.dark td {
 	border-bottom: 2px solid #BED4A7;
   font-size: 0.85em;
 }
-
+div.theme-switcher {text-align: right;}
 div.content > div {display: none}
 div.content > div.active {display: block}
 
 div.top-right {margin-top: 55px; text-align: right}
-div.top-right div.btn {display: inline; float: right}
+div.top-right div.btn-top {display: inline; float: right}
 .gh-count {display: block !important}
 
 /* Used for the Switch effect: */
@@ -324,7 +324,7 @@ Change widths as necessary
 		width:31.333%
 	}
 	div.top-right {text-align: left; margin-top: 10px;}
-	div.top-right div.btn {display: block; width: 100%; text-align: center;}
+	div.top-right div.btn-top {display: block; width: 100%; text-align: center;}
 }
 
 /* MOBILE LANDSCAPE */
@@ -354,7 +354,7 @@ Change widths as necessary
 	.g3 {width:98.0%}
 	
 	div.top-right {text-align: right; margin-top: 55px;}
-	div.top-right div.btn {display: inline; width: auto; text-align: center; float: right}
+	div.top-right div.btn-top {display: inline; width: auto; text-align: center; float: right}
 }
 
 /* LANDSCAPE TABLET/NETBOOK/LAPTOP */
