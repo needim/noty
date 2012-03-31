@@ -215,7 +215,7 @@
 		textAlign : "center",
 		type : "alert",
 		speed : 500,
-		timeout : false,
+		timeout : 5000,
 		closable : false,
 		closeOnSelfClick : true,
 		closeOnSelfOver : false,
