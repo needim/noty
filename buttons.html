@@ -1,0 +1,61 @@
+<div id="buttons">
+
+	<h4 id="buttons">Buttons</h4>
+
+	We can set button objects with an array like above;
+
+	<pre>
+	<code data-language="javascript">
+$('.ex1.confirm').click(function() {
+	noty({
+		text: note, 
+		buttons: [
+			{type: 'button green', text: 'Ok', click: function($noty) {
+
+					// this = button element
+					// $noty = $noty element
+
+					$noty.close();
+					noty({force: true, text: 'You clicked "Ok" button', type: 'success'});
+				}
+			},
+			{type: 'button pink', text: 'Cancel', click: function($noty) {
+					$noty.close();
+					noty({force: true, text: 'You clicked "Cancel" button', type: 'error'});
+				}
+			}
+			],
+		closable: false,
+		timeout: false
+	});
+	return false;
+});
+	</code>
+	</pre>
+
+	Available button properties are listed below.
+
+	<table class="dark">
+		<tr>
+			<th>Name</th>
+			<th>Type</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>type</td>
+			<td>string</td>
+			<td>Button class</td>
+		</tr>
+		<tr>
+			<td>text</td>
+			<td>string</td>
+			<td>Button text</td>
+		</tr>
+		<tr>
+			<td>click</td>
+			<td>function($noty) {}</td>
+			<td>Callback function of button</td>
+		</tr>
+	</table>
+
+</div>

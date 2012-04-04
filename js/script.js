@@ -31,9 +31,9 @@ function getCode() {
 	return options;
 }
 
-$(document).ready(function() {
-	
+function commit_history() {
 	$.getJSON('http://github.com/api/v2/json/commits/list/needim/noty/master?callback=?', function(json) {
+		$('#commit-history-json tr').remove();
 		$.each(json.commits, function(i, commit) {
 			var $col = $('<tr />');
 			var $committer = $('<td />').html(commit.committer.name);
@@ -46,15 +46,18 @@ $(document).ready(function() {
 			$col.append($date);
 			
 			$('#commit-history-json').append($col);
-			
 		});
 	});
+}
+
+$(document).ready(function() {
+	
 	$("select#theme_switcher").val('noty_theme_default');
 	$("select#theme_switcher").change(function() {
 		$.noty.defaultOptions.theme = $(this).val();
 	});
 	
-	$(".cb-enable").click(function(){
+	$(".cb-enable").live('click', function(){
 		var parent = $(this).parents('.switch');
 		$('.cb-disable',parent).removeClass('selected');
 		$(this).addClass('selected');
@@ -67,7 +70,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$(".cb-disable").click(function(){
+	$(".cb-disable").live('click', function(){
 		var parent = $(this).parents('.switch');
 		$('.cb-enable',parent).removeClass('selected');
 		$(this).addClass('selected');
@@ -80,26 +83,28 @@ $(document).ready(function() {
 		}
 	});
 	
-	$('#getCode').click(function() {
+	$('a.show-div').click(function() {
+		var $button = $(this); 
+		$('div.content').load($button.attr('href').replace('#', '')+'.html', function() {
+			Rainbow.color();
+			$('ul a.active').removeClass('active');
+			$button.addClass('active');
+			if ($button.attr('href') == '#commit-history') commit_history();
+		});
+	});
+	
+	if (location.hash) {
+		$('a[href='+location.hash+']').trigger('click');
+	} else {
+		$('a[href=#welcome]').trigger('click');
+	}
+	
+	$('#getCode').live('click', function() {
 		var source = getCode();
 		$('textarea#getCodeResult').html('noty('+ JSON.stringify(source) +');').slideDown();
 	});
 	
-	$('a.show-div').click(function() {
-		$('div.content .active').removeClass('active').hide();
-		$($(this).attr('href')).fadeIn().addClass('active');
-		$('ul a.active').removeClass('active');
-		$(this).addClass('active');
-	});
-	
-	if (location.hash) {
-		$('div.content .active').removeClass('active').hide();
-		$(location.hash).fadeIn().addClass('active');
-		$('ul a.active').removeClass('active');
-		$('a[href='+location.hash+']').addClass('active');
-	}
-	
-	$('#runIt').click(function() {
+	$('#runIt').live('click', function() {
 		var source = getCode();
 		noty(source);
 	});
@@ -244,25 +249,25 @@ $(document).ready(function() {
 	
 	// ex4 - alert
 	$('.ex4.alert').click(function() {
-		noty({layout: 'topLeft', text: alert_note, textAlign: 'left'});
+		noty({layout: 'topLeft', text: alert_note});
 		return false;
 	});
 	
 	// ex4 - error
 	$('.ex4.error').click(function() {
-		noty({layout: 'topLeft', text: error_note, type: 'error', textAlign: 'left'});
+		noty({layout: 'topLeft', text: error_note, type: 'error'});
 		return false;
 	});
 	
 	// ex4 - success
 	$('.ex4.success').click(function() {
-		noty({layout: 'topLeft', text: success_note, type: 'success', textAlign: 'left'});
+		noty({layout: 'topLeft', text: success_note, type: 'success'});
 		return false;
 	});
 	
 	// ex4 - information
 	$('.ex4.information').click(function() {
-		noty({layout: 'topLeft', text: information_note, type: 'information', textAlign: 'left'});
+		noty({layout: 'topLeft', text: information_note, type: 'information'});
 		return false;
 	});
 	
@@ -272,12 +277,11 @@ $(document).ready(function() {
 			layout: 'topLeft',
 			text: note, 
 			buttons: [
-		    {type: 'btn btn-primary', text: 'Ok', click: function($noty) {$noty.close(); noty({force: true, layout: 'topLeft', text: 'You clicked "Ok" button', type: 'success', textAlign: 'left'});} },
-		    {type: 'btn btn-danger', text: 'Cancel', click: function($noty) {$noty.close(); noty({force: true, layout: 'topLeft', text: 'You clicked "Cancel" button', type: 'error', textAlign: 'left'});} }
+		    {type: 'btn btn-primary', text: 'Ok', click: function($noty) {$noty.close(); noty({force: true, layout: 'topLeft', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'btn btn-danger', text: 'Cancel', click: function($noty) {$noty.close(); noty({force: true, layout: 'topLeft', text: 'You clicked "Cancel" button', type: 'error'});} }
 		    ],
 		  closable: false,
-		  timeout: false,
-		  textAlign: 'left'
+		  timeout: false
 		});
 		return false;
 	});
@@ -286,25 +290,25 @@ $(document).ready(function() {
 	
 	// ex5 - alert
 	$('.ex5.alert').click(function() {
-		noty({layout: 'topRight', text: alert_note, textAlign: 'left'});
+		noty({layout: 'topRight', text: alert_note});
 		return false;
 	});
 	
 	// ex5 - error
 	$('.ex5.error').click(function() {
-		noty({layout: 'topRight', text: error_note, type: 'error', textAlign: 'left'});
+		noty({layout: 'topRight', text: error_note, type: 'error'});
 		return false;
 	});
 	
 	// ex5 - success
 	$('.ex5.success').click(function() {
-		noty({layout: 'topRight', text: success_note, type: 'success', textAlign: 'left'});
+		noty({layout: 'topRight', text: success_note, type: 'success'});
 		return false;
 	});
 	
 	// ex5 - information
 	$('.ex5.information').click(function() {
-		noty({layout: 'topRight', text: information_note, type: 'information', textAlign: 'left'});
+		noty({layout: 'topRight', text: information_note, type: 'information'});
 		return false;
 	});
 	
@@ -312,15 +316,13 @@ $(document).ready(function() {
 	$('.ex5.confirm').click(function() {
 		noty({
 			layout: 'topRight',
-			textAlign: 'left',
 			text: note, 
 			buttons: [
-		    {type: 'btn btn-primary', text: 'Ok', click: function($noty) {$noty.close(); noty({force: true, layout: 'topRight', text: 'You clicked "Ok" button', type: 'success', textAlign: 'left'});} },
-		    {type: 'btn btn-danger', text: 'Cancel', click: function($noty) {$noty.close(); noty({force: true, layout: 'topRight', text: 'You clicked "Cancel" button', type: 'error', textAlign: 'left'});} }
+		    {type: 'btn btn-primary', text: 'Ok', click: function($noty) {$noty.close(); noty({force: true, layout: 'topRight', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'btn btn-danger', text: 'Cancel', click: function($noty) {$noty.close(); noty({force: true, layout: 'topRight', text: 'You clicked "Cancel" button', type: 'error'});} }
 		    ],
 		  closable: false,
-		  timeout: false,
-		  textAlign: 'left'
+		  timeout: false
 		});
 		return false;
 	});
@@ -372,25 +374,25 @@ $(document).ready(function() {
 	
 	// ex7 - alert
 	$('.ex7.alert').click(function() {
-		noty({layout: 'bottomLeft', text: alert_note, textAlign: 'left'});
+		noty({layout: 'bottomLeft', text: alert_note});
 		return false;
 	});
 	
 	// ex7 - error
 	$('.ex7.error').click(function() {
-		noty({layout: 'bottomLeft', text: error_note, type: 'error', textAlign: 'left'});
+		noty({layout: 'bottomLeft', text: error_note, type: 'error'});
 		return false;
 	});
 	
 	// ex7 - success
 	$('.ex7.success').click(function() {
-		noty({layout: 'bottomLeft', text: success_note, type: 'success', textAlign: 'left'});
+		noty({layout: 'bottomLeft', text: success_note, type: 'success'});
 		return false;
 	});
 	
 	// ex7 - information
 	$('.ex7.information').click(function() {
-		noty({layout: 'bottomLeft', text: information_note, type: 'information', textAlign: 'left'});
+		noty({layout: 'bottomLeft', text: information_note, type: 'information'});
 		return false;
 	});	
 
@@ -398,11 +400,10 @@ $(document).ready(function() {
 	$('.ex7.confirm').click(function() {
 		noty({
 			layout: 'bottomLeft',
-			 textAlign: 'left',
 			text: note, 
 			buttons: [
-		    {type: 'btn btn-primary', text: 'Ok', click: function($noty) {$noty.close(); noty({force: true, layout: 'bottomLeft', text: 'You clicked "Ok" button', type: 'success', textAlign: 'left'});} },
-		    {type: 'btn btn-danger', text: 'Cancel', click: function($noty) {$noty.close(); noty({force: true, layout: 'bottomLeft', text: 'You clicked "Cancel" button', type: 'error', textAlign: 'left'});} }
+		    {type: 'btn btn-primary', text: 'Ok', click: function($noty) {$noty.close(); noty({force: true, layout: 'bottomLeft', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'btn btn-danger', text: 'Cancel', click: function($noty) {$noty.close(); noty({force: true, layout: 'bottomLeft', text: 'You clicked "Cancel" button', type: 'error'});} }
 		    ],
 		  closable: false,
 		  timeout: false
@@ -414,25 +415,25 @@ $(document).ready(function() {
 	
 	// ex8 - alert
 	$('.ex8.alert').click(function() {
-		noty({layout: 'bottomRight', text: alert_note, textAlign: 'left'});
+		noty({layout: 'bottomRight', text: alert_note});
 		return false;
 	});
 	
 	// ex8 - error
 	$('.ex8.error').click(function() {
-		noty({layout: 'bottomRight', text: error_note, type: 'error', textAlign: 'left'});
+		noty({layout: 'bottomRight', text: error_note, type: 'error'});
 		return false;
 	});
 	
 	// ex8 - success
 	$('.ex8.success').click(function() {
-		noty({layout: 'bottomRight', text: success_note, type: 'success', textAlign: 'left'});
+		noty({layout: 'bottomRight', text: success_note, type: 'success'});
 		return false;
 	});
 	
 	// ex8 - information
 	$('.ex8.information').click(function() {
-		noty({layout: 'bottomRight', text: information_note, type: 'information', textAlign: 'left'});
+		noty({layout: 'bottomRight', text: information_note, type: 'information'});
 		return false;
 	});
 	
@@ -442,11 +443,10 @@ $(document).ready(function() {
 			animateOpen: {height: 'toggle'},
 			animateClose: {height: 'toggle'},
 			layout: 'bottomRight',
-			textAlign: 'left',
 			text: note, 
 			buttons: [
-		    {type: 'btn btn-primary', text: 'Ok', click: function($noty) {$noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomRight', text: 'You clicked "Ok" button', type: 'success', textAlign: 'left'});} },
-		    {type: 'btn btn-danger', text: 'Cancel', click: function($noty) {$noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomRight', text: 'You clicked "Cancel" button', type: 'error', textAlign: 'left'});} }
+		    {type: 'btn btn-primary', text: 'Ok', click: function($noty) {$noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomRight', text: 'You clicked "Ok" button', type: 'success'});} },
+		    {type: 'btn btn-danger', text: 'Cancel', click: function($noty) {$noty.close(); noty({force: true, animateOpen: {opacity: 'show'}, animateClose: {opacity: 'hide'}, layout: 'bottomRight', text: 'You clicked "Cancel" button', type: 'error'});} }
 		    ],
 		  closable: false,
 		  timeout: false

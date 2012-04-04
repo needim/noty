@@ -181,7 +181,6 @@ p {
 
 code {
 	display: block;
-	border-left: 5px solid #BED4A7;
 	font-size: 12px;
 }
 
@@ -224,8 +223,6 @@ table.dark td {
   font-size: 0.85em;
 }
 div.theme-switcher {text-align: right;}
-div.content > div {display: none}
-div.content > div.active {display: block}
 
 div.top-right {margin-top: 55px; text-align: right}
 div.top-right div.btn-top {display: inline; float: right}

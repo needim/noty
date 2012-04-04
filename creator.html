@@ -1,0 +1,98 @@
+<div id="creator">
+
+	<div class="noty-creator">
+
+		<h4>Noty Creator</h4>
+
+		<form id="noty_creator">
+			<input class="big" type="text" name="text" value="Hi! I'm an example text. When I grow up I want to be a noty message.">
+
+			<div class="creator-options">
+
+				<table>
+					<tr>
+						<td>Layout</td>
+						<td>
+							<select name="layout">
+								<option selected="selected" value="top">Top</option>
+								<option value="topCenter">Top Center</option>
+								<option value="bottom">Bottom</option>
+								<option value="center">Center</option>
+								<option value="topLeft">Top Left</option>
+								<option value="topRight">Top Right</option>
+								<option value="bottomLeft">Bottom Left</option>
+								<option value="bottomRight">Bottom Right</option>
+							</select>
+						</td>
+						<td>Type</td>
+						<td style="vertical-align: middle">
+							<select name="type">
+								<option selected="selected" value="alert">Alert</option>
+								<option value="error">Error</option>
+								<option value="success">Success</option>
+								<option value="information">Information</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>Animate - Open</td>
+						<td><input type="text" name="animateOpen" value="{height: 'toggle'}"></td>
+						<td>Animate - Close</td>
+						<td><input type="text" name="animateClose" value="{height: 'toggle'}"></td>
+					</tr>
+					<tr>
+						<td>Speed</td>
+						<td><input type="text" name="speed" value="500"></td>
+						<td>Timeout</td>
+						<td><input type="text" name="timeout" value="5000"></td>
+					</tr>
+					<tr>
+						<td>Close Button</td>
+						<td>
+							<p class="field switch sub">
+								<input id="closeButton" type="hidden" name="closeButton" value="false"> <label title="closeButton" for="radio3" class="cb-enable"><span>true</span></label> <label title="closeButton" for="radio4" class="cb-disable selected"><span>false</span></label>
+							</p>
+						</td>
+						<td>Close on Click</td>
+						<td>
+							<p class="field switch sub">
+								<input id="closeOnSelfClick" type="hidden" name="closeOnSelfClick" value="true"> <label title="closeOnSelfClick" for="radio5" class="cb-enable selected"><span>true</span></label> <label title="closeOnSelfClick" for="radio6" class="cb-disable"><span>false</span></label>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>Close on Hover</td>
+						<td>
+							<p class="field switch sub">
+								<input id="closeOnSelfOver" type="hidden" name="closeOnSelfOver" value="false"> <label title="closeOnSelfOver" for="radio5" class="cb-enable"><span>true</span></label> <label title="closeOnSelfOver" for="radio6" class="cb-disable selected"><span>false</span></label>
+							</p>
+						</td>
+						<td>Modal</td>
+						<td>
+							<p class="field switch">
+								<label for="radio1" class="cb-enable"><span>true</span></label> <label for="radio2" class="cb-disable selected"><span>false</span></label>
+							</p>
+						</td>
+					</tr>
+					<tr>
+						<td>OnShow</td>
+						<td><input type="text" name="onShow" value="function(){}"></td>
+						<td>onClose</td>
+						<td><input type="text" name="onClose" value="function(){}"></td>
+					</tr>
+					<tr>
+						<td colspan="4" class="buttons"><span id="getCode" class="btn btn-info">Get Code</span> or <span id="runIt" class="btn btn-warning">Run It</span></td>
+					</tr>
+				</table>
+
+				<div class="getCodeResult">
+						<textarea id="getCodeResult"></textarea>
+				</div>
+
+			</div>
+
+		</form>
+
+	</div>
+
+</div>
