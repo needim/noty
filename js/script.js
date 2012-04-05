@@ -54,7 +54,21 @@ $(document).ready(function() {
 	
 	$("select#theme_switcher").val('noty_theme_default');
 	$("select#theme_switcher").change(function() {
+		$('.noty_theme_default').removeClass('noty_theme_default').addClass($(this).val());
+		$('.noty_theme_mitgux').removeClass('noty_theme_mitgux').addClass($(this).val());
+		$('.noty_theme_twitter').removeClass('noty_theme_twitter').addClass($(this).val());
+		$('.noty_theme_facebook').removeClass('noty_theme_facebook').addClass($(this).val());
 		$.noty.defaultOptions.theme = $(this).val();
+	});
+	
+	$('.api-func').click(function(e) {
+		try {
+			var func = $(this).attr('title');
+			eval(func);
+		} catch (e) {
+			// TODO: handle exception
+		}
+		e.preventDefault();
 	});
 	
 	$(".cb-enable").live('click', function(){
@@ -113,7 +127,7 @@ $(document).ready(function() {
 	
 	// ex1 - alert
 	$('.ex1.alert').click(function() {
-		noty({text: alert_note});
+		noty({text: alert_note, custom: {container: $('#wrapper')}});
 		return false;
 	});
 	
@@ -454,16 +468,57 @@ $(document).ready(function() {
 		return false;
 	});
 	
-	$('.api-func').click(function(e) {
-		
-		try {
-			var func = $(this).attr('title');
-			eval(func);
-		} catch (e) {
-			// TODO: handle exception
-		}
-		
-		e.preventDefault();
+	// CUSTOM CONTAINER ======================	
+	
+	// custom_inline - alert
+	$('.custom_inline.alert').live('click', function() {
+		$('.custom_container').noty({text: alert_note, layout: 'inline'});
+		return false;
+	});
+	
+	// custom_inline - error
+	$('.custom_inline.error').live('click', function() {
+		noty({text: error_note, type: 'error', layout: 'inline', custom: {container: $('.custom_container')}});
+		return false;
+	});
+	
+	// custom_inline - success
+	$('.custom_inline.success').live('click', function() {
+		noty({text: success_note, type: 'success', layout: 'inline', custom: {container: $('.custom_container')}});
+		return false;
+	});
+	
+	// custom_inline - information
+	$('.custom_inline.information').live('click', function() {
+		noty({text: information_note, type: 'information', layout: 'inline', custom: {container: $('.custom_container')}});
+		return false;
+	});
+	
+	// custom_inline - confirm
+	$('.custom_inline.confirm').live('click', function() {
+		noty({
+			text: note,
+			layout: 'inline', custom: {container: $('.custom_container')},
+			buttons: [
+		    {type: 'btn btn-mini btn-primary', text: 'Ok', click: function($noty) {
+		    			
+		    			// this = button element
+		    			// $noty = $noty element
+		    	
+		    			$noty.close();
+		    			noty({force: true, text: 'You clicked "Ok" button', type: 'success', layout: 'inline', custom: {container: $('.custom_container')}});
+		    	}
+		    },
+		    {type: 'btn btn-mini btn-danger', text: 'Cancel', click: function($noty) {
+		    		$noty.close();
+			    	noty({force: true, text: 'You clicked "Cancel" button', type: 'error', layout: 'inline', custom: {container: $('.custom_container')}});
+		    	}
+		    }
+		    ],
+		  closable: false,
+		  timeout: false
+		});
+		return false;
 	});
 	
 });
