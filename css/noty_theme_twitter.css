@@ -9,6 +9,27 @@
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	}
 	
+	/* custom container */
+	.noty_custom_container.noty_theme_twitter.noty_layout_inline {
+		position: relative;
+	}
+	
+	/* custom growl container */
+	.noty_custom_container.noty_theme_twitter.noty_layout_inline .noty_cont.noty_layout_inline {
+		position: static;
+	}
+		/* custom noty bar */
+		.noty_custom_container.noty_theme_twitter.noty_layout_inline .noty_bar {
+			position: static;
+		}
+			.noty_custom_container.noty_theme_twitter.noty_layout_inline .noty_bar .noty_message {
+				font-size: 13px;
+				padding: 4px;
+			}
+				.noty_custom_container.noty_theme_twitter.noty_layout_inline .noty_bar .noty_message .noty_buttons {
+					margin-top: -1px;
+				}
+	
 	/* noty_message */
 	.noty_bar.noty_theme_twitter .noty_message {
 		padding: 8px 14px;

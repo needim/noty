@@ -8,6 +8,30 @@
     font-size: 11px;
 	}
 	
+	/* custom container */
+	.noty_custom_container.noty_theme_facebook.noty_layout_inline {
+		position: relative;
+	}
+	
+	/* custom growl container */
+	.noty_custom_container.noty_theme_facebook.noty_layout_inline .noty_cont.noty_layout_inline {
+		position: static;
+	}
+		/* custom noty bar */
+		.noty_custom_container.noty_theme_facebook.noty_layout_inline .noty_bar {
+			position: static;
+			-webkit-border-radius: 4px;
+			-moz-border-radius: 4px;
+			border-radius: 4px;
+		}
+			.noty_custom_container.noty_theme_facebook.noty_layout_inline .noty_bar .noty_message {
+				font-size: 13px;
+				padding: 4px;
+			}
+				.noty_custom_container.noty_theme_facebook.noty_layout_inline .noty_bar .noty_message .noty_buttons {
+					margin-top: -3px;
+				}
+	
 	/* noty_message */
 	.noty_bar.noty_theme_facebook .noty_message {
 		padding: 8px 14px;
