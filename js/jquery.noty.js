@@ -1,8 +1,8 @@
 /**
- * jQuery Noty Plugin v0.1
+ * jQuery Noty Plugin v1.0.0
  * Authors: Nedim Arabacı (http://ned.im), Muhittin Özer (http://muhittinozer.com)
  * 
- * http://needim.github.com/noty/
+ * Examples and Documentation - http://needim.github.com/noty/
  *
  * Licensed under the MIT licenses:
  * http://www.opensource.org/licenses/mit-license.php
