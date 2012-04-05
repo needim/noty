@@ -190,7 +190,7 @@
 		text: '',
 		type: 'alert',
 		speed: 500,
-		timeout: false,
+		timeout: 5000,
 		closeButton: false,
 		closeOnSelfClick: true,
 		closeOnSelfOver: false,
