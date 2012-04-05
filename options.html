@@ -25,7 +25,10 @@ $.noty.defaultOptions = {
 	buttons : false, // an array of buttons
 	modal : false, // adds modal layer when set to true
 	template: '&lt;div class="noty_message"&gt;&lt;span class="noty_text"&gt;&lt;/span&gt;&lt;div class="noty_close"&gt;&lt;/div&gt;&lt;/div&gt;',
-	cssPrefix: 'noty_' // this variable will be a type and layout prefix.
+	cssPrefix: 'noty_', // this variable will be a type and layout prefix.
+	custom: {
+		container: null // $('.custom_container')
+	}
 };
 	</code>
 	</pre>
@@ -130,6 +133,11 @@ $.noty.defaultOptions = {
 			<td>onClose</td>
 			<td>false, function</td>
 			<td>onClose Callback (Details are in Callbacks section)</td>
+		</tr>
+		<tr>
+			<td>custom.container</td>
+			<td>null, element</td>
+			<td>Custom container for noty</td>
 		</tr>
 	</table>
 
