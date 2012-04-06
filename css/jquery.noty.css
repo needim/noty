@@ -34,7 +34,7 @@
 	/* noty container for noty_layout_topLeft & noty_layout_topRight */
 	ul.noty_cont {
 		position: fixed;
-		z-index: 9999999;
+		z-index: 10000000;
 		margin: 0px;
 		padding: 0px;
 		list-style: none;
