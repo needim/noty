@@ -1,5 +1,5 @@
 /**
-* jQuery Noty Plugin v1.1.0
+* jQuery Noty Plugin v1.1.1
 * Authors: Nedim Arabacı (http://ned.im), Muhittin Özer (http://muhittinozer.com)
 *
 * Examples and Documentation - http://needim.github.com/noty/
