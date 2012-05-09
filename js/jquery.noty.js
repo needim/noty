@@ -112,7 +112,11 @@
 			}
 
 	  	$noty.bind('noty.setText', function(event, text) {
-	  		$noty.find('.noty_text').html(text); $.noty.reCenter($noty);
+	  		$noty.find('.noty_text').html(text); 
+	  		
+	  		if (base.options.layout == 'noty_layout_topCenter' || base.options.layout == 'noty_layout_center') {
+	  			$.noty.reCenter($noty);
+	  		}
 	  	});
 
 	  	$noty.bind('noty.getId', function(event) {
