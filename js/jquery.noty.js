@@ -120,11 +120,13 @@
 	  	});
 
 	  	$noty.bind('noty.setType', function(event, type) {
-	  		$noty.removeClass(base.options.type); 
+	  		$noty.removeClass($noty.data('noty_options').type); 
 
-			base.options.type = base.options.cssPrefix+type;
+			type = $noty.data('noty_options').cssPrefix+type;
 
-			$noty.addClass(base.options.type);
+			$noty.data('noty_options').type = type;
+
+			$noty.addClass(type);
 	  		
 	  		if (base.options.layout == 'noty_layout_topCenter' || base.options.layout == 'noty_layout_center') {
 	  			$.noty.reCenter($noty);
