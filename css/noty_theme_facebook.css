@@ -106,6 +106,24 @@
 	
 /* NOTIFICATION TYPES */
 
+	/* noty_notification */
+	.noty_bar.noty_theme_facebook.noty_notification {
+		background-color: #E1E6EE;
+		border: 1px solid #99A8C7;
+		color: #3B5998;
+	}
+	.noty_bar.noty_theme_facebook.noty_notification:hover {
+		background-color: #CAD1DE;
+	}
+	/* noty_warning */
+	.noty_bar.noty_theme_facebook.noty_warning {
+		background-color: #E1E6EE;
+		border: 1px solid #99A8C7;
+		color: #3B5998;
+	}
+	.noty_bar.noty_theme_facebook.noty_warning:hover {
+		background-color: #CAD1DE;
+	}
 	/* noty_alert */
 	.noty_bar.noty_theme_facebook.noty_alert {
 		background-color: #E1E6EE;

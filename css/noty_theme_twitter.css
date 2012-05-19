@@ -111,6 +111,18 @@
 	
 /* NOTIFICATION TYPES */
 
+	/* noty_notification */
+	.noty_bar.noty_theme_twitter.noty_notification {
+		background-color: #fcfcfc;
+		border: 1px solid #e5e5e5;
+		color: #555;
+	}
+	/* noty_warning */
+	.noty_bar.noty_theme_twitter.noty_warning {
+		background-color: #FCF8E3;
+		border: 1px solid #FBEED5;
+		color: #C09853;
+	}
 	/* noty_alert */
 	.noty_bar.noty_theme_twitter.noty_alert {
 		background-color: #FCF8E3;
