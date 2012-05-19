@@ -1,6 +1,6 @@
 $(document).ready(function(){
   //alert('toto');
-  /**/noty({layout : 'topLeft', theme : 'noty_theme_default', type : 'notification',    text: 'notification with default theme',  timeout : false });
+  /*noty({layout : 'topLeft', theme : 'noty_theme_default', type : 'notification',    text: 'notification with default theme',  timeout : false });
   noty({layout : 'topLeft', theme : 'noty_theme_default', type : 'warning',         text: 'warning with default theme',         timeout : false });
   noty({layout : 'topLeft', theme : 'noty_theme_default', type : 'alert',           text: 'alert with default theme',           timeout : false });
   noty({layout : 'topLeft', theme : 'noty_theme_default', type : 'information',     text: 'information with default theme',     timeout : false });
@@ -26,12 +26,14 @@ $(document).ready(function(){
   noty({layout : 'bottomLeft', theme : 'noty_theme_facebook', type : 'alert',           text: 'alert with facebook theme',        timeout : false });
   noty({layout : 'bottomLeft', theme : 'noty_theme_facebook', type : 'information',     text: 'information with facebook theme',  timeout : false });
   noty({layout : 'bottomLeft', theme : 'noty_theme_facebook', type : 'success',         text: 'success with facebook theme',      timeout : false });
-  noty({layout : 'bottomLeft', theme : 'noty_theme_facebook', type : 'error',           text: 'error with facebook theme',        timeout : false });
+  noty({layout : 'bottomLeft', theme : 'noty_theme_facebook', type : 'error',           text: 'error with facebook theme',        timeout : false });*/
   
-  noty({layout : 'bottomRight', theme : 'noty_theme_growl', type : 'notification',    text: 'notification with growl theme', timeout : false });
-  noty({layout : 'bottomRight', theme : 'noty_theme_growl', type : 'warning',         text: 'warning with growl theme',      timeout : false });
-  noty({layout : 'bottomRight', theme : 'noty_theme_growl', type : 'alert',           text: 'alert with growl theme',        timeout : false });
-  noty({layout : 'bottomRight', theme : 'noty_theme_growl', type : 'information',     text: 'information with growl theme',  timeout : false });
-  noty({layout : 'bottomRight', theme : 'noty_theme_growl', type : 'success',         text: 'success with growl theme',      timeout : false });
-  noty({layout : 'bottomRight', theme : 'noty_theme_growl', type : 'error',           text: 'error with growl theme',        timeout : false });
+  var content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus eget tincidunt velit. Cum sociis natoque penatibus et <a href="#" style="color:#ccc">magnis dis parturient</a> montes, nascetur ridiculus mus.';
+  var title = '<div class="header">This is a sticky notice!</div>';
+  var icon = '<div class="icon"><img src="http://s3.amazonaws.com/twitter_production/profile_images/132499022/myface_bigger.jpg"></div>';
+  
+  noty({layout : 'bottomRight', theme : 'noty_theme_growl', type : 'error', closeButton : true,           text: content,        timeout : false });
+  noty({layout : 'bottomRight', theme : 'noty_theme_growl', type : 'error',           text: title+content,        timeout : false });
+  noty({layout : 'bottomRight', theme : 'noty_theme_growl', type : 'error',           text: icon+'<div style="margin-left: 58px;">'+title+content+'</div>',        timeout : false });
+  noty({layout : 'top', theme : 'noty_theme_growl', type : 'error',           text: icon+'<div style="margin-left: 58px;">'+title+content+'</div>',        timeout : false });
 });
