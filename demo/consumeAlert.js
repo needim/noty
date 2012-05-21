@@ -5,9 +5,13 @@ $(document).ready(function(){
   window.alert = function(text){
     noty({layout : 'topRight', theme : 'noty_theme_default', type : 'success', text: text, timeout : 1000,
       onShow :function(){
-        console.log("show alert");
+        console.log(new Date().getTime()+" : start show alert");
+      },onShown :function(){
+        console.log(new Date().getTime()+" : end show alert");
       },onClose :function(){
-        console.log("hide alert");
+        console.log(new Date().getTime()+" : start hide alert");
+      },onClosed :function(){
+        console.log(new Date().getTime()+" : end hide alert");
       }
     });
   };
