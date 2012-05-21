@@ -180,6 +180,14 @@
 	// API
 	$.noty.get = function(id) { return $('#'+id); };
 	$.noty.close = function(id) {
+		//remove from queue if not already visible
+		for(var i=0;i<$.noty.queue.length;) {
+			if($.noty.queue[i].options.id==id)
+				$.noty.queue.splice(id,1);
+			else
+				i++;
+		}
+		//close if already visible
 		$.noty.get(id).trigger('noty.close');
 	};
 	$.noty.setText = function(id, text) {
