@@ -183,6 +183,18 @@
 	$.noty.clearQueue = function() {
 		$.noty.queue = [];
 	};
+  
+  var windowAlert = window.alert;
+  $.noty.consumeAlert = function(options){
+    window.alert = function(text){
+      if(options){options.text = text;}
+      else{options = {text:text};}
+      $.noty(options);
+    };
+  }
+  $.noty.stopConsumeAlert = function(){
+    window.alert = windowAlert;
+  }
 
 	$.noty.queue = [];
 	$.noty.growls = ['noty_layout_topLeft', 'noty_layout_topRight', 'noty_layout_bottomLeft', 'noty_layout_bottomRight'];

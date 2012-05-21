@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  var alertOld = window.alert;
+  /*var alertOld = window.alert;
   var wait = false;
   
   window.alert = function(text){
@@ -18,6 +18,15 @@ $(document).ready(function(){
   
   console.log("before call");
   alert("bonjour");
-  console.log("after call");
+  console.log("after call");*/
+  
+  
+  alert("bonjour 1");
+  $.noty.consumeAlert({layout : 'topRight', type : 'success'});
+  alert("bonjour 2");
+  $.noty.consumeAlert({layout : 'top', type : 'alert'});
+  alert("bonjour 3");
+  $.noty.stopConsumeAlert();
+  alert("bonjour 4");
   
 });
