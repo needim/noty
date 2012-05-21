@@ -126,7 +126,7 @@
 	  	// Bind close event
 	  	$noty.one('noty.close', function(event) {
 				var options = $noty.data('noty_options');
-        options.onClose();
+        if(options.onClose){options.onClose();}
 
 				// Modal Cleaning
 				if (options.modal) $('.noty_modal').fadeOut('fast', function() { $(this).remove(); });
@@ -153,7 +153,7 @@
 			});
 
 	  	// Start the show
-      base.options.onShow();
+      if(base.options.onShow){base.options.onShow();}
 	  	$noty.animate(base.options.animateOpen, base.options.speed, base.options.easing, base.options.onShown);
 
 	  	// If noty is have a timeout option
