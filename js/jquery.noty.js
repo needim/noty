@@ -126,6 +126,7 @@
 	  	// Bind close event
 	  	$noty.one('noty.close', function(event) {
 				var options = $noty.data('noty_options');
+        if(options.onClose){options.onClose();}
 
 				// Modal Cleaning
 				if (options.modal) $('.noty_modal').fadeOut('fast', function() { $(this).remove(); });
@@ -134,7 +135,7 @@
 						$noty.data('noty_options').animateClose,
 						$noty.data('noty_options').speed,
 						$noty.data('noty_options').easing,
-						$noty.data('noty_options').onClose)
+						$noty.data('noty_options').onClosed)
 				.promise().done(function() {
 
 					// Layout spesific cleaning
@@ -152,7 +153,8 @@
 			});
 
 	  	// Start the show
-	  	$noty.animate(base.options.animateOpen, base.options.speed, base.options.easing, base.options.onShow);
+      if(base.options.onShow){base.options.onShow();}
+	  	$noty.animate(base.options.animateOpen, base.options.speed, base.options.easing, base.options.onShown);
 
 	  	// If noty is have a timeout option
 	  	if (base.options.timeout) $noty.delay(base.options.timeout).promise().done(function() { $noty.trigger('noty.close'); });
@@ -181,6 +183,18 @@
 	$.noty.clearQueue = function() {
 		$.noty.queue = [];
 	};
+  
+  var windowAlert = window.alert;
+  $.noty.consumeAlert = function(options){
+    window.alert = function(text){
+      if(options){options.text = text;}
+      else{options = {text:text};}
+      $.noty(options);
+    };
+  }
+  $.noty.stopConsumeAlert = function(){
+    window.alert = windowAlert;
+  }
 
 	$.noty.queue = [];
 	$.noty.growls = ['noty_layout_topLeft', 'noty_layout_topRight', 'noty_layout_bottomLeft', 'noty_layout_bottomRight'];
@@ -200,7 +214,9 @@
 		closeOnSelfOver: false,
 		force: false,
 		onShow: false,
+		onShown: false,
 		onClose: false,
+		onClosed: false,
 		buttons: false,
 		modal: false,
 		template: '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>',
