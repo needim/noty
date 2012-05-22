@@ -119,6 +119,20 @@
 	  		}
 	  	});
 
+	  	$noty.bind('noty.setType', function(event, type) {
+	  		$noty.removeClass($noty.data('noty_options').type); 
+
+			type = $noty.data('noty_options').cssPrefix+type;
+
+			$noty.data('noty_options').type = type;
+
+			$noty.addClass(type);
+	  		
+	  		if (base.options.layout == 'noty_layout_topCenter' || base.options.layout == 'noty_layout_center') {
+	  			$.noty.reCenter($noty);
+	  		}
+	  	});
+
 	  	$noty.bind('noty.getId', function(event) {
 	  		return $noty.data('noty_options').id;
 	  	});
@@ -168,10 +182,21 @@
 	// API
 	$.noty.get = function(id) { return $('#'+id); };
 	$.noty.close = function(id) {
+		//remove from queue if not already visible
+		for(var i=0;i<$.noty.queue.length;) {
+			if($.noty.queue[i].options.id==id)
+				$.noty.queue.splice(id,1);
+			else
+				i++;
+		}
+		//close if already visible
 		$.noty.get(id).trigger('noty.close');
 	};
 	$.noty.setText = function(id, text) {
 		$.noty.get(id).trigger('noty.setText', text);
+	};
+	$.noty.setType = function(id, type) {
+		$.noty.get(id).trigger('noty.setType', type);
 	};
 	$.noty.closeAll = function() {
 		$.noty.clearQueue();
