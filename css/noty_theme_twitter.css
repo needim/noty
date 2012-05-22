@@ -96,7 +96,7 @@
 	.noty_bar.noty_theme_twitter.noty_layout_bottomLeft .noty_message .noty_buttons,
 	.noty_bar.noty_theme_twitter.noty_layout_bottomRight .noty_message .noty_buttons {
 		float: none;
-		border-top: 1px solid #FBEED5;
+		border-top: 1px solid #e5e5e5;
 	  margin-left: 0;
 	  margin-top: 10px;
 	  padding-top: 10px;
@@ -117,33 +117,75 @@
 		border: 1px solid #e5e5e5;
 		color: #555;
 	}
+	.noty_bar.noty_theme_twitter.noty_notification.noty_layout_topLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_notification.noty_layout_topRight .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_notification.noty_layout_bottomLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_notification.noty_layout_bottomRight .noty_message .noty_buttons {
+    border-color: #e5e5e5;
+  }
+  
 	/* noty_warning */
 	.noty_bar.noty_theme_twitter.noty_warning {
 		background-color: #FCF8E3;
 		border: 1px solid #FBEED5;
 		color: #C09853;
 	}
+	.noty_bar.noty_theme_twitter.noty_warning.noty_layout_topLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_warning.noty_layout_topRight .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_warning.noty_layout_bottomLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_warning.noty_layout_bottomRight .noty_message .noty_buttons {
+    border-color: #FBEED5;
+  }
+  
 	/* noty_alert */
 	.noty_bar.noty_theme_twitter.noty_alert {
 		background-color: #FCF8E3;
 		border: 1px solid #FBEED5;
 		color: #C09853;
 	}
+	.noty_bar.noty_theme_twitter.noty_alert.noty_layout_topLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_alert.noty_layout_topRight .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_alert.noty_layout_bottomLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_alert.noty_layout_bottomRight .noty_message .noty_buttons {
+    border-color: #FBEED5;
+  }
+  
 	/* noty_error */
 	.noty_bar.noty_theme_twitter.noty_error {
 		background-color: #F2DEDE;
 		border: 1px solid #EED3D7;
 		color: #B94A48;
 	}
+	.noty_bar.noty_theme_twitter.noty_error.noty_layout_topLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_error.noty_layout_topRight .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_error.noty_layout_bottomLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_error.noty_layout_bottomRight .noty_message .noty_buttons {
+    border-color: #EED3D7;
+  }
+  
 	/* noty_success */
 	.noty_bar.noty_theme_twitter.noty_success {
 		background-color: #DFF0D8;
 		border: 1px solid #D6E9C6;
 		color: #468847;
 	}
+	.noty_bar.noty_theme_twitter.noty_success.noty_layout_topLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_success.noty_layout_topRight .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_success.noty_layout_bottomLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_success.noty_layout_bottomRight .noty_message .noty_buttons {
+    border-color: #D6E9C6;
+  }
+  
 	/* noty_information */
 	.noty_bar.noty_theme_twitter.noty_information {
 		background-color: #D9EDF7;
 		border: 1px solid #BCE8F1;
 		color: #3A87AD;
 	}
+	.noty_bar.noty_theme_twitter.noty_information.noty_layout_topLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_information.noty_layout_topRight .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_information.noty_layout_bottomLeft .noty_message .noty_buttons,
+	.noty_bar.noty_theme_twitter.noty_information.noty_layout_bottomRight .noty_message .noty_buttons {
+    border-color: #BCE8F1;
+  }
+  

@@ -127,7 +127,7 @@
 	.noty_bar.noty_theme_growl.noty_layout_bottomLeft .noty_message .noty_buttons,
 	.noty_bar.noty_theme_growl.noty_layout_bottomRight .noty_message .noty_buttons {
 		float: none;
-		border-top: 1px solid #FBEED5;
+		border-top: 1px solid #222;
 	  margin-left: 0;
 	  margin-top: 10px;
 	  padding-top: 10px;
@@ -146,23 +146,29 @@
 	.noty_bar.noty_theme_growl.noty_notification {
 		
 	}
+  
 	/* noty_warning */
 	.noty_bar.noty_theme_growl.noty_warning {
 		
 	}
+  
 	/* noty_alert */
 	.noty_bar.noty_theme_growl.noty_alert {
 		
 	}
+  
 	/* noty_error */
 	.noty_bar.noty_theme_growl.noty_error {
 		
 	}
+  
 	/* noty_success */
 	.noty_bar.noty_theme_growl.noty_success {
 		
 	}
+  
 	/* noty_information */
 	.noty_bar.noty_theme_growl.noty_information {
 		
 	}
+  
