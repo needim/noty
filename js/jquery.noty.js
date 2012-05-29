@@ -11,7 +11,7 @@
 (function($) {
 	$.noty = function(options, customContainer) {
 
-		var base = this;
+		var base = {};
 		var $noty = null;
 		var isCustom = false;
 
