@@ -84,7 +84,7 @@
 				$noty.find('.noty_message').append($buttons);
 				$.each(base.options.buttons, function(i, button) {
 					bclass = (button.type) ? button.type : 'gray';
-					$button = $('<button/>').addClass(bclass).html(button.text).appendTo($noty.find('.noty_buttons'))
+					var $button = $('<button/>').addClass(bclass).html(button.text).appendTo($noty.find('.noty_buttons'))
 					.bind('click', function() {
 						if ($.isFunction(button.click)) {
 							button.click.call($button, $noty);
