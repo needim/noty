@@ -12,7 +12,7 @@ audio[controls],canvas,video {display: inline-block; *display: inline; zoom: 1}
 
 /* BASE */
 html {height: 100%; font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%} /* Force scrollbar in non-IE and Remove iOS text size adjust without disabling user zoom */
-body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoothing:antialiased; text-rendering:optimizeLegibility; background: #fff url(../img/bg.gif)} /* Improve default text rendering, handling of kerning pairs and ligatures */
+body {margin: 0; min-height: 100%; -webkit-font-smoothing:antialiased; font-smoothing:antialiased; text-rendering:optimizeLegibility;} /* Improve default text rendering, handling of kerning pairs and ligatures */
 
 /* DEFAULT FONT SETTINGS */
 /* 16px base font size with 150% (24px) friendly, unitless line height and margin for vertical rhythm */
@@ -39,7 +39,7 @@ pre, code, kbd, samp {font-size: 0.9em; line-height: 1.5em; font-family: Menlo, 
 /* TABLES */
 table {border-collapse: collapse; border-spacing: 0; margin-bottom: 1.5em}
 th {text-align: left}
-tr, th, td {padding-right: 1.5em; border-bottom: 0 solid #333}
+tr, th, td {border-bottom: 0 solid #333}
 
 /* FORMS */
 form {margin: 0}
@@ -104,75 +104,161 @@ span.amp{font-family:Adobe Caslon Pro,Baskerville,"Goudy Old Style","Palatino","
 .cf:after {clear:both}
 .cf {zoom:1} /* For IE 6/7 (trigger hasLayout) */
 
-/* DEFAULT MOBILE STYLE */
-body {width: 92%; margin: 0 auto} /* Center page without wrapper */
+body{
+	width: 100%; margin: 0 auto;
+	padding:0;
+	height: 100%;
+	background: #2F2F2F url(http://subtlepatterns.subtlepatterns.netdna-cdn.com/wp-content/themes/tweaker6/images/footer-bg.png) left -190px;
+	background-repeat:repeat-x;
+	color:#FFFFFF;
+	overflow:visible;
+}
+
+div.inner {
+	background: url('../img/divider.png') center -35px no-repeat;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+div.divider {
+	border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0));
+	margin: 20px 0px;
+}
+
 /* column grid */
 .g1,.g2,.g3{display:block; position: relative; margin-left: 1%; margin-right: 1%}
 /* 1 column grid */
 .g1,.g2,.g3{width:98.0%}
 
-.navigation{
-	margin-bottom: 20px;
-	background-color: #F8F8F8;
-	-webkit-border-radius: 4px;
-	-moz-border-radius: 4px;
-	border-radius: 4px;
-	border: 1px solid #ccc;
-	-moz-box-shadow: 0px 0px 2px #ccc;
-	-webkit-box-shadow: 0px 0px 2px #ccc;
-	box-shadow: 0px 0px 2px #ccc
-}
-.navigation ul {
-	margin-bottom: 5px;
-}
-.navigation ul li{
-	line-height: 2em; display: block
-}
-.navigation > ul > li > a, .navigation > ul > li > span { 
-		padding-left: 10px;
-		border-bottom: 1px solid #ccc;
-		border-top: 1px solid #ccc;
-		margin-top: -1px;
-		display: block;
-		background: #ffffff; /* Old browsers */
-		/* IE9 SVG, needs conditional override of 'filter' to 'none' */
-		background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmZmZmZiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNlNWU1ZTUiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
-		background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
-		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-		background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-		background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
-		background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
-		background: linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* W3C */
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-8 */
-		}
-.navigation > ul > li:first-child > a {
-	border: none;
-	-webkit-border-radius: 4px 4px 0px 0px;
-	-moz-border-radius: 4px 4px 0px 0px;
-	border-radius: 4px 4px 0px 0px;
-}
-.navigation a, .navigation span {
-	color: #7c7c7c;
-	font-weight: bold;
-	font-size: 1.1em !important;
-}
-.navigation a:hover {
-	text-decoration: none; color: #AA5B44;
-	-webkit-transition: all 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
-   -moz-transition: all 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
-    -ms-transition: all 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
-     -o-transition: all 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750);
-        transition: all 100ms cubic-bezier(0.250, 0.250, 0.750, 0.750); /* linear */
-}
-.navigation a.active {
-	color: #AA5B44;
-}
+div.logo-cont {text-align: center; padding-top: 40px;}
 
-a.logo {display: block; text-align: center; margin-top: 20px;}
+div.content {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#fcfcfc), to(#bfbfbf), color-stop(3%, #f7f7f7), color-stop(12%, #f2f2f2), color-stop(90%, #d9d9d9));
+	background-image: -webkit-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: -moz-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: -o-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: -ms-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: linear-gradient(to bottom, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	margin: 0 auto;
+	color: #444;
+	text-shadow: 1px 1px 1px #fff;
+	padding: 20px;
+	width: 90%;
+}
 
 span.hl {
-	color: #789C4E;
-	font-weight: bold;
+	color: #000;
+	padding: 1px 6px;
+	border: 1px solid #878FAB;
+	border-radius: 5px;
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgb(209,237,233)), to(rgb(0,191,162)), color-stop(3%, rgb(193,233,227)), color-stop(12%, rgb(177,228,220)), color-stop(90%, rgb(89,210,191)));
+	background-image: -webkit-linear-gradient(top, rgb(209,237,233), rgb(193,233,227) 3%, rgb(177,228,220) 12%, rgb(89,210,191) 90%, rgb(0,191,162));
+	background-image: -moz-linear-gradient(top, rgb(209,237,233), rgb(193,233,227) 3%, rgb(177,228,220) 12%, rgb(89,210,191) 90%, rgb(0,191,162));
+	background-image: -o-linear-gradient(top, rgb(209,237,233), rgb(193,233,227) 3%, rgb(177,228,220) 12%, rgb(89,210,191) 90%, rgb(0,191,162));
+	background-image: -ms-linear-gradient(top, rgb(209,237,233), rgb(193,233,227) 3%, rgb(177,228,220) 12%, rgb(89,210,191) 90%, rgb(0,191,162));
+	background-image: linear-gradient(to bottom, rgb(209,237,233), rgb(193,233,227) 3%, rgb(177,228,220) 12%, rgb(89,210,191) 90%, rgb(0,191,162));
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+	box-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+span.runner {
+	border: 1px solid black;
+	border-radius: 5px;
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#f2ab2b), to(#e17b19));
+	background-image: -webkit-linear-gradient(top, #f2ab2b, #e17b19);
+	background-image: -moz-linear-gradient(top, #f2ab2b, #e17b19);
+	background-image: -o-linear-gradient(top, #f2ab2b, #e17b19);
+	background-image: -ms-linear-gradient(top, #f2ab2b, #e17b19);
+	background-image: linear-gradient(to bottom, #f2ab2b, #e17b19);
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255, 255, 255, 0.50);
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255, 255, 255, 0.50);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255, 255, 255, 0.50);
+	text-shadow: 1px 1px 1px #eaa764;
+	padding: 4px 8px;
+	font-size: 14px;
+	line-height: 40px;
+}
+
+span.runner:hover {
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#e17b19), to(#f2ab2b));
+	background-image: -webkit-linear-gradient(top, #e17b19, #f2ab2b);
+	background-image: -moz-linear-gradient(top, #e17b19, #f2ab2b);
+	background-image: -o-linear-gradient(top, #e17b19, #f2ab2b);
+	background-image: -ms-linear-gradient(top, #e17b19, #f2ab2b);
+	background-image: linear-gradient(to bottom, #e17b19, #f2ab2b);
+	cursor: pointer;
+}
+
+span.lay-title {
+	display: block;
+}
+
+div.layout-demo {
+	text-align: center;
+}
+
+div.layout-demo h6 {
+	border: 1px solid #999;
+	border-radius: 5px;
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#fcfcfc), to(#bfbfbf), color-stop(3%, #f7f7f7), color-stop(12%, #f2f2f2), color-stop(90%, #d9d9d9));
+	background-image: -webkit-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: -moz-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: -o-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: -ms-linear-gradient(top, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	background-image: linear-gradient(to bottom, #fcfcfc, #f7f7f7 3%, #f2f2f2 12%, #d9d9d9 90%, #bfbfbf);
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.25);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.25);
+	padding: 10px 0px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 1px 1px 0px #fff;
+}
+
+.custom_container {
+	text-shadow: none !important;
+}
+
+div.inner-menu {
+	float: right;
+	text-align: center;
+	font-size: 13px;
+	border: 1px solid #666;
+	border-radius: 5px;
+	background-image: -webkit-gradient(linear, center top, center bottom, from(#bfbfbf), to(#fcfcfc), color-stop(10%, #d9d9d9), color-stop(88%, #f2f2f2), color-stop(97%, #f7f7f7));
+	background-image: -webkit-linear-gradient(top, #bfbfbf, #d9d9d9 10%, #f2f2f2 88%, #f7f7f7 97%, #fcfcfc);
+	background-image: -moz-linear-gradient(top, #bfbfbf, #d9d9d9 10%, #f2f2f2 88%, #f7f7f7 97%, #fcfcfc);
+	background-image: -o-linear-gradient(top, #bfbfbf, #d9d9d9 10%, #f2f2f2 88%, #f7f7f7 97%, #fcfcfc);
+	background-image: -ms-linear-gradient(top, #bfbfbf, #d9d9d9 10%, #f2f2f2 88%, #f7f7f7 97%, #fcfcfc);
+	background-image: linear-gradient(to bottom, #bfbfbf, #d9d9d9 10%, #f2f2f2 88%, #f7f7f7 97%, #fcfcfc);
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.15) inset, inset 0 1px 0 white;
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,0.15) inset, inset 0 1px 0 white;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.15) inset, inset 0 1px 0 white;
+}
+
+div.inner-menu a {
+	border-right: 1px solid #ccc;
+	padding: 0px 8px 0px 5px;
+	color: #666;
+	font-weight: normal;
+}
+
+div.inner-menu a:last-child {
+	border-right: none;
 }
 
 p {
@@ -182,89 +268,20 @@ p {
 code {
 	display: block;
 	font-size: 12px;
+	text-shadow: none;
+	font-weight: bold;
 }
-
-hr {
-	margin-bottom: 0px !important;
-	border: none;
-	border-top: 1px solid #ccc;
-	border-bottom: 1px solid #fff;
-}
-
-ul.layouts span {
-	color: #789C4E; display: block; text-align: center;
-}
-
-ul.layouts a {text-align: center; display: block;}
 
 footer {
-	text-align: right;
+	text-align: center;
 	margin-bottom: 10px;
+	width: 80%;
+	margin: 15px auto;
 }
 
-table.dark {
-	width: 100%;
-	margin: 10px 0px;
-	background-color: #444444;
-	color: #f5f5f5;
-	border-left: 5px solid #BED4A7;
-}
-
-table.dark th {
-	text-align: left;
-	padding: 5px 10px;
-	background-color: #BED4A7;
-	color: #444;
-}
-
-table.dark td {
-	padding: 5px 3px;
-	border-bottom: 2px solid #BED4A7;
-  font-size: 0.85em;
-}
-div.theme-switcher {text-align: right;}
-
-div.top-right {margin-top: 55px; text-align: right}
-div.top-right div.btn-top {display: inline; float: right}
+div.top-right {margin-top: 45px; margin-bottom: 20px; overflow: auto; text-align: center}
+div.top-right div.btn-top {display: inline;}
 .gh-count {display: block !important}
-
-/* Used for the Switch effect: */
-.cb-enable, .cb-disable, .cb-enable span, .cb-disable span { background: url(../img/switch.gif) repeat-x; display: block; float: left; }
-.cb-enable span, .cb-disable span { line-height: 30px; display: block; background-repeat: no-repeat; font-weight: bold; }
-.cb-enable span { background-position: left -90px; padding: 0 10px; }
-.cb-disable span { background-position: right -180px;padding: 0 10px; }
-.cb-disable.selected { background-position: 0 -30px; }
-.cb-disable.selected span { background-position: right -210px; color: #fff; }
-.cb-enable.selected { background-position: 0 -60px; }
-.cb-enable.selected span { background-position: left -150px; color: #fff; }
-.switch label { cursor: pointer; }
-
-p.field.switch.sub {
-	padding: 0px; margin: 0px;
-}
-
-div.noty-creator {
-	text-align: left;
-	border-bottom: 1px solid #ccc;
-}
-div.noty-creator table {
-	margin: 0 auto;
-	border-collapse: separate;
-	border-spacing: 10px;
-	width: 100%;
-}
-div.noty-creator table td {
-	padding: 0px 7px;
-	vertical-align: middle;
-}
-div.noty-creator table td.buttons {
-	text-align: right;
-	padding-top: 15px;
-}
-
-div.noty-creator table td.buttons .button {
-	cursor: pointer;
-}
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #CCCCCC;
@@ -320,6 +337,8 @@ Change widths as necessary
 	ul.layouts .g1 {
 		width:31.333%
 	}
+	
+
 	div.top-right {text-align: left; margin-top: 10px;}
 	div.top-right div.btn-top {display: block; width: 100%; text-align: center;}
 }
@@ -350,8 +369,8 @@ Change widths as necessary
 	.g2 {width:48.0%}
 	.g3 {width:98.0%}
 	
-	div.top-right {text-align: right; margin-top: 55px;}
-	div.top-right div.btn-top {display: inline; width: auto; text-align: center; float: right}
+	div.top-right {text-align: center; margin-top: 55px;}
+	div.top-right div.btn-top {display: inline; width: auto; text-align: center;}
 }
 
 /* LANDSCAPE TABLET/NETBOOK/LAPTOP */
@@ -376,7 +395,7 @@ Change widths as necessary
 /* WIDESCREEN */
 /* Increased body size for legibility */
 @media only screen and (min-width: 1400px) { 
-	body {font-size:116.75%; background:url('../images/28px_grid_bg.gif') 0 1.25em; max-width:1440px} /* 18.5px / 28px */
+	body {font-size:116.75%; max-width:1440px} /* 18.5px / 28px */
 }
 
 

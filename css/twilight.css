@@ -9,16 +9,17 @@
  */
 pre {
     word-wrap: break-word;
-    margin: 0px;
+    margin: -20px 0px 0px 0px;
     padding: 0px;
     color: #F8F8F8;
     font-size: 13px;
 }
 
 pre code {
-		background: #404040;
-		padding: 0px 10px;
-		border-left: 5px solid #BED4A7;
+	background: #404040;
+	padding: 0px 10px;
+	border: 3px solid #333;
+    border-radius: 5px;
 }
 
 pre, code {
