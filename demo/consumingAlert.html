@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>Notification Types</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="demonstration of some noty capabilities">
+  
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+		
+		html {
+			height: 100%;
+			width: 100%;
+		}
+		body { 
+		  font-family: 'PT Sans', Tahoma, Arial, serif; line-height: 13px 
+		}
+		
+	</style>
+	
+	<link rel="stylesheet" type="text/css" href="buttons.css"/>
+  
+</head>
+<body>
+
+  <div class="container">
+
+  	<div id="customContainer"></div>
+  
+  </div>
+  
+  <script src="jquery-1.7.2.min.js"></script>
+  
+  <!-- noty -->
+  <script type="text/javascript" src="../js/noty/jquery.noty.js"></script>
+  
+  <!-- layouts -->
+  <script type="text/javascript" src="../js/noty/layouts/bottom.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/bottomCenter.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/bottomLeft.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/bottomRight.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/center.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/centerLeft.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/centerRight.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/inline.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/top.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/topCenter.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/topLeft.js"></script>
+  <script type="text/javascript" src="../js/noty/layouts/topRight.js"></script>
+
+  <!-- themes -->
+  <script type="text/javascript" src="../js/noty/themes/default.js"></script>
+
+  <script type="text/javascript">
+  
+  $(document).ready(function() {
+  	
+		alert("This is a basic window alert");
+
+    $.noty.consumeAlert({layout: 'topRight', type: 'success', dismissQueue: true});
+
+    alert("This is the same but noty consumed with options");
+
+    $.noty.consumeAlert({layout: 'topCenter', type: 'alert', dismissQueue: true});
+
+    alert("Consumed again but different options");
+
+    $.noty.stopConsumeAlert();
+
+    alert("This is just alert without consume");
+  	
+  });
+  
+  </script>
+</body>
+</html>
