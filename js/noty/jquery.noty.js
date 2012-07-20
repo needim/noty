@@ -404,31 +404,25 @@ function noty(options) {
 	});
 
 	if (!options.closeWith) {
-		options.closeWith = [];
+		options.closeWith = $.noty.defaults.closeWith;
 	}
 
-	var closeBC = 0;
 	if (options.hasOwnProperty('closeButton')) {
-		closeBC++; using_old++;
+		using_old++;
 		if (options.closeButton) options.closeWith.push('button');
 		delete options.closeButton;
 	}
 
 	if (options.hasOwnProperty('closeOnSelfClick')) {
-		closeBC++; using_old++;
+		using_old++;
 		if (options.closeOnSelfClick) options.closeWith.push('click');
 		delete options.closeOnSelfClick;
 	}
 
 	if (options.hasOwnProperty('closeOnSelfOver')) {
-		closeBC++; using_old++;
+		using_old++;
 		if (options.closeOnSelfOver) options.closeWith.push('hover');
 		delete options.closeOnSelfOver;
-	}
-
-	if (closeBC == 0 && !options.closeWith) {
-		console.log('reset');
-		options.closeWith = $.noty.defaults.closeWith;
 	}
 
 	if (options.hasOwnProperty('custom')) {
