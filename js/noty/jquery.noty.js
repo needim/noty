@@ -283,10 +283,8 @@ if (typeof Object.create !== 'function') {
 
 	// This is for custom container
 	$.fn.noty = function(options) {
-		return this.each(function() {
-			options.custom = $(this);
-			return $.notyRenderer.init(options);
-		});
+		options.custom = $(this);
+		return $.notyRenderer.init(options);
 	};
 	 
 	$.noty = {};
