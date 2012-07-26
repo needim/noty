@@ -341,7 +341,7 @@ if (typeof Object.create !== 'function') {
 
 	$.noty.defaults = {
 		layout: 'top',
-		theme: 'default',
+		theme: 'defaults',
 		type: 'alert',
 		text: '',
 		dismissQueue: true,
@@ -435,7 +435,7 @@ function noty(options) {
 
 	if (options.theme == 'noty_theme_default') {
 		using_old++;
-		options.theme = 'default';
+		options.theme = 'defaults';
 	}
 
 	if (!options.hasOwnProperty('dismissQueue')) {
