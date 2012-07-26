@@ -198,6 +198,15 @@ if (typeof Object.create !== 'function') {
 			}
 			return this;
 		},
+		
+		setTimeout: function(time) {
+			if (!this.closed) {
+				var self = this;
+				this.options.timeout = time;
+				self.$bar.delay(self.options.timeout).promise().done(function() { self.close(); });
+			}
+			return this;
+		},
 
 		closed: false,
 		shown: false
