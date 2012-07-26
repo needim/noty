@@ -389,7 +389,7 @@ function noty(options) {
 		'onClosed': 'callback.afterClose'
 	}
 
-	$.each(options, function(key, value) {
+	jQuery.each(options, function(key, value) {
 		if (old_to_new[key]) {
 			using_old++;
 			var _new = old_to_new[key].split('.');
@@ -402,7 +402,7 @@ function noty(options) {
 	});
 
 	if (!options.closeWith) {
-		options.closeWith = $.noty.defaults.closeWith;
+		options.closeWith = jQuery.noty.defaults.closeWith;
 	}
 
 	if (options.hasOwnProperty('closeButton')) {
@@ -450,7 +450,7 @@ function noty(options) {
 	}
 
 	if (options.buttons) {
-		$.each(options.buttons, function(i, button) {
+		jQuery.each(options.buttons, function(i, button) {
 			if (button.click) {
 				using_old++;
 				button.onClick = button.click;
