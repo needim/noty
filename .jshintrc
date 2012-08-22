@@ -1,0 +1,6 @@
+{
+	"browser" : true,
+	"laxcomma": true,
+	"laxbreak": true,
+	"expr"    : true
+}
