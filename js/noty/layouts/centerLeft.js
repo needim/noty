@@ -3,7 +3,7 @@
 	$.noty.layouts.centerLeft = {
 		name: 'centerLeft',
 		options: { // overrides options
-			
+
 		},
 		container: {
 			object: '<ul id="noty_centerLeft_layout_container" />',
@@ -30,7 +30,7 @@
 
 				if ($(this).hasClass('i-am-new')) {
 					$(this).css({
-						top: ($(window).height() - actual_height) / 2 + 'px',
+						top: ($(window).height() - actual_height) / 2 + 'px'
 					});
 				} else {
 					$(this).animate({
