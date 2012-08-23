@@ -462,7 +462,11 @@ function noty(options) {
 		});
 	}
 
-	if (using_old) console.warn('You are using noty v2 with v1.x.x options. @deprecated until v2.2.0 - Please update your options.');
+	if (using_old) {
+    if (typeof console !== "undefined" && console.warn) {
+      console.warn('You are using noty v2 with v1.x.x options. @deprecated until v2.2.0 - Please update your options.');
+    }
+  }
 
 	// console.log(options);
 	// End of the BC
