@@ -110,11 +110,14 @@ if (typeof Object.create !== 'function') {
 			if (self.options.callback.onShow)
 				self.options.callback.onShow.apply(self);
 
+			self.opening = true;
+			
 			self.$bar.animate(
 					self.options.animation.open,
 					self.options.animation.speed,
 					self.options.animation.easing,
 					function() { 
+						delete self.opening;
 						if (self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
 						self.shown = true;
 					});
@@ -133,7 +136,7 @@ if (typeof Object.create !== 'function') {
 
 			var self = this;
 
-			if (!this.shown) { // If we are still waiting in the queue just delete from queue
+			if (!this.opening && !this.shown) { // If we are still waiting in the queue just delete from queue
 				$.each($.noty.queue, function(i, n) {
 					if (n.options.id == self.options.id) {
 						$.noty.queue.splice(i, 1);
@@ -141,6 +144,8 @@ if (typeof Object.create !== 'function') {
 				});
 				return;
 			}
+
+			delete self.opening;
 
 			self.$bar.addClass('i-am-closing-now');
 
