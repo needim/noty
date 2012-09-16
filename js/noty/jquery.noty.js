@@ -134,11 +134,13 @@ if (typeof Object.create !== 'function') {
 			var self = this;
 
 			if (!this.shown) { // If we are still waiting in the queue just delete from queue
-				$.each($.noty.queue.slice(), function(i, n) {
-					if (n.options.id == self.options.id) {
-						$.noty.queue.splice(i, 1);
+				var queue = [];
+				$.each($.noty.queue, function(i, n) {
+					if (n.options.id != self.options.id) {
+						queue.push(n);
 					}
 				});
+				$.noty.queue = queue;
 				return;
 			}
 
