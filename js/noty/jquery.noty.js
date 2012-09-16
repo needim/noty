@@ -83,7 +83,7 @@ if (typeof Object.create !== 'function') {
 
 			var self = this;
 
-			$(self.options.layout.container.selector).append(self.$bar);
+			self.getReferenceContainer().find(self.options.layout.container.selector).append(self.$bar);
 
 			self.options.theme.style.apply(self);
 
@@ -91,7 +91,7 @@ if (typeof Object.create !== 'function') {
 
 			self.$bar.addClass(self.options.layout.addClass);
 
-			self.options.layout.container.style.apply($(self.options.layout.container.selector));
+			self.options.layout.container.style.apply(self.getReferenceContainer().find(self.options.layout.container.selector));
 
 			self.options.theme.callback.onShow.apply(this);
 
@@ -161,7 +161,7 @@ if (typeof Object.create !== 'function') {
 
 					// Layout Cleaning
 					$.notyRenderer.setLayoutCountFor(self, -1);
-					if ($.notyRenderer.getLayoutCountFor(self) == 0) $(self.options.layout.container.selector).remove();
+					if ($.notyRenderer.getLayoutCountFor(self) == 0) self.getReferenceContainer().find(self.options.layout.container.selector).remove();
 
 					self.$bar.remove();
 					self.$bar = null;
@@ -195,6 +195,10 @@ if (typeof Object.create !== 'function') {
 				this.options.theme.callback.onShow.apply(this);
 			}
 			return this;
+		},
+		
+		getReferenceContainer : function() {
+			return this.options.custom ? this.options.custom : $('body');
 		},
 
 		closed: false,
@@ -243,14 +247,11 @@ if (typeof Object.create !== 'function') {
 		}
 
 		// Where is the container?
-		if ($(notification.options.layout.container.selector).length == 0) {
-			if (notification.options.custom) {
-				notification.options.custom.append($(notification.options.layout.container.object).addClass('i-am-new'));
-			} else {
-				$('body').append($(notification.options.layout.container.object).addClass('i-am-new'));
-			}
+		var $referenceContainer = notification.getReferenceContainer();
+		if ($referenceContainer.find(notification.options.layout.container.selector).length == 0) {
+			$referenceContainer.append($(notification.options.layout.container.object).addClass('i-am-new'));
 		} else {
-			$(notification.options.layout.container.selector).removeClass('i-am-new');
+			$referenceContainer.find(notification.options.layout.container.selector).removeClass('i-am-new');
 		}
 
 		$.notyRenderer.setLayoutCountFor(notification, +1);
@@ -264,11 +265,11 @@ if (typeof Object.create !== 'function') {
 	};
 
 	$.notyRenderer.getLayoutCountFor = function(notification) {
-		return $(notification.options.layout.container.selector).data('noty_layout_count') || 0; 
+		return notification.getReferenceContainer().data('noty_layout_count') || 0; 
 	};
 
 	$.notyRenderer.setLayoutCountFor = function(notification, arg) {
-		return $(notification.options.layout.container.selector).data('noty_layout_count', $.notyRenderer.getLayoutCountFor(notification) + arg); 
+		return notification.getReferenceContainer().data('noty_layout_count', $.notyRenderer.getLayoutCountFor(notification) + arg); 
 	};
 
 	$.notyRenderer.getModalCount = function() {
@@ -278,7 +279,7 @@ if (typeof Object.create !== 'function') {
 	$.notyRenderer.setModalCount = function(arg) {
 		return $('.noty_modal').data('noty_modal_count', $.notyRenderer.getModalCount() + arg); 
 	};
-
+	
 	// This is for custom container
 	$.fn.noty = function(options) {
 		options.custom = $(this);
