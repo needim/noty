@@ -114,7 +114,7 @@ if (typeof Object.create !== 'function') {
 					self.options.animation.open,
 					self.options.animation.speed,
 					self.options.animation.easing,
-					function() { 
+					function() {
 						if (self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
 						self.shown = true;
 					});
@@ -220,7 +220,7 @@ if (typeof Object.create !== 'function') {
 		// Renderer creates a new noty
 		var notification = Object.create(NotyObject).init(options);
 
-		(notification.options.force) ? $.noty.queue.unshift(notification) : $.noty.queue.push(notification); 
+		(notification.options.force) ? $.noty.queue.unshift(notification) : $.noty.queue.push(notification);
 
 		$.notyRenderer.render();
 
@@ -270,16 +270,16 @@ if (typeof Object.create !== 'function') {
 	};
 
 	$.notyRenderer.createModalFor = function(notification) {
-		if ($('.noty_modal').length == 0) 
-			$('<div/>').addClass('noty_modal').data('noty_modal_count', 0).css(notification.options.theme.modal.css).prependTo($('body')).fadeIn('fast'); 
+		if ($('.noty_modal').length == 0)
+			$('<div/>').addClass('noty_modal').data('noty_modal_count', 0).css(notification.options.theme.modal.css).prependTo($('body')).fadeIn('fast');
 	};
 
 	$.notyRenderer.getLayoutCountFor = function(notification) {
-		return $(notification.options.layout.container.selector).data('noty_layout_count') || 0; 
+		return $(notification.options.layout.container.selector).data('noty_layout_count') || 0;
 	};
 
 	$.notyRenderer.setLayoutCountFor = function(notification, arg) {
-		return $(notification.options.layout.container.selector).data('noty_layout_count', $.notyRenderer.getLayoutCountFor(notification) + arg); 
+		return $(notification.options.layout.container.selector).data('noty_layout_count', $.notyRenderer.getLayoutCountFor(notification) + arg);
 	};
 
 	$.notyRenderer.getModalCount = function() {
@@ -287,7 +287,7 @@ if (typeof Object.create !== 'function') {
 	};
 
 	$.notyRenderer.setModalCount = function(arg) {
-		return $('.noty_modal').data('noty_modal_count', $.notyRenderer.getModalCount() + arg); 
+		return $('.noty_modal').data('noty_modal_count', $.notyRenderer.getModalCount() + arg);
 	};
 
 	// This is for custom container
@@ -295,7 +295,7 @@ if (typeof Object.create !== 'function') {
 		options.custom = $(this);
 		return $.notyRenderer.init(options);
 	};
-	 
+
 	$.noty = {};
 	$.noty.queue = [];
 	$.noty.ontap = true;
@@ -337,7 +337,7 @@ if (typeof Object.create !== 'function') {
 		window.alert = function(text) {
 			if (options)
 				options.text = text;
-			else 
+			else
 				options = {text:text};
 
 			$.notyRenderer.init(options);
@@ -350,7 +350,7 @@ if (typeof Object.create !== 'function') {
 
 	$.noty.defaults = {
 		layout: 'top',
-		theme: 'default',
+		theme: 'defaultTheme',
 		type: 'alert',
 		text: '',
 		dismissQueue: true,
@@ -444,12 +444,12 @@ function noty(options) {
 
 	if (options.theme == 'noty_theme_default') {
 		using_old++;
-		options.theme = 'default';
+		options.theme = 'defaultTheme';
 	}
 
 	if (!options.hasOwnProperty('dismissQueue')) {
 		if (options.layout == 'topLeft'
-			|| options.layout == 'topRight' 
+			|| options.layout == 'topRight'
 			|| options.layout == 'bottomLeft'
 			|| options.layout == 'bottomRight') {
 			options.dismissQueue = true;
@@ -473,7 +473,11 @@ function noty(options) {
 		});
 	}
 
-	if (using_old) console.warn('You are using noty v2 with v1.x.x options. @deprecated until v2.2.0 - Please update your options.');
+	if (using_old) {
+    if (typeof console !== "undefined" && console.warn) {
+      console.warn('You are using noty v2 with v1.x.x options. @deprecated until v2.2.0 - Please update your options.');
+    }
+  }
 
 	// console.log(options);
 	// End of the BC
