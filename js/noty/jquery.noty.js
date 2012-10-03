@@ -187,9 +187,12 @@ if (typeof Object.create !== 'function') {
                     $.notyRenderer.setLayoutCountFor(self, -1);
                     if ($.notyRenderer.getLayoutCountFor(self) == 0) $(self.options.layout.container.selector).remove();
 
-                    self.$bar.remove();
-                    self.$bar = null;
-                    self.closed = true;
+                    // Make sure self.$bar has not been removed before attempting to remove it
+                    if (typeof self.$bar !== 'undefined' && self.$bar !== null ) {
+                        self.$bar.remove();
+                        self.$bar = null;
+                        self.closed = true;
+                    }
 
                     delete $.noty.store[self.options.id]; // deleting noty from store
 
