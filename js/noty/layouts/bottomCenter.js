@@ -22,7 +22,7 @@
 				});
 
 				$(this).css({
-					left: ($(window).width() - $(this).outerWidth()) / 2 + 'px'
+					left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px'
 				});
 			}
 		},
