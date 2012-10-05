@@ -29,12 +29,12 @@
 
 				if ($(this).hasClass('i-am-new')) {
 					$(this).css({
-						left: ($(window).width() - $(this).outerWidth()) / 2 + 'px',
+						left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px',
 						top: ($(window).height() - actual_height) / 2 + 'px'
 					});
 				} else {
 					$(this).animate({
-						left: ($(window).width() - $(this).outerWidth()) / 2 + 'px',
+						left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px',
 						top: ($(window).height() - actual_height) / 2 + 'px'
 					}, 500);
 				}
