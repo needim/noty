@@ -28,7 +28,7 @@ if (typeof Object.create !== 'function') {
             // Mix in the passed in options with the default options
             this.options = $.extend({}, $.noty.defaults, options);
 
-            this.options.layout = (this.options.custom) ? $.noty.layouts['inline'] : $.noty.layouts[this.options.layout];
+            this.options.layout = (this.options.custom) ? $.noty.layouts['inline' + (options.layout ? '_' + options.layout : '')] : $.noty.layouts[this.options.layout];
             this.options.theme = $.noty.themes[this.options.theme];
 
             delete options.layout;
