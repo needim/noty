@@ -482,14 +482,7 @@ function noty(options) {
     }
 
     if (!options.hasOwnProperty('dismissQueue')) {
-        if (options.layout == 'topLeft'
-            || options.layout == 'topRight'
-            || options.layout == 'bottomLeft'
-            || options.layout == 'bottomRight') {
-            options.dismissQueue = true;
-        } else {
-            options.dismissQueue = false;
-        }
+        options.dismissQueue = jQuery.noty.defaults.dismissQueue;
     }
 
     if (options.buttons) {
