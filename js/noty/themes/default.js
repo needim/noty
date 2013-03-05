@@ -78,8 +78,8 @@
 			});
 
 			this.$bar.bind({
-				mouseenter: function() { $(this).find('.noty_close').fadeIn(); },
-				mouseleave: function() { $(this).find('.noty_close').fadeOut(); }
+				mouseenter: function() { $(this).find('.noty_close').stop().fadeTo('normal',1); },
+				mouseleave: function() { $(this).find('.noty_close').stop().fadeTo('normal',0); }
 			});
 
 			switch (this.options.layout.name) {
