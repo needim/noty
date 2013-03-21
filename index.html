@@ -6,20 +6,20 @@
 	<title>noty - A jQuery Notification Plugin</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-	<meta name="description" content="noty is a jquery plugin which is have too many options for display notification" />
+	<meta name="description" content="noty is a jquery plugin which is have too many options for display notification"/>
 	<meta name="author" content="Nedim Arabacı (http://ned.im)">
-	<meta name="keywords" content="jquery, notification, plugin, opensource, open, source" />
+	<meta name="keywords" content="jquery, notification, plugin, opensource, open, source"/>
 
 	<!-- Optimized mobile viewport -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+
 	<!-- Place favicon.ico and apple-touch-icon.png in root directory -->
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/fluid.css">
 	<link rel="stylesheet" href="css/buttons.css">
 	<link rel="stylesheet" href="css/twilight.css">
 	<link rel="stylesheet" href="css/font-awesome.css">
-  
+
 </head>
 
 <body>
@@ -27,39 +27,51 @@
 		<header>
 			<div class="g3 logo-cont">
 				<a class="logo" href="/noty" title="noty - a jquery notification plugin">
-					<img src="img/noty-v2-logo.png" alt="noty - a jquery notification plugin" />
+					<img src="img/noty-v2-logo.png" alt="noty - a jquery notification plugin"/>
 				</a>
 			</div>
 			<div class="g3">
 				<div class="top-right">
-					
+
 					<div class="btn-top">
 						<iframe src="http://ghbtns.com/github-btn.html?user=needim&amp;repo=noty&amp;type=watch&amp;count=true"
-	  				allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
-	  			</div>
-	  			
-	  			<div class="btn-top">
-		  			<iframe src="http://ghbtns.com/github-btn.html?user=needim&amp;repo=noty&amp;type=fork&amp;count=true"
-		  			allowtransparency="true" frameborder="0" scrolling="0" width="92px" height="20px"></iframe>
-	  			</div>
-	  			
-	  			<div class="btn-top">
-					  <iframe src="http://ghbtns.com/github-btn.html?user=needim&amp;type=follow&amp;count=true"
-					  allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="20px"></iframe>
+                                allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
 	  			</div>
 
 	  			<div class="btn-top">
+		  			<iframe src="http://ghbtns.com/github-btn.html?user=needim&amp;repo=noty&amp;type=fork&amp;count=true"
+                            allowtransparency="true" frameborder="0" scrolling="0" width="92px" height="20px"></iframe>
+	  			</div>
+
+	  			<div class="btn-top">
+					  <iframe src="http://ghbtns.com/github-btn.html?user=needim&amp;type=follow&amp;count=true"
+                              allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="20px"></iframe>
+	  			</div>
+
+                <div class="btn-top">
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://needim.github.com/noty/" data-via="needim" data-related="needim" data-hashtags="notyjs">Tweet</a>
+                    <script>!function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (!d.getElementById(id)) {
+                                js = d.createElement(s);
+                                js.id = id;
+                                js.src = "//platform.twitter.com/widgets.js";
+                                fjs.parentNode.insertBefore(js, fjs);
+                            }
+                        }(document, "script", "twitter-wjs");</script>
+                </div>
+
+	  			<div class="btn-top">
 		    		<a href="http://flattr.com/thing/529967/noty-jQuery-Notification-Plugin" target="_blank">
-						<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0" /></a>
+						<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"/></a>
 					</div>
-	  			
-	    	</div>
+	    	    </div>
 			</div>
 		</header>
 		<div class="cf"></div>
 		<div id="wrapper">
 			<div class="g3">
-				
+
 				<div class="content">
 
 					<div class="inner-menu" style="display: none">
@@ -79,17 +91,17 @@
 					</div>
 
 					<div id="hi">
-		
+
 						<h4>Hi!</h4>
-						
+
 						<p><span class="hl">noty</span> is a jQuery plugin that makes it easy to create <span class="hl">alert</span> - <span class="hl">success</span> - <span class="hl">error</span> - <span class="hl">warning</span> - <span class="hl">information</span> - <span class="hl">confirmation</span> messages as an alternative the standard alert dialog. Each notification is added to a <span class="hl">queue</span>. (Optional)</p>
-						
-						<p>The notifications can be positioned at the; <br /> <span class="hl">top</span> - <span class="hl">topLeft</span> - <span class="hl">topCenter</span> - <span class="hl">topRight</span> - <span class="hl">center</span> - <span class="hl">centerLeft</span> - <span class="hl">centerRight</span> - <span class="hl">bottom</span> - <span class="hl">bottomLeft</span> - <span class="hl">bottomCenter</span> - <span class="hl">bottomRight</span></p>
-						
+
+						<p>The notifications can be positioned at the; <br/> <span class="hl">top</span> - <span class="hl">topLeft</span> - <span class="hl">topCenter</span> - <span class="hl">topRight</span> - <span class="hl">center</span> - <span class="hl">centerLeft</span> - <span class="hl">centerRight</span> - <span class="hl">bottom</span> - <span class="hl">bottomLeft</span> - <span class="hl">bottomCenter</span> - <span class="hl">bottomRight</span></p>
+
 						<p>There are lots of other options in the API to customise the text, animation, speed, buttons and much more.</p>
-						
+
 						<p>It also has various callbacks for the buttons, opening closing the notifications and queue control.</p>
-						
+
 					</div>
 
 					<div class="divider"></div>
@@ -109,7 +121,7 @@
 							<h6><span class='lay-title'>Top</span>
 							<span class="runner" data-layout="top" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="top" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="top" data-type="error">Error <i class="icon-caret-right"></i></span>  <br />
+							<span class="runner" data-layout="top" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
 							<span class="runner" data-layout="top" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="top" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="top" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
@@ -130,8 +142,8 @@
 							<h6><span class='lay-title'>TopLeft</span>
 							<span class="runner" data-layout="topLeft" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="topLeft" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topLeft" data-type="error">Error <i class="icon-caret-right"></i></span> <br />
-							<span class="runner" data-layout="topLeft" data-type="warning">Warning <i class="icon-caret-right"></i></span> 
+							<span class="runner" data-layout="topLeft" data-type="error">Error <i class="icon-caret-right"></i></span> <br/>
+							<span class="runner" data-layout="topLeft" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="topLeft" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="topLeft" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
 							</h6>
@@ -143,7 +155,7 @@
 							<h6><span class='lay-title'>TopCenter</span>
 							<span class="runner" data-layout="topCenter" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="topCenter" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topCenter" data-type="error">Error <i class="icon-caret-right"></i></span>  <br />
+							<span class="runner" data-layout="topCenter" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
 							<span class="runner" data-layout="topCenter" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="topCenter" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="topCenter" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
@@ -156,7 +168,7 @@
 							<h6><span class='lay-title'>TopRight</span>
 							<span class="runner" data-layout="topRight" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="topRight" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topRight" data-type="error">Error <i class="icon-caret-right"></i></span>  <br />
+							<span class="runner" data-layout="topRight" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
 							<span class="runner" data-layout="topRight" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="topRight" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="topRight" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
@@ -171,8 +183,8 @@
 							<h6><span class='lay-title'>CenterLeft</span>
 							<span class="runner" data-layout="centerLeft" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="centerLeft" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerLeft" data-type="error">Error <i class="icon-caret-right"></i></span> <br />
-							<span class="runner" data-layout="centerLeft" data-type="warning">Warning <i class="icon-caret-right"></i></span> 
+							<span class="runner" data-layout="centerLeft" data-type="error">Error <i class="icon-caret-right"></i></span> <br/>
+							<span class="runner" data-layout="centerLeft" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="centerLeft" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="centerLeft" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
 							</h6>
@@ -184,7 +196,7 @@
 							<h6><span class='lay-title'>Center</span>
 							<span class="runner" data-layout="center" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="center" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="center" data-type="error">Error <i class="icon-caret-right"></i></span>  <br />
+							<span class="runner" data-layout="center" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
 							<span class="runner" data-layout="center" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="center" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="center" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
@@ -197,7 +209,7 @@
 							<h6><span class='lay-title'>CenterRight</span>
 							<span class="runner" data-layout="centerRight" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="centerRight" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerRight" data-type="error">Error <i class="icon-caret-right"></i></span>  <br />
+							<span class="runner" data-layout="centerRight" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
 							<span class="runner" data-layout="centerRight" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="centerRight" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="centerRight" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
@@ -212,8 +224,8 @@
 							<h6><span class='lay-title'>BottomLeft</span>
 							<span class="runner" data-layout="bottomLeft" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottomLeft" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomLeft" data-type="error">Error <i class="icon-caret-right"></i></span> <br />
-							<span class="runner" data-layout="bottomLeft" data-type="warning">Warning <i class="icon-caret-right"></i></span> 
+							<span class="runner" data-layout="bottomLeft" data-type="error">Error <i class="icon-caret-right"></i></span> <br/>
+							<span class="runner" data-layout="bottomLeft" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottomLeft" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottomLeft" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
 							</h6>
@@ -225,7 +237,7 @@
 							<h6><span class='lay-title'>BottomCenter</span>
 							<span class="runner" data-layout="bottomCenter" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottomCenter" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomCenter" data-type="error">Error <i class="icon-caret-right"></i></span>  <br />
+							<span class="runner" data-layout="bottomCenter" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
 							<span class="runner" data-layout="bottomCenter" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottomCenter" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottomCenter" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
@@ -238,7 +250,7 @@
 							<h6><span class='lay-title'>BottomRight</span>
 							<span class="runner" data-layout="bottomRight" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottomRight" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomRight" data-type="error">Error <i class="icon-caret-right"></i></span>  <br />
+							<span class="runner" data-layout="bottomRight" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
 							<span class="runner" data-layout="bottomRight" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottomRight" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottomRight" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
@@ -259,7 +271,7 @@
 							<h6><span class='lay-title'>Bottom</span>
 							<span class="runner" data-layout="bottom" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottom" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottom" data-type="error">Error <i class="icon-caret-right"></i></span>  <br />
+							<span class="runner" data-layout="bottom" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
 							<span class="runner" data-layout="bottom" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottom" data-type="information">Information <i class="icon-caret-right"></i></span>
 							<span class="runner" data-layout="bottom" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
@@ -282,21 +294,21 @@
 					<div id="installation">
 
 						<h4>Installation</h4>
-						
-						Include <a href="http://docs.jquery.com/Downloading_jQuery#Current_Release">jQuery latest release</a> in your header. 
+
+						Include <a href="http://docs.jquery.com/Downloading_jQuery#Current_Release">jQuery latest release</a> in your header.
 						The Google AJAX Libraries API can be used for this but you could also host the library yourself.
 
-						<p>Download <span class="hl">noty</span> from the 
+						<p>Download <span class="hl">noty</span> from the
 						<a href="https://github.com/needim/noty/downloads"><i class="icon-github"></i> Github</a> and upload the files to your server.</p>
-						Include <span class="hl">noty/jquery.noty.js</span> and its dependancies below jQuery. <br />
+						Include <span class="hl">noty/jquery.noty.js</span> and its dependancies below jQuery. <br/>
 						Also add <span class="hl">noty/layouts/top.js</span> (you can use more layouts if you want) and <span class="hl">noty/themes/default.js</span> to your header. Or some other theme.
-						
-						<p>noty is compatible with <span class="hl">jQuery 1.6+</span> for now. 
-						But if you are using older version then 1.6 you can add <span class="hl">promise.js</span> to your header. 
+
+						<p>noty is compatible with <span class="hl">jQuery 1.6+</span> for now.
+						But if you are using older version then 1.6 you can add <span class="hl">promise.js</span> to your header.
 						(Thanks for <a href="https://github.com/MrMaksimize" target="_blank">Maksim Pecherskiy</a>)</p>
-						
+
 						<p>Your code should then be similar to this:</p>
-						
+
 						<pre>
 						<code data-language="html">
 &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
@@ -311,7 +323,7 @@
 &lt;script type="text/javascript" src="js/noty/themes/default.js"&gt;&lt;/script&gt;
 						</code>
 						</pre>
-												
+
 					</div>
 
 					<div class="divider"></div>
@@ -319,17 +331,17 @@
 					<div id="creating-a-noty">
 
 						<h4>Creating a noty</h4>
-							
+
 							We wrote a helper for creating noty easily. So you can use <span class="hl">noty(properties);</span> Just like this;
-							
+
 							<p>Returns a noty javascript object. (not jquery dom object, but you can access dom with this object)</p>
-								
+
 							<pre>
 							<code data-language="javascript">
 var noty = noty({text: 'noty - a jquery notification library!'});
 							</code>
 							</pre>
-							
+
 					</div>
 
 					<div class="divider"></div>
@@ -337,14 +349,14 @@ var noty = noty({text: 'noty - a jquery notification library!'});
 					<div id="options">
 
 						<h4>Options &amp; Defaults</h4>
-						
+
 						<p>Available options listed below.</p>
-						
+
 						<pre>
 						<code data-language="javascript">
 $.noty.defaults = {
 	layout: 'top',
-	theme: 'default',
+	theme: 'defaultTheme',
 	type: 'alert',
 	text: '',
 	dismissQueue: true, // If you want to use queue feature set this true
@@ -377,39 +389,39 @@ $.noty.defaults = {
 					<div id="custom-container">
 
 						<h4>Custom Container</h4>
-							
+
 						<p>Just like this;</p>
-						
+
 						<pre>
 						<code data-language="javascript">
 var noty = $('.custom_container').noty({text: 'noty - a jquery notification library!'});
 						</code>
 						</pre>
-						
+
 						<div class="cf">
-						
+
 							<div class="g1">
-							
+
 								<h5>Try!</h5>
-								
+
 								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="alert">Alert <i class="icon-caret-right"></i></span>
 								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="success">Success <i class="icon-caret-right"></i></span>
-								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="error">Error <i class="icon-caret-right"></i></span>  <br />
+								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
 								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="warning">Warning <i class="icon-caret-right"></i></span>
 								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="information">Information <i class="icon-caret-right"></i></span>
 								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							
+
 							</div>
-							
+
 							<div class="g2">
-							
+
 								<h5>Custom Container</h5>
-							
+
 								<div class="custom_container"></div>
 							</div>
-						
+
 						</div>
-							
+
 					</div>
 
 					<div class="divider"></div>
@@ -417,13 +429,13 @@ var noty = $('.custom_container').noty({text: 'noty - a jquery notification libr
 					<div id="theme">
 
 						<h4>Theme (But How?)</h4>
-						
-						<p>noty is easily themable using Javascript or CSS. But my English is not enough for the explain how. :(</p> 
-						
+
+						<p>noty is easily themable using Javascript or CSS. But my English is not enough for the explain how. :(</p>
+
 						<p>Theme structre is in <span class="hl">noty/themes/default.js</span> file. You can copy-paste this file and change.</p>
-						
+
 						<p>After that you can set your new theme with noty <span class="hl">theme property</span>. Like;</p>
-						
+
 						<pre>
 						<code data-language="javascript">
 	var noty_id = noty({
@@ -432,7 +444,7 @@ var noty = $('.custom_container').noty({text: 'noty - a jquery notification libr
 	});
 						</code>
 						</pre>
-						
+
 					</div>
 
 					<div class="divider"></div>
@@ -446,7 +458,7 @@ var noty = $('.custom_container').noty({text: 'noty - a jquery notification libr
 						<pre>
 						<code data-language="javascript">
 noty({
-	text: 'Do you want to continue?', 
+	text: 'Do you want to continue?',
 	buttons: [
 		{addClass: 'btn btn-primary', text: 'Ok', onClick: function($noty) {
 
@@ -478,12 +490,12 @@ noty({
 						<p>noty have 4 callback option for now. We will add more callback asap.</p>
 
 						<p>
-							<span class="hl">onShow</span> - 
-							<span class="hl">afterShow</span> - 
-							<span class="hl">onClose</span> - 
+							<span class="hl">onShow</span> -
+							<span class="hl">afterShow</span> -
+							<span class="hl">onClose</span> -
 							<span class="hl">afterClose</span>
 						</p>
-						
+
 					</div>
 
 					<div class="divider"></div>
@@ -541,7 +553,7 @@ noty({
 					</div>
 
 				</div>
-				
+
 			</div>
 		</div>
 		<footer class="g3 cf">
@@ -577,24 +589,28 @@ noty({
   <script defer src="js/script.js"></script>
 
 	<!-- HTML5 IE Enabling Script -->
-	<!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	
-	<!-- CSS3 Media Queries -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- CSS3 Media Queries -->
 	<!--<script src="js/libs/respond.min.js"></script> -->
 
 	<script type="text/javascript">
 
 	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-28737816-1']);
-	  _gaq.push(['_trackPageview']);
+      _gaq.push(['_setAccount', 'UA-28737816-1']);
+      _gaq.push(['_trackPageview']);
 
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
+      (function () {
+          var ga = document.createElement('script');
+          ga.type = 'text/javascript';
+          ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0];
+          s.parentNode.insertBefore(ga, s);
+      })();
 
 	</script>
-	
+
 </body>
 </html>
