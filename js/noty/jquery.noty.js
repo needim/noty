@@ -146,6 +146,7 @@ if (typeof Object.create !== 'function') {
         close:function () {
 
             if (this.closed) return;
+            if (this.$bar && this.$bar.hasClass('i-am-closing-now')) return;
 
             var self = this;
 
