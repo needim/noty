@@ -105,6 +105,9 @@ if (typeof Object.create !== 'function') {
 
             if ($.inArray('click', self.options.closeWith) > -1)
                 self.$bar.css('cursor', 'pointer').one('click', function () {
+                    if (self.options.callback.onCloseClick) {
+                        self.options.callback.onCloseClick.apply(self);
+                    }
                     self.close();
                 });
 
@@ -403,6 +406,8 @@ if (typeof Object.create !== 'function') {
             onClose:function () {
             },
             afterClose:function () {
+            },
+            onCloseClick:function () {
             }
         },
         buttons:false
@@ -429,6 +434,7 @@ function noty(options) {
             'onShow':'callback.onShow',
             'onShown':'callback.afterShow',
             'onClose':'callback.onClose',
+            'onCloseClick':'callback.onCloseClick',
             'onClosed':'callback.afterClose'
         };
 
