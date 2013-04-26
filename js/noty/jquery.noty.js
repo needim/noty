@@ -86,6 +86,33 @@ if (typeof Object.create !== 'function') {
             $.noty.store[this.options.id] = this; // store noty for api
 
         }, // end _build
+        
+        _setEvents:function () {
+            
+            var self = this;
+            
+            if ($.inArray('click', self.options.closeWith) > -1)
+                self.$bar.css('cursor', 'pointer').one('click', function () {
+                    var doClose = true;
+                    if (self.options.callback.onCloseClick) {
+                        doClose = self.options.callback.onCloseClick.apply(self);
+                    }
+                    if (doClose != false) {
+                        self.close();
+                    }
+                });
+
+            if ($.inArray('hover', self.options.closeWith) > -1)
+                self.$bar.one('mouseenter', function () {
+                    self.close();
+                });
+
+            if ($.inArray('button', self.options.closeWith) > -1)
+                self.$closeButton.one('click', function () {
+                    self.close();
+                });
+            
+        },
 
         show:function () {
 
@@ -103,23 +130,7 @@ if (typeof Object.create !== 'function') {
 
             self.options.theme.callback.onShow.apply(this);
 
-            if ($.inArray('click', self.options.closeWith) > -1)
-                self.$bar.css('cursor', 'pointer').one('click', function () {
-                    if (self.options.callback.onCloseClick) {
-                        self.options.callback.onCloseClick.apply(self);
-                    }
-                    self.close();
-                });
-
-            if ($.inArray('hover', self.options.closeWith) > -1)
-                self.$bar.one('mouseenter', function () {
-                    self.close();
-                });
-
-            if ($.inArray('button', self.options.closeWith) > -1)
-                self.$closeButton.one('click', function () {
-                    self.close();
-                });
+            self._setEvents();
 
             if ($.inArray('button', self.options.closeWith) == -1)
                 self.$closeButton.remove();
@@ -166,9 +177,17 @@ if (typeof Object.create !== 'function') {
 
             self.$bar.addClass('i-am-closing-now');
 
+            var doClose = true;
             if (self.options.callback.onClose) {
-                self.options.callback.onClose.apply(self);
+                doClose = self.options.callback.onClose.apply(self);
             }
+            
+            if (doClose == false) {
+                self.$bar.removeClass('i-am-closing-now');
+                self._setEvents();
+                return;
+            }
+            
 
             self.$bar.clearQueue().stop().animate(
                 self.options.animation.close,
