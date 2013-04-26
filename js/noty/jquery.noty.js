@@ -105,10 +105,13 @@ if (typeof Object.create !== 'function') {
 
             if ($.inArray('click', self.options.closeWith) > -1)
                 self.$bar.css('cursor', 'pointer').one('click', function () {
+                    var doClose = true;
                     if (self.options.callback.onCloseClick) {
-                        self.options.callback.onCloseClick.apply(self);
+                        doClose = self.options.callback.onCloseClick.apply(self);
                     }
-                    self.close();
+                    if (doClose != false) {
+                        self.close();
+                    }
                 });
 
             if ($.inArray('hover', self.options.closeWith) > -1)
@@ -166,9 +169,16 @@ if (typeof Object.create !== 'function') {
 
             self.$bar.addClass('i-am-closing-now');
 
+            var doClose = true;
             if (self.options.callback.onClose) {
-                self.options.callback.onClose.apply(self);
+                doClose = self.options.callback.onClose.apply(self);
             }
+            
+            if (doClose == false) {
+                self.$bar.removeClass('i-am-closing-now');
+                return;
+            }
+            
 
             self.$bar.clearQueue().stop().animate(
                 self.options.animation.close,
