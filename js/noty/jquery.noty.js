@@ -86,23 +86,11 @@ if (typeof Object.create !== 'function') {
             $.noty.store[this.options.id] = this; // store noty for api
 
         }, // end _build
-
-        show:function () {
-
+        
+        _setEvents:function () {
+            
             var self = this;
-
-            $(self.options.layout.container.selector).append(self.$bar);
-
-            self.options.theme.style.apply(self);
-
-            ($.type(self.options.layout.css) === 'function') ? this.options.layout.css.apply(self.$bar) : self.$bar.css(this.options.layout.css || {});
-
-            self.$bar.addClass(self.options.layout.addClass);
-
-            self.options.layout.container.style.apply($(self.options.layout.container.selector));
-
-            self.options.theme.callback.onShow.apply(this);
-
+            
             if ($.inArray('click', self.options.closeWith) > -1)
                 self.$bar.css('cursor', 'pointer').one('click', function () {
                     var doClose = true;
@@ -123,6 +111,26 @@ if (typeof Object.create !== 'function') {
                 self.$closeButton.one('click', function () {
                     self.close();
                 });
+            
+        },
+
+        show:function () {
+
+            var self = this;
+
+            $(self.options.layout.container.selector).append(self.$bar);
+
+            self.options.theme.style.apply(self);
+
+            ($.type(self.options.layout.css) === 'function') ? this.options.layout.css.apply(self.$bar) : self.$bar.css(this.options.layout.css || {});
+
+            self.$bar.addClass(self.options.layout.addClass);
+
+            self.options.layout.container.style.apply($(self.options.layout.container.selector));
+
+            self.options.theme.callback.onShow.apply(this);
+
+            self._setEvents();
 
             if ($.inArray('button', self.options.closeWith) == -1)
                 self.$closeButton.remove();
@@ -176,6 +184,7 @@ if (typeof Object.create !== 'function') {
             
             if (doClose == false) {
                 self.$bar.removeClass('i-am-closing-now');
+                self._setEvents();
                 return;
             }
             
