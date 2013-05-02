@@ -54,6 +54,11 @@ if (typeof Object.create !== 'function') {
 
             this.$bar = (this.options.layout.parent.object !== null) ? $(this.options.layout.parent.object).css(this.options.layout.parent.css).append($bar) : $bar;
 
+            // toggle activity animation class
+            if (this.options.activityAnimation) {
+                this.$bar.find('.noty_message').toggleClass("noty-activity-animation");
+            }
+
             // Set buttons if available
             if (this.options.buttons) {
 
@@ -241,6 +246,14 @@ if (typeof Object.create !== 'function') {
             return this;
         },
 
+        // toggling of activity animation
+        toggleActivity:function () {
+            if (!this.closed) {
+                this.$bar.find('.noty_message').toggleClass('noty-activity-animation');
+            }
+            return this;
+        },
+
         closed:false,
         shown:false
 
@@ -394,6 +407,7 @@ if (typeof Object.create !== 'function') {
             easing:'swing',
             speed:500
         },
+        activityAnimation:false,
         timeout:false,
         force:false,
         modal:false,
