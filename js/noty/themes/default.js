@@ -1,5 +1,12 @@
 ;(function($) {
 
+	// activity animation css
+	var activityAnimationCss = '.noty-activity-animation { background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(0, 0, 0, .10)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(0, 0, 0, .10)), color-stop(.75, rgba(0, 0, 0, .10)), color-stop(.75, transparent), to(transparent)); background-image: -moz-linear-gradient(-45deg,rgba(0, 0, 0, .10) 25%,transparent 25%,transparent 50%, rgba(0, 0, 0, .10) 50%,rgba(0, 0, 0, .10) 75%, transparent 75%, transparent ); background-size: 50px 50px; -moz-background-size: 50px 50px; -webkit-background-size: 50px 50px; -webkit-animation: animate-stripes 2s linear infinite; }';
+			activityAnimationCss += ' @-webkit-keyframes animate-stripes { from { background-position: 0 0; } to { background-position: -50px 0; }}';
+
+	// inject css into head
+	$("<style/>", { type:"text/css", text: activityAnimationCss }).appendTo('head');
+
 	$.noty.themes.defaultTheme = {
 		name: 'defaultTheme',
 		helpers: {
