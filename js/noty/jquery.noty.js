@@ -104,7 +104,10 @@ if (typeof Object.create !== 'function') {
             self.options.theme.callback.onShow.apply(this);
 
             if ($.inArray('click', self.options.closeWith) > -1)
-                self.$bar.css('cursor', 'pointer').one('click', function () {
+                self.$bar.css('cursor', 'pointer').one('click', function (evt) {
+                    
+                    self.stopPropagation(evt);
+
                     if (self.options.callback.onCloseClick) {
                         self.options.callback.onCloseClick.apply(self);
                     }
@@ -117,7 +120,8 @@ if (typeof Object.create !== 'function') {
                 });
 
             if ($.inArray('button', self.options.closeWith) > -1)
-                self.$closeButton.one('click', function () {
+                self.$closeButton.one('click', function (evt) {
+                    self.stopPropagation(evt);
                     self.close();
                 });
 
@@ -239,6 +243,15 @@ if (typeof Object.create !== 'function') {
                 });
             }
             return this;
+        },
+
+        stopPropagation:function (evt) {
+            evt = evt || window.event;
+            if (typeof evt.stopPropagation !== "undefined") {
+                evt.stopPropagation();
+            } else {
+                evt.cancelBubble = true;
+            }
         },
 
         closed:false,
