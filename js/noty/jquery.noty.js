@@ -280,6 +280,11 @@ if (typeof Object.create !== 'function') {
         if ($.type(instance) === 'object') {
             if (instance.options.dismissQueue) {
                 $.notyRenderer.show($.noty.queue.shift());
+            } else if (instance.options.maxVisible > 0) {
+                if ($('#noty_inline_layout_container li').length < instance.options.maxVisible) {
+                    $.notyRenderer.show($.noty.queue.shift());
+                    $.noty.ontap = false;
+                }
             } else {
                 if ($.noty.ontap) {
                     $.notyRenderer.show($.noty.queue.shift());
@@ -410,6 +415,7 @@ if (typeof Object.create !== 'function') {
         timeout:false,
         force:false,
         modal:false,
+        maxVisible:5,
         closeWith:['click'],
         callback:{
             onShow:function () {
@@ -503,6 +509,10 @@ function noty(options) {
 
     if (!options.hasOwnProperty('dismissQueue')) {
         options.dismissQueue = jQuery.noty.defaults.dismissQueue;
+    }
+
+    if (!options.hasOwnProperty('maxVisible')) {
+        options.maxVisible = jQuery.noty.defaults.maxVisible;
     }
 
     if (options.buttons) {
