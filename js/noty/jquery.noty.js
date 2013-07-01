@@ -422,7 +422,7 @@ if (typeof Object.create !== 'function') {
 })(jQuery);
 
 // Helpers
-function noty(options) {
+window.noty = function noty(options) {
 
     // This is for BC  -  Will be deleted on v2.2.0
     var using_old = 0
