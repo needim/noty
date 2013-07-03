@@ -1,6 +1,6 @@
 # noty - A jQuery Notification Plugin
 
-![noty v2](http://ned.im/noty-v2.png "noty v2")
+![noty v2](http://needim.github.io/noty/img/noty-v2-logo.png "noty v2")
 
 ***
 
@@ -8,7 +8,7 @@
 
 **noty** is a jQuery plugin that makes it easy to create **alert** - **success** - **error** - **warning** - **information** - b messages as an alternative the standard alert dialog. Each notification is added to a **queue**. (**Optional**)
 
-The notifications can be positioned at the; 
+The notifications can be positioned at the;
 **top** - **topLeft** - **topCenter** - **topRight** - **center** - **centerLeft** - **centerRight** - **bottom** - **bottomLeft** - **bottomCenter** - **bottomRight**
 
 There are lots of other options in the API to customise the text, animation, speed, buttons and much more.
