@@ -105,9 +105,7 @@ if (typeof Object.create !== 'function') {
 
             if ($.inArray('click', self.options.closeWith) > -1)
                 self.$bar.css('cursor', 'pointer').one('click', function (evt) {
-                    
                     self.stopPropagation(evt);
-
                     if (self.options.callback.onCloseClick) {
                         self.options.callback.onCloseClick.apply(self);
                     }
@@ -213,7 +211,10 @@ if (typeof Object.create !== 'function') {
                         $.notyRenderer.render();
                     }
 
-                });
+					if (self.options.maxVisible > 0 && self.options.dismissQueue) {
+						$.notyRenderer.render();
+					}
+                })
 
         }, // end close
 
@@ -279,12 +280,15 @@ if (typeof Object.create !== 'function') {
 
         if ($.type(instance) === 'object') {
             if (instance.options.dismissQueue) {
-                $.notyRenderer.show($.noty.queue.shift());
-            } else if (instance.options.maxVisible > 0) {
-                if ($('#noty_inline_layout_container li').length < instance.options.maxVisible) {
-                    $.notyRenderer.show($.noty.queue.shift());
-                    $.noty.ontap = false;
-                }
+				if (instance.options.maxVisible > 0) {
+					if ($(instance.options.layout.container.selector + ' li').length < instance.options.maxVisible) {
+						$.notyRenderer.show($.noty.queue.shift());
+					} else {
+
+					}
+				} else {
+					$.notyRenderer.show($.noty.queue.shift());
+				}
             } else {
                 if ($.noty.ontap) {
                     $.notyRenderer.show($.noty.queue.shift());
