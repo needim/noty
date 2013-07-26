@@ -3,7 +3,7 @@
 <html>
 <head>
 
-	<title>noty - A jQuery Notification Plugin</title>
+	<title>noty v2.1.0 - A jQuery Notification Plugin</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 	<meta name="description" content="noty is a jquery plugin which is have too many options for display notification"/>
@@ -299,7 +299,7 @@
 						The Google AJAX Libraries API can be used for this but you could also host the library yourself.
 
 						<p>Download <span class="hl">noty</span> from the
-						<a href="https://github.com/needim/noty/downloads"><i class="icon-github"></i> Github</a> and upload the files to your server.</p>
+						<a href="https://github.com/needim/noty/releases"><i class="icon-github"></i> Github</a> and upload the files to your server.</p>
 						Include <span class="hl">noty/jquery.noty.js</span> and its dependancies below jQuery. <br/>
 						Also add <span class="hl">noty/layouts/top.js</span> (you can use more layouts if you want) and <span class="hl">noty/themes/default.js</span> to your header. Or some other theme.
 
@@ -338,7 +338,7 @@
 
 							<pre>
 							<code data-language="javascript">
-var noty = noty({text: 'noty - a jquery notification library!'});
+var n = noty({text: 'noty - a jquery notification library!'});
 							</code>
 							</pre>
 
@@ -355,29 +355,30 @@ var noty = noty({text: 'noty - a jquery notification library!'});
 						<pre>
 						<code data-language="javascript">
 $.noty.defaults = {
-	layout: 'top',
-	theme: 'defaultTheme',
-	type: 'alert',
-	text: '',
-	dismissQueue: true, // If you want to use queue feature set this true
-	template: '&lt;div class="noty_message"&gt;&lt;span class="noty_text"&gt;&lt;/span&gt;&lt;div class="noty_close"&gt;&lt;/div&gt;&lt;/div&gt;',
-	animation: {
-		open: {height: 'toggle'},
-		close: {height: 'toggle'},
-		easing: 'swing',
-		speed: 500 // opening &amp; closing animation speed
-	},
-	timeout: false, // delay for closing event. Set false for sticky notifications
-	force: false, // adds notification to the beginning of queue when set to true
-	modal: false,
-	closeWith: ['click'], // ['click', 'button', 'hover']
-	callback: {
-		onShow: function() {},
-		afterShow: function() {},
-		onClose: function() {},
-		afterClose: function() {}
-	},
-	buttons: false // an array of buttons
+    layout: 'top',
+    theme: 'defaultTheme',
+    type: 'alert',
+    text: '',
+    dismissQueue: true, // If you want to use queue feature set this true
+    template: '&lt;div class="noty_message"&gt;&lt;span class="noty_text"&gt;&lt;/span&gt;&lt;div class="noty_close"&gt;&lt;/div&gt;&lt;/div&gt;',
+    animation: {
+        open: {height: 'toggle'},
+        close: {height: 'toggle'},
+        easing: 'swing',
+        speed: 500 // opening &amp; closing animation speed
+    },
+    timeout: false, // delay for closing event. Set false for sticky notifications
+    force: false, // adds notification to the beginning of queue when set to true
+    modal: false,
+    maxVisible: 5, // you can set max visible notification for dismissQueue true option
+    closeWith: ['click'], // ['click', 'button', 'hover']
+    callback: {
+        onShow: function() {},
+        afterShow: function() {},
+        onClose: function() {},
+        afterClose: function() {}
+    },
+    buttons: false // an array of buttons
 };
 						</code>
 						</pre>
@@ -394,7 +395,7 @@ $.noty.defaults = {
 
 						<pre>
 						<code data-language="javascript">
-var noty = $('.custom_container').noty({text: 'noty - a jquery notification library!'});
+var n = $('.custom_container').noty({text: 'noty - a jquery notification library!'});
 						</code>
 						</pre>
 
@@ -428,9 +429,9 @@ var noty = $('.custom_container').noty({text: 'noty - a jquery notification libr
 
 					<div id="theme">
 
-						<h4>Theme (But How?)</h4>
+						<h4>Theme</h4>
 
-						<p>noty is easily themable using Javascript or CSS. But my English is not enough for the explain how. :(</p>
+						<p>noty is easily themable using Javascript or CSS.</p>
 
 						<p>Theme structre is in <span class="hl">noty/themes/default.js</span> file. You can copy-paste this file and change.</p>
 
@@ -438,7 +439,7 @@ var noty = $('.custom_container').noty({text: 'noty - a jquery notification libr
 
 						<pre>
 						<code data-language="javascript">
-	var noty_id = noty({
+	var n = noty({
 		text: 'noty - a jquery notification library!',
 		theme: 'your_new_theme',
 	});

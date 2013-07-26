@@ -3,7 +3,7 @@
 	$.noty.layouts.topCenter = {
 		name: 'topCenter',
 		options: { // overrides options
-			
+
 		},
 		container: {
 			object: '<ul id="noty_topCenter_layout_container" />',
@@ -20,9 +20,9 @@
 					listStyleType: 'none',
 					zIndex: 10000000
 				});
-				
+
 				$(this).css({
-					left: ($(window).width() - $(this).outerWidth()) / 2 + 'px',
+					left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px'
 				});
 			}
 		},

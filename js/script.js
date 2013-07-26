@@ -1,6 +1,6 @@
 /* 
  * Authors: Nedim Arabacı (http://ned.im)
-*/
+ */
 
 var notes = [];
 
@@ -12,38 +12,38 @@ notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re
 notes['confirm'] = 'Do you want to continue?';
 
 function commit_history() {
-	$.getJSON('https://api.github.com/repos/needim/noty/commits?callback=?', function(json) {
+	$.getJSON('https://api.github.com/repos/needim/noty/commits?callback=?', function (json) {
 		$('#commit-history-json tr').remove();
-		$.each(json.data, function(i, data) {
+		$.each(json.data, function (i, data) {
 			var $col = $('<tr style="border-bottom: 1px solid #999; text-shadow: none" />');
-			var $committer = $('<td valign="top" />').html(data.commit.committer.name);
+			var $committer = $('<td valign="top" style="white-space: nowrap;" />').html(data.commit.committer.name);
 			var $link = $('<a style="font-weight: bold" />').attr('href', 'https://github.com/needim/noty/commit/' + data.sha).html(data.commit.message);
-			var $url = $('<td />').append($link);
-			var $date = $('<td style="text-align: right" />').html($.format.date(data.commit.committer.date, "dd.MM.yy HH:MM"));
-			
+			var $url = $('<td valign="top" style="padding: 0 10px"/>').append($link);
+			var $date = $('<td style="text-align: right; white-space: nowrap;" />').html($.format.date(data.commit.committer.date, "dd.MM.yy HH:MM"));
+
 			$col.append($committer);
 			$col.append($url);
 			$col.append($date);
-			
+
 			$('#commit-history-json').append($col);
 		});
 	});
 }
 
 
-$(document).ready(function() {
+$(document).ready(function () {
 
 	var n = noty({
-		text: '<strong>Hi!</strong> <br /> noty v2 released! Catch me if you can!',
-		type: 'warning',
-		layout: 'topLeft',
+		text     : '<strong>Hi!</strong> <br /> noty v2.1.0 released! Catch me if you can!',
+		type     : 'warning',
+		layout   : 'topLeft',
 		closeWith: ['hover'],
-		callback: {
-			afterClose: function() {
+		callback : {
+			afterClose: function () {
 				noty({
-					text: '<strong>Hehe!</strong> <br /> Sorry, you can catch me now.',
-					type: 'alert',
-					layout: 'topRight',
+					text     : '<strong>Hehe!</strong> <br /> Sorry, you can catch me now.',
+					type     : 'alert',
+					layout   : 'topRight',
 					closeWith: ['click'],
 				});
 			}
@@ -53,71 +53,72 @@ $(document).ready(function() {
 	commit_history();
 
 	$('.inner-menu').appendTo($('h4')).fadeIn();
-	
+
 	if (location.hash) {
-		$('a[href='+location.hash+']').trigger('click');
+		$('a[href=' + location.hash + ']').trigger('click');
 	} else {
 		$('a[href=#welcome]').trigger('click');
 	}
-	
-	$('.inner-menu a').click(function() {
+
+	$('.inner-menu a').click(function () {
 		var self = $(this);
 		$("html, body").animate({ scrollTop: $(self.attr('href')).offset().top - 20 }, 1000);
+		window.location.hash = self.attr('href');
 		return false;
 	});
 
-	$('span.runner').click(function() {
+	$('span.runner').click(function () {
 
 		var self = $(this);
 
 		if (self.data('layout') == 'inline') {
 			$(self.data('custom')).noty({
-				text: notes[self.data('type')],
-				type: self.data('type'),
+				text        : notes[self.data('type')],
+				type        : self.data('type'),
 				dismissQueue: true,
-				buttons: (self.data('type') != 'confirm') ? false : [
-		    {addClass: 'btn btn-primary', text: 'Ok', onClick: function($noty) {
-		    			
-		    			// this = button element
-		    			// $noty = $noty element
-		    	
-		    			$noty.close();
-		    			$(self.data('custom')).noty({force: true, text: 'You clicked "Ok" button', type: 'success'});
-		    	}
-		    },
-		    {addClass: 'btn btn-danger', text: 'Cancel', onClick: function($noty) {
-		    		$noty.close();
-			    	$(self.data('custom')).noty({force: true, text: 'You clicked "Cancel" button', type: 'error'});
-		    	}
-		    }
-		    ]
+				buttons     : (self.data('type') != 'confirm') ? false : [
+					{addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {
+
+						// this = button element
+						// $noty = $noty element
+
+						$noty.close();
+						$(self.data('custom')).noty({force: true, text: 'You clicked "Ok" button', type: 'success'});
+					}
+					},
+					{addClass: 'btn btn-danger', text: 'Cancel', onClick: function ($noty) {
+						$noty.close();
+						$(self.data('custom')).noty({force: true, text: 'You clicked "Cancel" button', type: 'error'});
+					}
+					}
+				]
 			});
 			return false;
 		}
 
 		noty({
-			text: notes[self.data('type')],
-			type: self.data('type'),
+			text        : notes[self.data('type')],
+			type        : self.data('type'),
 			dismissQueue: true,
-			layout: self.data('layout'),
-			buttons: (self.data('type') != 'confirm') ? false : [
-		    {addClass: 'btn btn-primary', text: 'Ok', onClick: function($noty) {
-		    			
-		    			// this = button element
-		    			// $noty = $noty element
-		    	
-		    			$noty.close();
-		    			noty({force: true, text: 'You clicked "Ok" button', type: 'success', layout: self.data('layout')});
-		    	}
-		    },
-		    {addClass: 'btn btn-danger', text: 'Cancel', onClick: function($noty) {
-		    		$noty.close();
-			    	noty({force: true, text: 'You clicked "Cancel" button', type: 'error', layout: self.data('layout')});
-		    	}
-		    }
-		    ]
+			layout      : self.data('layout'),
+			buttons     : (self.data('type') != 'confirm') ? false : [
+				{addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {
+
+					// this = button element
+					// $noty = $noty element
+
+					$noty.close();
+					noty({force: true, text: 'You clicked "Ok" button', type: 'success', layout: self.data('layout')});
+				}
+				},
+				{addClass: 'btn btn-danger', text: 'Cancel', onClick: function ($noty) {
+					$noty.close();
+					noty({force: true, text: 'You clicked "Cancel" button', type: 'error', layout: self.data('layout')});
+				}
+				}
+			]
 		});
 		return false;
 	});
-	
+
 });
