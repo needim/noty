@@ -158,6 +158,15 @@ if (typeof Object.create !== 'function') {
 
             var self = this;
 
+            if (this.showing) {
+              self.$bar.queue(
+                function () {
+                  self.close.apply(self);
+                }
+              )
+              return;
+            }
+
             if (!this.shown && !this.showing) { // If we are still waiting in the queue just delete from queue
                 var queue = [];
                 $.each($.noty.queue, function (i, n) {
