@@ -8,6 +8,7 @@
 					var selector = this.options.layout.container.selector + ' ' + this.options.layout.parent.selector;
 					switch (this.options.layout.name) {
 						case 'top':
+						case 'inline_top':
 							$(selector).css({borderRadius: '0px 0px 0px 0px'});
 							$(selector).last().css({borderRadius: '0px 0px 5px 5px'}); break;
 						case 'topCenter': case 'topLeft': case 'topRight':
@@ -84,6 +85,7 @@
 
 			switch (this.options.layout.name) {
 				case 'top':
+				case 'inline_top':
 					this.$bar.css({
 						borderRadius: '0px 0px 5px 5px',
 						borderBottom: '2px solid #eee',
@@ -92,7 +94,7 @@
 						boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
 					});
 				break;
-				case 'topCenter': case 'center': case 'bottomCenter': case 'inline':
+				case 'topCenter': case 'center': case 'bottomCenter': case 'inline': case 'inline_center':
 					this.$bar.css({
 						borderRadius: '5px',
 						border: '1px solid #eee',
