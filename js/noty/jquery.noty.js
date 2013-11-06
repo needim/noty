@@ -76,6 +76,7 @@ if (typeof Object.create !== 'function') {
                             }
                         });
                 });
+                $button.attr('id', button.id ? button.id : 'button-' + i);
             }
 
             // For easy access
