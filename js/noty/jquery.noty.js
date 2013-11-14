@@ -1,5 +1,5 @@
 /**
- * noty - jQuery Notification Plugin v2.1.0
+ * noty - jQuery Notification Plugin v2.1.1
  * Contributors: https://github.com/needim/noty/graphs/contributors
  *
  * Examples and Documentation - http://needim.github.com/noty/
