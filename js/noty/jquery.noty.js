@@ -68,7 +68,7 @@ if (typeof Object.create !== 'function') {
                 var self = this;
 
                 $.each(this.options.buttons, function (i, button) {
-                    var $button = $('<button/>').addClass((button.addClass) ? button.addClass : 'gray').html(button.text)
+                    var $button = $('<button/>').addClass((button.addClass) ? button.addClass : 'gray').html(button.text).attr('id', button.id ? button.id : 'button-' + i)
                         .appendTo(self.$bar.find('.noty_buttons'))
                         .bind('click', function () {
                             if ($.isFunction(button.onClick)) {
@@ -76,7 +76,6 @@ if (typeof Object.create !== 'function') {
                             }
                         });
                 });
-                $button.attr('id', button.id ? button.id : 'button-' + i);
             }
 
             // For easy access
