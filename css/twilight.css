@@ -11,14 +11,14 @@ pre {
     word-wrap: break-word;
     margin: -20px 0px 0px 0px;
     padding: 0px;
-    color: #F8F8F8;
+    color: #444;
     font-size: 13px;
 }
 
 pre code {
-	background: #404040;
 	padding: 0px 10px;
-	border: 3px solid #333;
+	border: 1px solid #dedede;
+	border-left: 4px solid #dedede;
     border-radius: 5px;
 }
 
