@@ -765,3 +765,24 @@ Change widths as necessary
 		page-break-after: avoid
 	}
 }
+
+.termic {
+	font-family: 'Consolas', sans-serif;
+	text-align: center;
+}
+
+.termic a {
+	border: 2px dashed #073642;
+	color: #073642;
+	padding: 2px 5px
+}
+
+.termic a:hover {
+	border: 2px dashed #444;
+	color: #444;
+	text-decoration: none;
+}
+
+span.new {
+	color: red
+}
