@@ -91,7 +91,7 @@ if (typeof Object.create !== 'function') {
 
             var self = this;
 
-            $(self.options.layout.container.selector).append(self.$bar);
+			(self.options.custom) ? self.options.custom.find(self.options.layout.container.selector).append(self.$bar) : $(self.options.layout.container.selector).append(self.$bar);
 
             self.options.theme.style.apply(self);
 
@@ -322,15 +322,19 @@ if (typeof Object.create !== 'function') {
         }
 
         // Where is the container?
-        if ($(notification.options.layout.container.selector).length == 0) {
-            if (notification.options.custom) {
-                notification.options.custom.append($(notification.options.layout.container.object).addClass('i-am-new'));
-            } else {
-                $('body').append($(notification.options.layout.container.object).addClass('i-am-new'));
-            }
-        } else {
-            $(notification.options.layout.container.selector).removeClass('i-am-new');
-        }
+		if (notification.options.custom) {
+			if (notification.options.custom.find(notification.options.layout.container.selector).length == 0) {
+				notification.options.custom.append($(notification.options.layout.container.object).addClass('i-am-new'));
+			} else {
+				notification.options.custom.find(notification.options.layout.container.selector).removeClass('i-am-new');
+			}
+		} else {
+			if ($(notification.options.layout.container.selector).length == 0) {
+				$('body').append($(notification.options.layout.container.object).addClass('i-am-new'));
+			} else {
+				$(notification.options.layout.container.selector).removeClass('i-am-new');
+			}
+		}
 
         $.notyRenderer.setLayoutCountFor(notification, +1);
 

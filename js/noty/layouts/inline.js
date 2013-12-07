@@ -4,8 +4,8 @@
 		name: 'inline',
 		options: {},
 		container: {
-			object: '<ul id="noty_inline_layout_container" />',
-			selector: 'ul#noty_inline_layout_container',
+			object: '<ul class="noty_inline_layout_container" />',
+			selector: 'ul.noty_inline_layout_container',
 			style: function() {
 				$(this).css({
 					width: '100%',
