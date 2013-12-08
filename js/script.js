@@ -33,21 +33,11 @@ function commit_history() {
 
 $(document).ready(function () {
 
-	var n = noty({
-		text     : '<strong>Hi!</strong> <br /> noty v2.1.0 released! Catch me if you can!',
+	noty({
+		text     : '<strong>Hi!</strong> <br /> noty v2.1.3 released!',
 		type     : 'warning',
 		layout   : 'topLeft',
-		closeWith: ['hover'],
-		callback : {
-			afterClose: function () {
-				noty({
-					text     : '<strong>Hehe!</strong> <br /> Sorry, you can catch me now.',
-					type     : 'alert',
-					layout   : 'topRight',
-					closeWith: ['click'],
-				});
-			}
-		}
+		closeWith: ['click']
 	});
 
 	commit_history();
