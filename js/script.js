@@ -19,7 +19,7 @@ function commit_history() {
 			var $committer = $('<td valign="top" style="white-space: nowrap;" />').html(data.commit.committer.name);
 			var $link = $('<a style="font-weight: bold" />').attr('href', 'https://github.com/needim/noty/commit/' + data.sha).html(data.commit.message);
 			var $url = $('<td valign="top" style="padding: 0 10px"/>').append($link);
-			var $date = $('<td style="text-align: right; white-space: nowrap;" />').html($.format.date(data.commit.committer.date, "dd.MM.yy HH:MM"));
+			var $date = $('<td valign="top" style="text-align: right; white-space: nowrap;" />').html(moment(data.commit.committer.date, "YYYY-MM-DDTHH:mm:ssZ").fromNow());
 
 			$col.append($committer);
 			$col.append($url);
