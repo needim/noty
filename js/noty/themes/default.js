@@ -1,4 +1,4 @@
-;(function($) {
+(function($) {
 
 	$.noty.themes.defaultTheme = {
 		name: 'defaultTheme',
