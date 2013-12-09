@@ -1,5 +1,5 @@
 /**
- * noty - jQuery Notification Plugin v2.1.3
+ * noty - jQuery Notification Plugin v2.1.4
  * Contributors: https://github.com/needim/noty/graphs/contributors
  *
  * Examples and Documentation - http://needim.github.com/noty/
@@ -280,6 +280,9 @@ if (typeof Object.create !== 'function') {
         // Renderer creates a new noty
         var notification = Object.create(NotyObject).init(options);
 
+		if (notification.options.killer)
+			$.noty.closeAll();
+
         (notification.options.force) ? $.noty.queue.unshift(notification) : $.noty.queue.push(notification);
 
         $.notyRenderer.render();
@@ -437,6 +440,7 @@ if (typeof Object.create !== 'function') {
         force:false,
         modal:false,
         maxVisible:5,
+		killer: false,
         closeWith:['click'],
         callback:{
             onShow:function () {
