@@ -34,7 +34,7 @@ function commit_history() {
 $(document).ready(function () {
 
 	noty({
-		text     : '<strong>Hi!</strong> <br /> noty v2.1.3 released!',
+		text     : '<strong>Hi!</strong> <br /> noty v2.1.4 released!',
 		type     : 'warning',
 		layout   : 'topLeft',
 		closeWith: ['click']
