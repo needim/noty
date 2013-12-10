@@ -1,4 +1,4 @@
-;(function($) {
+(function($) {
 
 	$.noty.layouts.topLeft = {
 		name: 'topLeft',

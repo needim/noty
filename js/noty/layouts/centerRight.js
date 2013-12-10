@@ -1,4 +1,4 @@
-;(function($) {
+(function($) {
 
 	$.noty.layouts.centerRight = {
 		name: 'centerRight',

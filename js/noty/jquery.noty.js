@@ -29,7 +29,11 @@ if (typeof Object.create !== 'function') {
             this.options = $.extend({}, $.noty.defaults, options);
 
             this.options.layout = (this.options.custom) ? $.noty.layouts['inline'] : $.noty.layouts[this.options.layout];
-            this.options.theme = $.noty.themes[this.options.theme];
+
+			if ($.noty.themes[this.options.theme])
+            	this.options.theme = $.noty.themes[this.options.theme];
+			else
+				options.themeClassName = this.options.theme;
 
             delete options.layout;
             delete options.theme;
@@ -53,6 +57,9 @@ if (typeof Object.create !== 'function') {
             $bar.append(this.options.template).find('.noty_text').html(this.options.text);
 
             this.$bar = (this.options.layout.parent.object !== null) ? $(this.options.layout.parent.object).css(this.options.layout.parent.css).append($bar) : $bar;
+
+			if (this.options.themeClassName)
+				this.$bar.addClass(this.options.themeClassName).addClass('noty_container_type_' + this.options.type);
 
             // Set buttons if available
             if (this.options.buttons) {
@@ -93,7 +100,8 @@ if (typeof Object.create !== 'function') {
 
 			(self.options.custom) ? self.options.custom.find(self.options.layout.container.selector).append(self.$bar) : $(self.options.layout.container.selector).append(self.$bar);
 
-            self.options.theme.style.apply(self);
+			if (self.options.theme && self.options.theme.style)
+            	self.options.theme.style.apply(self);
 
             ($.type(self.options.layout.css) === 'function') ? this.options.layout.css.apply(self.$bar) : self.$bar.css(this.options.layout.css || {});
 
@@ -103,7 +111,8 @@ if (typeof Object.create !== 'function') {
 
             self.showing = true;
 
-            self.options.theme.callback.onShow.apply(this);
+			if (self.options.theme && self.options.theme.style)
+            	self.options.theme.callback.onShow.apply(this);
 
             if ($.inArray('click', self.options.closeWith) > -1)
                 self.$bar.css('cursor', 'pointer').one('click', function (evt) {
@@ -467,102 +476,5 @@ if (typeof Object.create !== 'function') {
 
 // Helpers
 window.noty = function noty(options) {
-
-    // This is for BC  -  Will be deleted on v2.2.0
-    var using_old = 0
-        , old_to_new = {
-            'animateOpen':'animation.open',
-            'animateClose':'animation.close',
-            'easing':'animation.easing',
-            'speed':'animation.speed',
-            'onShow':'callback.onShow',
-            'onShown':'callback.afterShow',
-            'onClose':'callback.onClose',
-            'onCloseClick':'callback.onCloseClick',
-            'onClosed':'callback.afterClose'
-        };
-
-    jQuery.each(options, function (key, value) {
-        if (old_to_new[key]) {
-            using_old++;
-            var _new = old_to_new[key].split('.');
-
-            if (!options[_new[0]]) options[_new[0]] = {};
-
-            options[_new[0]][_new[1]] = (value) ? value : function () {
-            };
-            delete options[key];
-        }
-    });
-
-    if (!options.closeWith) {
-        options.closeWith = jQuery.noty.defaults.closeWith;
-    }
-
-    if (options.hasOwnProperty('closeButton')) {
-        using_old++;
-        if (options.closeButton) options.closeWith.push('button');
-        delete options.closeButton;
-    }
-
-    if (options.hasOwnProperty('closeOnSelfClick')) {
-        using_old++;
-        if (options.closeOnSelfClick) options.closeWith.push('click');
-        delete options.closeOnSelfClick;
-    }
-
-    if (options.hasOwnProperty('closeOnSelfOver')) {
-        using_old++;
-        if (options.closeOnSelfOver) options.closeWith.push('hover');
-        delete options.closeOnSelfOver;
-    }
-
-    if (options.hasOwnProperty('custom')) {
-        using_old++;
-        if (options.custom.container != 'null') options.custom = options.custom.container;
-    }
-
-    if (options.hasOwnProperty('cssPrefix')) {
-        using_old++;
-        delete options.cssPrefix;
-    }
-
-    if (options.theme == 'noty_theme_default') {
-        using_old++;
-        options.theme = 'defaultTheme';
-    }
-
-    if (!options.hasOwnProperty('dismissQueue')) {
-        options.dismissQueue = jQuery.noty.defaults.dismissQueue;
-    }
-
-    if (!options.hasOwnProperty('maxVisible')) {
-        options.maxVisible = jQuery.noty.defaults.maxVisible;
-    }
-
-    if (options.buttons) {
-        jQuery.each(options.buttons, function (i, button) {
-            if (button.click) {
-                using_old++;
-                button.onClick = button.click;
-                delete button.click;
-            }
-            if (button.type) {
-                using_old++;
-                button.addClass = button.type;
-                delete button.type;
-            }
-        });
-    }
-
-    if (using_old) {
-        if (typeof console !== "undefined" && console.warn) {
-            console.warn('You are using noty v2 with v1.x.x options. @deprecated until v2.2.0 - Please update your options.');
-        }
-    }
-
-    // console.log(options);
-    // End of the BC
-
     return jQuery.notyRenderer.init(options);
-}
+};

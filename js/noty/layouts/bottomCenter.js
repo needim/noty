@@ -1,4 +1,4 @@
-;(function($) {
+(function($) {
 
 	$.noty.layouts.bottomCenter = {
 		name: 'bottomCenter',
