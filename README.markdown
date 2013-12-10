@@ -1,3 +1,6 @@
+[![Gittip donate button](http://img.shields.io/gittip/needim.png)](https://www.gittip.com/needim/ "Donate weekly to this project using Gittip")
+[![Flattr donate button](http://img.shields.io/flattr/donate.png?color=green)](https://flattr.com/thing/529967/noty-jQuery-Notification-Plugin "Donate monthly to this project using Flattr")
+
 # noty - A jQuery Notification Plugin
 
 ![noty v2](http://needim.github.io/noty/img/noty-v2-logo.png?v2 "noty v2")
