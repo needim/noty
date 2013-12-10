@@ -1,6 +1,6 @@
 # noty - A jQuery Notification Plugin
 
-![noty v2](http://needim.github.io/noty/img/noty-v2-logo.png "noty v2")
+![noty v2](http://needim.github.io/noty/img/noty-v2-logo.png?v2 "noty v2")
 
 ***
 
