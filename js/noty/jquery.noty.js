@@ -477,4 +477,4 @@ if (typeof Object.create !== 'function') {
 // Helpers
 window.noty = function noty(options) {
     return jQuery.notyRenderer.init(options);
-}
+};
