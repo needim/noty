@@ -344,6 +344,8 @@
 
 							<p>Returns a noty javascript object. (not jquery dom object, but you can access dom with this object)</p>
 
+                            <p><i>Also, you can give any <span class="new">html</span> to "<strong>text</strong>" option.</i></p>
+
 							<pre>
 							<code data-language="javascript">
 var n = noty({text: 'noty - a jquery notification library!'});
@@ -366,7 +368,7 @@ $.noty.defaults = {
     layout: 'top',
     theme: 'defaultTheme',
     type: 'alert',
-    text: '',
+    text: '', // can be html or string
     dismissQueue: true, // If you want to use queue feature set this true
     template: '&lt;div class="noty_message"&gt;&lt;span class="noty_text"&gt;&lt;/span&gt;&lt;div class="noty_close"&gt;&lt;/div&gt;&lt;/div&gt;',
     animation: {
