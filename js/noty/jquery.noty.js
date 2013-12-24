@@ -223,7 +223,9 @@ if (typeof Object.create !== 'function') {
 
                     delete $.noty.store[self.options.id]; // deleting noty from store
 
-                    self.options.theme.callback.onClose.apply(self);
+                    if(self.options.theme.callback && self.options.theme.callback.onClose) {
+                        self.options.theme.callback.onClose.apply(self);
+                    }
 
                     if (!self.options.dismissQueue) {
                         // Queue render
