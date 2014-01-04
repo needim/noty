@@ -786,3 +786,44 @@ Change widths as necessary
 span.new {
 	color: red
 }
+
+div.top-bar {
+	border-bottom: 1px solid #444;
+	color: #fff;
+	background-color: #ee5f5b;
+	overflow: auto;
+	padding: 0;
+	height: 30px;
+}
+
+div.top-bar .left-bar {
+	float: left;
+}
+
+div.top-bar .right-bar {
+	float: right;
+}
+
+div.top-bar a {
+	color: #fff;
+	line-height: 30px;
+	display: inline-block;
+	padding: 0 15px;
+	-webkit-transition: all 700ms ease;
+	-moz-transition: all 700ms ease;
+	-o-transition: all 700ms ease;
+	transition: all 700ms ease;
+}
+
+div.top-bar a:hover {
+	color: #ee5f5b;
+	background-color: #fff;
+}
+
+div.top-bar .left-bar a {
+	border-right: 1px solid #dedede;
+}
+
+div.top-bar .right-bar a {
+	border-left: 1px solid #dedede;
+}
