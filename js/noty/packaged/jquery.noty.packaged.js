@@ -128,6 +128,11 @@ if (typeof Object.create !== 'function') {
                     self.close();
                 });
 
+            if ($.inArray('auto', self.options.closeWith) > -1)
+                setTimeout(function () {
+                    self.close();
+                }, self.options.closeTimeout);
+
             if ($.inArray('button', self.options.closeWith) > -1)
                 self.$closeButton.one('click', function (evt) {
                     self.stopPropagation(evt);
@@ -452,7 +457,8 @@ if (typeof Object.create !== 'function') {
         modal:false,
         maxVisible:5,
 		killer: false,
-        closeWith:['click'],
+		closeWith: ['click'],
+		closeTimeout: 5000,
         callback:{
             onShow:function () {
             },
