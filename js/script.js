@@ -34,7 +34,7 @@ function commit_history() {
 $(document).ready(function () {
 
 	noty({
-		text     : '<div><img width="100" src="http://needim.github.io/noty/img/noty-v2-logo.png" alt="noty" style="float: right"/> <strong>Hi!</strong> <br /> noty v2.2.1 released!</div>',
+		text     : '<div><img width="100" src="http://needim.github.io/noty/img/noty-v2-logo.png" alt="noty" style="float: right"/> <strong>Hi!</strong> <br /> noty v2.2.2 released!</div>',
 		layout   : 'topLeft',
 		closeWith: ['click']
 	});
