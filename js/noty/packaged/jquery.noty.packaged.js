@@ -1,5 +1,5 @@
 /**
- * noty - jQuery Notification Plugin v2.2.0
+ * noty - jQuery Notification Plugin v2.2.2
  * Contributors: https://github.com/needim/noty/graphs/contributors
  *
  * Examples and Documentation - http://needim.github.com/noty/
@@ -356,8 +356,14 @@ if (typeof Object.create !== 'function') {
     };
 
     $.notyRenderer.createModalFor = function (notification) {
-        if ($('.noty_modal').length == 0)
-            $('<div/>').addClass('noty_modal').data('noty_modal_count', 0).css(notification.options.theme.modal.css).prependTo($('body')).fadeIn('fast');
+        if ($('.noty_modal').length == 0) {
+			var modal = $('<div/>').addClass('noty_modal').addClass(notification.options.theme).data('noty_modal_count', 0);
+
+			if (notification.options.theme.modal && notification.options.theme.modal.css)
+				modal.css(notification.options.theme.modal.css);
+
+			modal.prependTo($('body')).fadeIn('fast');
+		}
     };
 
     $.notyRenderer.getLayoutCountFor = function (notification) {

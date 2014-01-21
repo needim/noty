@@ -77,6 +77,19 @@
             visibility: visible;
         }
 
+        .noty_modal.someOtherTheme {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            z-index: 10000;
+            opacity: 0.6;
+            display: none;
+            border: none;
+            left: 0;
+            top: 0
+        }
+
     </style>
 
 </head>
@@ -103,17 +116,18 @@
             layout      : theme == 'defaultTheme' ? 'topCenter' : 'bottomCenter',
             theme       : theme,
             closeWith   : ['button', 'click'],
-            maxVisible  : 20
+            maxVisible  : 20,
+            modal       : true
         });
         console.log('html: ' + n.options.id);
     }
 
     function generateAll() {
-        generate('alert', 'defaultTheme');
-        generate('information', 'defaultTheme');
-        generate('error', 'defaultTheme');
-        generate('warning', 'defaultTheme');
-        generate('success', 'defaultTheme');
+//        generate('alert', 'defaultTheme');
+//        generate('information', 'defaultTheme');
+//        generate('error', 'defaultTheme');
+//        generate('warning', 'defaultTheme');
+//        generate('success', 'defaultTheme');
 
         generate('alert', 'someOtherTheme');
         generate('information', 'someOtherTheme');
