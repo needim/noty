@@ -212,7 +212,7 @@ if (typeof Object.create !== 'function') {
 
                     // Layout Cleaning
                     $.notyRenderer.setLayoutCountFor(self, -1);
-                    if ($.notyRenderer.getLayoutCountFor(self) == 0) $(self.options.layout.container.selector).remove();
+                    if ($.notyRenderer.getLayoutCountFor(self) == 0) $(self.options.layout.container.selector, self.options.custom).remove();
 
                     // Make sure self.$bar has not been removed before attempting to remove it
                     if (typeof self.$bar !== 'undefined' && self.$bar !== null ) {
@@ -367,11 +367,11 @@ if (typeof Object.create !== 'function') {
     };
 
     $.notyRenderer.getLayoutCountFor = function (notification) {
-        return $(notification.options.layout.container.selector).data('noty_layout_count') || 0;
+        return $(notification.options.layout.container.selector, notification.options.custom).data('noty_layout_count') || 0;
     };
 
     $.notyRenderer.setLayoutCountFor = function (notification, arg) {
-        return $(notification.options.layout.container.selector).data('noty_layout_count', $.notyRenderer.getLayoutCountFor(notification) + arg);
+        return $(notification.options.layout.container.selector, notification.options.custom).data('noty_layout_count', $.notyRenderer.getLayoutCountFor(notification) + arg);
     };
 
     $.notyRenderer.getModalCount = function () {
