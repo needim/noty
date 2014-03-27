@@ -827,3 +827,16 @@ div.top-bar .left-bar a {
 div.top-bar .right-bar a {
 	border-left: 1px solid #dedede;
 }
+
+.pixel-race h2 {
+	margin-bottom: 10px !important;
+	font-size: 28px;
+}
+
+.pixel-race {
+	padding: 10px 0;
+}
+
+.pixel-race, .pixel-race h2 {
+	font-family: BitBold, Helvetica, Arial, sans-serif !important;
+}
