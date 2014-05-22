@@ -1,13 +1,12 @@
-/**
- * noty - jQuery Notification Plugin v2.2.2
- * Contributors: https://github.com/needim/noty/graphs/contributors
- *
- * Examples and Documentation - http://needim.github.com/noty/
- *
- * Licensed under the MIT licenses:
- * http://www.opensource.org/licenses/mit-license.php
- *
- **/
+/*!
+ @package noty - jQuery Notification Plugin
+ @version version: 2.2.4
+ @contributors https://github.com/needim/noty/graphs/contributors
+
+ @documentation Examples and Documentation - http://needim.github.com/noty/
+
+ @license Licensed under the MIT licenses: http://www.opensource.org/licenses/mit-license.php
+ */
 
 if (typeof Object.create !== 'function') {
     Object.create = function (o) {
