@@ -40,8 +40,9 @@
 
 <script type="text/javascript">
 
-    function generate(layout) {
+    function generate(layout, textAlign) {
         var n = noty({
+            textAlign : textAlign,
             text        : layout,
             type        : 'alert',
             dismissQueue: true,
@@ -52,9 +53,9 @@
     }
 
     function generateAll() {
-        generate('top');
-        generate('topCenter');
-        generate('topLeft');
+        generate('top', "center");
+        generate('topCenter', "right");
+        generate('topLeft', "center");
         generate('topRight');
         generate('center');
         generate('centerLeft');

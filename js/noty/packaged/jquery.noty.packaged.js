@@ -1040,7 +1040,12 @@ window.noty = function noty(options) {
 						default: break;
 					}
 				}
-			}
+			},
+            textAlign : function(){
+                    var selector = this.options.layout.container.selector + ' ' + this.options.layout.parent.selector;
+                    if (this.options.textAlign && this.options.textAlign.match(/right|left|center/))
+                        $(selector).last().find(".noty_message").css({"text-align" : this.options.textAlign})
+            }
 		},
 		modal: {
 			css: {
@@ -1166,7 +1171,9 @@ window.noty = function noty(options) {
 			}
 		},
 		callback: {
-			onShow: function() { $.noty.themes.defaultTheme.helpers.borderFix.apply(this); },
+			onShow: function() { $.noty.themes.defaultTheme.helpers.borderFix.apply(this);
+                                 $.noty.themes.defaultTheme.helpers.textAlign.apply(this);
+                               },
 			onClose: function() { $.noty.themes.defaultTheme.helpers.borderFix.apply(this); }
 		}
 	};
