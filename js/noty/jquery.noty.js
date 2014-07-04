@@ -93,11 +93,15 @@ if(typeof Object.create !== 'function') {
 
         }, // end _build
 
+        getContainer: function () {
+            return this.options.custom ? this.options.custom.find(this.options.layout.container.selector) : $(this.options.layout.container.selector);
+        },
+
         show: function() {
 
             var self = this;
 
-            (self.options.custom) ? self.options.custom.find(self.options.layout.container.selector).append(self.$bar) : $(self.options.layout.container.selector).append(self.$bar);
+            self.getContainer().append(self.$bar);
 
             if(self.options.theme && self.options.theme.style)
                 self.options.theme.style.apply(self);
@@ -211,7 +215,7 @@ if(typeof Object.create !== 'function') {
 
                     // Layout Cleaning
                     $.notyRenderer.setLayoutCountFor(self, -1);
-                    if($.notyRenderer.getLayoutCountFor(self) == 0) $(self.options.layout.container.selector).remove();
+                    if($.notyRenderer.getLayoutCountFor(self) == 0) self.getContainer().remove();
 
                     // Make sure self.$bar has not been removed before attempting to remove it
                     if(typeof self.$bar !== 'undefined' && self.$bar !== null) {
@@ -308,7 +312,7 @@ if(typeof Object.create !== 'function') {
         if($.type(instance) === 'object') {
             if(instance.options.dismissQueue) {
                 if(instance.options.maxVisible > 0) {
-                    if($(instance.options.layout.container.selector + ' li').length < instance.options.maxVisible) {
+                    if(instance.getContainer().find(instance.options.layout.parent.selector).length < instance.options.maxVisible) {
                         $.notyRenderer.show($.noty.queue.shift());
                     }
                     else {
@@ -374,11 +378,11 @@ if(typeof Object.create !== 'function') {
     };
 
     $.notyRenderer.getLayoutCountFor = function(notification) {
-        return $(notification.options.layout.container.selector).data('noty_layout_count') || 0;
+        return notification.getContainer().data('noty_layout_count') || 0;
     };
 
     $.notyRenderer.setLayoutCountFor = function(notification, arg) {
-        return $(notification.options.layout.container.selector).data('noty_layout_count', $.notyRenderer.getLayoutCountFor(notification) + arg);
+        return notification.getContainer().data('noty_layout_count', $.notyRenderer.getLayoutCountFor(notification) + arg);
     };
 
     $.notyRenderer.getModalCount = function() {
