@@ -110,7 +110,7 @@ if(typeof Object.create !== 'function') {
 
             self.$bar.addClass(self.options.layout.addClass);
 
-            self.options.layout.container.style.apply($(self.options.layout.container.selector));
+            self.options.layout.container.style.apply(self.getContainer());
 
             self.showing = true;
 
@@ -344,21 +344,17 @@ if(typeof Object.create !== 'function') {
         }
 
         // Where is the container?
-        if(notification.options.custom) {
-            if(notification.options.custom.find(notification.options.layout.container.selector).length == 0) {
+        var container = notification.getContainer();
+        if(container.length == 0) {
+            if(notification.options.custom) {
                 notification.options.custom.append($(notification.options.layout.container.object).addClass('i-am-new'));
             }
             else {
-                notification.options.custom.find(notification.options.layout.container.selector).removeClass('i-am-new');
+                $('body').append($(notification.options.layout.container.object).addClass('i-am-new'));
             }
         }
         else {
-            if($(notification.options.layout.container.selector).length == 0) {
-                $('body').append($(notification.options.layout.container.object).addClass('i-am-new'));
-            }
-            else {
-                $(notification.options.layout.container.selector).removeClass('i-am-new');
-            }
+            container.removeClass('i-am-new');
         }
 
         $.notyRenderer.setLayoutCountFor(notification, +1);
