@@ -1,8 +1,12 @@
 {
     "name"       : "noty",
-    "version"    : "2.2.5",
+    "version"    : "2.2.4",
+    "main": "js/noty/packaged/jquery.noty.packaged.js",
     "authors"    : [
         "Nedim Arabacı"
     ],
-    "description": "noty is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)"
+    "description": "noty is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)",
+    "dependencies": {
+        "jquery": ">= 1.6.0"
+    }
 }
