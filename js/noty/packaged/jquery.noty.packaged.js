@@ -171,9 +171,11 @@ if(typeof Object.create !== 'function') {
                     function() {
                         self.close.apply(self);
                     }
-                )
+                );
                 return;
             }
+
+            this.$bar.dequeue();
 
             if(!this.shown && !this.showing) { // If we are still waiting in the queue just delete from queue
                 var queue = [];
@@ -370,6 +372,11 @@ if(typeof Object.create !== 'function') {
                 modal.css(notification.options.theme.modal.css);
 
             modal.prependTo($('body')).fadeIn('fast');
+
+            if($.inArray('backdrop', notification.options.closeWith) > -1)
+                modal.on('click', function(e) {
+                    $.noty.closeAll();
+                });
         }
     };
 
