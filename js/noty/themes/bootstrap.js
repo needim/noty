@@ -23,7 +23,7 @@
 			this.$closeButton.append('<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>');
 			this.$closeButton.addClass('close');
 		
-			this.$bar.addClass( "list-group-item" );
+			this.$bar.addClass( "list-group-item" ).css('padding', '0px');
 
 			switch (this.options.type) {
 				case 'alert': case 'notification':
@@ -42,6 +42,15 @@
 					this.$bar.addClass( "list-group-item-success" );
 					break;
 			}
+			
+			this.$message.css({
+				fontSize: '13px',
+				lineHeight: '16px',
+				textAlign: 'center',
+				padding: '8px 10px 9px',
+				width: 'auto',
+				position: 'relative'
+			});
 		},
 		callback: {
 			onShow: function() {  },
