@@ -1,6 +1,6 @@
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.2.9
+ @version version: 2.2.10
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -8,17 +8,15 @@
  @license Licensed under the MIT licenses: http://www.opensource.org/licenses/mit-license.php
  */
 
-if(typeof Object.create !== 'function') {
-    Object.create = function(o) {
-        function F() {
-        }
+    if(typeof Object.create !== 'function') {
+        Object.create = function(o) {
+            function F() {
+            }
 
-        F.prototype = o;
-        return new F();
-    };
-}
-
-(function($) {
+            F.prototype = o;
+            return new F();
+        };
+    }
 
     var NotyObject = {
 
@@ -494,9 +492,7 @@ if(typeof Object.create !== 'function') {
         });
     });
 
-})(jQuery);
-
-// Helpers
-window.noty = function noty(options) {
-    return jQuery.notyRenderer.init(options);
-};
+    // Helpers
+    window.noty = function noty(options) {
+        return jQuery.notyRenderer.init(options);
+    };

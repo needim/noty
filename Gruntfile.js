@@ -23,6 +23,16 @@ module.exports = function(grunt) {
             }
         },
 
+        wrap: {
+            basic: {
+                src: 'js/noty/packaged/jquery.noty.packaged.js',
+                dest: 'js/noty/packaged/jquery.noty.packaged.js',
+                options: {
+                    wrapper: ["!function(root, factory) {\n\t if (typeof define === 'function' && define.amd) {\n\t\t define(['jquery'], factory);\n\t } else {\n\t\t factory(root.jQuery);\n } }(this, function($) {\n", "\n});"]
+                }
+            }
+        },
+
         uglify: {
             options : {
                 preserveComments: function(a) {
@@ -40,8 +50,9 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-bump');
+    grunt.loadNpmTasks('grunt-wrap');
 
-    grunt.registerTask('build', ['bump', 'concat', 'uglify:minifyJS']);
-    grunt.registerTask('conc', ['concat']);
+    grunt.registerTask('build', ['bump', 'concat', 'wrap', 'uglify:minifyJS']);
+    grunt.registerTask('conc', ['concat', 'wrap']);
     grunt.registerTask('ugly', ['uglify:minifyJS']);
 };
