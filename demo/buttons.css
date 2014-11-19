@@ -318,3 +318,74 @@ input[type="submit"].btn.btn-mini {
   *padding-top: 1px;
   *padding-bottom: 1px;
 }
+
+
+.activity-item i {
+	float: left;
+	margin-top: 3px;
+	font-size: 16px;
+}
+
+div.activity {
+	margin-left: 28px;
+}
+
+div.activity-item {
+	padding: 7px 12px;
+}
+
+#notification-list div.activity-item {
+	border-top: 1px solid #f5f5f5;
+}
+
+#notification-list div.activity-item a {
+	font-weight: 600;
+}
+
+div.activity span {
+	display: block;
+	color: #999;
+	font-size: 11px;
+	line-height: 16px;
+}
+
+#notifications i.fa {
+	font-size: 17px;
+}
+
+.noty_type_error * {
+	font-weight: normal !important;
+}
+
+.noty_type_error a {
+	font-weight: bold !important;
+}
+
+.noty_bar.noty_type_error a, .noty_bar.noty_type_error i {
+	color: #fff
+}
+
+.noty_bar.noty_type_information a {
+	color: #fff;
+	font-weight: bold;
+}
+
+.noty_type_error div.activity span
+{
+	color: #fff
+}
+
+.noty_type_information div.activity span
+{
+	color: #fefefe
+}
+
+a {
+	color: #428bca;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #D65C4F;
+	text-decoration: none;
+}

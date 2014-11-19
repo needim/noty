@@ -34,14 +34,14 @@ module.exports = function(grunt) {
         },
 
         uglify: {
-            options : {
-                preserveComments: function(a) {
-                    return !!(a.start.file == 'js/noty/jquery.noty.js' && a.start.line == 11);
-                }
-            },
+            //options : {
+            //    preserveComments: function(a) {
+            //        return !!(a.start.file == 'js/noty/jquery.noty.js' && a.start.line == 11);
+            //    }
+            //},
             minifyJS: {
                 files: {
-                    'js/noty/packaged/jquery.noty.packaged.min.js': ['js/noty/jquery.noty.js', 'js/noty/layouts/*.js', 'js/noty/themes/*.js']
+                    'js/noty/packaged/jquery.noty.packaged.min.js': ['js/noty/packaged/jquery.noty.packaged.js']
                 }
             }
         }

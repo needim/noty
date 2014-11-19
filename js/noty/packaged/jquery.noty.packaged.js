@@ -7,7 +7,7 @@
 
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.2.10
+ @version version: 2.3.0
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -144,15 +144,25 @@
             if(self.options.callback.onShow)
                 self.options.callback.onShow.apply(self);
 
-            self.$bar.animate(
-                self.options.animation.open,
-                self.options.animation.speed,
-                self.options.animation.easing,
-                function() {
+            if (typeof self.options.animation.open == 'string') {
+                self.$bar.css('height', self.$bar.innerHeight());
+                self.$bar.show().addClass(self.options.animation.open).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                     if(self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
                     self.showing = false;
                     self.shown = true;
                 });
+
+            } else {
+                self.$bar.animate(
+                    self.options.animation.open,
+                    self.options.animation.speed,
+                    self.options.animation.easing,
+                    function() {
+                        if(self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
+                        self.showing = false;
+                        self.shown = true;
+                    });
+            }
 
             // If noty is have a timeout option
             if(self.options.timeout)
@@ -199,53 +209,81 @@
                 self.options.callback.onClose.apply(self);
             }
 
-            self.$bar.clearQueue().stop().animate(
-                self.options.animation.close,
-                self.options.animation.speed,
-                self.options.animation.easing,
-                function() {
+            if (typeof self.options.animation.close == 'string') {
+                self.$bar.addClass(self.options.animation.close).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                     if(self.options.callback.afterClose) self.options.callback.afterClose.apply(self);
-                })
-                .promise().done(function() {
+                    self.closeCleanUp();
+                });
+            } else {
+                self.$bar.clearQueue().stop().animate(
+                    self.options.animation.close,
+                    self.options.animation.speed,
+                    self.options.animation.easing,
+                    function() {
+                        if(self.options.callback.afterClose) self.options.callback.afterClose.apply(self);
+                    })
+                    .promise().done(function() {
+                        self.closeCleanUp();
+                    });
+            }
 
-                    // Modal Cleaning
-                    if(self.options.modal) {
-                        $.notyRenderer.setModalCount(-1);
-                        if($.notyRenderer.getModalCount() == 0) $('.noty_modal').fadeOut('fast', function() {
-                            $(this).remove();
-                        });
-                    }
+        }, // end close
 
-                    // Layout Cleaning
-                    $.notyRenderer.setLayoutCountFor(self, -1);
-                    if($.notyRenderer.getLayoutCountFor(self) == 0) $(self.options.layout.container.selector).remove();
+        closeCleanUp: function() {
 
-                    // Make sure self.$bar has not been removed before attempting to remove it
-                    if(typeof self.$bar !== 'undefined' && self.$bar !== null) {
+            var self = this;
+
+            // Modal Cleaning
+            if(self.options.modal) {
+                $.notyRenderer.setModalCount(-1);
+                if($.notyRenderer.getModalCount() == 0) $('.noty_modal').fadeOut('fast', function() {
+                    $(this).remove();
+                });
+            }
+
+            // Layout Cleaning
+            $.notyRenderer.setLayoutCountFor(self, -1);
+            if($.notyRenderer.getLayoutCountFor(self) == 0) $(self.options.layout.container.selector).remove();
+
+            // Make sure self.$bar has not been removed before attempting to remove it
+            if(typeof self.$bar !== 'undefined' && self.$bar !== null) {
+
+                if (typeof self.options.animation.close == 'string') {
+                    self.$bar.css('transition', 'all 100ms ease').css('border', 0).css('margin', 0).height(0);
+                    self.$bar.one('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function() {
                         self.$bar.remove();
                         self.$bar = null;
                         self.closed = true;
-                    }
 
-                    delete $.noty.store[self.options.id]; // deleting noty from store
+                        if(self.options.theme.callback && self.options.theme.callback.onClose) {
+                            self.options.theme.callback.onClose.apply(self);
+                        }
+                    });
+                } else {
+                    self.$bar.remove();
+                    self.$bar = null;
+                    self.closed = true;
+                }
+            }
 
-                    if(self.options.theme.callback && self.options.theme.callback.onClose) {
-                        self.options.theme.callback.onClose.apply(self);
-                    }
+            delete $.noty.store[self.options.id]; // deleting noty from store
 
-                    if(!self.options.dismissQueue) {
-                        // Queue render
-                        $.noty.ontap = true;
+            if(self.options.theme.callback && self.options.theme.callback.onClose) {
+                self.options.theme.callback.onClose.apply(self);
+            }
 
-                        $.notyRenderer.render();
-                    }
+            if(!self.options.dismissQueue) {
+                // Queue render
+                $.noty.ontap = true;
 
-                    if(self.options.maxVisible > 0 && self.options.dismissQueue) {
-                        $.notyRenderer.render();
-                    }
-                })
+                $.notyRenderer.render();
+            }
 
-        }, // end close
+            if(self.options.maxVisible > 0 && self.options.dismissQueue) {
+                $.notyRenderer.render();
+            }
+
+        }, // end close clean up
 
         setText: function(text) {
             if(!this.closed) {
@@ -1234,6 +1272,157 @@ $.noty.themes.defaultTheme = {
         },
         onClose: function() {
             $.noty.themes.defaultTheme.helpers.borderFix.apply(this);
+        }
+    }
+};
+
+$.noty.themes.relax = {
+    name    : 'relax',
+    helpers : {
+    },
+    modal   : {
+        css: {
+            position       : 'fixed',
+            width          : '100%',
+            height         : '100%',
+            backgroundColor: '#000',
+            zIndex         : 10000,
+            opacity        : 0.6,
+            display        : 'none',
+            left           : 0,
+            top            : 0
+        }
+    },
+    style   : function() {
+
+        this.$bar.css({
+            overflow  : 'hidden',
+            margin    : '4px 0',
+            borderRadius: '2px'
+        });
+
+        this.$message.css({
+            fontSize  : '14px',
+            lineHeight: '16px',
+            textAlign : 'center',
+            padding   : '10px',
+            width     : 'auto',
+            position  : 'relative'
+        });
+
+        this.$closeButton.css({
+            position  : 'absolute',
+            top       : 4, right: 4,
+            width     : 10, height: 10,
+            background: "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAxUlEQVR4AR3MPUoDURSA0e++uSkkOxC3IAOWNtaCIDaChfgXBMEZbQRByxCwk+BasgQRZLSYoLgDQbARxry8nyumPcVRKDfd0Aa8AsgDv1zp6pYd5jWOwhvebRTbzNNEw5BSsIpsj/kurQBnmk7sIFcCF5yyZPDRG6trQhujXYosaFoc+2f1MJ89uc76IND6F9BvlXUdpb6xwD2+4q3me3bysiHvtLYrUJto7PD/ve7LNHxSg/woN2kSz4txasBdhyiz3ugPGetTjm3XRokAAAAASUVORK5CYII=)",
+            display   : 'none',
+            cursor    : 'pointer'
+        });
+
+        this.$buttons.css({
+            padding        : 5,
+            textAlign      : 'right',
+            borderTop      : '1px solid #ccc',
+            backgroundColor: '#fff'
+        });
+
+        this.$buttons.find('button').css({
+            marginLeft: 5
+        });
+
+        this.$buttons.find('button:first').css({
+            marginLeft: 0
+        });
+
+        this.$bar.on({
+            mouseenter: function() {
+                $(this).find('.noty_close').stop().fadeTo('normal', 1);
+            },
+            mouseleave: function() {
+                $(this).find('.noty_close').stop().fadeTo('normal', 0);
+            }
+        });
+
+        switch(this.options.layout.name) {
+            case 'top':
+                this.$bar.css({
+                    borderBottom: '2px solid #eee',
+                    borderLeft  : '2px solid #eee',
+                    borderRight : '2px solid #eee',
+                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
+                });
+                break;
+            case 'topCenter':
+            case 'center':
+            case 'bottomCenter':
+            case 'inline':
+                this.$bar.css({
+                    border      : '1px solid #eee',
+                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
+                });
+                this.$message.css({fontSize: '13px', textAlign: 'center'});
+                break;
+            case 'topLeft':
+            case 'topRight':
+            case 'bottomLeft':
+            case 'bottomRight':
+            case 'centerLeft':
+            case 'centerRight':
+                this.$bar.css({
+                    border      : '1px solid #eee',
+                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
+                });
+                this.$message.css({fontSize: '13px', textAlign: 'left'});
+                break;
+            case 'bottom':
+                this.$bar.css({
+                    borderTop   : '2px solid #eee',
+                    borderLeft  : '2px solid #eee',
+                    borderRight : '2px solid #eee',
+                    boxShadow   : "0 -2px 4px rgba(0, 0, 0, 0.1)"
+                });
+                break;
+            default:
+                this.$bar.css({
+                    border   : '2px solid #eee',
+                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+                });
+                break;
+        }
+
+        switch(this.options.type) {
+            case 'alert':
+            case 'notification':
+                this.$bar.css({backgroundColor: '#FFF', borderColor: '#dedede', color: '#444'});
+                break;
+            case 'warning':
+                this.$bar.css({backgroundColor: '#FFEAA8', borderColor: '#FFC237', color: '#826200'});
+                this.$buttons.css({borderTop: '1px solid #FFC237'});
+                break;
+            case 'error':
+                this.$bar.css({backgroundColor: 'rgba(255, 1, 1, .5)', borderColor: 'rgba(139, 0, 0, .2)', color: '#FFF'});
+                this.$message.css({fontWeight: 'bold'});
+                this.$buttons.css({borderTop: '1px solid darkred'});
+                break;
+            case 'information':
+                this.$bar.css({backgroundColor: 'rgba(87, 183, 226, .8)', borderColor: 'rgba(11, 144, 196, .3)', color: '#FFF'});
+                this.$buttons.css({borderTop: '1px solid #0B90C4'});
+                break;
+            case 'success':
+                this.$bar.css({backgroundColor: 'rgba(144, 238, 144, .6)', borderColor: 'rgba(80, 194, 78, .3)', color: 'darkgreen'});
+                this.$buttons.css({borderTop: '1px solid #50C24E'});
+                break;
+            default:
+                this.$bar.css({backgroundColor: '#FFF', borderColor: '#CCC', color: '#444'});
+                break;
+        }
+    },
+    callback: {
+        onShow : function() {
+
+        },
+        onClose: function() {
+
         }
     }
 };
