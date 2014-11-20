@@ -26,7 +26,7 @@ window.anim.close = 'flipOutX';
 
 		new Share(".sharer-btn", {
 			title: 'NOTY - a jQuery Notification Plugin',
-			description: '#notyjs is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
+			description: '&num;notyjs is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
 			image: 'http://ned.im/noty/images/projects/noty-v2-logo.png',
 			networks: {
 				pinterest: {
