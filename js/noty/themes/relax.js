@@ -1,7 +1,6 @@
 $.noty.themes.relax = {
     name    : 'relax',
-    helpers : {
-    },
+    helpers : {},
     modal   : {
         css: {
             position       : 'fixed',
@@ -18,8 +17,8 @@ $.noty.themes.relax = {
     style   : function() {
 
         this.$bar.css({
-            overflow  : 'hidden',
-            margin    : '4px 0',
+            overflow    : 'hidden',
+            margin      : '4px 0',
             borderRadius: '2px'
         });
 
@@ -71,6 +70,7 @@ $.noty.themes.relax = {
                     borderBottom: '2px solid #eee',
                     borderLeft  : '2px solid #eee',
                     borderRight : '2px solid #eee',
+                    borderTop   : '2px solid #eee',
                     boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
                 });
                 break;
@@ -79,8 +79,8 @@ $.noty.themes.relax = {
             case 'bottomCenter':
             case 'inline':
                 this.$bar.css({
-                    border      : '1px solid #eee',
-                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
+                    border   : '1px solid #eee',
+                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
                 });
                 this.$message.css({fontSize: '13px', textAlign: 'center'});
                 break;
@@ -91,8 +91,8 @@ $.noty.themes.relax = {
             case 'centerLeft':
             case 'centerRight':
                 this.$bar.css({
-                    border      : '1px solid #eee',
-                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
+                    border   : '1px solid #eee',
+                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
                 });
                 this.$message.css({fontSize: '13px', textAlign: 'left'});
                 break;
@@ -101,6 +101,7 @@ $.noty.themes.relax = {
                     borderTop   : '2px solid #eee',
                     borderLeft  : '2px solid #eee',
                     borderRight : '2px solid #eee',
+                    borderBottom: '2px solid #eee',
                     boxShadow   : "0 -2px 4px rgba(0, 0, 0, 0.1)"
                 });
                 break;
@@ -122,16 +123,16 @@ $.noty.themes.relax = {
                 this.$buttons.css({borderTop: '1px solid #FFC237'});
                 break;
             case 'error':
-                this.$bar.css({backgroundColor: 'rgba(255, 1, 1, .5)', borderColor: 'rgba(139, 0, 0, .2)', color: '#FFF'});
+                this.$bar.css({backgroundColor: '#FF8181', borderColor: '#e25353', color: '#FFF'});
                 this.$message.css({fontWeight: 'bold'});
                 this.$buttons.css({borderTop: '1px solid darkred'});
                 break;
             case 'information':
-                this.$bar.css({backgroundColor: 'rgba(87, 183, 226, .8)', borderColor: 'rgba(11, 144, 196, .3)', color: '#FFF'});
+                this.$bar.css({backgroundColor: '#78C5E7', borderColor: '#3badd6', color: '#FFF'});
                 this.$buttons.css({borderTop: '1px solid #0B90C4'});
                 break;
             case 'success':
-                this.$bar.css({backgroundColor: 'rgba(144, 238, 144, .6)', borderColor: 'rgba(80, 194, 78, .3)', color: 'darkgreen'});
+                this.$bar.css({backgroundColor: '#BCF5BC', borderColor: '#7cdd77', color: 'darkgreen'});
                 this.$buttons.css({borderTop: '1px solid #50C24E'});
                 break;
             default:

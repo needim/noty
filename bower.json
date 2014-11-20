@@ -1,6 +1,6 @@
 {
     "name"       : "noty",
-    "version"    : "2.3.0",
+    "version"    : "2.3.1",
     "main"       : "js/noty/packaged/jquery.noty.packaged.js",
     "authors"    : [
         "Nedim Arabacı"
