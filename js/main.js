@@ -33,7 +33,12 @@ window.anim.close = 'flipOutX';
 					enabled: false
 				},
 				facebook: {
-					load_sdk: false
+					load_sdk: true,
+					app_id: '198259823578303',
+					title: 'NOTY - a jQuery Notification Plugin',
+				  	caption: 'noty is a jquery plugin which is have too many options for display notification',
+				  	description: '&num;notyjs is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
+				  	image: 'http://ned.im/noty/images/projects/noty-v2-logo.png'
 				}
 			}
 		});
