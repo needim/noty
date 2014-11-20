@@ -523,6 +523,26 @@ div.uploader span.action:before {
 	left: 7px;
 }
 
+.sharer-btn {
+	min-height: 80px;
+	margin: 0 auto;
+}
+
+.sharer-btn.text-center.sharer-0 label {
+	border-radius: 3px !important;
+	background-color: #eee !important;
+}
+
+.sharer-btn.text-center.sharer-0 label span {
+	font-size: .8em !important
+}
+
+.sharer-btn.text-center.sharer-0 .social ul li {
+	padding: 8px 0 12px 0 !important;
+	height: 30px !important;
+	font-size: 18px !important;
+}
+
 /* contact form 7 compatibility  */
 .wpcf7 {
 	padding: 0
