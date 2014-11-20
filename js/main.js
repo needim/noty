@@ -25,7 +25,7 @@ window.anim.close = 'flipOutX';
 
 
         noty({
-            text     : '<div><img width="100" src="http://needim.github.io/noty/img/noty-v2-logo.png" alt="noty" style="float: right"/> <strong>Hi!</strong> <br /> noty v2.3.0 released!</div>',
+            text     : '<div><img width="100" src="http://needim.github.io/noty/images/projects/noty-v2-logo.png" alt="noty" style="float: right"/> <strong>Hi!</strong> <br /> noty v2.3.0 released!</div>',
             layout   : 'topRight',
             type     : 'warning',
             theme    : 'relax',
