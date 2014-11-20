@@ -28,6 +28,9 @@ window.anim.close = 'flipOutX';
 			networks: {
 				pinterest: {
 					enabled: false
+				},
+				facebook: {
+					load_sdk: false
 				}
 			}
 		});
