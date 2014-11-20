@@ -1,148 +1,118 @@
 <!DOCTYPE html>
+<html lang="en" class="no-js one-page-layout" data-classic-layout="false" data-mobile-only-classic-layout="true" data-inAnimation="fadeInUp" data-outAnimation="fadeOutDownBig">
 
-<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-	
-	<title>noty - a jQuery Notification Plugin</title>
 
-	<meta name="description" content="noty is a jquery plugin which is have too many options for display notification"/>
-	<meta name="author" content="Nedim Arabacı (http://ned.im)">
-	<meta name="keywords" content="jquery, notification, plugin, opensource, open, source"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Nedim Arabacı - Full Stack Developer">
+    <meta name="keywords" content="jquery, notification, plugin, opensource, open, source">
+    <meta name="author" content="Nedim Arabacı (http://ned.im)">
 
-	<!-- Optimized mobile viewport -->
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noty - a jQuery Notification Plugin</title>
 
-	<!-- Place favicon.ico and apple-touch-icon.png in root directory -->
-	<link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/fluid.css">
-	<link rel="stylesheet" href="css/buttons.css">
-	<link rel="stylesheet" href="css/twilight.css">
-	<link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/font.css"/>
+    <script src="js/modernizr.custom.js"></script>
 
+    <!-- FONTS -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Tangerine:400,700' rel='stylesheet' type='text/css'>
+
+    <!-- STYLES -->
+    <link rel="stylesheet" type="text/css" media="print" href="css/print.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="js/nprogress/nprogress.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/fonts/fontello/css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.fancybox-1.3.4.css">
+    <link rel="stylesheet" type="text/css" href="js/google-code-prettify/prettify.css">
+    <link rel="stylesheet" type="text/css" href="css/uniform.default.css">
+    <link rel="stylesheet" type="text/css" href="css/flexslider.css">
+    <link rel="stylesheet" type="text/css" href="js/mediaelement/mediaelementplayer.css">
+    <link rel="stylesheet" type="text/css" href="css/tooltipster.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!--[if lte IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <script src="js/selectivizr-min.js"></script>
+    <![endif]-->
 </head>
-
 <body>
-    <div class="top-bar">
-        <div class="left-bar">
-            <a href="/">&larr; Back to ned.im</a>
-        </div>
 
-        <div class="right-bar">
-            <a href="/termic">Termic - an idea for personal pages and terminal lovers &hearts; &rarr;</a>
-        </div>
-    </div>
-	<div class="inner">
-		<header>
-			<div class="g3 logo-cont">
-				<a class="logo" href="/noty" title="noty - a jquery notification plugin">
-					<img src="img/noty-v2-logo.png" alt="noty - a jquery notification plugin"/>
-				</a>
-			</div>
-			<div class="g3">
-				<div class="top-right">
+    <!-- CONTAINER -->
+    <div class="container" id="container">
 
-					<div class="btn-top">
-						<iframe src="http://ghbtns.com/github-btn.html?user=needim&amp;repo=noty&amp;type=watch&amp;count=true"
-                                allowtransparency="true" frameborder="0" scrolling="0" width="96px" height="20px"></iframe>
-	  			</div>
+        <!-- HEADER -->
+        <header class="header">
+            <img src="images/projects/noty-v2-logo.png" alt="avatar">
+            <br>
+            <p>jquery notification plugin</p>
+            <div class="project-links">
+                <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="125px" height="35px"></iframe>
 
-	  			<div class="btn-top">
-		  			<iframe src="http://ghbtns.com/github-btn.html?user=needim&amp;repo=noty&amp;type=fork&amp;count=true"
-                            allowtransparency="true" frameborder="0" scrolling="0" width="92px" height="20px"></iframe>
-	  			</div>
+                <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="115px" height="35px"></iframe>
 
-	  			<div class="btn-top">
-					  <iframe src="http://ghbtns.com/github-btn.html?user=needim&amp;type=follow&amp;count=true"
-                              allowtransparency="true" frameborder="0" scrolling="0" width="152px" height="20px"></iframe>
-	  			</div>
+                <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;type=follow&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="190px" height="35px"></iframe>
 
-                <div class="btn-top">
-                    <iframe src="http://ned.im/ghbtns/github-btn.html?user=needim&amp;repo=noty&amp;type=download&amp;count=true"
-                            allowtransparency="true" frameborder="0" scrolling="0" width="132px" height="20px"></iframe>
-	  			</div>
-
-                <div class="btn-top">
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://needim.github.com/noty/" data-via="needim" data-related="needim" data-hashtags="notyjs">Tweet</a>
-                    <script>!function (d, s, id) {
-                            var js, fjs = d.getElementsByTagName(s)[0];
-                            if (!d.getElementById(id)) {
-                                js = d.createElement(s);
-                                js.id = id;
-                                js.src = "//platform.twitter.com/widgets.js";
-                                fjs.parentNode.insertBefore(js, fjs);
-                            }
-                        }(document, "script", "twitter-wjs");</script>
-                </div>
-
-	  			<div class="btn-top">
-		    		<a href="http://flattr.com/thing/529967/noty-jQuery-Notification-Plugin" target="_blank">
-						<img src="http://api.flattr.com/button/flattr-badge-large.png" alt="Flattr this" title="Flattr this" border="0"/></a>
-					</div>
-	    	    </div>
-
-			</div>
-
-            <div class="g3" style="text-align: center">
-
-                <a href="http://codecanyon.net/user/needim/portfolio?ref=needim">
-                    <img src="img/notymanager_590x300.jpg" alt="Highly customizable notification manager: Noty Manager"/>
-                </a>
-                <br><br>
+                <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=download&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="182px" height="35px"></iframe>
             </div>
 
+            <!-- NAV MENU -->
+            <ul class="vs-nav" style="display: none">
 
-            <div class="g3" style="text-align: center">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- Nedim - 728x90 -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:728px;height:90px"
-                     data-ad-client="ca-pub-6920776915496505"
-                     data-ad-slot="3505344538"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
-		</header>
-		<div class="cf"></div>
-		<div id="wrapper">
-			<div class="g3">
+                <li><a href="#/about">about me</a></li>
+                <li><a href="#/portfolio">portfolio</a></li>
+                <li><a href="#/contact">contact</a></li>
+                <li><a href="#/blog">blog</a></li>
+                <li><a href="#/resume">resume</a></li>
 
-				<div class="content">
+            </ul>
 
-					<div class="inner-menu" style="display: none">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- Nedim - 728x90 -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-6920776915496505"
+                 data-ad-slot="3505344538"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+            <!-- NAV MENU -->
+        </header>
+        <!-- HEADER -->
 
-						<a href="#hi">Hi!</a>
-						<a href="#layouts">Layouts</a>
-						<a href="#installation">Installation</a>
-						<a href="#creating-a-noty">Creating a noty</a>
-						<a href="#options">Options</a>
-						<a href="#custom-container">Custom Container</a>
-						<a href="#theme">Theme</a>
-						<a href="#buttons">Buttons</a>
-						<a href="#callbacks">Callbacks</a>
-						<a href="#api">API</a>
-						<a href="#history">History</a>
 
-					</div>
-
-					<div id="hi">
-
-                        <h4>Hi!</h4>
-
-                        <div class="g2">
-                            <p><span class="hl">noty</span> is a jQuery plugin that makes it easy to create <span class="hl">alert</span> - <span class="hl">success</span> - <span class="hl">error</span> - <span class="hl">warning</span> - <span class="hl">information</span> - <span class="hl">confirmation</span> messages as an alternative the standard alert dialog. Each notification is added to a <span class="hl">queue</span>. (Optional)</p>
-
-                            <p>The notifications can be positioned at the: <br/> <span class="hl">top</span> - <span class="hl">topLeft</span> - <span class="hl">topCenter</span> - <span class="hl">topRight</span> - <span class="hl">center</span> - <span class="hl">centerLeft</span> - <span class="hl">centerRight</span> - <span class="hl">bottom</span> - <span class="hl">bottomLeft</span> - <span class="hl">bottomCenter</span> - <span class="hl">bottomRight</span></p>
-
-                            <p>The API provides lots of other options to customise the text, animation, speed, buttons and much more.</p>
-
-                            <p>It also has various callbacks for the buttons such as opening and closing the notifications and queue control. </p>
-
+        <!-- WRAPPER -->
+        <div class="wrapper">
+            <!-- PAGE : ABOUT -->
+            <section id="about" class="page">
+                <div class="content">
+                    <!-- row -->
+                    <div class="row">
+                        <!-- column 7/12 -->
+                        <div class="col-md-7">
+                            <h2 class="section-title"><span><i class="icon-guest"></i>A LITTLE ABOUT NOTY</span></h2>
+                            <!-- intro -->
+                            <div class="intro">
+                                <h2>
+                                    <strong>NOTY</strong> is a <strong>jQuery plugin</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each
+                                    notification is added to a queue. (Optional)
+                                    <br><br>
+                                    The notifications can be positioned at the:
+                                    top - topLeft - topCenter - topRight - center - centerLeft - centerRight - bottom - bottomLeft - bottomCenter - bottomRight
+                                </h2>
+                            </div>
+                            <!-- intro -->
                         </div>
-                        <div class="g1">
+                        <!-- column 7/12 -->
+
+                        <!-- column 5/12 -->
+                        <div class="col-md-5">
+                            <h2 class="section-title"><span><i class="icon-cafe"></i>ADS</span></h2>
                             <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                             <!-- Nedim - 336x280 -->
                             <ins class="adsbygoogle"
@@ -153,266 +123,467 @@
                                 (adsbygoogle = window.adsbygoogle || []).push({});
                             </script>
                         </div>
-
-
-                    <div class="cf"></div>
-
-
-					</div>
-
-					<div class="divider"></div>
-
-					<div id="layouts">
-
-						<h4>Layouts &amp; Demos</h4>
-
-						<div class="g1 layout-demo">
-
-							&nbsp;
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>Top</span>
-							<span class="runner" data-layout="top" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="top" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="top" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
-							<span class="runner" data-layout="top" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="top" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="top" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							&nbsp;
-
-						</div>
-
-						<div class="cf"></div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>TopLeft</span>
-							<span class="runner" data-layout="topLeft" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topLeft" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topLeft" data-type="error">Error <i class="icon-caret-right"></i></span> <br/>
-							<span class="runner" data-layout="topLeft" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topLeft" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topLeft" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>TopCenter</span>
-							<span class="runner" data-layout="topCenter" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topCenter" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topCenter" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
-							<span class="runner" data-layout="topCenter" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topCenter" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topCenter" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>TopRight</span>
-							<span class="runner" data-layout="topRight" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topRight" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topRight" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
-							<span class="runner" data-layout="topRight" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topRight" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="topRight" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="cf"></div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>CenterLeft</span>
-							<span class="runner" data-layout="centerLeft" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerLeft" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerLeft" data-type="error">Error <i class="icon-caret-right"></i></span> <br/>
-							<span class="runner" data-layout="centerLeft" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerLeft" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerLeft" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>Center</span>
-							<span class="runner" data-layout="center" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="center" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="center" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
-							<span class="runner" data-layout="center" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="center" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="center" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>CenterRight</span>
-							<span class="runner" data-layout="centerRight" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerRight" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerRight" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
-							<span class="runner" data-layout="centerRight" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerRight" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="centerRight" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="cf"></div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>BottomLeft</span>
-							<span class="runner" data-layout="bottomLeft" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomLeft" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomLeft" data-type="error">Error <i class="icon-caret-right"></i></span> <br/>
-							<span class="runner" data-layout="bottomLeft" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomLeft" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomLeft" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>BottomCenter</span>
-							<span class="runner" data-layout="bottomCenter" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomCenter" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomCenter" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
-							<span class="runner" data-layout="bottomCenter" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomCenter" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomCenter" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>BottomRight</span>
-							<span class="runner" data-layout="bottomRight" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomRight" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomRight" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
-							<span class="runner" data-layout="bottomRight" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomRight" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottomRight" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="cf"></div>
-
-						<div class="g1 layout-demo">
-
-							&nbsp;
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							<h6><span class='lay-title'>Bottom</span>
-							<span class="runner" data-layout="bottom" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottom" data-type="success">Success <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottom" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
-							<span class="runner" data-layout="bottom" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottom" data-type="information">Information <i class="icon-caret-right"></i></span>
-							<span class="runner" data-layout="bottom" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-							</h6>
-
-						</div>
-
-						<div class="g1 layout-demo">
-
-							&nbsp;
-
-						</div>
-
-						<div class="cf"></div>
-
-					</div>
-
-					<div class="divider"></div>
-
-					<div id="installation">
-
-						<h4>Installation</h4>
-
-						Include the <a href="http://docs.jquery.com/Downloading_jQuery#Current_Release">latest release of jQuery</a> before your noty files.
-						The Google AJAX Libraries API can be used for this but you could also host the library yourself.
-
-						<p>Download <span class="hl">noty</span> from the
-						<a href="https://github.com/needim/noty/releases"><i class="icon-github"></i> Github</a> and upload the files to your server.</p>
-						Include <span class="hl">noty/packaged/jquery.noty.packaged.min.js</span> and its dependancies below jQuery. <br/>
-
-						<p>noty is compatible with <span class="hl">jQuery 1.6+</span> for now.
-						But if you are using older version then 1.6 you can add <span class="hl">promise.js</span> to your header.
-						(Thanks for <a href="https://github.com/MrMaksimize" target="_blank">Maksim Pecherskiy</a>)</p>
-
-						<p>Your code should then be similar to this:</p>
-
-						<pre>
-						<code data-language="html">
+                        <!-- column 5/12 -->
+
+                    </div>
+                    <!-- row -->
+
+                    <h2 class="section-title"><span><i class="icon-info"></i>LAYOUTS &amp; DEMOS</span></h2>
+                    <!-- LAYOUTS & DEMOS -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+
+                            <div class="service">
+                                <div id="layouts">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <p class="excerpt"><strong>NOTY</strong> has <strong>11</strong> layouts and also you can create custom layouts.</p>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>Top</h3>
+                                            <a href="" class="runner" data-layout="top" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="top" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="top" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="top" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="top" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="top" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <label for="anim-open">Open Animation (Animate.css)</label>
+                                            <select name="anim-open" id="anim-open">
+                                                <optgroup label="Attention Seekers">
+                                                    <option value="bounce">bounce</option>
+                                                    <option value="flash">flash</option>
+                                                    <option value="pulse">pulse</option>
+                                                    <option value="rubberBand">rubberBand</option>
+                                                    <option value="shake">shake</option>
+                                                    <option value="swing">swing</option>
+                                                    <option value="tada">tada</option>
+                                                    <option value="wobble">wobble</option>
+                                                </optgroup>
+
+                                                <optgroup label="Bouncing Entrances">
+                                                    <option value="bounceIn">bounceIn</option>
+                                                    <option value="bounceInDown">bounceInDown</option>
+                                                    <option value="bounceInLeft">bounceInLeft</option>
+                                                    <option value="bounceInRight">bounceInRight</option>
+                                                    <option value="bounceInUp">bounceInUp</option>
+                                                </optgroup>
+
+                                                <optgroup label="Bouncing Exits">
+                                                    <option value="bounceOut">bounceOut</option>
+                                                    <option value="bounceOutDown">bounceOutDown</option>
+                                                    <option value="bounceOutLeft">bounceOutLeft</option>
+                                                    <option value="bounceOutRight">bounceOutRight</option>
+                                                    <option value="bounceOutUp">bounceOutUp</option>
+                                                </optgroup>
+
+                                                <optgroup label="Fading Entrances">
+                                                    <option value="fadeIn">fadeIn</option>
+                                                    <option value="fadeInDown">fadeInDown</option>
+                                                    <option value="fadeInDownBig">fadeInDownBig</option>
+                                                    <option value="fadeInLeft">fadeInLeft</option>
+                                                    <option value="fadeInLeftBig">fadeInLeftBig</option>
+                                                    <option value="fadeInRight">fadeInRight</option>
+                                                    <option value="fadeInRightBig">fadeInRightBig</option>
+                                                    <option value="fadeInUp">fadeInUp</option>
+                                                    <option value="fadeInUpBig">fadeInUpBig</option>
+                                                </optgroup>
+
+                                                <optgroup label="Fading Exits">
+                                                    <option value="fadeOut">fadeOut</option>
+                                                    <option value="fadeOutDown">fadeOutDown</option>
+                                                    <option value="fadeOutDownBig">fadeOutDownBig</option>
+                                                    <option value="fadeOutLeft">fadeOutLeft</option>
+                                                    <option value="fadeOutLeftBig">fadeOutLeftBig</option>
+                                                    <option value="fadeOutRight">fadeOutRight</option>
+                                                    <option value="fadeOutRightBig">fadeOutRightBig</option>
+                                                    <option value="fadeOutUp">fadeOutUp</option>
+                                                    <option value="fadeOutUpBig">fadeOutUpBig</option>
+                                                </optgroup>
+
+                                                <optgroup label="Flippers">
+                                                    <option value="flip">flip</option>
+                                                    <option value="flipInX" selected="selected">flipInX</option>
+                                                    <option value="flipInY">flipInY</option>
+                                                    <option value="flipOutX">flipOutX</option>
+                                                    <option value="flipOutY">flipOutY</option>
+                                                </optgroup>
+
+                                                <optgroup label="Lightspeed">
+                                                    <option value="lightSpeedIn">lightSpeedIn</option>
+                                                    <option value="lightSpeedOut">lightSpeedOut</option>
+                                                </optgroup>
+
+                                                <optgroup label="Rotating Entrances">
+                                                    <option value="rotateIn">rotateIn</option>
+                                                    <option value="rotateInDownLeft">rotateInDownLeft</option>
+                                                    <option value="rotateInDownRight">rotateInDownRight</option>
+                                                    <option value="rotateInUpLeft">rotateInUpLeft</option>
+                                                    <option value="rotateInUpRight">rotateInUpRight</option>
+                                                </optgroup>
+
+                                                <optgroup label="Rotating Exits">
+                                                    <option value="rotateOut">rotateOut</option>
+                                                    <option value="rotateOutDownLeft">rotateOutDownLeft</option>
+                                                    <option value="rotateOutDownRight">rotateOutDownRight</option>
+                                                    <option value="rotateOutUpLeft">rotateOutUpLeft</option>
+                                                    <option value="rotateOutUpRight">rotateOutUpRight</option>
+                                                </optgroup>
+
+                                                <optgroup label="Specials">
+                                                    <option value="hinge">hinge</option>
+                                                    <option value="rollIn">rollIn</option>
+                                                    <option value="rollOut">rollOut</option>
+                                                </optgroup>
+
+                                                <optgroup label="Zoom Entrances">
+                                                    <option value="zoomIn">zoomIn</option>
+                                                    <option value="zoomInDown">zoomInDown</option>
+                                                    <option value="zoomInLeft">zoomInLeft</option>
+                                                    <option value="zoomInRight">zoomInRight</option>
+                                                    <option value="zoomInUp">zoomInUp</option>
+                                                </optgroup>
+
+                                                <optgroup label="Zoom Exits">
+                                                    <option value="zoomOut">zoomOut</option>
+                                                    <option value="zoomOutDown">zoomOutDown</option>
+                                                    <option value="zoomOutLeft">zoomOutLeft</option>
+                                                    <option value="zoomOutRight">zoomOutRight</option>
+                                                    <option value="zoomOutUp">zoomOutUp</option>
+                                                </optgroup>
+                                            </select>
+
+                                            <label for="anim-close">Close Animation (Animate.css)</label>
+                                            <select name="anim-close" id="anim-close">
+                                                <optgroup label="Attention Seekers">
+                                                    <option value="bounce">bounce</option>
+                                                    <option value="flash">flash</option>
+                                                    <option value="pulse">pulse</option>
+                                                    <option value="rubberBand">rubberBand</option>
+                                                    <option value="shake">shake</option>
+                                                    <option value="swing">swing</option>
+                                                    <option value="tada">tada</option>
+                                                    <option value="wobble">wobble</option>
+                                                </optgroup>
+
+                                                <optgroup label="Bouncing Entrances">
+                                                    <option value="bounceIn">bounceIn</option>
+                                                    <option value="bounceInDown">bounceInDown</option>
+                                                    <option value="bounceInLeft">bounceInLeft</option>
+                                                    <option value="bounceInRight">bounceInRight</option>
+                                                    <option value="bounceInUp">bounceInUp</option>
+                                                </optgroup>
+
+                                                <optgroup label="Bouncing Exits">
+                                                    <option value="bounceOut">bounceOut</option>
+                                                    <option value="bounceOutDown">bounceOutDown</option>
+                                                    <option value="bounceOutLeft">bounceOutLeft</option>
+                                                    <option value="bounceOutRight">bounceOutRight</option>
+                                                    <option value="bounceOutUp">bounceOutUp</option>
+                                                </optgroup>
+
+                                                <optgroup label="Fading Entrances">
+                                                    <option value="fadeIn">fadeIn</option>
+                                                    <option value="fadeInDown">fadeInDown</option>
+                                                    <option value="fadeInDownBig">fadeInDownBig</option>
+                                                    <option value="fadeInLeft">fadeInLeft</option>
+                                                    <option value="fadeInLeftBig">fadeInLeftBig</option>
+                                                    <option value="fadeInRight">fadeInRight</option>
+                                                    <option value="fadeInRightBig">fadeInRightBig</option>
+                                                    <option value="fadeInUp">fadeInUp</option>
+                                                    <option value="fadeInUpBig">fadeInUpBig</option>
+                                                </optgroup>
+
+                                                <optgroup label="Fading Exits">
+                                                    <option value="fadeOut">fadeOut</option>
+                                                    <option value="fadeOutDown">fadeOutDown</option>
+                                                    <option value="fadeOutDownBig">fadeOutDownBig</option>
+                                                    <option value="fadeOutLeft">fadeOutLeft</option>
+                                                    <option value="fadeOutLeftBig">fadeOutLeftBig</option>
+                                                    <option value="fadeOutRight">fadeOutRight</option>
+                                                    <option value="fadeOutRightBig">fadeOutRightBig</option>
+                                                    <option value="fadeOutUp">fadeOutUp</option>
+                                                    <option value="fadeOutUpBig">fadeOutUpBig</option>
+                                                </optgroup>
+
+                                                <optgroup label="Flippers">
+                                                    <option value="flip">flip</option>
+                                                    <option value="flipInX">flipInX</option>
+                                                    <option value="flipInY">flipInY</option>
+                                                    <option value="flipOutX" selected="selected">flipOutX</option>
+                                                    <option value="flipOutY">flipOutY</option>
+                                                </optgroup>
+
+                                                <optgroup label="Lightspeed">
+                                                    <option value="lightSpeedIn">lightSpeedIn</option>
+                                                    <option value="lightSpeedOut">lightSpeedOut</option>
+                                                </optgroup>
+
+                                                <optgroup label="Rotating Entrances">
+                                                    <option value="rotateIn">rotateIn</option>
+                                                    <option value="rotateInDownLeft">rotateInDownLeft</option>
+                                                    <option value="rotateInDownRight">rotateInDownRight</option>
+                                                    <option value="rotateInUpLeft">rotateInUpLeft</option>
+                                                    <option value="rotateInUpRight">rotateInUpRight</option>
+                                                </optgroup>
+
+                                                <optgroup label="Rotating Exits">
+                                                    <option value="rotateOut">rotateOut</option>
+                                                    <option value="rotateOutDownLeft">rotateOutDownLeft</option>
+                                                    <option value="rotateOutDownRight">rotateOutDownRight</option>
+                                                    <option value="rotateOutUpLeft">rotateOutUpLeft</option>
+                                                    <option value="rotateOutUpRight">rotateOutUpRight</option>
+                                                </optgroup>
+
+                                                <optgroup label="Specials">
+                                                    <option value="hinge">hinge</option>
+                                                    <option value="rollIn">rollIn</option>
+                                                    <option value="rollOut">rollOut</option>
+                                                </optgroup>
+
+                                                <optgroup label="Zoom Entrances">
+                                                    <option value="zoomIn">zoomIn</option>
+                                                    <option value="zoomInDown">zoomInDown</option>
+                                                    <option value="zoomInLeft">zoomInLeft</option>
+                                                    <option value="zoomInRight">zoomInRight</option>
+                                                    <option value="zoomInUp">zoomInUp</option>
+                                                </optgroup>
+
+                                                <optgroup label="Zoom Exits">
+                                                    <option value="zoomOut">zoomOut</option>
+                                                    <option value="zoomOutDown">zoomOutDown</option>
+                                                    <option value="zoomOutLeft">zoomOutLeft</option>
+                                                    <option value="zoomOutRight">zoomOutRight</option>
+                                                    <option value="zoomOutUp">zoomOutUp</option>
+                                                </optgroup>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>TopLeft</h3>
+                                            <a href="" class="runner" data-layout="topLeft" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="topLeft" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="topLeft" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="topLeft" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="topLeft" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="topLeft" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>TopCenter</h3>
+                                            <a href="" class="runner" data-layout="topCenter" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="topCenter" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="topCenter" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="topCenter" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="topCenter" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="topCenter" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>TopRight</h3>
+                                            <a href="" class="runner" data-layout="topRight" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="topRight" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="topRight" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="topRight" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="topRight" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="topRight" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>CenterLeft</h3>
+                                            <a href="" class="runner" data-layout="centerLeft" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="centerLeft" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="centerLeft" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="centerLeft" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="centerLeft" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="centerLeft" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>Center</h3>
+                                            <a href="" class="runner" data-layout="center" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="center" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="center" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="center" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="center" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="center" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>CenterRight</h3>
+                                            <a href="" class="runner" data-layout="centerRight" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="centerRight" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="centerRight" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="centerRight" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="centerRight" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="centerRight" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>BottomLeft</h3>
+                                            <a href="" class="runner" data-layout="bottomLeft" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="bottomLeft" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="bottomLeft" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="bottomLeft" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="bottomLeft" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="bottomLeft" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>BottomCenter</h3>
+                                            <a href="" class="runner" data-layout="bottomCenter" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="bottomCenter" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="bottomCenter" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="bottomCenter" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="bottomCenter" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="bottomCenter" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>BottomRight</h3>
+                                            <a href="" class="runner" data-layout="bottomRight" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="bottomRight" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="bottomRight" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="bottomRight" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="bottomRight" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="bottomRight" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-4 col-lg-4"></div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4">
+                                            <h3>Bottom</h3>
+                                            <a href="" class="runner" data-layout="bottom" data-type="alert">Alert</a>,
+                                            <a href="" class="runner" data-layout="bottom" data-type="success">Success</a>,
+                                            <a href="" class="runner" data-layout="bottom" data-type="error">Error</a>,
+                                            <a href="" class="runner" data-layout="bottom" data-type="warning">Warning</a>,
+                                            <a href="" class="runner" data-layout="bottom" data-type="information">Information</a>,
+                                            <a href="" class="runner" data-layout="bottom" data-type="confirm">Confirm</a>
+                                            <hr>
+                                        </div>
+                                        <div class="col-xs-12 col-md-4 col-lg-4"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                    <!-- LAYOUTS -->
+
+
+                    <h2 class="section-title"><span><i class="icon-info"></i>INSTALLATION</span></h2>
+                    <!-- INSTALLATION -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+
+                            <div class="service">
+                                <div id="installation">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <p>
+                                                Include the <a href="http://docs.jquery.com/Downloading_jQuery#Current_Release">latest release of jQuery</a> before your noty files.
+                                                The Google AJAX Libraries API can be used for this but you could also host the library yourself.
+                                            </p>
+                                            <p>
+                                                Download <strong>NOTY</strong> from the <a href="https://github.com/needim/noty/releases"><i class="icon-github"></i> Github</a> and upload the files to your server.
+                                            </p>
+                                            <p>
+                                                Include <strong>noty/packaged/jquery.noty.packaged.min.js</strong> and its dependancies below jQuery.
+                                            </p>
+                                            <p>
+                                                noty is compatible with <strong>jQuery 1.6+</strong> for now.
+                                                <strong>But if you are using older version then 1.6 you can add promise.js to your header.</strong>
+                                                (Thanks for <a href="https://github.com/MrMaksimize" target="_blank">Maksim Pecherskiy</a>)
+                                            </p>
+                                            <p>Your code should then be similar to this:</p>
+
+<pre class="prettyprint lang-javascript">
 &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"&gt;&lt;/script&gt;
-						</code>
-						</pre>
+</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- INSTALLATION -->
 
-					</div>
+                    <h2 class="section-title"><span><i class="icon-info"></i>CREATING A NOTY</span></h2>
+                    <!-- CREATING A NOTY -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
 
-					<div class="divider"></div>
+                            <div class="service">
+                                <div id="creating">
 
-					<div id="creating-a-noty">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <p>
+                                                We wrote a helper for creating noty easily. So you can use <strong>noty(properties);</strong> like this;
+                                            </p>
+                                            <p>
+                                                Returns a noty javascript object. (not jquery dom object, but you can access dom with this object)
 
-						<h4>Creating a noty</h4>
+                                                Also, you can give any <strong>html</strong> to "<strong>text</strong>" option
+                                            </p>
 
-							We wrote a helper for creating noty easily. So you can use <span class="hl">noty(properties);</span> Just like this;
 
-							<p>Returns a noty javascript object. (not jquery dom object, but you can access dom with this object)</p>
-
-                            <p><i>Also, you can give any <span class="new">html</span> to "<strong>text</strong>" option.</i></p>
-
-							<pre>
-							<code data-language="javascript">
+<pre class="prettyprint lang-javascript">
 var n = noty({text: 'noty - a jquery notification library!'});
-							</code>
-							</pre>
+</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CREATING A NOTY -->
 
-					</div>
+                    <h2 class="section-title"><span><i class="icon-info"></i>OPTIONS &amp; DEFAULTS</span></h2>
+                    <!-- OPTIONS -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
 
-					<div class="divider"></div>
+                            <div class="service">
+                                <div id="options">
 
-					<div id="options">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <p>
+                                                Available options listed below.
+                                            </p>
 
-						<h4>Options &amp; Defaults</h4>
-
-						<p>Available options listed below.</p>
-
-						<pre>
-						<code data-language="javascript">
+<pre class="prettyprint lang-javascript">
 $.noty.defaults = {
     layout: 'top',
-    theme: 'defaultTheme',
+    theme: 'defaultTheme', // or 'relax'
     type: 'alert',
     text: '', // can be html or string
     dismissQueue: true, // If you want to use queue feature set this true
     template: '&lt;div class="noty_message"&gt;&lt;span class="noty_text"&gt;&lt;/span&gt;&lt;div class="noty_close"&gt;&lt;/div&gt;&lt;/div&gt;',
     animation: {
-        open: {height: 'toggle'},
-        close: {height: 'toggle'},
+        open: {height: 'toggle'}, // or Animate.css class names like: 'animated bounceInLeft'
+        close: {height: 'toggle'}, // or Animate.css class names like: 'animated bounceOutLeft'
         easing: 'swing',
         speed: 500 // opening &amp; closing animation speed
     },
@@ -421,100 +592,104 @@ $.noty.defaults = {
     modal: false,
     maxVisible: 5, // you can set max visible notification for dismissQueue true option,
     killer: false, // for close all notifications before show
-    closeWith: ['click'], // ['click', 'button', 'hover', 'backdrop'] // backdrop click will close all open notifications
+    closeWith: ['click'], // ['click', 'button', 'hover', 'backdrop'] // backdrop click will close all notifications
     callback: {
         onShow: function() {},
         afterShow: function() {},
         onClose: function() {},
-        afterClose: function() {}
+        afterClose: function() {},
+        onCloseClick: function() {},
     },
     buttons: false // an array of buttons
 };
-						</code>
-						</pre>
+</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- OPTIONS -->
 
-					</div>
+                    <h2 class="section-title"><span><i class="icon-info"></i>CUSTOM CONTAINER</span></h2>
+                    <!-- CUSTOM CONTAINER -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
 
-					<div class="divider"></div>
+                            <div class="service">
+                                <div id="custom-container">
 
-					<div id="custom-container">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <p>
+                                                Just like this;
+                                            </p>
 
-						<h4>Custom Container</h4>
-
-						<p>Just like this; (<span class="new">Dependency: layouts/inline.js</span>)</p>
-
-						<pre>
-						<code data-language="javascript">
+<pre class="prettyprint lang-javascript">
 var n = $('.custom_container').noty({text: 'noty - a jquery notification library!'});
-						</code>
-						</pre>
+</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CUSTOM CONTAINER -->
 
-						<div class="cf">
+                    <h2 class="section-title"><span><i class="icon-info"></i>THEME</span></h2>
+                    <!-- THEME -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
 
-							<div class="g1">
+                            <div class="service">
+                                <div id="theme">
 
-								<h5>Try!</h5>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <p>
+                                                noty is easily themable using Javascript or CSS.</p>
+                                            <p>
+                                                Theme structre is in noty/themes/default.js file. You can copy-paste this file and change.</p>
+                                            <p>
+                                                Don't forget to include your theme's javascript file.
+                                            </p>
 
-								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="alert">Alert <i class="icon-caret-right"></i></span>
-								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="success">Success <i class="icon-caret-right"></i></span>
-								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="error">Error <i class="icon-caret-right"></i></span>  <br/>
-								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="warning">Warning <i class="icon-caret-right"></i></span>
-								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="information">Information <i class="icon-caret-right"></i></span>
-								<span class="runner" data-layout="inline" data-custom=".custom_container" data-type="confirm">Confirm <i class="icon-caret-right"></i></span>
-
-							</div>
-
-							<div class="g2">
-
-								<h5>Custom Container</h5>
-
-								<div class="custom_container"></div>
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="divider"></div>
-
-					<div id="theme">
-
-						<h4>Theme</h4>
-
-						<p>noty is easily themable using Javascript or CSS.</p>
-
-						<p>Theme structre is in <span class="hl">noty/themes/default.js</span> file. You can copy-paste this file and change.</p>
-
-						<p>Don't forget to include your theme's javascript file.</p>
-                        <pre>
-						<code data-language="html">
+<pre class="prettyprint lang-javascript">
 &lt;script type="text/javascript" src="js/noty/themes/your_new_theme.js"&gt;&lt;/script&gt;
-						</code>
-						</pre>
+</pre>
+                                            <p>
+                                                After that you can set your new theme with noty theme property. Like;
+                                            </p>
 
-						<p>After that you can set your new theme with noty <span class="hl">theme property</span>. Like;</p>
+<pre class="prettyprint lang-javascript">
+var n = noty({
+    text: 'noty - a jquery notification library!',
+    theme: 'your_new_theme',
+});
+</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- THEME -->
 
-						<pre>
-						<code data-language="javascript">
-	var n = noty({
-		text: 'noty - a jquery notification library!',
-		theme: 'your_new_theme',
-	});
-						</code>
-						</pre>
+                    <h2 class="section-title"><span><i class="icon-info"></i>BUTTONS</span></h2>
+                    <!-- BUTTONS -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
 
-					</div>
+                            <div class="service">
+                                <div id="buttons">
 
-					<div class="divider"></div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <p>
+                                                We can set button objects with an array like above;
+                                            </p>
 
-					<div id="buttons">
-
-						<h4 id="buttons">Buttons</h4>
-
-						<p>We can set button objects with an array like above;</p>
-
-						<pre>
-						<code data-language="javascript">
+<pre class="prettyprint lang-javascript">
 noty({
 	text: 'Do you want to continue?',
 	buttons: [
@@ -534,124 +709,150 @@ noty({
 		}
 	]
 });
-						</code>
-						</pre>
+</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BUTTONS -->
 
-					</div>
+                    <h2 class="section-title"><span><i class="icon-info"></i>CALLBACKS</span></h2>
+                    <!-- CALLBACKS -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
 
-					<div class="divider"></div>
+                            <div class="service">
+                                <div id="callbacks">
 
-					<div id="callbacks">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <p>
+                                                <strong>NOTY</strong> have 5 callback option for now.
+                                            </p>
+                                            <p>
+                                                <strong>onShow</strong> - <strong>afterShow</strong> - <strong>onClose</strong> - <strong>afterClose</strong> - <strong>afterCloseClick</strong>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- CALLBACKS -->
 
-						<h4>Callbacks</h4>
+                    <h2 class="section-title"><span><i class="icon-info"></i>API</span></h2>
+                    <!-- API -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
 
-						<p>noty have 4 callback option for now. We will add more callback asap.</p>
+                            <div class="service">
+                                <div id="callbacks">
 
-						<p>
-							<span class="hl">onShow</span> -
-							<span class="hl">afterShow</span> -
-							<span class="hl">onClose</span> -
-							<span class="hl">afterClose</span>
-						</p>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                                <p>
+                                                    <strong>$.noty.get(id)</strong> - Returns a noty javascript object
+                                                </p>
+                                                <p>
+                                                    <strong>$.noty.close(id)</strong> - Close a noty - <strong>same as var n = noty({text: 'Hi!'})); n.close();</strong>
+                                                </p>
+                                                <p>
+                                                    <strong>$.noty.clearQueue()</strong> - Clears the notification queue
+                                                </p>
+                                                <p>
+                                                    <strong>$.noty.closeAll()</strong> - Close all notifications
+                                                </p>
+                                                <p>
+                                                    <strong>$.noty.setText(id, text)</strong> - Notification text updater - <strong>same as var n = noty({text: 'Hi!'})); n.setText('Hi again!');</strong>
+                                                </p>
+                                                <p>
+                                                    <strong>$.noty.setType(id, type)</strong> - Notification type updater - <strong>same as var n = noty({text: 'Hi!'})); n.setType('error');</strong>
+                                                </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- API -->
 
-					</div>
+                    <h2 class="section-title"><span><i class="icon-info"></i>RELEASE HISTORY</span></h2>
+                    <!-- RELEASE HISTORY -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
 
-					<div class="divider"></div>
+                            <div class="service">
+                                <div id="releases">
 
-					<div id="api">
-						<h4>API</h4>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <div id="gh_release_history"></div>
+                                            <script type="text/javascript">
+                                                // CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE
+                                                var ghrh_user = 'needim'; // required: replace with your username
+                                                var ghrh_repo = 'noty'; // required: replace with your repo name
 
-						<p>
-							<span class="hl">$.noty.get(id)</span> - Returns a noty javascript object
-						</p>
+                                                // DON'T EDIT BELOW THIS LINE
+                                                (function () {
+                                                    var ghrh = document.createElement('iframe');
+                                                    ghrh.src = '//ned.im/gh-rh/app.html?user=' + ghrh_user + '&repo=' + ghrh_repo;
+                                                    ghrh.style.border = 0;
+                                                    ghrh.style.width = "100%";
+                                                    document.getElementById('gh_release_history').appendChild(ghrh);
+                                                    ghrh.onload = function() {
+                                                        ghrh.contentWindow.postMessage('getSize', '*')
+                                                    };
+                                                    window.addEventListener('message', function(e) {
+                                                        ghrh.style.height = e.data + 'px';
+                                                    }, false);
+                                                })();
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RELEASE HISTORY -->
 
-						<p>
-							<span class="hl">$.noty.close(id)</span> - Close a noty - <strong>same as var n = noty({text: 'Hi!'})); n.close();</strong>
-						</p>
+                </div>
 
-						<p>
-							<span class="hl">$.noty.clearQueue()</span> - Clears the notification queue
-						</p>
+            </section>
 
-						<p>
-							<span class="hl">$.noty.closeAll()</span> - Close all notifications
-						</p>
+        </div>
+        <!-- WRAPPER -->
 
-						<p>
-							<span class="hl">$.noty.setText(id, text)</span> - Notification text updater - <strong>same as var n = noty({text: 'Hi!'})); n.setText('Hi again!');</strong>
-						</p>
 
-						<p>
-							<span class="hl">$.noty.setType(id, type)</span> - Notification type updater - <strong>same as var n = noty({text: 'Hi!'})); n.setType('error');</strong>
-						</p>
+    </div>
+    <!-- CONTAINER -->
 
-					</div>
 
-					<div class="divider"></div>
-
-					<div id="history">
-
-						<h4>Github Commit History</h4>
-
-						<table class="dark">
-							<thead>
-								<tr>
-									<th style="width: 110px">Committer</th>
-									<th>Message</th>
-									<th style="width: 100px; text-align: right">Date</th>
-								</tr>
-							</thead>
-							<tbody id="commit-history-json">
-								<tr>
-									<td colspan="3" style="text-align: center">Loading...</td>
-								</tr>
-							</tbody>
-						</table>
-
-					</div>
-
-				</div>
-
-			</div>
-		</div>
-		<footer class="g3 cf">
-			<small>Released under the MIT License.</small>
-		</footer>
-	</div>
-
-	<script src="js/libs/jquery-1.7.1.min.js"></script>
-  <script src="js/libs/jquery-ui-1.8.17.easing.min.js"></script>
-  <script src="js/libs/rainbow/rainbow.js"></script>
-  <script src="js/libs/rainbow/generic.js"></script>
-  <script src="js/libs/rainbow/javascript.js"></script>
-  <script src="js/libs/rainbow/html.js"></script>
-  <script src="js/libs/moment.min.js"></script>
-
-  <script src="js/noty/jquery.noty.js"></script>
-
-  <script src="js/noty/layouts/bottom.js"></script>
-  <script src="js/noty/layouts/bottomCenter.js"></script>
-  <script src="js/noty/layouts/bottomLeft.js"></script>
-  <script src="js/noty/layouts/bottomRight.js"></script>
-  <script src="js/noty/layouts/center.js"></script>
-  <script src="js/noty/layouts/centerLeft.js"></script>
-  <script src="js/noty/layouts/centerRight.js"></script>
-  <script src="js/noty/layouts/inline.js"></script>
-  <script src="js/noty/layouts/top.js"></script>
-  <script src="js/noty/layouts/topCenter.js"></script>
-  <script src="js/noty/layouts/topLeft.js"></script>
-  <script src="js/noty/layouts/topRight.js"></script>
-
-  <script src="js/noty/themes/default.js"></script>
-
-  <script defer src="js/script.js"></script>
-
-	<!-- HTML5 IE Enabling Script -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-
-    <!-- CSS3 Media Queries -->
-	<!--<script src="js/libs/respond.min.js"></script> -->
+    <!-- SCRIPTS -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/jquery.address-1.5.min.js"></script>
+    <script src="js/triple.layout.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/nprogress/nprogress.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.imagesloaded.min.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/jquery.flexslider-min.js"></script>
+    <script src="js/jquery.fitvids.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.uniform.min.js"></script>
+    <script src="js/jquery.fancybox-1.3.4.pack.js"></script>
+    <script src="js/jquery.tooltipster.min.js"></script>
+    <script src="js/google-code-prettify/prettify.js"></script>
+    <script src="js/twitterFetcher_v10_min.js"></script>
+    <script src="js/mediaelement/mediaelement-and-player.min.js"></script>
+    <script src="js/send-mail.js"></script>
+    <script src="js/classie.js"></script>
+    <script src="js/jquery.noty.packaged.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+    <script src="js/main.js"></script>
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

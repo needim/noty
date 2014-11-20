@@ -1,0 +1,99 @@
+/* OVERLAY BOLD STYLE */
+
+/* HEADER */
+.header { 
+	position: relative; width: 100%; background-color: #345; background-image: url(../../images/site/morning.jpg); background-size: cover; background-position: center center; 
+	}
+	.header img { 
+		display: none; 
+		}
+	.header * { 
+		position: relative; z-index: 10; 
+		}
+	.header:before { 
+		content: ""; display: block; position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWKLW/AAAAFUlEQVQIW2NkQAKMUPZ/IM0I44DFABJxAQQMGKylAAAAAElFTkSuQmCC); 
+		}
+	.header h1 {
+		margin: 0 0 .3em 0; font-size: 5.8em; line-height: 1; font-weight: 900; color: #fff; text-shadow: 0 1px 0 rgba(51, 51, 51, 0.36); letter-spacing: -4px; text-transform: uppercase; 
+		}
+	.header p { 
+		color: #fff; background: none; border: 1px solid #FFF; text-transform: uppercase; font-style: normal; padding: 10px 14px;
+		}
+/* NAV */
+.vs-nav li a { 
+	color: rgba(255, 255, 255, 0.5); text-shadow: 0 2px 0 rgba(51, 51, 51, 0.2); 
+	}
+.vs-nav li a i { 
+	text-shadow: none; 
+	}
+.vs-triplelayout .vs-nav .vs-nav-current a,
+.vs-nav li.current_page_item a,
+.vs-nav li.current_page_item a:hover,
+.container.vs-move-left .vs-nav-right a,
+.container.vs-move-right .vs-nav-left a { 
+	color: #fff; 
+	}
+.vs-nav li a:hover,
+.vs-nav li a:focus { 
+	color: rgba(255, 255, 255, 0.6); 
+	}
+
+/* HEADER SEARCH */
+#search-form #search {
+    background: transparent; background: rgba(0,0,0, .1); border-color: #fff; color: #fff; border-width: 3px;
+	}
+#search-form #search:focus {
+    background: transparent; background: rgba(0,0,0, .2); color: #fff;
+	}
+#search-form #search::-webkit-input-placeholder { 
+    color:    #fff;
+}
+#search-form #search:-moz-placeholder { 
+    color:    #fff;
+}
+#search-form #search::-moz-placeholder { 
+    color:    #fff;
+}
+#search-form #search:-ms-input-placeholder { 
+    color:    #fff;
+}
+#search-submit {
+	color: #fff;
+	}
+
+/* CLASSIC LAYOUT NAV */
+.classic-layout .vs-nav li a { 
+	color: #FFF; border-color: #fff; background: none; background: rgba(0, 0, 0, 0.1); text-shadow: none; 
+	}
+
+/* SINGLE PAGE NAV */
+.single-page-layout .vs-nav li i {
+	background: none; color: #fff; border-color: #fff; line-height: 52px; border-width: 3px;
+}
+
+/* CONTENT */	
+.content { 
+	padding-top: 2em; 
+	}
+.hentry { 
+	padding-top: 2.5em; 
+	}
+
+/* SMARTPHONES */
+@media screen and (max-width: 767px) { 
+	.header h1 { 
+		font-size: 3em;
+		}
+	.vs-triplelayout .vs-nav { 
+		height: 40px; 
+		}
+	.content { 
+		padding: 1em; 
+		}
+	.content { 
+		padding-top: 1em; 
+		}
+	.hentry { 
+		padding-top: 1em; 
+		}
+}

@@ -1,0 +1,59 @@
+/*
+ * FancyBox - jQuery Plugin
+ * Simple and fancy lightbox alternative
+ *
+ * Examples and documentation at: http://fancybox.net
+ * 
+ * Copyright (c) 2008 - 2010 Janis Skarnelis
+ * That said, it is hardly a one-person project. Many people have submitted bugs, code, and offered their advice freely. Their support is greatly appreciated.
+ * 
+ * Version: 1.3.4 (11/11/2010)
+ * Requires: jQuery v1.3+
+ *
+ * Dual licensed under the MIT and GPL licenses:
+ *   http://www.opensource.org/licenses/mit-license.php
+ *   http://www.gnu.org/licenses/gpl.html
+ */
+#fancybox-loading { position: fixed; top: 50%; left: 50%; width: 110px; height: 50px; margin-top: -25px; margin-left: -55px; cursor: pointer; overflow: hidden; z-index: 1104; display: none; /*background: url(../images/bckg/loader_dark.gif) center center no-repeat;*/ background-color: #000; background-color: rgba(0,0,0,.8); border-radius: 4px; }
+#fancybox-loading div { display: none; }
+#fancybox-overlay{position:absolute;top:0;left:0;width:100%;z-index:1100;display:none;overflow:-x:hidden}
+#fancybox-tmp{padding:0;margin:0;border:0;overflow:auto;display:none}
+#fancybox-wrap{position:absolute;top:0;left:0;padding:20px 0;z-index:1101;outline:0;display:none}
+#fancybox-wrap, #fancybox-wrap * { -webkit-box-sizing: content-box; -moz-box-sizing: content-box; box-sizing: content-box; }
+#fancybox-outer{position:relative;width:100%;height:100%;background:#f7f7f7; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+#fancybox-content{width:0;height:0;padding:0;outline:0;position:relative;overflow:hidden;z-index:1102;border:0 solid #fff;}
+#fancybox-hide-sel-frame{position:absolute;top:0;left:0;width:100%;height:100%;background:transparent;z-index:1101}
+#fancybox-close{position:absolute;top:-40px;right:-44px;cursor:pointer;z-index:1103;display:none}
+#fancybox-error{color:#444;font:normal 12px/20px Arial;padding:14px;margin:0}
+#fancybox-img{width:100%;height:100%;padding:0;margin:0;border:0;outline:0;line-height:0;vertical-align:top}
+#fancybox-frame{width:100%;height:100%;border:0;display:block}
+#fancybox-left,#fancybox-right{position:absolute;bottom:0;height:100%;width:50%;cursor:pointer;outline:0;z-index:1102;display:none}
+#fancybox-left{left:-60px;}
+#fancybox-right{right:-60px;}
+#fancybox-left-ico,#fancybox-right-ico{position:absolute;top:50%;left:-9999px;cursor:pointer;z-index:1102;display:block;}
+#fancybox-left span{left:0px}
+#fancybox-right span{left:auto;right:0px;}
+.fancy-ico { opacity: 1; }
+#fancybox-left:hover span, #fancybox-right:hover span{ opacity:1; }
+.fancybox-bg{display:none}
+#fancybox-title{z-index:1102; font-size: .9em;}
+.fancybox-title-inside{padding-bottom:10px;text-align:center;color:#333;background:#fff;position:relative}
+.fancybox-title-outside{padding-top:10px;color:#fff}
+.fancybox-title-over{position:absolute;bottom:0;left:0;color:#FFF;text-align:left}
+#fancybox-title-over{padding:10px;display:block}
+.fancybox-title-float{position:absolute;left:0!important;bottom:-12px;height:32px;width:100%}
+#fancybox-title-float-wrap{margin:0 auto;border:0;border-collapse:collapse;width:auto; margin-top: 10px;}
+#fancybox-title-float-wrap td{border:0}
+#fancybox-title-float-left,#fancybox-title-float-right{display:none}
+#fancybox-title-float-main{color:#FFF;line-height:150%;padding:8px 20px;background:#fff;color:#333;}
+.fancybox-ie .fancybox-bg{background:transparent!important}
+@media screen and (max-width:960px){
+	#fancybox-wrap{padding:24px 20px 24px 20px}
+	#fancybox-close{top:-60px;right:auto;left:50%;margin-left:-32px}
+	#fancybox-right { right: -43px; }
+	#fancybox-left { left: -43px; }
+	}
+	
+/*@media  (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 192dpi) { 
+	#fancybox-loading { background-size: 70px 24px; background-image: url(../images/bckg/loader_dark@2x.gif); }   
+}*/
