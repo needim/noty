@@ -23,10 +23,9 @@ window.anim.close = 'flipOutX';
 	/* DOCUMENT LOAD */
 	$(function() {
 
-
 		new Share(".sharer-btn", {
 			title: 'NOTY - a jQuery Notification Plugin',
-			description: '&num;notyjs is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
+			description: 'notyjs is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
 			image: 'http://ned.im/noty/images/projects/noty-v2-logo.png',
 			networks: {
 				pinterest: {
@@ -36,25 +35,15 @@ window.anim.close = 'flipOutX';
 					load_sdk: true,
 					app_id: '198259823578303',
 					title: 'NOTY - a jQuery Notification Plugin',
-				  	caption: 'noty is a jquery plugin which is have too many options for display notification',
-				  	description: 'notyjs is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
+				  	caption: 'NOTY is a jquery plugin which is have too many options for display notification',
+				  	description: 'NOTYJS is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
 				  	image: 'http://ned.im/noty/images/projects/noty-v2-logo.png'
+				},
+				twitter: {
+					description: 'NOTYJS - a jQuery Notification Plugin &num;notyjs &num;jquery &num;notification &num;plugin'
 				}
 			}
 		});
-
-        noty({
-            text     : '<div><img width="100" src="http://needim.github.io/noty/images/projects/noty-v2-logo.png" alt="noty" style="float: right"/> <strong>Hi!</strong> <br /> noty v2.3.0 released!</div>',
-            layout   : 'topRight',
-            type     : 'warning',
-            theme    : 'relax',
-            timeout  : 5000,
-            closeWith: ['click'],
-            animation   : {
-                open  : 'animated bounceInRight',
-                close : 'animated bounceOutRight'
-            }
-        });
 
         $('#anim-open').on('change', function (e) {
             console.log('asd');
@@ -443,7 +432,22 @@ window.anim.close = 'flipOutX';
 	window.onload = function() {
 		
 		NProgress.done();
-	
+		$('body').addClass('loaded');
+
+		setTimeout(function() {
+			noty({
+	            text     : '<div><img width="100" src="http://needim.github.io/noty/images/projects/noty-v2-logo.png" alt="noty" style="float: right"/> <strong>Hi!</strong> <br /> noty v2.3.0 released!</div>',
+	            layout   : 'topRight',
+	            type     : 'warning',
+	            theme    : 'relax',
+	            timeout  : 5000,
+	            closeWith: ['click'],
+	            animation   : {
+	                open  : 'animated bounceInRight',
+	                close : 'animated bounceOutRight'
+	            }
+	        });
+		}, 2000);
 	};
 	// WINDOW ONLOAD	
 	

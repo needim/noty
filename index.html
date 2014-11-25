@@ -43,6 +43,14 @@
 </head>
 <body>
 
+<div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
+
     <!-- CONTAINER -->
     <div class="container" id="container">
 
@@ -502,7 +510,7 @@
                                     <div class="row">
                                         <div class="col-xs-12 col-md-12 col-lg-12">
                                             <p>
-                                                Include the <a href="http://docs.jquery.com/Downloading_jQuery#Current_Release">latest release of jQuery</a> before your noty files.
+                                                Include the <a href="http://docs.jquery.com/Downloading_jQuery#Current_Release">latest release of jQuery</a> before your NOTY files.
                                                 The Google AJAX Libraries API can be used for this but you could also host the library yourself.
                                             </p>
                                             <p>
@@ -512,7 +520,7 @@
                                                 Include <strong>noty/packaged/jquery.noty.packaged.min.js</strong> and its dependancies below jQuery.
                                             </p>
                                             <p>
-                                                noty is compatible with <strong>jQuery 1.6+</strong> for now.
+                                                NOTY is compatible with <strong>jQuery 1.6+</strong> for now.
                                                 <strong>But if you are using older version then 1.6 you can add promise.js to your header.</strong>
                                                 (Thanks for <a href="https://github.com/MrMaksimize" target="_blank">Maksim Pecherskiy</a>)
                                             </p>
@@ -560,7 +568,7 @@ npm install noty
                                                 We wrote a helper for creating noty easily. So you can use <strong>noty(properties);</strong> like this;
                                             </p>
                                             <p>
-                                                Returns a noty javascript object. (not jquery dom object, but you can access dom with this object)
+                                                Returns a NOTY javascript object. (not jquery dom object, but you can access dom with this object)
 
                                                 Also, you can give any <strong>html</strong> to "<strong>text</strong>" option
                                             </p>
@@ -602,7 +610,7 @@ var n = noty({text: 'noty - a jquery notification library!'});
                                             
 <pre class="prettyprint lang-javascript">
 var n = noty({
-    text: 'noty - a jquery notification library!',
+    text: 'NOTY - a jquery notification library!',
     animation: {
         open: {height: 'toggle'}, // jQuery animate function property object
         close: {height: 'toggle'}, // jQuery animate function property object
@@ -627,7 +635,7 @@ var n = noty({
                                             
 <pre class="prettyprint lang-javascript">
 var n = noty({
-    text: 'noty - a jquery notification library!',
+    text: 'NOTY - a jquery notification library!',
     animation: {
         open: 'animated bounceInLeft' // Animate.css class names
         close: 'animated bounceOutLeft', // Animate.css class names
@@ -711,7 +719,7 @@ $.noty.defaults = {
                                             </p>
 
 <pre class="prettyprint lang-javascript">
-var n = $('.custom_container').noty({text: 'noty - a jquery notification library!'});
+var n = $('.custom_container').noty({text: 'NOTY - a jquery notification library!'});
 </pre>
                                         </div>
                                     </div>
@@ -732,7 +740,7 @@ var n = $('.custom_container').noty({text: 'noty - a jquery notification library
                                     <div class="row">
                                         <div class="col-xs-12 col-md-12 col-lg-12">
                                             <p>
-                                                noty is easily themable using Javascript or CSS.</p>
+                                                NOTY is easily themable using Javascript or CSS.</p>
                                             <p>
                                                 Theme structre is in noty/themes/default.js file. You can copy-paste this file and change.</p>
                                             <p>
@@ -748,7 +756,7 @@ var n = $('.custom_container').noty({text: 'noty - a jquery notification library
 
 <pre class="prettyprint lang-javascript">
 var n = noty({
-    text: 'noty - a jquery notification library!',
+    text: 'NOTY - a jquery notification library!',
     theme: 'your_new_theme',
 });
 </pre>
@@ -838,10 +846,10 @@ noty({
                                     <div class="row">
                                         <div class="col-xs-12 col-md-12 col-lg-12">
                                                 <p>
-                                                    <strong>$.noty.get(id)</strong> - Returns a noty javascript object
+                                                    <strong>$.noty.get(id)</strong> - Returns a NOTY javascript object
                                                 </p>
                                                 <p>
-                                                    <strong>$.noty.close(id)</strong> - Close a noty - <strong>same as var n = noty({text: 'Hi!'})); n.close();</strong>
+                                                    <strong>$.noty.close(id)</strong> - Close a NOTY - <strong>same as var n = noty({text: 'Hi!'})); n.close();</strong>
                                                 </p>
                                                 <p>
                                                     <strong>$.noty.clearQueue()</strong> - Clears the notification queue
