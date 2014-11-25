@@ -97,7 +97,7 @@
                     <div class="row">
                         <!-- column 7/12 -->
                         <div class="col-md-7">
-                            <h2 class="section-title"><span><i class="icon-guest"></i>A LITTLE ABOUT NOTY</span></h2>
+                            <h2 class="section-title"><span><i class="icon-info"></i>A LITTLE ABOUT NOTY</span></h2>
                             <!-- intro -->
                             <div class="intro">
                                 <h2>
@@ -576,6 +576,73 @@ var n = noty({text: 'noty - a jquery notification library!'});
                         </div>
                     </div>
                     <!-- CREATING A NOTY -->
+
+                    <h2 class="section-title"><span><i class="icon-info"></i>ANIMATIONS</span></h2>
+                    <!-- ANIMATIONS -->
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+
+                            <div class="service">
+                                <div id="animations">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12 col-lg-12">
+                                            <p>
+                                                Using with <a href="http://api.jquery.com/animate/" target="_blank">jQuery animate properties</a>;
+                                            </p>
+                                            <p>
+                                                <dl>
+                                                    <dt>About Easing</dt>
+                                                    <dd>
+                                                        The remaining parameter of .animate() is a string naming an easing function to use. An easing function specifies the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called swing, and one that progresses at a constant pace, called linear. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com/" target="_blank">jQuery UI suite</a>.
+                                                    </dd>
+                                                </dl>
+                                                
+                                            </p>
+                                            
+<pre class="prettyprint lang-javascript">
+var n = noty({
+    text: 'noty - a jquery notification library!',
+    animation: {
+        open: {height: 'toggle'}, // jQuery animate function property object
+        close: {height: 'toggle'}, // jQuery animate function property object
+        easing: 'swing', // easing
+        speed: 500 // opening &amp; closing animation speed
+    }
+});
+</pre>
+
+                                            <p>
+                                                Using with <a href="http://daneden.github.io/animate.css/" target="_blank">Animate.css</a>; <span class="excerpt">Recommended</span>
+                                            </p>
+                                            <p>
+                                                <dl>
+                                                    <dt>About Animate.css</dt>
+                                                    <dd>
+                                                        Animate.css is a bunch of cool, fun, and cross-browser animations for you to use in your projects. Great for emphasis, home pages, sliders, and general just-add-water-awesomeness.
+                                                    </dd>
+                                                </dl>
+                                                
+                                            </p>
+                                            
+<pre class="prettyprint lang-javascript">
+var n = noty({
+    text: 'noty - a jquery notification library!',
+    animation: {
+        open: 'animated bounceInLeft' // Animate.css class names
+        close: 'animated bounceOutLeft', // Animate.css class names
+        easing: 'swing', // unavailable - no need
+        speed: 500 // unavailable - no need
+    }
+});
+</pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ANIMATIONS -->
 
                     <h2 class="section-title"><span><i class="icon-info"></i>OPTIONS &amp; DEFAULTS</span></h2>
                     <!-- OPTIONS -->

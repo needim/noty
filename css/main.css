@@ -363,12 +363,13 @@ div.selector {
 	font-size: .9em;
 	padding: .4em;
 	width: 262px !important;
-	line-height: 55px;
-	height: 55px;
+	line-height: 39px;
+	height: 42px;
 	padding-left: 1em;
 	background: #fff;
 	border: 2px solid #e9eeee;
 	border-radius: 4px;
+	margin-bottom: 15px;
 }
 
 div.selector:before,
@@ -410,7 +411,7 @@ div.selector:hover {
 }
 
 div.selector span {
-	padding-top: 8px;
+	padding-top: 1px;
 	padding-left: 0;
 	color: #6A7686;
 	background: none;
