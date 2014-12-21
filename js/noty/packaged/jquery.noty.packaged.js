@@ -7,7 +7,7 @@
 
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.3.2
+ @version version: 2.3.3
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -190,7 +190,7 @@
                 return;
             }
 
-            this.$bar.dequeue();
+            //this.$bar.dequeue();
 
             if(!this.shown && !this.showing) { // If we are still waiting in the queue just delete from queue
                 var queue = [];
