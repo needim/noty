@@ -8,7 +8,7 @@ module.exports = function(grunt) {
                 commit            : false,
                 commitMessage     : 'Release v%VERSION%',
                 commitFiles       : ['-a'],
-                createTag         : true,
+                createTag         : false,
                 tagName           : 'v%VERSION%',
                 tagMessage        : 'Version %VERSION%',
                 push              : false,
