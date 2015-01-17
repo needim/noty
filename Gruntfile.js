@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                 src: 'js/noty/packaged/jquery.noty.packaged.js',
                 dest: 'js/noty/packaged/jquery.noty.packaged.js',
                 options: {
-                    wrapper: ["!function(root, factory) {\n\t if (typeof define === 'function' && define.amd) {\n\t\t define(['jquery'], factory);\n\t } else {\n\t\t factory(root.jQuery);\n } }(this, function($) {\n", "\n});"]
+                    wrapper: ["!function(root, factory) {\n\t if (typeof define === 'function' && define.amd) {\n\t\t define(['jquery'], factory);\n\t } else if (typeof exports === 'object') {\n\t\t module.exports = factory(require('jquery'));\n\t } else {\n\t\t factory(root.jQuery);\n\t }\n}(this, function($) {\n", "\nreturn window.noty;\n\n});"]
                 }
             }
         },

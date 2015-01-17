@@ -1,9 +1,12 @@
 !function(root, factory) {
 	 if (typeof define === 'function' && define.amd) {
 		 define(['jquery'], factory);
+	 } else if (typeof exports === 'object') {
+		 module.exports = factory(require('jquery'));
 	 } else {
 		 factory(root.jQuery);
- } }(this, function($) {
+	 }
+}(this, function($) {
 
 /*!
  @package noty - jQuery Notification Plugin
@@ -537,8 +540,9 @@
 
     // Helpers
     window.noty = function noty(options) {
-        return jQuery.notyRenderer.init(options);
+        return $.notyRenderer.init(options);
     };
+
 $.noty.layouts.bottom = {
     name     : 'bottom',
     options  : {},
@@ -1426,5 +1430,7 @@ $.noty.themes.relax = {
     }
 };
 
+
+return window.noty;
 
 });
