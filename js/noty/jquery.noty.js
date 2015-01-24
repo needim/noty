@@ -95,7 +95,7 @@
 
             var self = this;
 
-            (self.options.custom) ? self.options.custom.find(self.options.layout.container.selector).append(self.$bar) : $(self.options.layout.container.selector).append(self.$bar);
+            this.$container = (self.options.custom) ? self.options.custom.find(self.options.layout.container.selector).append(self.$bar) : $(self.options.layout.container.selector).append(self.$bar);
 
             if(self.options.theme && self.options.theme.style)
                 self.options.theme.style.apply(self);
