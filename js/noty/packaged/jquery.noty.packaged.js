@@ -143,7 +143,7 @@
             }
 
             if (result_search.length > 0) {
-                if (result[0].length > 7) {
+                if (result_search[0].length > 7) {
                     time_to_close = result_search[0].substring(7);
                     if (Math.floor(time_to_close) == time_to_close && $.isNumeric(time_to_close)) {
                         setTimeout(function () {
