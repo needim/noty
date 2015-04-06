@@ -18,8 +18,14 @@ module.exports = function(grunt) {
         },
         concat: {
             dist: {
-                src : ['js/noty/jquery.noty.js', 'js/noty/layouts/*.js', 'js/noty/themes/*.js'],
-                dest: 'js/noty/packaged/jquery.noty.packaged.js'
+                files: {
+                    'js/noty/packaged/jquery.noty.packaged.js': [
+                        'js/noty/jquery.noty.js', 'js/noty/layouts.js', 'js/noty/themes/*.js'
+                    ],
+                    'css/noty/packaged/jquery.noty.packaged.css': [
+                        'css/noty/layouts.css'
+                    ]
+                }
             }
         },
 
