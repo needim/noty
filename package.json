@@ -29,7 +29,6 @@
 		"grunt-contrib-uglify": "~0.4.0",
 		"grunt-contrib-concat": "~0.4.0",
 		"grunt-bump": "0.0.14",
-		"grunt-wrap": "^0.3.0",
-		"grunt-release-component": "0.0.3"
+		"grunt-wrap": "^0.3.0"
 	}
 }
