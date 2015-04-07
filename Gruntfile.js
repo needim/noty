@@ -44,15 +44,27 @@ module.exports = function(grunt) {
                     'js/noty/packaged/jquery.noty.packaged.min.js': ['js/noty/packaged/jquery.noty.packaged.js']
                 }
             }
-        }
+        },
+
+		'release-component': {
+			options: {
+				componentRepo: 'git@github.com:components/noty.git',
+				copy: {
+					'js/noty/packaged/jquery.noty.packaged.js': 'jquery.noty.packaged.js',
+					'js/noty/packaged/jquery.noty.packaged.min.js': 'jquery.noty.packaged.min.js'
+				}
+			}
+		}
     });
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-release-component');
     grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('grunt-wrap');
 
     grunt.registerTask('build', ['bump', 'concat', 'wrap', 'uglify:minifyJS']);
+    grunt.registerTask('release', 'release');
     grunt.registerTask('conc', ['concat', 'wrap']);
     grunt.registerTask('ugly', ['uglify:minifyJS']);
 };
