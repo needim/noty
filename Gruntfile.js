@@ -64,7 +64,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-wrap');
 
     grunt.registerTask('build', ['bump', 'concat', 'wrap', 'uglify:minifyJS']);
-    grunt.registerTask('release', 'release');
+    grunt.registerTask('release', 'release-component');
     grunt.registerTask('conc', ['concat', 'wrap']);
     grunt.registerTask('ugly', ['uglify:minifyJS']);
 };
