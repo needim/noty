@@ -869,7 +869,8 @@ a.more-link,
 	max-height: 160px;
 }
 
-.header p, .service .excerpt {
+.header p, .service .excerpt,
+.noty-manager .excerpt {
 	font-size: 1em;
 	margin: .1em 0 .6em;
 	display: inline-block;
