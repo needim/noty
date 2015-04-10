@@ -488,7 +488,6 @@ div.uploader input {
 div.uploader span.filename {
 	padding: 0 12px;
 	width: 100%;
-	100;
 	line-height: 50px;
 	min-height: 55px;
 	border-left: 0;
@@ -2324,8 +2323,8 @@ h2 i[class^="icon-"]:before, h2 i[class*=" icon-"]:before, h2 i.fa:before {
 }
 
 .media-box:hover img {
-	-webkit-filter: saturate(20%);
-	filter: saturate(20%);
+	/*-webkit-filter: saturate(20%);*/
+	/*filter: saturate(20%);*/
 }
 
 .media-box .mask {
@@ -3028,8 +3027,8 @@ a.button.colored {
 
 /* FANCYBOX STYLES */
 .lightbox-active .container {
-	-webkit-filter: saturate(10%);
-	filter: saturate(10%);
+	/*-webkit-filter: saturate(10%);*/
+	/*filter: saturate(10%);*/
 }
 
 .lightbox.hidden {
@@ -3111,8 +3110,8 @@ a.button.colored {
 	height: 100%;
 	overflow: hidden;
 	z-index: -1;
-	-webkit-filter: saturate(10%);
-	filter: saturate(10%);
+	/*-webkit-filter: saturate(10%);*/
+	/*filter: saturate(10%);*/
 }
 
 .p-overlay {
