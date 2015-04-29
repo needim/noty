@@ -10,7 +10,7 @@
 
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.3.5
+ @version version: 2.3.6
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -82,7 +82,10 @@
                 var self = this;
 
                 $.each(this.options.buttons, function(i, button) {
-                    var $button = $('<button/>').addClass((button.addClass) ? button.addClass : 'gray').html(button.text).attr('id', button.id ? button.id : 'button-' + i)
+                    if (typeof button.attributes === "undefined") {
+                        button.attributes = {};
+                    }
+                    var $button = $('<button/>').addClass((button.addClass) ? button.addClass : 'gray').html(button.text).attr('id', button.id ? button.id : 'button-' + i).attr(button.attributes)
                         .appendTo(self.$bar.find('.noty_buttons'))
                         .on('click', function(event) {
                             if($.isFunction(button.onClick)) {
