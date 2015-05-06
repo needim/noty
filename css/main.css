@@ -608,7 +608,7 @@ div.uploader span.action:before {
         top: 0;
         width: 51%;
         height: 100%;
-        background: #222;
+        background: #fff;
         z-index: 1000;
     }
 

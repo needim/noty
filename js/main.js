@@ -46,12 +46,10 @@ window.anim.close = 'flipOutX';
 		});
 
         $('#anim-open').on('change', function (e) {
-            console.log('asd');
             window.anim.open = $(this).val();
         });
 
         $('#anim-close').on('change', function (e) {
-            console.log('adsasdawd');
             window.anim.close = $(this).val();
         });
 
@@ -140,13 +138,6 @@ window.anim.close = 'flipOutX';
 		// remove click delay on touch devices
 		FastClick.attach(document.body);
 		// ------------------------------
-		
-		
-		// ------------------------------
-		// start loader
-		NProgress.start();
-		// ------------------------------
-		
 		
 		// ------------------------------
 		// Rotating Words
@@ -431,7 +422,6 @@ window.anim.close = 'flipOutX';
 	// WINDOW ONLOAD
 	window.onload = function() {
 		
-		NProgress.done();
 		$('body').addClass('loaded');
 
 		setTimeout(function() {
@@ -777,14 +767,12 @@ window.anim.close = 'flipOutX';
 				overlayColor : '#BEBD97',
 				overlayOpacity : '.6',
 				onStart : function() {
-					NProgress.start();
 					$( 'body' ).addClass( 'lightbox-active' );
 				},
 				onClosed : function() {
 					$( 'body' ).removeClass( 'lightbox-active' );
 				},
 				onComplete : function() {
-					NProgress.done();
 					if ($(this).attr('href').indexOf("soundcloud.com") >= 0) {
 						$('#fancybox-content').height(166);
 					}
@@ -825,8 +813,6 @@ window.anim.close = 'flipOutX';
 		
 		// ajax : fill data
 		p.empty().load(url + ' .portfolio-single', function() {	
-			NProgress.set(0.5);
-			
 			// wait for images to be loaded
 			p.imagesLoaded(function() {
 				
@@ -891,21 +877,14 @@ window.anim.close = 'flipOutX';
 	}
 	// ------------------------------
 	
-	
-	
 	// ------------------------------
 	// AJAX LOADER
 	function showLoader() {
-		NProgress.start();
+		$('body').removeClass('loaded');
 	}
 	function hideLoader() {
-		NProgress.done();
+		$('windo').addClass('loaded');
 	}
 	// ------------------------------
-	
-	
-	
-	
-
 
 })(jQuery);
