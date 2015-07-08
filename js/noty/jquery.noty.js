@@ -227,7 +227,7 @@
             // Modal Cleaning
             if(self.options.modal) {
                 $.notyRenderer.setModalCount(-1);
-                if($.notyRenderer.getModalCount() == 0) $('.noty_modal').fadeOut('fast', function() {
+                if($.notyRenderer.getModalCount() == 0) $('.noty_modal').fadeOut(self.options.animation.fadeSpeed, function() {
                     $(this).remove();
                 });
             }
@@ -405,7 +405,7 @@
             if(notification.options.theme.modal && notification.options.theme.modal.css)
                 modal.css(notification.options.theme.modal.css);
 
-            modal.prependTo($('body')).fadeIn('fast');
+            modal.prependTo($('body')).fadeIn(self.options.animation.fadeSpeed);
 
             if($.inArray('backdrop', notification.options.closeWith) > -1)
                 modal.on('click', function(e) {
@@ -499,7 +499,8 @@
             open  : {height: 'toggle'},
             close : {height: 'toggle'},
             easing: 'swing',
-            speed : 500
+            speed : 500,
+            fadeSpeed: 'fast',
         },
         timeout     : false,
         force       : false,
