@@ -105,7 +105,7 @@
 
             self.$bar.addClass(self.options.layout.addClass);
 
-            self.options.layout.container.style.apply($(self.options.layout.container.selector));
+            self.options.layout.container.style.apply($(self.options.layout.container.selector), [self.options.within]);
 
             self.showing = true;
 
