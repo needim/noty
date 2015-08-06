@@ -169,9 +169,9 @@
 
             // If noty is have a timeout option
             if(self.options.timeout)
-                self.$bar.delay(self.options.timeout).promise().done(function() {
+                setTimeout(function() {
                     self.close();
-                });
+                }, self.options.timeout);
 
             return this;
 
