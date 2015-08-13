@@ -1,6 +1,6 @@
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.3.5
+ @version version: 2.3.6
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/

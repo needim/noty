@@ -10,7 +10,7 @@
 
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.3.5
+ @version version: 2.3.6
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -83,6 +83,7 @@
 
                 $.each(this.options.buttons, function(i, button) {
                     var $button = $('<button/>').addClass((button.addClass) ? button.addClass : 'gray').html(button.text).attr('id', button.id ? button.id : 'button-' + i)
+                        .attr('title', button.title)
                         .appendTo(self.$bar.find('.noty_buttons'))
                         .on('click', function(event) {
                             if($.isFunction(button.onClick)) {
@@ -114,7 +115,7 @@
 
             self.$bar.addClass(self.options.layout.addClass);
 
-            self.options.layout.container.style.apply($(self.options.layout.container.selector));
+            self.options.layout.container.style.apply($(self.options.layout.container.selector), [self.options.within]);
 
             self.showing = true;
 
@@ -169,9 +170,9 @@
 
             // If noty is have a timeout option
             if(self.options.timeout)
-                setTimeout(function() {
+                self.$bar.delay(self.options.timeout).promise().done(function() {
                     self.close();
-                }, self.options.timeout);
+                });
 
             return this;
 
@@ -237,7 +238,7 @@
             // Modal Cleaning
             if(self.options.modal) {
                 $.notyRenderer.setModalCount(-1);
-                if($.notyRenderer.getModalCount() == 0) $('.noty_modal').fadeOut('fast', function() {
+                if($.notyRenderer.getModalCount() == 0) $('.noty_modal').fadeOut(self.options.animation.fadeSpeed, function() {
                     $(this).remove();
                 });
             }
@@ -354,7 +355,7 @@
         if($.type(instance) === 'object') {
             if(instance.options.dismissQueue) {
                 if(instance.options.maxVisible > 0) {
-                    if($(instance.options.layout.container.selector + ' li').length < instance.options.maxVisible) {
+                    if($(instance.options.layout.container.selector + ' > li').length < instance.options.maxVisible) {
                         $.notyRenderer.show($.noty.queue.shift());
                     }
                     else {
@@ -415,7 +416,7 @@
             if(notification.options.theme.modal && notification.options.theme.modal.css)
                 modal.css(notification.options.theme.modal.css);
 
-            modal.prependTo($('body')).fadeIn('fast');
+            modal.prependTo($('body')).fadeIn(self.options.animation.fadeSpeed);
 
             if($.inArray('backdrop', notification.options.closeWith) > -1)
                 modal.on('click', function(e) {
@@ -509,7 +510,8 @@
             open  : {height: 'toggle'},
             close : {height: 'toggle'},
             easing: 'swing',
-            speed : 500
+            speed : 500,
+            fadeSpeed: 'fast',
         },
         timeout     : false,
         force       : false,
