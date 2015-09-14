@@ -3,7 +3,7 @@ module.exports = function(grunt) {
 
         bump  : {
             options: {
-                files             : ['package.json', 'noty.jquery.json', 'bower.json', 'js/noty/jquery.noty.js'],
+                files             : ['package.json', 'noty.jquery.json', 'js/noty/jquery.noty.js'],
                 updateConfigs     : [],
                 commit            : false,
                 commitMessage     : 'Release v%VERSION%',

@@ -1,6 +1,5 @@
 {
     "name"       : "noty",
-    "version"    : "2.3.6",
     "main"       : "js/noty/packaged/jquery.noty.packaged.js",
     "ignore"     : [],
     "authors"    : [
