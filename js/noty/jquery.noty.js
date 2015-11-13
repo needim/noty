@@ -222,6 +222,7 @@
             }
             
             if (self.options.animation.close == null) {
+                self.$bar.clearQueue().stop().hide();
                 afterClose();
                 
             } else if (typeof self.options.animation.close == 'string') {
