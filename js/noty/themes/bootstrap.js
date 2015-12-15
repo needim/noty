@@ -10,7 +10,8 @@ $.noty.themes.bootstrapTheme = {
             opacity: 0.6,
             display: 'none',
             left: 0,
-            top: 0
+            top: 0,
+            wordBreak:'break-all'
         }
     },
     style: function() {
