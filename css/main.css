@@ -4725,3 +4725,7 @@ a.more-link:hover,
 	border-top-color: #5BCF80;
 	border-left-color: #5BCF80;
 }
+
+div.container {
+	visibility: hidden;
+}
