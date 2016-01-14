@@ -133,15 +133,24 @@
             if(self.options.callback.onShow)
                 self.options.callback.onShow.apply(self);
 
-            if (typeof self.options.animation.open == 'string') {
+            function afterShow() {
+                 if (self.options.callback.afterShow) 
+                    self.options.callback.afterShow.apply(self);
+                self.showing = false;
+                self.shown = true;               
+            }
+            
+            if (self.options.animation.open == null) {
+                self.$bar.show();
+                afterShow();
+                
+            } else if (typeof self.options.animation.open == 'string') {
                 self.$bar.css('height', self.$bar.innerHeight());
                 self.$bar.on('click',function(e){
                     self.wasClicked = true;
                 });
                 self.$bar.show().addClass(self.options.animation.open).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                    if(self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
-                    self.showing = false;
-                    self.shown = true;
+                    afterShow();
                     if(self.hasOwnProperty('wasClicked')){
                         self.$bar.off('click',function(e){
                             self.wasClicked = true;
@@ -155,11 +164,7 @@
                     self.options.animation.open,
                     self.options.animation.speed,
                     self.options.animation.easing,
-                    function() {
-                        if(self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
-                        self.showing = false;
-                        self.shown = true;
-                    });
+                    afterShow );
             }
 
             // If noty is have a timeout option
@@ -205,22 +210,26 @@
                 self.options.callback.onClose.apply(self);
             }
 
-            if (typeof self.options.animation.close == 'string') {
+            function afterClose() {
+                if(self.options.callback.afterClose) 
+                    self.options.callback.afterClose.apply(self);
+                self.closeCleanUp();                
+            }
+            
+            if (self.options.animation.close == null) {
+                self.$bar.clearQueue().stop().hide();
+                afterClose();
+                
+            } else if (typeof self.options.animation.close == 'string') {
                 self.$bar.addClass(self.options.animation.close).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                    if(self.options.callback.afterClose) self.options.callback.afterClose.apply(self);
-                    self.closeCleanUp();
+                    afterClose();
                 });
             } else {
                 self.$bar.clearQueue().stop().animate(
                     self.options.animation.close,
                     self.options.animation.speed,
                     self.options.animation.easing,
-                    function() {
-                        if(self.options.callback.afterClose) self.options.callback.afterClose.apply(self);
-                    })
-                    .promise().done(function() {
-                        self.closeCleanUp();
-                    });
+                    afterClose );
             }
 
         }, // end close
