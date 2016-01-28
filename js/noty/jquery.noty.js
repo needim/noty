@@ -206,7 +206,7 @@
             }
 
             if (typeof self.options.animation.close == 'string') {
-                self.$bar.addClass(self.options.animation.close).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                self.$bar.removeClass(self.options.animation.open).addClass(self.options.animation.close).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                     if(self.options.callback.afterClose) self.options.callback.afterClose.apply(self);
                     self.closeCleanUp();
                 });
