@@ -232,7 +232,7 @@
             // Modal Cleaning
             if(self.options.modal) {
                 $.notyRenderer.setModalCount(-1);
-                if($.notyRenderer.getModalCount() == 0) $('.noty_modal').fadeOut(self.options.animation.fadeSpeed, function() {
+                if($.notyRenderer.getModalCount() == 0 && !$.noty.queue.length) $('.noty_modal').fadeOut(self.options.animation.fadeSpeed, function() {
                     $(this).remove();
                 });
             }
