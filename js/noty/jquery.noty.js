@@ -21,11 +21,14 @@
     var NotyObject = {
 
         init: function(options) {
+            var requestedLayout;
 
             // Mix in the passed in options with the default options
             this.options = $.extend({}, $.noty.defaults, options);
 
-            this.options.layout = $.noty.layouts[this.options.layout] || $.noty.layouts[ 'inline' ];
+            requestedLayout = this.options.within ? this.options.layout : ( this.options.custom ? 'inline' : this.options.layout );
+
+            this.options.layout = $.noty.layouts[ requestedLayout ];
 
             if($.noty.themes[this.options.theme])
                 this.options.theme = $.noty.themes[this.options.theme];
