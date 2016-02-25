@@ -10,7 +10,7 @@
 
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.3.8
+ @version version: 2.3.9
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -35,7 +35,7 @@
             // Mix in the passed in options with the default options
             this.options = $.extend({}, $.noty.defaults, options);
 
-            this.options.layout = (this.options.custom) ? $.noty.layouts['inline'] : $.noty.layouts[this.options.layout];
+            this.options.layout = $.noty.layouts[this.options.layout] || $.noty.layouts[ 'inline' ];
 
             if($.noty.themes[this.options.theme])
                 this.options.theme = $.noty.themes[this.options.theme];
@@ -110,7 +110,7 @@
 
             self.$bar.addClass(self.options.layout.addClass);
 
-            self.options.layout.container.style.apply($(self.options.layout.container.selector), [self.options.within]);
+            self.options.layout.container.style.apply($(self.options.layout.container.selector), [self.options]);
 
             self.showing = true;
 
@@ -555,11 +555,11 @@ $.noty.layouts.bottom = {
     container: {
         object  : '<ul id="noty_bottom_layout_container" />',
         selector: 'ul#noty_bottom_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 bottom       : 0,
                 left         : '5%',
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '90%',
                 height       : 'auto',
                 margin       : 0,
@@ -588,11 +588,13 @@ $.noty.layouts.bottomCenter = {
     container: {
         object  : '<ul id="noty_bottomCenter_layout_container" />',
         selector: 'ul#noty_bottomCenter_layout_container',
-        style   : function() {
+        style   : function( options ) {
+            var parent = options.within ? $(this).parent()[0] : window;
+
             $(this).css({
                 bottom       : 20,
                 left         : 0,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -602,7 +604,7 @@ $.noty.layouts.bottomCenter = {
             });
 
             $(this).css({
-                left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px'
+                left: ($(parent).width() - $(this).outerWidth(false)) / 2 + 'px'
             });
         }
     },
@@ -618,7 +620,6 @@ $.noty.layouts.bottomCenter = {
     addClass : ''
 };
 
-
 $.noty.layouts.bottomLeft = {
     name     : 'bottomLeft',
     options  : { // overrides options
@@ -627,11 +628,11 @@ $.noty.layouts.bottomLeft = {
     container: {
         object  : '<ul id="noty_bottomLeft_layout_container" />',
         selector: 'ul#noty_bottomLeft_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 bottom       : 20,
                 left         : 20,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -658,6 +659,7 @@ $.noty.layouts.bottomLeft = {
     },
     addClass : ''
 };
+
 $.noty.layouts.bottomRight = {
     name     : 'bottomRight',
     options  : { // overrides options
@@ -666,11 +668,11 @@ $.noty.layouts.bottomRight = {
     container: {
         object  : '<ul id="noty_bottomRight_layout_container" />',
         selector: 'ul#noty_bottomRight_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 bottom       : 20,
                 right        : 20,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -697,6 +699,7 @@ $.noty.layouts.bottomRight = {
     },
     addClass : ''
 };
+
 $.noty.layouts.center = {
     name     : 'center',
     options  : { // overrides options
@@ -705,9 +708,11 @@ $.noty.layouts.center = {
     container: {
         object  : '<ul id="noty_center_layout_container" />',
         selector: 'ul#noty_center_layout_container',
-        style   : function() {
+        style   : function( options ) {
+            var parent = options.within ? $(this).parent()[0] : window;
+
             $(this).css({
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -726,14 +731,14 @@ $.noty.layouts.center = {
 
             if($(this).hasClass('i-am-new')) {
                 $(this).css({
-                    left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px',
-                    top : ($(window).height() - actual_height) / 2 + 'px'
+                    left: ($(parent).width() - $(this).outerWidth(false)) / 2 + 'px',
+                    top : ($(parent).height() - actual_height) / 2 + 'px'
                 });
             }
             else {
                 $(this).animate({
-                    left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px',
-                    top : ($(window).height() - actual_height) / 2 + 'px'
+                    left: ($(parent).width() - $(this).outerWidth(false)) / 2 + 'px',
+                    top : ($(parent).height() - actual_height) / 2 + 'px'
                 }, 500);
             }
 
@@ -750,6 +755,7 @@ $.noty.layouts.center = {
     },
     addClass : ''
 };
+
 $.noty.layouts.centerLeft = {
     name     : 'centerLeft',
     options  : { // overrides options
@@ -758,10 +764,12 @@ $.noty.layouts.centerLeft = {
     container: {
         object  : '<ul id="noty_centerLeft_layout_container" />',
         selector: 'ul#noty_centerLeft_layout_container',
-        style   : function() {
+        style   : function( options ) {
+            var parent = options.within ? $(this).parent()[0] : window;
+
             $(this).css({
                 left         : 20,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -780,16 +788,16 @@ $.noty.layouts.centerLeft = {
 
             if($(this).hasClass('i-am-new')) {
                 $(this).css({
-                    top: ($(window).height() - actual_height) / 2 + 'px'
+                    top: ($(parent).height() - actual_height) / 2 + 'px'
                 });
             }
             else {
                 $(this).animate({
-                    top: ($(window).height() - actual_height) / 2 + 'px'
+                    top: ($(parent).height() - actual_height) / 2 + 'px'
                 }, 500);
             }
 
-            if(window.innerWidth < 600) {
+            if(parent.innerWidth < 600) {
                 $(this).css({
                     left: 5
                 });
@@ -817,10 +825,12 @@ $.noty.layouts.centerRight = {
     container: {
         object  : '<ul id="noty_centerRight_layout_container" />',
         selector: 'ul#noty_centerRight_layout_container',
-        style   : function() {
+        style   : function( options ) {
+            var parent = options.within ? $(this).parent()[0] : window;
+
             $(this).css({
                 right        : 20,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -839,16 +849,16 @@ $.noty.layouts.centerRight = {
 
             if($(this).hasClass('i-am-new')) {
                 $(this).css({
-                    top: ($(window).height() - actual_height) / 2 + 'px'
+                    top: ($(parent).height() - actual_height) / 2 + 'px'
                 });
             }
             else {
                 $(this).animate({
-                    top: ($(window).height() - actual_height) / 2 + 'px'
+                    top: ($(parent).height() - actual_height) / 2 + 'px'
                 }, 500);
             }
 
-            if(window.innerWidth < 600) {
+            if(parent.innerWidth < 600) {
                 $(this).css({
                     right: 5
                 });
@@ -867,13 +877,14 @@ $.noty.layouts.centerRight = {
     },
     addClass : ''
 };
+
 $.noty.layouts.inline = {
     name     : 'inline',
     options  : {},
     container: {
         object  : '<ul class="noty_inline_layout_container" />',
         selector: 'ul.noty_inline_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 width        : '100%',
                 height       : 'auto',
@@ -894,17 +905,18 @@ $.noty.layouts.inline = {
     },
     addClass : ''
 };
+
 $.noty.layouts.top = {
     name     : 'top',
     options  : {},
     container: {
         object  : '<ul id="noty_top_layout_container" />',
         selector: 'ul#noty_top_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 top          : 0,
                 left         : '5%',
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '90%',
                 height       : 'auto',
                 margin       : 0,
@@ -924,6 +936,7 @@ $.noty.layouts.top = {
     },
     addClass : ''
 };
+
 $.noty.layouts.topCenter = {
     name     : 'topCenter',
     options  : { // overrides options
@@ -932,11 +945,13 @@ $.noty.layouts.topCenter = {
     container: {
         object  : '<ul id="noty_topCenter_layout_container" />',
         selector: 'ul#noty_topCenter_layout_container',
-        style   : function() {
+        style   : function( options ) {
+            var parent = options.within ? $(this).parent()[0] : window;
+
             $(this).css({
                 top          : 20,
                 left         : 0,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -945,8 +960,10 @@ $.noty.layouts.topCenter = {
                 zIndex       : 10000000
             });
 
+
+
             $(this).css({
-                left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px'
+                left: ($(parent).width() - $(this).outerWidth(false)) / 2 + 'px'
             });
         }
     },
@@ -970,11 +987,11 @@ $.noty.layouts.topLeft = {
     container: {
         object  : '<ul id="noty_topLeft_layout_container" />',
         selector: 'ul#noty_topLeft_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 top          : 20,
                 left         : 20,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -1001,6 +1018,7 @@ $.noty.layouts.topLeft = {
     },
     addClass : ''
 };
+
 $.noty.layouts.topRight = {
     name     : 'topRight',
     options  : { // overrides options
@@ -1009,11 +1027,11 @@ $.noty.layouts.topRight = {
     container: {
         object  : '<ul id="noty_topRight_layout_container" />',
         selector: 'ul#noty_topRight_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 top          : 20,
                 right        : 20,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -1040,6 +1058,7 @@ $.noty.layouts.topRight = {
     },
     addClass : ''
 };
+
 $.noty.themes.bootstrapTheme = {
     name: 'bootstrapTheme',
     modal: {
