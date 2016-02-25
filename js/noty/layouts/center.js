@@ -6,9 +6,11 @@ $.noty.layouts.center = {
     container: {
         object  : '<ul id="noty_center_layout_container" />',
         selector: 'ul#noty_center_layout_container',
-        style   : function() {
+        style   : function( options ) {
+            var parent = options.within ? $(this).parent()[0] : window;
+
             $(this).css({
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -27,14 +29,14 @@ $.noty.layouts.center = {
 
             if($(this).hasClass('i-am-new')) {
                 $(this).css({
-                    left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px',
-                    top : ($(window).height() - actual_height) / 2 + 'px'
+                    left: ($(parent).width() - $(this).outerWidth(false)) / 2 + 'px',
+                    top : ($(parent).height() - actual_height) / 2 + 'px'
                 });
             }
             else {
                 $(this).animate({
-                    left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px',
-                    top : ($(window).height() - actual_height) / 2 + 'px'
+                    left: ($(parent).width() - $(this).outerWidth(false)) / 2 + 'px',
+                    top : ($(parent).height() - actual_height) / 2 + 'px'
                 }, 500);
             }
 

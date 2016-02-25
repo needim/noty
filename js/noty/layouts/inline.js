@@ -4,7 +4,7 @@ $.noty.layouts.inline = {
     container: {
         object  : '<ul class="noty_inline_layout_container" />',
         selector: 'ul.noty_inline_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 width        : '100%',
                 height       : 'auto',

@@ -6,11 +6,11 @@ $.noty.layouts.bottomRight = {
     container: {
         object  : '<ul id="noty_bottomRight_layout_container" />',
         selector: 'ul#noty_bottomRight_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 bottom       : 20,
                 right        : 20,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,

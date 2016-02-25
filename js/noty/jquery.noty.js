@@ -1,6 +1,6 @@
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.3.8
+ @version version: 2.3.9
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -21,11 +21,14 @@
     var NotyObject = {
 
         init: function(options) {
+            var requestedLayout;
 
             // Mix in the passed in options with the default options
             this.options = $.extend({}, $.noty.defaults, options);
 
-            this.options.layout = (this.options.custom) ? $.noty.layouts['inline'] : $.noty.layouts[this.options.layout];
+            requestedLayout = this.options.within ? this.options.layout : ( this.options.custom ? 'inline' : this.options.layout );
+
+            this.options.layout = $.noty.layouts[ requestedLayout ];
 
             if($.noty.themes[this.options.theme])
                 this.options.theme = $.noty.themes[this.options.theme];
@@ -100,7 +103,7 @@
 
             self.$bar.addClass(self.options.layout.addClass);
 
-            self.options.layout.container.style.apply($(self.options.layout.container.selector), [self.options.within]);
+            self.options.layout.container.style.apply($(self.options.layout.container.selector), [self.options]);
 
             self.showing = true;
 

@@ -4,11 +4,11 @@ $.noty.layouts.bottom = {
     container: {
         object  : '<ul id="noty_bottom_layout_container" />',
         selector: 'ul#noty_bottom_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 bottom       : 0,
                 left         : '5%',
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '90%',
                 height       : 'auto',
                 margin       : 0,
