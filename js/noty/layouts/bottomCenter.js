@@ -6,11 +6,13 @@ $.noty.layouts.bottomCenter = {
     container: {
         object  : '<ul id="noty_bottomCenter_layout_container" />',
         selector: 'ul#noty_bottomCenter_layout_container',
-        style   : function() {
+        style   : function( options ) {
+            var parent = options.within ? $(this).parent()[0] : window;
+
             $(this).css({
                 bottom       : 20,
                 left         : 0,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
@@ -20,7 +22,7 @@ $.noty.layouts.bottomCenter = {
             });
 
             $(this).css({
-                left: ($(window).width() - $(this).outerWidth(false)) / 2 + 'px'
+                left: ($(parent).width() - $(this).outerWidth(false)) / 2 + 'px'
             });
         }
     },
@@ -35,4 +37,3 @@ $.noty.layouts.bottomCenter = {
     },
     addClass : ''
 };
-

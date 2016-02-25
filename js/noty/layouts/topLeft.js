@@ -6,11 +6,11 @@ $.noty.layouts.topLeft = {
     container: {
         object  : '<ul id="noty_topLeft_layout_container" />',
         selector: 'ul#noty_topLeft_layout_container',
-        style   : function() {
+        style   : function( options ) {
             $(this).css({
                 top          : 20,
                 left         : 20,
-                position     : 'fixed',
+                position     : options.within ? 'absolute' : 'fixed',
                 width        : '310px',
                 height       : 'auto',
                 margin       : 0,
