@@ -49,7 +49,6 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-release-component');
     grunt.loadNpmTasks('grunt-bump');
     grunt.loadNpmTasks('grunt-wrap');
 
