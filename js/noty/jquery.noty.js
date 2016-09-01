@@ -163,16 +163,33 @@
             }
 
             // If noty is have a timeout option
-            if(self.options.timeout)
-                self.$bar.delay(self.options.timeout).promise().done(function() {
-                    self.close();
-                });
+            if(self.options.timeout) {
+                self.queueClose(self.options.timeout);
+                self.$bar.on('mouseenter', self.dequeueClose.bind(self));
+                self.$bar.on('mouseleave', self.queueClose.bind(self, self.options.timeout));
+            }
 
             return this;
 
         }, // end show
 
+        dequeueClose: function() {
+            if(!this.closeTimer) return;
+            clearTimeout(this.closeTimer);
+            this.closeTimer = null;
+        },
+
+        queueClose: function(timeout) {
+            if(this.closeTimer) return;
+            var self = this;
+            self.closeTimer = window.setTimeout(function() {
+                self.close();
+            }, timeout);
+            return self.closeTimer
+        },
+
         close: function() {
+            if(this.closeTimer) this.dequeueClose();
 
             if(this.closed) return;
             if(this.$bar && this.$bar.hasClass('i-am-closing-now')) return;
