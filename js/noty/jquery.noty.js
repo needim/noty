@@ -199,6 +199,9 @@
                 return;
             }
 
+            // sometimes it is already closed at this point. Return to avoid null reference exception
+            if (!self.$bar) return;
+
             self.$bar.addClass('i-am-closing-now');
 
             if(self.options.callback.onClose) {
