@@ -131,6 +131,24 @@
                     self.close();
                 });
 
+	var result_search = [];
+            for (var i in self.options.closeWith) {
+                if (self.options.closeWith[i].match(/seconds/i)) {
+                    result_search.push(self.options.closeWith[i]);
+                }
+            }
+
+            if (result_search.length > 0) {
+                if (result_search[0].length > 7) {
+                    time_to_close = result_search[0].substring(7);
+                    if (Math.floor(time_to_close) == time_to_close && $.isNumeric(time_to_close)) {
+                        setTimeout(function () {
+                            self.close();
+                        }, time_to_close * 1000);
+                    }
+                }
+            }	
+
             if($.inArray('button', self.options.closeWith) > -1)
                 self.$closeButton.one('click', function(evt) {
                     self.stopPropagation(evt);
