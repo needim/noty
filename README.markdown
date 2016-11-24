@@ -74,3 +74,7 @@ Documentation and examples are here: <http://needim.github.io/noty>
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owners to
 license your work under the the terms of the [MIT License](LICENSE.txt).
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/needim/noty/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
