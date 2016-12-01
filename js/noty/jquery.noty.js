@@ -134,7 +134,7 @@
                 self.options.callback.onShow.apply(self);
 
             if (typeof self.options.animation.open == 'string') {
-                self.$bar.css('height', self.$bar.innerHeight());
+                self.$bar.css('min-height', self.$bar.innerHeight());
                 self.$bar.on('click',function(e){
                     self.wasClicked = true;
                 });
