@@ -60,22 +60,30 @@
                 this.options.closeWith = [];
                 this.options.timeout = false;
 
-                var $buttons = $('<div/>').addClass('noty_buttons');
-
-                (this.options.layout.parent.object !== null) ? this.$bar.find('.noty_bar').append($buttons) : this.$bar.append($buttons);
+                var $buttons;
+                // Try find container for buttons in presented template, and create it if not found
+                if (this.$bar.find('.noty_buttons').length > 0) {
+                    $buttons = this.$bar.find('.noty_buttons');
+                } else {
+                    $buttons = $('<div/>').addClass('noty_buttons');
+                    (this.options.layout.parent.object !== null) ? this.$bar.find('.noty_bar').append($buttons) : this.$bar.append($buttons);
+                }
 
                 var self = this;
 
                 $.each(this.options.buttons, function(i, button) {
                     var $button = $('<button/>').addClass((button.addClass) ? button.addClass : 'gray').html(button.text).attr('id', button.id ? button.id : 'button-' + i)
                         .attr('title', button.title)
-                        .appendTo(self.$bar.find('.noty_buttons'))
+                        .appendTo($buttons)
                         .on('click', function(event) {
                             if($.isFunction(button.onClick)) {
                                 button.onClick.call($button, self, event);
                             }
                         });
                 });
+            } else {
+                // If buttons is not available, then remove containers if exist
+                this.$bar.find('.noty_buttons').remove();
             }
 
             // For easy access
