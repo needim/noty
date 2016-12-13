@@ -1,6 +1,6 @@
 {
 	"name": "noty",
-	"version": "2.3.8",
+	"version": "2.3.9",
 	"title": "noty - a jquery notification plugin",
 	"description": "noty is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)",
 	"homepage": "http://needim.github.com/noty",
@@ -25,10 +25,10 @@
 	"dependencies": {
 	},
 	"devDependencies": {
-		"grunt": "~0.4.5",
-		"grunt-contrib-uglify": "~0.4.0",
-		"grunt-contrib-concat": "~0.4.0",
-		"grunt-bump": "0.0.14",
+		"grunt": "~1.0.0",
+		"grunt-contrib-uglify": "~1.0.1",
+		"grunt-contrib-concat": "~1.0.1",
+		"grunt-bump": "0.8.0",
 		"grunt-wrap": "^0.3.0"
 	}
 }
