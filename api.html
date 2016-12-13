@@ -7,7 +7,7 @@
     <meta name="keywords" content="jquery, notification, plugin, opensource, open, source">
     <meta name="author" content="Nedim Arabacı (http://ned.im)">
 
-    <title>noty - a jQuery Notification Plugin</title>
+    <title>noty - a jQuery Notification Plugin Options</title>
 
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 
@@ -32,14 +32,13 @@
                     <strong>NOTY</strong> is a <strong>jQuery plugin</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each
                     notification is added to a queue. (Optional)
                     <br><br>
-
                     <!--The notifications can be positioned at the:<br>-->
                     <!--<span class="badge">top</span> <span class="badge">topLeft</span> <span class="badge">topCenter</span> <span class="badge">topRight</span> <span class="badge">center</span> <span class="badge">centerLeft</span> <span class="badge">centerRight</span> <span class="badge">bottom</span> <span class="badge">bottomLeft</span> <span class="badge">bottomCenter</span> <span class="badge">bottomRight</span>-->
                 </div>
 
                 <ul class="top-links">
                     <li>
-                        <a class="active" href="/noty/"><span class="ps-icon ps-icon-code"></span> Installation</a>
+                        <a href="/noty/"><span class="ps-icon ps-icon-code"></span> Installation</a>
                     </li>
                     <li>
                         <a href="/noty/options.html"><span class="ps-icon ps-icon-row-setting"></span> Options & Defaults</a>
@@ -60,7 +59,7 @@
                         <a href="/noty/confirmations.html"><span class="ps-icon ps-icon-headset"></span> Confirm Dialogs</a>
                     </li>
                     <li>
-                        <a href="/noty/api.html"><span class="ps-icon ps-icon-branch"></span> API & Callbacks</a>
+                        <a class="active" href="/noty/api.html"><span class="ps-icon ps-icon-branch"></span> API & Callbacks</a>
                     </li>
                     <!--<li>-->
                         <!--<a href="/noty/releases.html"><span class="ps-icon ps-icon-label"></span> Releases</a>-->
@@ -81,7 +80,6 @@
                 <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
-
             </div>
 
             <div class="col-md-9">
@@ -98,57 +96,58 @@
                 </div>
 
                 <div class="right-content mt10">
-                    
-                    <div id="installation">
+
+                    <div id="options">
 
                         <div class="row">
                             <div class="col-xs-12 col-md-12 col-lg-12">
 
-                                <h1><span class="ps-icon ps-icon-code"></span> Installation</h1>
+                                <h1><span class="ps-icon ps-icon-branch"></span> API & Callbacks</h1>
 
-                                <p>
-                                    1. Include <strong class="imp">jQuery 1.6+</strong>
-                                </p>
-                                <p>
-                                    2. Include <strong class="imp">noty/packaged/jquery.noty.packaged.min.js</strong>.
-                                </p>
-                                <p>That's It. Your code should then be similar to this:</p>
+
+                                <div>
+                                    <p>
+                                        <strong>NOTY</strong> have 5 callback option for now. <strong class="imp">onShow</strong> - <strong class="imp">afterShow</strong> - <strong class="imp">onClose</strong> - <strong class="imp">afterClose</strong> - <strong class="imp">afterCloseClick</strong>
+                                    </p>
+
+                                    <h4 class="mt30">
+                                        API Methods
+                                    </h4>
+
 
 <pre class="prettyprint lang-javascript">
-&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"&gt;&lt;/script&gt;
+var n = noty({text: 'Hi!'});
+
+
+console.log($.noty.get(n.id)); // Returns a NOTY javascript object
+console.log(n); // Returns a NOTY javascript object
+
+
+$.noty.close(n.id); // Close a NOTY
+n.close(); // same as above
+
+
+$.noty.setText(n.id, 'Hi again!'); // Notification text updater
+n.setText('Hi again!'); // same as above
+
+
+$.noty.setType(n.id, 'error'); // Notification type updater
+n.setType('error'); // same as above
+
+
+$.noty.clearQueue(); // Clears the notification queue
+$.noty.closeAll(); // Close all notifications
 </pre>
-                                <blockquote>
-                                    NOTY is compatible with <strong class="imp">jQuery 1.6+</strong> for now.
-                                    <strong>But if you are using older version then 1.6 you can add promise.js to your header.</strong>
-                                    <br>(Thanks to <a href="https://github.com/MrMaksimize" target="_blank">Maksim Pecherskiy</a>)
-                                </blockquote>
+
+                                </div>
+
                             </div>
-
-
-                            <div class="col-xs-12 col-md-12 col-lg-12">
-                                <h3>Install via <a target="_blank" href="http://bower.io/">Bower</a></h3>
-<pre class="prettyprint lang-bash">
-$ <span class="lit">bower</span> install noty
-</pre>
-                            </div>
-
-                            <div class="col-xs-12 col-md-12 col-lg-12">
-                                <h3>Install via <a target="_blank" href="https://www.npmjs.org/">NPM</a></h3>
-<pre class="prettyprint lang-bash">
-$ <span class="lit">npm</span> install noty
-</pre>
-                            </div>
-
                         </div>
-                        
-                        
-                        <div class="next-section mt30 mb30">
-                            Next; <a href="/options.html">Options & Defaults</a>
-                        </div>
-                        
                     </div>
 
+                    <!--<div class="next-section mt30 mb30">-->
+                        <!--Next; <a href="/api.html">API & Callbacks</a>-->
+                    <!--</div>-->
                     
                 </div>
 

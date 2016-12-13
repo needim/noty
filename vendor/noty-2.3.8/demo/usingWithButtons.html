@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Using with Buttons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="demonstration of some noty capabilities">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'PT Sans', Tahoma, Arial, serif;
+            line-height: 13px
+        }
+
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="buttons.css"/>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div id="customContainer"></div>
+
+</div>
+
+<script src="jquery-1.7.2.min.js"></script>
+
+<!-- noty -->
+<script type="text/javascript" src="../js/noty/packaged/jquery.noty.packaged.js"></script>
+
+<script type="text/javascript">
+
+    function generate(layout) {
+        var n = noty({
+            text        : 'Do you want to continue?',
+            type        : 'alert',
+            dismissQueue: true,
+            layout      : layout,
+            theme       : 'defaultTheme',
+            buttons     : [
+                {addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {
+                    $noty.close();
+                    noty({dismissQueue: true, force: true, layout: layout, theme: 'defaultTheme', text: 'You clicked "Ok" button', type: 'success'});
+                }
+                },
+                {addClass: 'btn btn-danger', text: 'Cancel', onClick: function ($noty) {
+                    $noty.close();
+                    noty({dismissQueue: true, force: true, layout: layout, theme: 'defaultTheme', text: 'You clicked "Cancel" button', type: 'error'});
+                }
+                }
+            ]
+        });
+        console.log('html: ' + n.options.id);
+    }
+
+    function generateAll() {
+        generate('top');
+        generate('topCenter');
+        generate('topLeft');
+        generate('topRight');
+        generate('center');
+        generate('centerLeft');
+        generate('centerRight');
+        generate('bottom');
+        generate('bottomCenter');
+        generate('bottomLeft');
+        generate('bottomRight');
+
+    }
+
+    $(document).ready(function () {
+
+        generateAll();
+
+    });
+
+</script>
+</body>
+</html>

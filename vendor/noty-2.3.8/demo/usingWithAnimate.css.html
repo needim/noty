@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Using with Animate.css</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="demonstration of some noty capabilities">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'PT Sans', Tahoma, Arial, serif;
+            line-height: 13px
+        }
+
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="buttons.css"/>
+    <link rel="stylesheet" type="text/css" href="animate.css"/>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div id="customContainer"></div>
+
+    </div>
+
+    <script src="jquery-1.7.2.min.js"></script>
+
+    <!-- noty -->
+    <script type="text/javascript" src="../js/noty/packaged/jquery.noty.packaged.js"></script>
+    <script type="text/javascript" src="notification_html.js"></script>
+
+    <script type="text/javascript">
+
+
+        function generate(type, text) {
+
+            var n = noty({
+                text        : text,
+                type        : type,
+                dismissQueue: true,
+                layout      : 'topLeft',
+                closeWith   : ['click'],
+                theme       : 'relax',
+                maxVisible  : 10,
+                animation   : {
+                    open  : 'animated bounceInLeft',
+                    close : 'animated bounceOutLeft',
+                    easing: 'swing',
+                    speed : 500
+                }
+            });
+            console.log('html: ' + n.options.id);
+        }
+
+        function generateAll() {
+            generate('warning', notification_html[0]);
+            generate('error', notification_html[1]);
+            generate('information', notification_html[2]);
+            generate('success', notification_html[3]);
+//            generate('notification');
+//            generate('success');
+        }
+
+        $(document).ready(function () {
+
+            setTimeout(function() {
+                generateAll();
+            }, 500);
+
+        });
+
+    </script>
+</body>
+</html>
