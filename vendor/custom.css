@@ -489,3 +489,7 @@ select {
   max-width: 390px;
   margin: 0 auto;
 }
+
+.supported-by a {
+  text-decoration: none;
+}
