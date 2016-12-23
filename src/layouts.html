@@ -1,0 +1,67 @@
+//= template/head.html
+                    
+<div id="layouts">
+
+    <div class="row">
+
+        <div class="col-md-12">
+            <h1><span class="ps-icon ps-icon-row-setting"></span> Types & Layouts</h1>
+
+            <p class="excerpt">
+                <strong>NOTY</strong> has <strong>11</strong> layouts;
+                <span class="imp">top</span>, <span class="imp">topLeft</span>, <span class="imp">topCenter</span>, <span class="imp">topRight</span>, <span class="imp">center</span>, <span class="imp">centerLeft</span>, <span class="imp">centerRight</span>, <span class="imp">bottom</span>, <span class="imp">bottomLeft</span>, <span class="imp">bottomCenter</span>, <span class="imp">bottomRight</span>
+                <br>and 5 types <span class="imp">alert</span>, <span class="imp">success</span>, <span class="imp">warning</span>, <span class="imp">error</span>, <span class="imp">information</span>
+            </p>
+
+            <p class="mt30">
+                Let's create a notification with layout
+                <select class="" name="layout" id="layout">
+                    <option value="top">top</option>
+                    <option value="topLeft">topLeft</option>
+                    <option value="topCenter">topCenter</option>
+                    <option value="topRight" selected>topRight</option>
+                    <option value="center">center</option>
+                    <option value="centerLeft">centerLeft</option>
+                    <option value="centerRight">centerRight</option>
+                    <option value="bottom">bottom</option>
+                    <option value="bottomLeft">bottomLeft</option>
+                    <option value="bottomCenter">bottomCenter</option>
+                    <option value="bottomRight">bottomRight</option>
+                    <optgroup label="Custom Container">
+                      <option value="inline">inline</option>
+                    </optgroup>
+                </select>
+                and type
+                <select name="type" id="type">
+                    <option value="alert">alert</option>
+                    <option value="success">success</option>
+                    <option value="warning" selected>warning</option>
+                    <option value="error">error</option>
+                    <option value="information">information</option>
+                </select>
+
+                <a href="#run" class="btn button runner" style="position: relative; top: -3px; margin-left: 10px; text-decoration: none">CREATE</a>
+
+            </p>
+
+            <p class="mt30">Custom container example for using inline layout;</p>
+            <div class="custom-container">
+
+            </div>
+
+            <p class="mt30">Custom container usage example;</p>
+<pre class="prettyprint lang-javascript"><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'.custom-container'</span><span class="pun">).</span><span class="pln">noty</span><span class="pun">({</span><span class="pln">text</span><span class="pun">:</span><span class="pln"> </span><span class="str">'NOTY - a jquery notification library!'</span><span class="pun">});</span></pre>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+<div class="next-section mt30 mb30">
+    Next; <a href="/noty/themes.html">Theme Library</a>
+</div>
+
+//= template/foot.html

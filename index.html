@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="noty is a jquery plugin which is have too many options for display notification">
     <meta name="keywords" content="jquery, notification, plugin, opensource, open, source">
@@ -11,13 +12,14 @@
 
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="vendor/bootstrap.min.css"/>
-    <link rel="stylesheet" href="vendor/animate.css"/>
-    <link rel="stylesheet" href="vendor/ps-icon-pack.css"/>
-    <link rel="stylesheet" href="vendor/custom.css"/>
-    <link rel="stylesheet" href="vendor/google-code-prettify/prettify.css"/>
+    <link rel="stylesheet" href="vendor/bootstrap.min.css" />
+    <link rel="stylesheet" href="vendor/animate.css" />
+    <link rel="stylesheet" href="vendor/ps-icon-pack.css" />
+    <link rel="stylesheet" href="vendor/custom.css" />
+    <link rel="stylesheet" href="vendor/google-code-prettify/prettify.css" />
 
 </head>
+
 <body>
 
     <div class="wrapper">
@@ -25,16 +27,13 @@
         <div class="container-fluid">
 
             <div class="col-md-3">
-                
+
                 <img src="img/projects/noty-v2-logo.png" alt="" class="left-logo">
 
                 <div class="project-info mt10 text-muted small">
-                    <strong>NOTY</strong> is a <strong>jQuery plugin</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each
-                    notification is added to a queue. (Optional)
+                    <strong>NOTY</strong> is a <strong>jQuery plugin</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added
+                    to a queue. (Optional)
                     <br><br>
-
-                    <!--The notifications can be positioned at the:<br>-->
-                    <!--<span class="badge">top</span> <span class="badge">topLeft</span> <span class="badge">topCenter</span> <span class="badge">topRight</span> <span class="badge">center</span> <span class="badge">centerLeft</span> <span class="badge">centerRight</span> <span class="badge">bottom</span> <span class="badge">bottomLeft</span> <span class="badge">bottomCenter</span> <span class="badge">bottomRight</span>-->
                 </div>
 
                 <ul class="top-links">
@@ -54,7 +53,7 @@
                         <a href="/noty/animations.html"><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations</a>
                     </li>
                     <!--<li>-->
-                        <!--<a href="/noty/queuing.html"><span class="ps-icon ps-icon-retweet-1"></span> Queue System</a>-->
+                    <!--<a href="/noty/queuing.html"><span class="ps-icon ps-icon-retweet-1"></span> Queue System</a>-->
                     <!--</li>-->
                     <li>
                         <a href="/noty/confirmations.html"><span class="ps-icon ps-icon-headset"></span> Confirm Dialogs</a>
@@ -62,16 +61,16 @@
                     <li>
                         <a href="/noty/api.html"><span class="ps-icon ps-icon-branch"></span> API & Callbacks</a>
                     </li>
+                    <li>
+                        <a href="/noty/releases.html"><span class="ps-icon ps-icon-label"></span> Release History</a>
+                    </li>
                     <!--<li>-->
-                        <!--<a href="/noty/releases.html"><span class="ps-icon ps-icon-label"></span> Releases</a>-->
-                    <!--</li>-->
-                    <!--<li>-->
-                        <!--<a href="/noty/extra.html"> <span class="ps-icon ps-icon-sale-tag"></span> Extra</a>-->
+                    <!--<a href="/noty/extra.html"> <span class="ps-icon ps-icon-sale-tag"></span> Extra</a>-->
                     <!--</li>-->
                 </ul>
 
                 <div class="mt20 supported-by">
-                    <a target="_blank" href="https://www.jetbrains.com/">
+                    <a target="_blank" href="https://www.jetbrains.com?ref=notyjs">
                         <img src="img/projects/logo_JetBrains_4.svg" width="80" alt="">
                         <small class="text-muted">&nbsp; Supported by JetBrains</small>
                     </a>
@@ -80,10 +79,7 @@
                 <br>
                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
                 <!-- Nedim - 336x280 -->
-                <ins class="adsbygoogle"
-                     style="display:inline-block;width:336px;height:280px"
-                     data-ad-client="ca-pub-6920776915496505"
-                     data-ad-slot="4982077735"></ins>
+                <ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-6920776915496505" data-ad-slot="4982077735"></ins>
                 <script>
                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
@@ -104,7 +100,7 @@
                 </div>
 
                 <div class="right-content mt10">
-                    
+
                     <div id="installation">
 
                         <div class="row">
@@ -120,7 +116,7 @@
                                 </p>
                                 <p>That's It. Your code should then be similar to this:</p>
 
-<pre class="prettyprint lang-javascript">
+                                <pre class="prettyprint lang-javascript">
 &lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"&gt;&lt;/script&gt;
 </pre>
@@ -134,75 +130,41 @@
 
                             <div class="col-xs-12 col-md-12 col-lg-12">
                                 <h3>Install via <a target="_blank" href="http://bower.io/">Bower</a></h3>
-<pre class="prettyprint lang-bash">
+                                <pre class="prettyprint lang-bash">
 $ <span class="lit">bower</span> install noty
 </pre>
                             </div>
 
                             <div class="col-xs-12 col-md-12 col-lg-12">
                                 <h3>Install via <a target="_blank" href="https://www.npmjs.org/">NPM</a></h3>
-<pre class="prettyprint lang-bash">
+                                <pre class="prettyprint lang-bash">
 $ <span class="lit">npm</span> install noty
 </pre>
                             </div>
 
                         </div>
-                        
-                        
+
+
                         <div class="next-section mt30 mb30">
                             Next; <a href="/noty/options.html">Options & Defaults</a>
                         </div>
-                        
+
                     </div>
 
-                    
+
                 </div>
 
             </div>
 
         </div>
 
-    </div>
+        <script type="text/javascript" src="vendor/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="vendor/noty-2.3.11/js/noty/packaged/jquery.noty.packaged.js"></script>
+        <script type="text/javascript" src="vendor/google-code-prettify/prettify.js"></script>
+        <script type="text/javascript" src="vendor/share.min.js"></script>
+        <script type="text/javascript" src="vendor/showdown/showdown.min.js"></script>
+        <script type="text/javascript" src="vendor/documentation.js"></script>
 
-
-    <script type="text/javascript" src="vendor/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="vendor/noty-2.3.8/js/noty/packaged/jquery.noty.packaged.js"></script>
-    <script type="text/javascript" src="vendor/google-code-prettify/prettify.js"></script>
-    <script type="text/javascript" src="vendor/share.min.js"></script>
-
-    <script type="text/javascript">
-
-        $(function() {
-            if($('.prettyprint').length) {
-                window.prettyPrint && prettyPrint();
-            }
-
-            new Share(".sharer-btn", {
-                ui: {
-                    flyout: 'bottom center'
-                },
-                title: 'NOTY - a jQuery Notification Plugin',
-                description: 'notyjs is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
-                image: 'http://ned.im/noty/images/projects/noty-v2-logo.png',
-                networks: {
-                    pinterest: {
-                        enabled: false
-                    },
-                    facebook: {
-                        load_sdk: true,
-                        app_id: '198259823578303',
-                        title: 'NOTY - a jQuery Notification Plugin',
-                        caption: 'NOTY is a jquery plugin which is have too many options for display notification',
-                        description: 'NOTYJS is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
-                        image: 'http://ned.im/noty/images/projects/noty-v2-logo.png'
-                    },
-                    twitter: {
-                        description: 'NOTYJS - a jQuery Notification Plugin &num;notyjs &num;jquery &num;notification &num;plugin'
-                    }
-                }
-            });
-        });
-
-    </script>
 </body>
+
 </html>

@@ -1,0 +1,65 @@
+//= template/head.html
+
+<div id="options">
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+
+            <h1><span class="ps-icon ps-icon-row-setting"></span> Options & Defaults</h1>
+
+            <p>
+                Available options listed below.
+            </p>
+
+<pre class="prettyprint lang-javascript">
+$.noty.defaults = {
+  layout: 'top',
+  theme: 'defaultTheme', // or relax
+  type: 'alert', // success, error, warning, information, notification
+  text: '', // can be HTML or STRING
+
+  dismissQueue: true, // If you want to use queue feature set this true
+  force: false, // adds notification to the beginning of queue when set to true
+  maxVisible: 5, // you can set max visible notification count for dismissQueue true option,
+
+  template: '&lt;div class="noty_message"&gt;&lt;span class="noty_text"&gt;&lt;/span&gt;&lt;div class="noty_close"&gt;&lt;/div&gt;&lt;/div&gt;',
+
+  timeout: false, // delay for closing event in milliseconds. Set false for sticky notifications
+  animation: {
+    open: {height: 'toggle'}, // or Animate.css class names like: 'animated bounceInLeft'
+    close: {height: 'toggle'}, // or Animate.css class names like: 'animated bounceOutLeft'
+    easing: 'swing',
+    speed: 500 // opening &amp; closing animation speed
+  },
+  closeWith: ['click'], // ['click', 'button', 'hover', 'backdrop'] // backdrop click will close all notifications
+
+  modal: false, // if true adds an overlay
+  killer: false, // if true closes all notifications and shows itself
+
+  callback: {
+    onShow: function() {},
+    afterShow: function() {},
+    onClose: function() {},
+    afterClose: function() {},
+    onCloseClick: function() {},
+  },
+
+  buttons: false // an array of buttons, for creating confirmation dialogs.
+};
+</pre>
+
+            <blockquote>
+                Of course, you can override default values;<br>
+
+                $.noty.defaults.theme = 'relax';
+            </blockquote>
+
+        </div>
+    </div>
+</div>
+
+<div class="next-section mt30 mb30">
+    Next; <a href="/noty/layouts.html">Types & Layouts</a>
+</div>
+
+//= template/foot.html

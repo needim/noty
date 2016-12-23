@@ -1,0 +1,55 @@
+//= template/head.html
+
+                    <div id="api">
+
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 col-lg-12">
+
+                                <h1><span class="ps-icon ps-icon-branch"></span> API & Callbacks</h1>
+
+
+                                <div>
+                                    <p>
+                                        <strong>NOTY</strong> have 5 callback option for now. <strong class="imp">onShow</strong> - <strong class="imp">afterShow</strong> - <strong class="imp">onClose</strong> - <strong class="imp">afterClose</strong> - <strong class="imp">afterCloseClick</strong>
+                                    </p>
+
+                                    <h4 class="mt30">
+                                        API Methods
+                                    </h4>
+
+
+<pre class="prettyprint lang-javascript">
+var n = noty({text: 'Hi!'});
+
+
+console.log($.noty.get(n.id)); // Returns a NOTY javascript object
+console.log(n); // Returns a NOTY javascript object
+
+
+$.noty.close(n.id); // Close a NOTY
+n.close(); // same as above
+
+
+$.noty.setText(n.id, 'Hi again!'); // Notification text updater
+n.setText('Hi again!'); // same as above
+
+
+$.noty.setType(n.id, 'error'); // Notification type updater
+n.setType('error'); // same as above
+
+
+$.noty.clearQueue(); // Clears the notification queue
+$.noty.closeAll(); // Close all notifications
+</pre>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-section mt30 mb30">
+                        Next; <a href="/releases.html">Release History</a>
+                    </div>
+
+//= template/foot.html

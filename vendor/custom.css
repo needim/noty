@@ -493,3 +493,11 @@ select {
 .supported-by a {
   text-decoration: none;
 }
+
+a.imp.issue {
+  background: #FAF46A;
+  color: #000;
+  padding: 0 5px;
+  font-family: "Brandon Text Bold", sans-serif;
+  text-decoration: none;
+}

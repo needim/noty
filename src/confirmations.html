@@ -1,0 +1,50 @@
+//= template/head.html
+
+                    <div id="confirmations">
+
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 col-lg-12">
+
+                                <h1><span class="ps-icon ps-icon-headset"></span> Confirm Dialogs</h1>
+
+
+                                <div>
+                                    <p>
+                                        We can set button objects with an array like above;
+                                    </p>
+
+
+<pre class="prettyprint lang-javascript">
+noty({
+  text: 'Do you want to continue? &lt;input id="example" type="text"&gt;',
+  buttons: [
+    {addClass: 'btn btn-primary', text: 'Ok', onClick: function($noty) {
+        // this = button element
+        // $noty = $noty element
+
+        console.log($noty.$bar.find('input#example').val());
+
+        $noty.close();
+        noty({text: 'You clicked "Ok" button', type: 'success'});
+      }
+    },
+    {addClass: 'btn btn-danger', text: 'Cancel', onClick: function($noty) {
+        $noty.close();
+        noty({text: 'You clicked "Cancel" button', type: 'error'});
+      }
+    }
+  ]
+});
+</pre>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-section mt30 mb30">
+                        Next; <a href="/noty/api.html">API & Callbacks</a>
+                    </div>
+
+//= template/foot.html

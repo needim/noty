@@ -101,58 +101,14 @@
 
                 <div class="right-content mt10">
 
-                    <div id="options">
+                    <div id="releases">
 
                         <div class="row">
                             <div class="col-xs-12 col-md-12 col-lg-12">
 
-                                <h1><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations</h1>
+                                <h1><span class="ps-icon ps-icon-label"></span> Release History</h1>
 
-
-                                <div>
-                                    <p>
-                                        1. Using with <a href="http://api.jquery.com/animate/" target="_blank">jQuery animate properties</a>;
-                                    </p>
-
-
-                                    <pre class="prettyprint lang-javascript">
-var n = noty({
-    text: 'NOTY - a jquery notification library!',
-    animation: {
-        open: {height: 'toggle'},
-        close: {height: 'toggle'},
-        easing: 'swing',
-        speed: 500 // opening &amp; closing animation speed
-    }
-});
-</pre>
-
-                                    <blockquote>
-                                        <strong>About Easing</strong><br> The remaining parameter of .animate() is a string naming an easing function to use. An easing function specifies the speed at which the animation progresses at different points
-                                        within the animation. The only easing implementations in the jQuery library are the default, called swing, and one that progresses at a constant pace, called linear. More easing functions are available with the
-                                        use of plug-ins, most notably the <a href="http://jqueryui.com/" target="_blank">jQuery UI suite</a>.
-                                    </blockquote>
-
-
-                                    <p>
-                                        2. Using with class names. (like animate.css)
-                                    </p>
-
-                                    <pre class="prettyprint lang-javascript">
-var n = noty({
-    text: 'NOTY - a jquery notification library!',
-    animation: {
-        open: 'animated bounceInLeft', // Animate.css class names
-        close: 'animated bounceOutLeft', // Animate.css class names
-        easing: 'swing', // unavailable - no need
-        speed: 500 // unavailable - no need
-    }
-});
-</pre>
-
-                                    <blockquote>
-                                        <strong>easing</strong> and <strong>speed</strong> <span class="imp">has no effect</span> when <strong>string class name</strong> is being used.
-                                    </blockquote>
+                                <div class="releases-wrapper">
 
                                 </div>
 
@@ -161,7 +117,7 @@ var n = noty({
                     </div>
 
                     <div class="next-section mt30 mb30">
-                        Next; <a href="/noty/confirmations.html">Confirm Dialogs</a>
+                        <!--Next; <a href="/noty/layouts.html">Types & Layouts</a>-->
                     </div>
 
                 </div>
