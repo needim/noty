@@ -10,7 +10,7 @@
 
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.3.11
+ @version version: 2.4.0
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -106,10 +106,16 @@ var NotyObject = {
       this.$bar.find('.noty_buttons').remove();
     }
 
+    if (this.options.progressBar && this.options.timeout) {
+      var $progressBar = $('<div/>').addClass('noty_progress_bar');
+      (this.options.layout.parent.object !== null) ? this.$bar.find('.noty_bar').append($progressBar) : this.$bar.append($progressBar);
+    }
+
     // For easy access
     this.$message     = this.$bar.find('.noty_message');
     this.$closeButton = this.$bar.find('.noty_close');
     this.$buttons     = this.$bar.find('.noty_buttons');
+    this.$progressBar = this.$bar.find('.noty_progress_bar');
 
     $.noty.store[this.options.id] = this; // store noty for api
 
@@ -176,6 +182,7 @@ var NotyObject = {
         if (self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
         self.showing = false;
         self.shown   = true;
+        self.bindTimeout();
         if (self.hasOwnProperty('wasClicked')) {
           self.$bar.off('click', function (e) {
             self.wasClicked = true;
@@ -189,6 +196,7 @@ var NotyObject = {
       self.showing           = false;
       self.shown             = true;
       self.$bar.show();
+      self.bindTimeout();
 
       if (self.options.callback.onShow)
         self.options.callback.onShow.apply(self);
@@ -212,29 +220,60 @@ var NotyObject = {
             if (self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
             self.showing = false;
             self.shown   = true;
+            self.bindTimeout();
           });
-    }
-
-    // If noty is have a timeout option
-    if (self.options.timeout) {
-      self.queueClose(self.options.timeout);
-      self.$bar.on('mouseenter', self.dequeueClose.bind(self));
-      self.$bar.on('mouseleave', self.queueClose.bind(self, self.options.timeout));
     }
 
     return this;
 
   }, // end show
 
+  bindTimeout: function() {
+    var self = this;
+    // If noty is have a timeout option
+    if (self.options.timeout) {
+
+      if (self.options.progressBar && self.$progressBar) {
+        self.$progressBar.css({
+          transition: 'all 100ms linear'
+        });
+
+        self.progressPercentage = (self.$progressBar.width() / (self.options.timeout / 100));
+
+        self.intervalId = setInterval(function() {
+          self.$progressBar.width((self.$progressBar.width() - self.progressPercentage));
+        }, 100);
+      }
+
+      self.queueClose(self.options.timeout);
+      self.$bar.on('mouseenter', self.dequeueClose.bind(self));
+      self.$bar.on('mouseleave', self.queueClose.bind(self, self.options.timeout));
+    }
+
+  },
+
   dequeueClose: function () {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.$progressBar.css('width', '100%');
+      this.intervalId = null;
+    }
+
     if (!this.closeTimer) return;
     clearTimeout(this.closeTimer);
     this.closeTimer = null;
   },
 
   queueClose: function (timeout) {
+    var self = this;
+
+    if (!self.intervalId && self.options.progressBar) {
+      self.intervalId = setInterval(function() {
+        self.$progressBar.width((self.$progressBar.width() - self.progressPercentage));
+      }, 100);
+    }
+
     if (this.closeTimer) return;
-    var self        = this;
     self.closeTimer = window.setTimeout(function () {
       self.close();
     }, timeout);
@@ -242,6 +281,15 @@ var NotyObject = {
   },
 
   close: function () {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+
+      if (this.$progressBar) {
+        this.$progressBar.css('width', '0%');
+      }
+    }
+
     if (this.closeTimer) this.dequeueClose();
 
     if (this.closed) return;
@@ -589,6 +637,7 @@ $.noty.defaults = {
   theme       : 'relax',
   type        : 'alert',
   text        : '',
+  progressBar : false,
   dismissQueue: true,
   template    : '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>',
   animation   : {
@@ -1147,7 +1196,19 @@ $.noty.themes.bootstrapTheme = {
     this.$closeButton.append('<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>');
     this.$closeButton.addClass('close');
 
-    this.$bar.addClass("list-group-item").css('padding', '0px');
+    this.$bar.addClass("list-group-item").css('padding', '0px').css('position', 'relative');
+
+    this.$progressBar.css({
+      position       : 'absolute',
+      left           : 0,
+      bottom         : 0,
+      height         : 4,
+      width          : '100%',
+      backgroundColor: '#000000',
+      opacity        : 0.2,
+      '-ms-filter'   : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)',
+      filter         : 'alpha(opacity=20)'
+    });
 
     switch (this.options.type) {
       case 'alert':
@@ -1234,14 +1295,27 @@ $.noty.themes.defaultTheme = {
 
     this.$bar.css({
       overflow  : 'hidden',
-      background: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAoCAQAAAClM0ndAAAAhklEQVR4AdXO0QrCMBBE0bttkk38/w8WRERpdyjzVOc+HxhIHqJGMQcFFkpYRQotLLSw0IJ5aBdovruMYDA/kT8plF9ZKLFQcgF18hDj1SbQOMlCA4kao0iiXmah7qBWPdxpohsgVZyj7e5I9KcID+EhiDI5gxBYKLBQYKHAQoGFAoEks/YEGHYKB7hFxf0AAAAASUVORK5CYII=') repeat-x scroll left top #fff"
+      background: "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAoCAQAAAClM0ndAAAAhklEQVR4AdXO0QrCMBBE0bttkk38/w8WRERpdyjzVOc+HxhIHqJGMQcFFkpYRQotLLSw0IJ5aBdovruMYDA/kT8plF9ZKLFQcgF18hDj1SbQOMlCA4kao0iiXmah7qBWPdxpohsgVZyj7e5I9KcID+EhiDI5gxBYKLBQYKHAQoGFAoEks/YEGHYKB7hFxf0AAAAASUVORK5CYII=') repeat-x scroll left top #fff",
+      position  : 'relative'
+    });
+
+    this.$progressBar.css({
+      position       : 'absolute',
+      left           : 0,
+      bottom         : 0,
+      height         : 4,
+      width          : '100%',
+      backgroundColor: '#000000',
+      opacity        : 0.2,
+      '-ms-filter'   : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)',
+      filter         : 'alpha(opacity=20)'
     });
 
     this.$message.css({
-      textAlign : 'center',
-      padding   : '8px 10px 9px',
-      width     : 'auto',
-      position  : 'relative'
+      textAlign: 'center',
+      padding  : '8px 10px 9px',
+      width    : 'auto',
+      position : 'relative'
     });
 
     this.$closeButton.css({
@@ -1386,7 +1460,20 @@ $.noty.themes.metroui = {
     this.$bar.css({
       overflow    : 'hidden',
       margin      : '4px 0',
-      borderRadius: '0'
+      borderRadius: '0',
+      position    : 'relative'
+    });
+
+    this.$progressBar.css({
+      position       : 'absolute',
+      left           : 0,
+      bottom         : 0,
+      height         : 4,
+      width          : '100%',
+      backgroundColor: '#000000',
+      opacity        : 0.2,
+      '-ms-filter'   : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)',
+      filter         : 'alpha(opacity=20)'
     });
 
     this.$message.css({
@@ -1509,159 +1596,172 @@ $.noty.themes.metroui = {
   }
 };
 $.noty.themes.relax = {
-    name    : 'relax',
-    helpers : {},
-    modal   : {
-        css: {
-            position       : 'fixed',
-            width          : '100%',
-            height         : '100%',
-            backgroundColor: '#000',
-            zIndex         : 10000,
-            opacity        : 0.6,
-            display        : 'none',
-            left           : 0,
-            top            : 0
-        }
-    },
-    style   : function() {
-
-        this.$bar.css({
-            overflow    : 'hidden',
-            margin      : '4px 0',
-            borderRadius: '2px'
-        });
-
-        this.$message.css({
-            textAlign : 'center',
-            padding   : '10px',
-            width     : 'auto',
-            position  : 'relative'
-        });
-
-        this.$closeButton.css({
-            position  : 'absolute',
-            top       : 4, right: 4,
-            width     : 10, height: 10,
-            background: "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAxUlEQVR4AR3MPUoDURSA0e++uSkkOxC3IAOWNtaCIDaChfgXBMEZbQRByxCwk+BasgQRZLSYoLgDQbARxry8nyumPcVRKDfd0Aa8AsgDv1zp6pYd5jWOwhvebRTbzNNEw5BSsIpsj/kurQBnmk7sIFcCF5yyZPDRG6trQhujXYosaFoc+2f1MJ89uc76IND6F9BvlXUdpb6xwD2+4q3me3bysiHvtLYrUJto7PD/ve7LNHxSg/woN2kSz4txasBdhyiz3ugPGetTjm3XRokAAAAASUVORK5CYII=)",
-            display   : 'none',
-            cursor    : 'pointer'
-        });
-
-        this.$buttons.css({
-            padding        : 5,
-            textAlign      : 'right',
-            borderTop      : '1px solid #ccc',
-            backgroundColor: '#fff'
-        });
-
-        this.$buttons.find('button').css({
-            marginLeft: 5
-        });
-
-        this.$buttons.find('button:first').css({
-            marginLeft: 0
-        });
-
-        this.$bar.on({
-            mouseenter: function() {
-                $(this).find('.noty_close').stop().fadeTo('normal', 1);
-            },
-            mouseleave: function() {
-                $(this).find('.noty_close').stop().fadeTo('normal', 0);
-            }
-        });
-
-        switch(this.options.layout.name) {
-            case 'top':
-                this.$bar.css({
-                    borderBottom: '2px solid #eee',
-                    borderLeft  : '2px solid #eee',
-                    borderRight : '2px solid #eee',
-                    borderTop   : '2px solid #eee',
-                    boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
-                });
-                break;
-            case 'topCenter':
-            case 'center':
-            case 'bottomCenter':
-            case 'inline':
-                this.$bar.css({
-                    border   : '1px solid #eee',
-                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
-                });
-                this.$message.css({textAlign: 'center'});
-                break;
-            case 'topLeft':
-            case 'topRight':
-            case 'bottomLeft':
-            case 'bottomRight':
-            case 'centerLeft':
-            case 'centerRight':
-                this.$bar.css({
-                    border   : '1px solid #eee',
-                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
-                });
-                this.$message.css({textAlign: 'left'});
-                break;
-            case 'bottom':
-                this.$bar.css({
-                    borderTop   : '2px solid #eee',
-                    borderLeft  : '2px solid #eee',
-                    borderRight : '2px solid #eee',
-                    borderBottom: '2px solid #eee',
-                    boxShadow   : "0 -2px 4px rgba(0, 0, 0, 0.1)"
-                });
-                break;
-            default:
-                this.$bar.css({
-                    border   : '2px solid #eee',
-                    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
-                });
-                break;
-        }
-
-        switch(this.options.type) {
-            case 'alert':
-            case 'notification':
-                this.$bar.css({backgroundColor: '#FFF', borderColor: '#dedede', color: '#444'});
-                break;
-            case 'warning':
-                this.$bar.css({backgroundColor: '#FFEAA8', borderColor: '#FFC237', color: '#826200'});
-                this.$buttons.css({borderTop: '1px solid #FFC237'});
-                break;
-            case 'error':
-                this.$bar.css({backgroundColor: '#FF8181', borderColor: '#e25353', color: '#FFF'});
-                this.$message.css({fontWeight: 'bold'});
-                this.$buttons.css({borderTop: '1px solid darkred'});
-                break;
-            case 'information':
-                this.$bar.css({backgroundColor: '#78C5E7', borderColor: '#3badd6', color: '#FFF'});
-                this.$buttons.css({borderTop: '1px solid #0B90C4'});
-                break;
-            case 'success':
-                this.$bar.css({backgroundColor: '#BCF5BC', borderColor: '#7cdd77', color: 'darkgreen'});
-                this.$buttons.css({borderTop: '1px solid #50C24E'});
-                break;
-            default:
-                this.$bar.css({backgroundColor: '#FFF', borderColor: '#CCC', color: '#444'});
-                break;
-        }
-    },
-    callback: {
-        onShow : function() {
-
-        },
-        onClose: function() {
-
-        }
+  name    : 'relax',
+  helpers : {},
+  modal   : {
+    css: {
+      position       : 'fixed',
+      width          : '100%',
+      height         : '100%',
+      backgroundColor: '#000',
+      zIndex         : 10000,
+      opacity        : 0.6,
+      display        : 'none',
+      left           : 0,
+      top            : 0
     }
+  },
+  style   : function () {
+
+    this.$bar.css({
+      overflow    : 'hidden',
+      margin      : '4px 0',
+      borderRadius: '2px',
+      position    : 'relative'
+    });
+
+    this.$progressBar.css({
+      position       : 'absolute',
+      left           : 0,
+      bottom         : 0,
+      height         : 4,
+      width          : '100%',
+      backgroundColor: '#000000',
+      opacity        : 0.2,
+      '-ms-filter'   : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)',
+      filter         : 'alpha(opacity=20)'
+    });
+
+    this.$message.css({
+      textAlign: 'center',
+      padding  : '10px',
+      width    : 'auto',
+      position : 'relative'
+    });
+
+    this.$closeButton.css({
+      position  : 'absolute',
+      top       : 4, right: 4,
+      width     : 10, height: 10,
+      background: "url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAQAAAAnOwc2AAAAxUlEQVR4AR3MPUoDURSA0e++uSkkOxC3IAOWNtaCIDaChfgXBMEZbQRByxCwk+BasgQRZLSYoLgDQbARxry8nyumPcVRKDfd0Aa8AsgDv1zp6pYd5jWOwhvebRTbzNNEw5BSsIpsj/kurQBnmk7sIFcCF5yyZPDRG6trQhujXYosaFoc+2f1MJ89uc76IND6F9BvlXUdpb6xwD2+4q3me3bysiHvtLYrUJto7PD/ve7LNHxSg/woN2kSz4txasBdhyiz3ugPGetTjm3XRokAAAAASUVORK5CYII=)",
+      display   : 'none',
+      cursor    : 'pointer'
+    });
+
+    this.$buttons.css({
+      padding        : 5,
+      textAlign      : 'right',
+      borderTop      : '1px solid #ccc',
+      backgroundColor: '#fff'
+    });
+
+    this.$buttons.find('button').css({
+      marginLeft: 5
+    });
+
+    this.$buttons.find('button:first').css({
+      marginLeft: 0
+    });
+
+    this.$bar.on({
+      mouseenter: function () {
+        $(this).find('.noty_close').stop().fadeTo('normal', 1);
+      },
+      mouseleave: function () {
+        $(this).find('.noty_close').stop().fadeTo('normal', 0);
+      }
+    });
+
+    switch (this.options.layout.name) {
+      case 'top':
+        this.$bar.css({
+          borderBottom: '2px solid #eee',
+          borderLeft  : '2px solid #eee',
+          borderRight : '2px solid #eee',
+          borderTop   : '2px solid #eee',
+          boxShadow   : "0 2px 4px rgba(0, 0, 0, 0.1)"
+        });
+        break;
+      case 'topCenter':
+      case 'center':
+      case 'bottomCenter':
+      case 'inline':
+        this.$bar.css({
+          border   : '1px solid #eee',
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+        });
+        this.$message.css({textAlign: 'center'});
+        break;
+      case 'topLeft':
+      case 'topRight':
+      case 'bottomLeft':
+      case 'bottomRight':
+      case 'centerLeft':
+      case 'centerRight':
+        this.$bar.css({
+          border   : '1px solid #eee',
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+        });
+        this.$message.css({textAlign: 'left'});
+        break;
+      case 'bottom':
+        this.$bar.css({
+          borderTop   : '2px solid #eee',
+          borderLeft  : '2px solid #eee',
+          borderRight : '2px solid #eee',
+          borderBottom: '2px solid #eee',
+          boxShadow   : "0 -2px 4px rgba(0, 0, 0, 0.1)"
+        });
+        break;
+      default:
+        this.$bar.css({
+          border   : '2px solid #eee',
+          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)"
+        });
+        break;
+    }
+
+    switch (this.options.type) {
+      case 'alert':
+      case 'notification':
+        this.$bar.css({backgroundColor: '#FFF', borderColor: '#dedede', color: '#444'});
+        break;
+      case 'warning':
+        this.$bar.css({backgroundColor: '#FFEAA8', borderColor: '#FFC237', color: '#826200'});
+        this.$buttons.css({borderTop: '1px solid #FFC237'});
+        break;
+      case 'error':
+        this.$bar.css({backgroundColor: '#FF8181', borderColor: '#e25353', color: '#FFF'});
+        this.$message.css({fontWeight: 'bold'});
+        this.$buttons.css({borderTop: '1px solid darkred'});
+        break;
+      case 'information':
+        this.$bar.css({backgroundColor: '#78C5E7', borderColor: '#3badd6', color: '#FFF'});
+        this.$buttons.css({borderTop: '1px solid #0B90C4'});
+        break;
+      case 'success':
+        this.$bar.css({backgroundColor: '#BCF5BC', borderColor: '#7cdd77', color: 'darkgreen'});
+        this.$buttons.css({borderTop: '1px solid #50C24E'});
+        break;
+      default:
+        this.$bar.css({backgroundColor: '#FFF', borderColor: '#CCC', color: '#444'});
+        break;
+    }
+  },
+  callback: {
+    onShow : function () {
+
+    },
+    onClose: function () {
+
+    }
+  }
 };
 
 $.noty.themes.semanticUI = {
-  name    : 'semanticUI',
+  name: 'semanticUI',
 
-  template : '<div class="ui message"><div class="content"><div class="header"></div></div></div>',
+  template: '<div class="ui message"><div class="content"><div class="header"></div></div></div>',
 
   animation: {
     open : {
@@ -1694,12 +1794,25 @@ $.noty.themes.semanticUI = {
     this.$message.find('.content').append(this.options.text);
 
     this.$bar.css({
-      margin: '0.5em'
+      margin  : '0.5em',
+      position: 'relative'
     });
 
     if (this.options.icon) {
       this.$message.addClass('icon').prepend($('<i/>').addClass(this.options.icon));
     }
+
+    this.$progressBar.css({
+      position       : 'absolute',
+      left           : 0,
+      bottom         : 0,
+      height         : 4,
+      width          : '100%',
+      backgroundColor: '#000000',
+      opacity        : 0.2,
+      '-ms-filter'   : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)',
+      filter         : 'alpha(opacity=20)'
+    });
 
     switch (this.options.size) {
       case 'mini':

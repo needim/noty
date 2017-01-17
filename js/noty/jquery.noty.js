@@ -1,6 +1,6 @@
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.3.11
+ @version version: 2.4.0
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -96,10 +96,16 @@ var NotyObject = {
       this.$bar.find('.noty_buttons').remove();
     }
 
+    if (this.options.progressBar && this.options.timeout) {
+      var $progressBar = $('<div/>').addClass('noty_progress_bar');
+      (this.options.layout.parent.object !== null) ? this.$bar.find('.noty_bar').append($progressBar) : this.$bar.append($progressBar);
+    }
+
     // For easy access
     this.$message     = this.$bar.find('.noty_message');
     this.$closeButton = this.$bar.find('.noty_close');
     this.$buttons     = this.$bar.find('.noty_buttons');
+    this.$progressBar = this.$bar.find('.noty_progress_bar');
 
     $.noty.store[this.options.id] = this; // store noty for api
 
@@ -166,6 +172,7 @@ var NotyObject = {
         if (self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
         self.showing = false;
         self.shown   = true;
+        self.bindTimeout();
         if (self.hasOwnProperty('wasClicked')) {
           self.$bar.off('click', function (e) {
             self.wasClicked = true;
@@ -179,6 +186,7 @@ var NotyObject = {
       self.showing           = false;
       self.shown             = true;
       self.$bar.show();
+      self.bindTimeout();
 
       if (self.options.callback.onShow)
         self.options.callback.onShow.apply(self);
@@ -202,29 +210,60 @@ var NotyObject = {
             if (self.options.callback.afterShow) self.options.callback.afterShow.apply(self);
             self.showing = false;
             self.shown   = true;
+            self.bindTimeout();
           });
-    }
-
-    // If noty is have a timeout option
-    if (self.options.timeout) {
-      self.queueClose(self.options.timeout);
-      self.$bar.on('mouseenter', self.dequeueClose.bind(self));
-      self.$bar.on('mouseleave', self.queueClose.bind(self, self.options.timeout));
     }
 
     return this;
 
   }, // end show
 
+  bindTimeout: function() {
+    var self = this;
+    // If noty is have a timeout option
+    if (self.options.timeout) {
+
+      if (self.options.progressBar && self.$progressBar) {
+        self.$progressBar.css({
+          transition: 'all 100ms linear'
+        });
+
+        self.progressPercentage = (self.$progressBar.width() / (self.options.timeout / 100));
+
+        self.intervalId = setInterval(function() {
+          self.$progressBar.width((self.$progressBar.width() - self.progressPercentage));
+        }, 100);
+      }
+
+      self.queueClose(self.options.timeout);
+      self.$bar.on('mouseenter', self.dequeueClose.bind(self));
+      self.$bar.on('mouseleave', self.queueClose.bind(self, self.options.timeout));
+    }
+
+  },
+
   dequeueClose: function () {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.$progressBar.css('width', '100%');
+      this.intervalId = null;
+    }
+
     if (!this.closeTimer) return;
     clearTimeout(this.closeTimer);
     this.closeTimer = null;
   },
 
   queueClose: function (timeout) {
+    var self = this;
+
+    if (!self.intervalId && self.options.progressBar) {
+      self.intervalId = setInterval(function() {
+        self.$progressBar.width((self.$progressBar.width() - self.progressPercentage));
+      }, 100);
+    }
+
     if (this.closeTimer) return;
-    var self        = this;
     self.closeTimer = window.setTimeout(function () {
       self.close();
     }, timeout);
@@ -232,6 +271,15 @@ var NotyObject = {
   },
 
   close: function () {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+
+      if (this.$progressBar) {
+        this.$progressBar.css('width', '0%');
+      }
+    }
+
     if (this.closeTimer) this.dequeueClose();
 
     if (this.closed) return;
@@ -579,6 +627,7 @@ $.noty.defaults = {
   theme       : 'relax',
   type        : 'alert',
   text        : '',
+  progressBar : false,
   dismissQueue: true,
   template    : '<div class="noty_message"><span class="noty_text"></span><div class="noty_close"></div></div>',
   animation   : {
