@@ -3,6 +3,19 @@ $(function () {
     window.prettyPrint && prettyPrint();
   }
 
+  noty({
+    text: '<strong>v2.4.0 released!</strong><br> Basic inline timeout <strong>progress bar</strong> added',
+    type: 'information',
+    theme: 'metroui',
+    layout: 'topRight',
+    timeout: 4000,
+    progressBar: true,
+    animation   : {
+      open : 'animated fadeInDown',
+      close: 'animated fadeOutUp'
+    }
+  });
+
   var $activeLink = $('a[href$="' + window.location.pathname + '"]');
   if ($activeLink) {
     $('.top-links a').removeClass('active');
@@ -32,6 +45,8 @@ $(function () {
         text        : notes[type],
         type        : type,
         theme       : 'relax',
+        timeout     : 3000,
+        progressBar : true,
         dismissQueue: true,
         animation   : {
           open : 'animated fadeInDown',
@@ -64,6 +79,8 @@ $(function () {
       type        : type,
       theme       : 'relax',
       dismissQueue: true,
+      timeout     : 3000,
+      progressBar : true,
       layout      : layout,
       animation   : {
         open : 'animated fadeInDown',

@@ -1,7 +1,7 @@
 $.noty.themes.semanticUI = {
-  name    : 'semanticUI',
+  name: 'semanticUI',
 
-  template : '<div class="ui message"><div class="content"><div class="header"></div></div></div>',
+  template: '<div class="ui message"><div class="content"><div class="header"></div></div></div>',
 
   animation: {
     open : {
@@ -34,12 +34,25 @@ $.noty.themes.semanticUI = {
     this.$message.find('.content').append(this.options.text);
 
     this.$bar.css({
-      margin: '0.5em'
+      margin  : '0.5em',
+      position: 'relative'
     });
 
     if (this.options.icon) {
       this.$message.addClass('icon').prepend($('<i/>').addClass(this.options.icon));
     }
+
+    this.$progressBar.css({
+      position       : 'absolute',
+      left           : 0,
+      bottom         : 0,
+      height         : 4,
+      width          : '100%',
+      backgroundColor: '#000000',
+      opacity        : 0.2,
+      '-ms-filter'   : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)',
+      filter         : 'alpha(opacity=20)'
+    });
 
     switch (this.options.size) {
       case 'mini':

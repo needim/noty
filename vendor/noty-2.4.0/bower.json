@@ -1,0 +1,9 @@
+{
+    "name"       : "noty",
+    "main"       : "js/noty/packaged/jquery.noty.packaged.js",
+    "ignore"     : [],
+    "authors"    : [
+        "Nedim Arabacı"
+    ],
+    "description": "noty - a jQuery notification plugin"
+}

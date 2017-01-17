@@ -19,7 +19,20 @@ $.noty.themes.metroui = {
     this.$bar.css({
       overflow    : 'hidden',
       margin      : '4px 0',
-      borderRadius: '0'
+      borderRadius: '0',
+      position    : 'relative'
+    });
+
+    this.$progressBar.css({
+      position       : 'absolute',
+      left           : 0,
+      bottom         : 0,
+      height         : 4,
+      width          : '100%',
+      backgroundColor: '#000000',
+      opacity        : 0.2,
+      '-ms-filter'   : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)',
+      filter         : 'alpha(opacity=20)'
     });
 
     this.$message.css({

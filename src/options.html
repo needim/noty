@@ -16,15 +16,17 @@ $.noty.defaults = {
   layout: 'top',
   theme: 'defaultTheme', // or relax
   type: 'alert', // success, error, warning, information, notification
-  text: '', // can be HTML or STRING
+  text: '', // [string|html] can be HTML or STRING
 
-  dismissQueue: true, // If you want to use queue feature set this true
-  force: false, // adds notification to the beginning of queue when set to true
-  maxVisible: 5, // you can set max visible notification count for dismissQueue true option,
+  dismissQueue: true, // [boolean] If you want to use queue feature set this true
+  force: false, // [boolean] adds notification to the beginning of queue when set to true
+  maxVisible: 5, // [integer] you can set max visible notification count for dismissQueue true option,
 
   template: '&lt;div class="noty_message"&gt;&lt;span class="noty_text"&gt;&lt;/span&gt;&lt;div class="noty_close"&gt;&lt;/div&gt;&lt;/div&gt;',
 
-  timeout: false, // delay for closing event in milliseconds. Set false for sticky notifications
+  timeout: false, // [integer|boolean] delay for closing event in milliseconds. Set false for sticky notifications
+  progressBar: false, // [boolean] - displays a progress bar
+
   animation: {
     open: {height: 'toggle'}, // or Animate.css class names like: 'animated bounceInLeft'
     close: {height: 'toggle'}, // or Animate.css class names like: 'animated bounceOutLeft'
@@ -33,8 +35,8 @@ $.noty.defaults = {
   },
   closeWith: ['click'], // ['click', 'button', 'hover', 'backdrop'] // backdrop click will close all notifications
 
-  modal: false, // if true adds an overlay
-  killer: false, // if true closes all notifications and shows itself
+  modal: false, // [boolean] if true adds an overlay
+  killer: false, // [boolean] if true closes all notifications and shows itself
 
   callback: {
     onShow: function() {},
@@ -44,7 +46,7 @@ $.noty.defaults = {
     onCloseClick: function() {},
   },
 
-  buttons: false // an array of buttons, for creating confirmation dialogs.
+  buttons: false // [boolean|array] an array of buttons, for creating confirmation dialogs.
 };
 </pre>
 

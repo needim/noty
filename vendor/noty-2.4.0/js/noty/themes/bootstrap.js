@@ -22,7 +22,19 @@ $.noty.themes.bootstrapTheme = {
     this.$closeButton.append('<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>');
     this.$closeButton.addClass('close');
 
-    this.$bar.addClass("list-group-item").css('padding', '0px');
+    this.$bar.addClass("list-group-item").css('padding', '0px').css('position', 'relative');
+
+    this.$progressBar.css({
+      position       : 'absolute',
+      left           : 0,
+      bottom         : 0,
+      height         : 4,
+      width          : '100%',
+      backgroundColor: '#000000',
+      opacity        : 0.2,
+      '-ms-filter'   : 'progid:DXImageTransform.Microsoft.Alpha(Opacity=20)',
+      filter         : 'alpha(opacity=20)'
+    });
 
     switch (this.options.type) {
       case 'alert':
