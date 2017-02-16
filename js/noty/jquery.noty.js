@@ -1,6 +1,6 @@
 /*!
  @package noty - jQuery Notification Plugin
- @version version: 2.4.0
+ @version version: 2.4.1
  @contributors https://github.com/needim/noty/graphs/contributors
 
  @documentation Examples and Documentation - http://needim.github.com/noty/
@@ -218,21 +218,17 @@ var NotyObject = {
 
   }, // end show
 
-  bindTimeout: function() {
+  bindTimeout: function () {
     var self = this;
+
     // If noty is have a timeout option
     if (self.options.timeout) {
 
       if (self.options.progressBar && self.$progressBar) {
         self.$progressBar.css({
-          transition: 'all 100ms linear'
+          transition: 'all ' + self.options.timeout + 'ms linear',
+          width: '0%'
         });
-
-        self.progressPercentage = (self.$progressBar.width() / (self.options.timeout / 100));
-
-        self.intervalId = setInterval(function() {
-          self.$progressBar.width((self.$progressBar.width() - self.progressPercentage));
-        }, 100);
       }
 
       self.queueClose(self.options.timeout);
@@ -243,10 +239,13 @@ var NotyObject = {
   },
 
   dequeueClose: function () {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-      this.$progressBar.css('width', '100%');
-      this.intervalId = null;
+    var self = this;
+
+    if (self.options.progressBar) {
+      this.$progressBar.css({
+        transition: 'none',
+        width: '100%'
+      });
     }
 
     if (!this.closeTimer) return;
@@ -257,27 +256,23 @@ var NotyObject = {
   queueClose: function (timeout) {
     var self = this;
 
-    if (!self.intervalId && self.options.progressBar) {
-      self.intervalId = setInterval(function() {
-        self.$progressBar.width((self.$progressBar.width() - self.progressPercentage));
-      }, 100);
+    if (self.options.progressBar) {
+      self.$progressBar.css({
+        transition: 'all ' + self.options.timeout + 'ms linear',
+        width: '0%'
+      });
     }
 
     if (this.closeTimer) return;
     self.closeTimer = window.setTimeout(function () {
       self.close();
     }, timeout);
-    return self.closeTimer
+    return self.closeTimer;
   },
 
   close: function () {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-      this.intervalId = null;
-
-      if (this.$progressBar) {
-        this.$progressBar.css('width', '0%');
-      }
+    if (this.$progressBar) {
+      this.$progressBar.remove();
     }
 
     if (this.closeTimer) this.dequeueClose();
@@ -324,7 +319,7 @@ var NotyObject = {
       });
 
     } else if (typeof self.options.animation.close == 'object' && self.options.animation.close == null) {
-      self.$bar.dequeue().hide(0, function() {
+      self.$bar.dequeue().hide(0, function () {
         if (self.options.callback.afterClose) self.options.callback.afterClose.apply(self);
         self.closeCleanUp();
       });
