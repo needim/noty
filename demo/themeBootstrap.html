@@ -22,8 +22,7 @@
 
     </style>
 
-    <link rel="stylesheet" type="text/css" href="buttons.css"/>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
@@ -40,29 +39,54 @@
 
 <script type="text/javascript">
 
-    function generate(type, theme) {
+    function generate(type) {
         var n = noty({
-            text        : theme + ' > ' + type,
-            type        : type,
+            text        : "type : " + type,
+			type		: type,
             dismissQueue: true,
             layout      : 'topCenter',
-            theme       : theme,
             closeWith   : ['button', 'click'],
-            maxVisible  : 20,
             modal       : false
         });
         console.log('html: ' + n.options.id);
     }
 
     function generateAll() {
-        generate('alert', 'bootstrapTheme');
-        generate('information', 'bootstrapTheme');
-        generate('error', 'bootstrapTheme');
-        generate('warning', 'bootstrapTheme');
-        generate('success', 'bootstrapTheme');
+        generate('alert');
+        generate('information');
+        generate('error');
+        generate('warning');
+        generate('success');
+        generate('success');
+		
+		/* add with boostrap button */
+		noty({
+		  text: 'Do you want to continue? <input id="example" type="text">',
+		  layout      : 'topCenter',
+		  buttons: [
+			{addClass: 'btn btn-primary', text: 'Ok', onClick: function($noty) {
+				// this = button element
+				// $noty = $noty element
+
+				console.log($noty.$bar.find('input#example').val());
+
+				$noty.close();
+				noty({text: 'You clicked "Ok" button', type: 'success'});
+			  }
+			},
+			{addClass: 'btn btn-danger', text: 'Cancel', onClick: function($noty) {
+				$noty.close();
+				noty({text: 'You clicked "Cancel" button', type: 'error'});
+			  }
+			}
+		  ]
+		});
     }
 
     $(document).ready(function () {
+		// change noty default theme to bootstrap
+		$.noty.defaults.theme = 'bootstrapTheme';
+		$.noty.defaults.maxVisible = 20;
         generateAll();
     });
 
