@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Noty Dynamic Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="demonstration of some noty capabilities">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'PT Sans', Tahoma, Arial, serif;
+            line-height: 13px
+        }
+
+        fieldset.form-horizontal {
+            margin-top: 50px;
+        }
+
+        .fa {
+            font-size: 16px;
+        }
+
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="animate.css"/>
+    <link rel="stylesheet" type="text/css" href="buttons.css"/>
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container-fluid">
+
+    <fieldset class="form-horizontal well col-xs-6 col-xs-offset-3">
+        <div class="form-group">
+            <label for="text" class="control-label col-xs-4">Text :</label>
+            <div class="col-xs-7">
+                <input type="text" id="text" class="form-control" value="Bootstrap Panel Theme">
+            </div>
+            <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="bottom"
+                title="Text field" data-content="This is the text that will appear in the noty box.">
+                <span class="fa fa-info-circle"></span>
+            </button>
+        </div>
+        <div class="form-group">
+            <label for="type" class="control-label col-xs-4">Type :</label>
+            <div class="col-xs-7">
+                <select id="type" class="form-control">
+                    <option value="alert">Alert</option>
+                    <option value="error">Error</option>
+                    <option value="information">Information</option>
+                    <option value="notification">Notification</option>
+                    <option value="success" selected>Success</option>
+                    <option value="warning">Warning</option>
+                </select>
+            </div>
+            <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                title="Type of Noty" data-content="This will define the color type of the noty box.">
+                <span class="fa fa-info-circle"></span>
+            </button>
+        </div>
+        <div class="form-group">
+            <label for="layout" class="control-label col-xs-4">Layout :</label>
+            <div class="col-xs-7">
+                <select id="layout" class="form-control">
+                    <option value="bottom">Bottom</option>
+                    <option value="bottomLeft">Bottom Left</option>
+                    <option value="bottomCenter">Bottom Center</option>
+                    <option value="bottomRight">Bottom Right</option>
+                    <option value="center">Center</option>
+                    <option value="centerLeft">Center Left</option>
+                    <option value="centerRight">Center Right</option>
+                    <option value="inline">Inline</option>
+                    <option value="top">Top</option>
+                    <option value="topLeft">Top Left</option>
+                    <option value="topCenter">Top Center</option>
+                    <option value="topRight" selected>Top Right</option>
+                </select>
+            </div>
+            <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                    title="Noty's Layout" data-content="This is the place in the window where the noty box will appear.">
+                <span class="fa fa-info-circle"></span>
+            </button>
+        </div>
+        <div class="form-group">
+            <label for="theme" class="control-label col-xs-4">Theme :</label>
+            <div class="col-xs-7">
+                <select id="theme" class="form-control">
+                    <option value="defaultTheme">Default Theme</option>
+                    <option value="bootstrapTheme">Bootstrap Theme</option>
+                    <option value="bootstrapPanel" selected>Bootstrap Panel</option>
+                    <option value="metroui">Metro UI</option>
+                    <option value="relax">Relax</option>
+                    <!--<option value="semanticUI">Semantic UI</option>-->
+                </select>
+            </div>
+            <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                    title="Noty's Theme" data-content="This is the color scheme of the noty box.">
+                <span class="fa fa-info-circle"></span>
+            </button>
+        </div>
+        <div class="form-group">
+            <label for="timeOut" class="control-label col-xs-4">Time out :</label>
+            <div class="checkbox col-xs-7">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="timeOut" class="condition">
+                    <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                            title="Noty's time out" data-content="If this is checked, the noty box will be display as long as the duration will be set.">
+                        <span class="fa fa-info-circle"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group timeOut hidden">
+            <label for="timeoutDuration" class="control-label col-xs-4">Duration :</label>
+            <div class="col-xs-7">
+                <input type="number" id="timeoutDuration" class="form-control" value="5000">
+            </div>
+            <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                    title="Noty's display duration" data-content="This is the time in microsecond that the noty box will de displayed. If 0 then it won't be closed.">
+                <span class="fa fa-info-circle"></span>
+            </button>
+        </div>
+        <div class="form-group">
+            <label for="dismissQueue" class="control-label col-xs-4">Dismiss Queue :</label>
+            <div class="checkbox col-xs-7">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="dismissQueue" class="condition" checked>
+                    <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                            title="Dismiss Queue" data-content="If checked allows max visible noty boxes, else just one.">
+                        <span class="fa fa-info-circle"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group dismissQueue hidden">
+            <label for="maxVisible" class="control-label col-xs-4">Max Visible :</label>
+            <div class="col-xs-7">
+                <input type="number" id="maxVisible" class="form-control" value="5">
+            </div>
+            <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                    title="Max Visible Noty boxes" data-content="The max number that will be displayed if dismiss queue.">
+                <span class="fa fa-info-circle"></span>
+            </button>
+        </div>
+        <div class="form-group">
+            <label for="modal" class="control-label col-xs-4">Modal :</label>
+            <div class="checkbox col-xs-7">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="modal">
+                    <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                            title="Noty as Modal box" data-content="This sets an overlay under the Noty box.">
+                        <span class="fa fa-info-circle"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="animate" class="control-label col-xs-4">Animate CSS :</label>
+            <div class="checkbox col-xs-7">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="animate" class="condition">
+                    <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                            title="CSS3 animation" data-content="It allows CSS3 animation opening and closing the noty box.">
+                        <span class="fa fa-info-circle"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group animate hidden">
+            <label for="openEffect" class="control-label col-xs-4">Open Effect :</label>
+            <div class="col-xs-7">
+                <select id="openEffect" class="form-control">
+                    <option value="bounce">Bounce</option>
+                    <option value="flash">Flash</option>
+                    <option value="pulse">Pulse</option>
+                    <option value="rubberBand">Rubber Band</option>
+                    <option value="shake">Shake</option>
+                    <option value="swing">Swing</option>
+                    <option value="tada">Tada</option>
+                    <option value="wobble">Wobble</option>
+                    <option value="bounceIn">Bounce In</option>
+                    <option value="bounceInDown">Bounce In Down</option>
+                    <option value="bounceInLeft">Bounce In Left</option>
+                    <option value="bounceInRight">Bounce In Right</option>
+                    <option value="bounceInUp">Bounce In Up</option>
+                    <option value="bounceOut">Bounce Out</option>
+                    <option value="bounceOutDown">Bounce Out Down</option>
+                    <option value="bounceOutLeft">Bounce Out Left</option>
+                    <option value="bounceOutRight">Bounce Out Right</option>
+                    <option value="bounceOutUp ">Bounce Out Up</option>
+                    <option value="fadeIn">Fade In</option>
+                    <option value="fadeInDown">Fade In Down</option>
+                    <option value="fadeInDownBig">Fade In Down Big</option>
+                    <option value="fadeInLeft">Fade In Left</option>
+                    <option value="fadeInLeftBig">Fade In Left Big</option>
+                    <option value="fadeInRight">Fade In Right</option>
+                    <option value="fadeInRightBig">Fade In Right Big</option>
+                    <option value="fadeInUp">Fade In Up</option>
+                    <option value="fadeInUpBig">Fade In Up Big</option>
+                    <option value="fadeOut">Fade Out</option>
+                    <option value="fadeOutDown">Fade Out Down</option>
+                    <option value="fadeOutDownBig">Fade Out Down Big</option>
+                    <option value="fadeOutLeft">Fade Out Left</option>
+                    <option value="fadeOutLeftBig">Fade Out Left Big</option>
+                    <option value="fadeOutRight">Fade Out Right</option>
+                    <option value="fadeOutRightBig">Fade Out Right Big</option>
+                    <option value="fadeOutUp">Fade Out Up</option>
+                    <option value="fadeOutUpBig">Fade Out Up Big</option>
+                    <option value="flip">Flip</option>
+                    <option value="flipInX">Flip In X</option>
+                    <option value="flipInY">Flip In Y</option>
+                    <option value="flipOutX">Flip Out X</option>
+                    <option value="flipOutY">Flip Out Y</option>
+                    <option value="lightSpeedIn">Light Speed In</option>
+                    <option value="lightSpeedOut">Light Speed Out</option>
+                    <option value="rotateIn">Rotate In</option>
+                    <option value="rotateInDownLeft">Rotate In Down Left</option>
+                    <option value="rotateInDownRight">Rotate In Down Right</option>
+                    <option value="rotateInUpLeft">Rotate In Up Left</option>
+                    <option value="rotateInUpRight">Rotate In Up Right</option>
+                    <option value="rotateOut">Rotate Out</option>
+                    <option value="rotateOutDownLeft">Rotate Out Down Left</option>
+                    <option value="rotateOutDownRight">Rotate Out Down Right</option>
+                    <option value="rotateOutUpLeft">Rotate Out Up Left</option>
+                    <option value="rotateOutUpRight">Rotate Out Up Right</option>
+                    <option value="hinge">Hinge</option>
+                    <option value="rollIn">Roll In</option>
+                    <option value="rollOut">Roll Out</option>
+                    <option value="zoomIn">Zoom In</option>
+                    <option value="zoomInDown">Zoom In Down</option>
+                    <option value="zoomInLeft">Zoom In Left</option>
+                    <option value="zoomInRight">Zoom In Right</option>
+                    <option value="zoomInUp">Zoom In Up</option>
+                    <option value="zoomOut">Zoom Out</option>
+                    <option value="zoomOutDown">Zoom Out Down</option>
+                    <option value="zoomOutLeft">Zoom Out Left</option>
+                    <option value="zoomOutRight">Zoom Out Right</option>
+                    <option value="zoomOutUp">Zoom Out Up</option>
+                    <option value="slideInDown">Slide In Down</option>
+                    <option value="slideInLeft">Slide In Left</option>
+                    <option value="slideInRight">Slide In Right</option>
+                    <option value="slideInUp">Slide In Up</option>
+                    <option value="slideOutDown">Slide Out Down</option>
+                    <option value="slideOutLeft">Slide Out Left</option>
+                    <option value="slideOutRight">Slide Out Right</option>
+                    <option value="slideOutUp">Slide Out Up</option>
+                </select>
+            </div>
+            <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                    title="CSS3 Open Effect" data-content="This is the animation which will be displayed opening the noty box.">
+                <span class="fa fa-info-circle"></span>
+            </button>
+        </div>
+        <div class="form-group animate hidden">
+            <label for="closeEffect" class="control-label col-xs-4">Close Effect :</label>
+            <div class="col-xs-7">
+                <select id="closeEffect" class="form-control">
+                    <option value="bounce">Bounce</option>
+                    <option value="flash">Flash</option>
+                    <option value="pulse">Pulse</option>
+                    <option value="rubberBand">Rubber Band</option>
+                    <option value="shake">Shake</option>
+                    <option value="swing">Swing</option>
+                    <option value="tada">Tada</option>
+                    <option value="wobble">Wobble</option>
+                    <option value="bounceIn">Bounce In</option>
+                    <option value="bounceInDown">Bounce In Down</option>
+                    <option value="bounceInLeft">Bounce In Left</option>
+                    <option value="bounceInRight">Bounce In Right</option>
+                    <option value="bounceInUp">Bounce In Up</option>
+                    <option value="bounceOut">Bounce Out</option>
+                    <option value="bounceOutDown">Bounce Out Down</option>
+                    <option value="bounceOutLeft">Bounce Out Left</option>
+                    <option value="bounceOutRight">Bounce Out Right</option>
+                    <option value="bounceOutUp ">Bounce Out Up</option>
+                    <option value="fadeIn">Fade In</option>
+                    <option value="fadeInDown">Fade In Down</option>
+                    <option value="fadeInDownBig">Fade In Down Big</option>
+                    <option value="fadeInLeft">Fade In Left</option>
+                    <option value="fadeInLeftBig">Fade In Left Big</option>
+                    <option value="fadeInRight">Fade In Right</option>
+                    <option value="fadeInRightBig">Fade In Right Big</option>
+                    <option value="fadeInUp">Fade In Up</option>
+                    <option value="fadeInUpBig">Fade In Up Big</option>
+                    <option value="fadeOut">Fade Out</option>
+                    <option value="fadeOutDown">Fade Out Down</option>
+                    <option value="fadeOutDownBig">Fade Out Down Big</option>
+                    <option value="fadeOutLeft">Fade Out Left</option>
+                    <option value="fadeOutLeftBig">Fade Out Left Big</option>
+                    <option value="fadeOutRight">Fade Out Right</option>
+                    <option value="fadeOutRightBig">Fade Out Right Big</option>
+                    <option value="fadeOutUp">Fade Out Up</option>
+                    <option value="fadeOutUpBig">Fade Out Up Big</option>
+                    <option value="flip">Flip</option>
+                    <option value="flipInX">Flip In X</option>
+                    <option value="flipInY">Flip In Y</option>
+                    <option value="flipOutX">Flip Out X</option>
+                    <option value="flipOutY">Flip Out Y</option>
+                    <option value="lightSpeedIn">Light Speed In</option>
+                    <option value="lightSpeedOut">Light Speed Out</option>
+                    <option value="rotateIn">Rotate In</option>
+                    <option value="rotateInDownLeft">Rotate In Down Left</option>
+                    <option value="rotateInDownRight">Rotate In Down Right</option>
+                    <option value="rotateInUpLeft">Rotate In Up Left</option>
+                    <option value="rotateInUpRight">Rotate In Up Right</option>
+                    <option value="rotateOut">Rotate Out</option>
+                    <option value="rotateOutDownLeft">Rotate Out Down Left</option>
+                    <option value="rotateOutDownRight">Rotate Out Down Right</option>
+                    <option value="rotateOutUpLeft">Rotate Out Up Left</option>
+                    <option value="rotateOutUpRight">Rotate Out Up Right</option>
+                    <option value="hinge">Hinge</option>
+                    <option value="rollIn">Roll In</option>
+                    <option value="rollOut">Roll Out</option>
+                    <option value="zoomIn">Zoom In</option>
+                    <option value="zoomInDown">Zoom In Down</option>
+                    <option value="zoomInLeft">Zoom In Left</option>
+                    <option value="zoomInRight">Zoom In Right</option>
+                    <option value="zoomInUp">Zoom In Up</option>
+                    <option value="zoomOut">Zoom Out</option>
+                    <option value="zoomOutDown">Zoom Out Down</option>
+                    <option value="zoomOutLeft">Zoom Out Left</option>
+                    <option value="zoomOutRight">Zoom Out Right</option>
+                    <option value="zoomOutUp">Zoom Out Up</option>
+                    <option value="slideInDown">Slide In Down</option>
+                    <option value="slideInLeft">Slide In Left</option>
+                    <option value="slideInRight">Slide In Right</option>
+                    <option value="slideInUp">Slide In Up</option>
+                    <option value="slideOutDown">Slide Out Down</option>
+                    <option value="slideOutLeft">Slide Out Left</option>
+                    <option value="slideOutRight">Slide Out Right</option>
+                    <option value="slideOutUp">Slide Out Up</option>
+                </select>
+            </div>
+            <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                    title="CSS3 Close Effect" data-content="This is the animation which will be displayed closing the noty box.">
+                <span class="fa fa-info-circle"></span>
+            </button>
+        </div>
+        <div class="form-group">
+            <label for="closeWith" class="control-label col-xs-4">Close With :</label>
+            <div class="col-xs-7">
+                <select id="closeWith" class="form-control" multiple>
+                    <option value="click" selected>Click</option>
+                    <option value="button">Button</option>
+                    <option value="hover">Hover</option>
+                    <option value="backdrop">Backdrop</option>
+                </select>
+            </div>
+            <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                    title="Closing triggers" data-content="Those are the trigger to close the noty box. Button will display a close button.">
+                <span class="fa fa-info-circle"></span>
+            </button>
+        </div>
+        <!--<div class="form-group">
+            <label for="force" class="control-label col-xs-4">Force :</label>
+            <div class="checkbox col-xs-7">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="force">
+                    <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                            title="" data-content="">
+                        <span class="fa fa-info-circle"></span>
+                    </button>
+                </div>
+            </div>
+        </div>-->
+        <div class="form-group">
+            <label for="progressBar" class="control-label col-xs-4">Progress bar :</label>
+            <div class="checkbox col-xs-7">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="progressBar">
+                    <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                            title="Progress bar" data-content="This displays a progress bar during 'duration time'. When this time is over, the noty box will close.">
+                        <span class="fa fa-info-circle"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="confirm" class="control-label col-xs-4">Confirm :</label>
+            <div class="checkbox col-xs-7">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="confirm">
+                    <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                            title="Confirm box" data-content="If checked, the noty box will contain 2 buttons. This parameter is just set for this example.">
+                        <span class="fa fa-info-circle"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="killer" class="control-label col-xs-4">Killer :</label>
+            <div class="checkbox col-xs-7">
+                <div class="col-xs-12">
+                    <input type="checkbox" id="killer">
+                    <button class="btn btn-xs btn-primary" data-toggle="popover" data-container="body" data-placement="top"
+                            title="Killer option" data-content="The killer option will destroy all the others noty boxes.">
+                        <span class="fa fa-info-circle"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <button class="btn btn-info pull-right" id="submit">Display Noty</button>
+            </div>
+        </div>
+    </fieldset>
+
+</div>
+
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<!-- noty -->
+<script type="text/javascript" src="../js/noty/packaged/jquery.noty.packaged.js"></script>
+
+<script type="text/javascript">
+    var displayFields = function(elem) {
+        if(elem.is(':checked')) {
+            $('.' + elem.attr('id')).removeClass('hidden')
+        } else {
+            $('.' + elem.attr('id')).addClass('hidden')
+        }
+    };
+
+    $(document).ready(function () {
+        $('button[data-toggle="popover"]').popover();
+
+        $('.condition').each(function(){
+            displayFields($(this));
+        }).on('change', function(){
+            displayFields($(this));
+        });
+        $('#submit').click(function(){
+            var text, type, layout, theme, modal, force, dismissQueue, progressBar, confirm, timeOut, duration,
+                    maxVisible, animate, openEffect, closeEffect, closeWith;
+            text = $('#text').val();
+            type = $('#type').val();
+            layout = $('#layout').val();
+            theme = $('#theme').val();
+            modal = $('#modal').is(':checked');
+            //force = $('#force').is(':checked');
+            dismissQueue = $('#dismissQueue').is(':checked');
+            progressBar = $('#progressBar').is(':checked');
+            confirm = $('#confirm').is(':checked');
+            timeOut = $('#timeOut').is(':checked');
+            duration = $('#timeoutDuration').val();
+            maxVisible = $('#maxVisible').val();
+            animate = $('#animate').is(':checked');
+            openEffect = $('#openEffect').val();
+            closeEffect = $('#closeEffect').val();
+            closeWith = $('#closeWith').val();
+            killer = $('#killer').is(':checked');
+
+            var n = noty({
+                text        : text,
+                type        : type,
+                dismissQueue: dismissQueue,
+                layout      : layout,
+                theme       : theme,
+                closeWith   : closeWith,
+                maxVisible  : maxVisible,
+                modal       : modal,
+                //force       : force,
+                killer      : killer,
+                progressBar : progressBar,
+                timeout     : (timeOut == true || progressBar == true ? parseInt(duration) : false),
+                buttons     : (confirm === true ? [
+                    {addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {
+                        $noty.close();
+                        noty({dismissQueue: true, force: true, layout: layout, theme: 'defaultTheme', text: 'You clicked "Ok" button', type: 'success'});
+                    }
+                    },
+                    {addClass: 'btn btn-danger', text: 'Cancel', onClick: function ($noty) {
+                        $noty.close();
+                        noty({dismissQueue: true, force: true, layout: layout, theme: 'defaultTheme', text: 'You clicked "Cancel" button', type: 'error'});
+                    }
+                    }
+                ] : false),
+                animation : {
+                    open  : (animate == true ? 'animated ' + openEffect : {height: 'toggle'}),
+                    close : (animate == true ? 'animated ' + closeEffect : {height: 'toggle'}),
+                    easing: 'swing',
+                    speed : 500,
+                    fadeSpeed: 'fast'
+                },
+                callback : {
+                    afterShow: function(){
+                        // We need to remove the CSS class to use the same CSS effect opening and closing the Noty box
+                        this.$bar.removeClass(openEffect);
+                    }
+                }
+            });
+            console.log('html: ' + n.options.id);
+        });
+    });
+
+</script>
+</body>
+</html>
