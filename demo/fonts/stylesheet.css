@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'GothamRoundedBold';
+    src: url('gothamrnd-bold.eot');
+    src: url('gothamrnd-bold.eot') format('embedded-opentype'),
+         url('gothamrnd-bold.woff') format('woff'),
+         url('gothamrnd-bold.ttf') format('truetype'),
+         url('gothamrnd-bold.svg#GothamRoundedBold') format('svg');
+}
+
+@font-face {
+    font-family: 'GothamRoundedBook';
+    src: url('gothamrnd-book.eot');
+    src: url('gothamrnd-book.eot') format('embedded-opentype'),
+         url('gothamrnd-book.woff') format('woff'),
+         url('gothamrnd-book.ttf') format('truetype'),
+         url('gothamrnd-book.svg#GothamRoundedBook') format('svg');
+}
+@font-face {
+    font-family: 'GothamRoundedMedium';
+    src: url('gothamrnd-medium.eot');
+    src: url('gothamrnd-medium.eot') format('embedded-opentype'),
+         url('gothamrnd-medium.woff') format('woff'),
+         url('gothamrnd-medium.ttf') format('truetype'),
+         url('gothamrnd-medium.svg#GothamRoundedMedium') format('svg');
+}
+@font-face {
+    font-family: 'GothamRoundedLight';
+    src: url('gothamrnd-light.eot');
+    src: url('gothamrnd-light.eot') format('embedded-opentype'),
+         url('gothamrnd-light.woff') format('woff'),
+         url('gothamrnd-light.ttf') format('truetype'),
+         url('gothamrnd-light.svg#GothamRoundedLight') format('svg');
+}

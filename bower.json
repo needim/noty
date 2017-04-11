@@ -1,9 +1,20 @@
 {
-    "name"       : "noty",
-    "main"       : "js/noty/packaged/jquery.noty.packaged.js",
-    "ignore"     : [],
-    "authors"    : [
-        "Nedim Arabacı"
-    ],
-    "description": "noty - a jQuery notification plugin"
+  "name": "noty",
+  "description": "Noty - notification plugin",
+  "license": "MIT",
+  "homepage": "http://ned.im/noty",
+  "main": "dist/noty.js",
+  "keywords": [
+    "noty",
+    "notification",
+    "alert",
+    "confirmation"
+  ],
+  "ignore": [
+    "node_modules",
+    "tests"
+  ],
+  "authors": [
+    "Nedim Arabacı <nedimarabaci@gmail.com>"
+  ]
 }

@@ -1,0 +1,53 @@
+.noty_theme__metroui.noty_bar {
+  margin: 4px 0;
+  overflow: hidden;
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.298039) 0 0 5px 0;
+
+  .noty_progressbar {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 3px;
+	width: 100%;
+	background-color: #000;
+	opacity: 0.2;
+	filter: alpha(opacity=20)
+  }
+
+  .noty_body {
+	padding: 1.25em;
+	font-size: 14px;
+  }
+
+  .noty_buttons {
+	padding: 0 10px .5em 10px;
+  }
+}
+
+.noty_theme__metroui.noty_type__alert,
+.noty_theme__metroui.noty_type__notification {
+  background-color: #fff;
+  color: #1d1d1d;
+}
+
+.noty_theme__metroui.noty_type__warning {
+  background-color: #FA6800;
+  color: #fff;
+}
+
+.noty_theme__metroui.noty_type__error {
+  background-color: #CE352C;
+  color: #FFF;
+}
+
+.noty_theme__metroui.noty_type__info,
+.noty_theme__metroui.noty_type__information {
+  background-color: #1BA1E2;
+  color: #FFF;
+}
+
+.noty_theme__metroui.noty_type__success {
+  background-color: #60A917;
+  color: #fff;
+}
