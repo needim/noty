@@ -105,8 +105,8 @@ $(function () {
     ui         : {
       flyout: 'bottom center'
     },
-    title      : 'NOTY - a jQuery Notification Plugin',
-    description: 'notyjs is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
+    title      : 'NOTY - a Notification Plugin',
+    description: 'NOTY is a notification plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
     image      : 'http://ned.im/noty/images/projects/noty-v2-logo.png',
     networks   : {
       pinterest: {
@@ -115,13 +115,13 @@ $(function () {
       facebook : {
         load_sdk   : true,
         app_id     : '198259823578303',
-        title      : 'NOTY - a jQuery Notification Plugin',
-        caption    : 'NOTY is a jquery plugin which is have too many options for display notification',
-        description: 'NOTYJS is a jQuery plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
-        image      : 'http://ned.im/noty/images/projects/noty-v2-logo.png'
+        title      : 'NOTY - a Notification Plugin',
+        caption    : 'NOTY is a notification plugin which is have too many options for display notification',
+        description: 'NOTY is a notification plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.',
+        image      : 'http://ned.im/noty/img/projects/noty-v3-logo.png'
       },
       twitter  : {
-        description: 'NOTYJS - a jQuery Notification Plugin &num;notyjs &num;jquery &num;notification &num;plugin'
+        description: 'NOTY - a Notification Plugin &num;notyjs &num;notification &num;plugin'
       }
     }
   });
