@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -107,7 +107,7 @@ exports.remove = remove;
 exports.classList = classList;
 exports.visibilityChangeFlow = visibilityChangeFlow;
 
-var _api = __webpack_require__(5);
+var _api = __webpack_require__(1);
 
 var API = _interopRequireWildcard(_api);
 
@@ -377,6 +377,278 @@ function visibilityChangeFlow() {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Defaults = exports.Store = exports.Queues = exports.DefaultMaxVisible = undefined;
+exports.getQueueCounts = getQueueCounts;
+exports.addToQueue = addToQueue;
+exports.removeFromQueue = removeFromQueue;
+exports.queueRender = queueRender;
+exports.ghostFix = ghostFix;
+exports.build = build;
+exports.hasButtons = hasButtons;
+exports.queueClose = queueClose;
+exports.dequeueClose = dequeueClose;
+exports.fire = fire;
+
+var _utils = __webpack_require__(0);
+
+var Utils = _interopRequireWildcard(_utils);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var DefaultMaxVisible = exports.DefaultMaxVisible = 5;
+
+var Queues = exports.Queues = {
+  global: {
+    maxVisible: DefaultMaxVisible,
+    queue: []
+  }
+};
+
+var Store = exports.Store = {};
+
+var Defaults = exports.Defaults = {
+  type: 'alert',
+  layout: 'topRight',
+  theme: 'mint',
+  text: '',
+  timeout: false,
+  progressBar: true,
+  closeWith: ['click'],
+  animation: {
+    open: 'noty_effects_open',
+    close: 'noty_effects_close'
+  },
+  id: false,
+  force: false,
+  killer: false,
+  queue: 'global',
+  container: false,
+  buttons: [],
+  callbacks: {
+    beforeShow: null,
+    onShow: null,
+    afterShow: null,
+    onClose: null,
+    afterClose: null,
+    onHover: null,
+    onTemplate: null
+  }
+};
+
+/**
+ * @param {string} queueName
+ * @return {object}
+ */
+function getQueueCounts() {
+  var queueName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'global';
+
+  var count = 0;
+  var max = DefaultMaxVisible;
+
+  if (Queues.hasOwnProperty(queueName)) {
+    max = Queues[queueName].maxVisible;
+    Object.keys(Store).forEach(function (i) {
+      if (Store[i].options.queue == queueName && !Store[i].closed) count++;
+    });
+  }
+
+  return {
+    current: count,
+    maxVisible: max
+  };
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+function addToQueue(ref) {
+  if (!Queues.hasOwnProperty(ref.options.queue)) Queues[ref.options.queue] = { maxVisible: DefaultMaxVisible, queue: [] };
+
+  Queues[ref.options.queue].queue.push(ref);
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+function removeFromQueue(ref) {
+  if (Queues.hasOwnProperty(ref.options.queue)) {
+    var queue = [];
+    Object.keys(Queues[ref.options.queue].queue).forEach(function (i) {
+      if (Queues[ref.options.queue].queue[i].id != ref.id) {
+        queue.push(Queues[ref.options.queue].queue[i]);
+      }
+    });
+    Queues[ref.options.queue].queue = queue;
+  }
+}
+
+/**
+ * @param {string} queueName
+ * @return {void}
+ */
+function queueRender() {
+  var queueName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'global';
+
+  if (Queues.hasOwnProperty(queueName)) {
+    var noty = Queues[queueName].queue.shift();
+
+    if (noty) noty.show();
+  }
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+function ghostFix(ref) {
+  var ghostID = Utils.generateID('ghost');
+  var ghost = document.createElement('div');
+  ghost.setAttribute('id', ghostID);
+  Utils.css(ghost, {
+    height: Utils.outerHeight(ref.barDom) + 'px'
+  });
+
+  ref.barDom.insertAdjacentHTML('afterend', ghost.outerHTML);
+
+  Utils.remove(ref.barDom);
+  ghost = document.getElementById(ghostID);
+  Utils.addClass(ghost, 'noty_fix_effects_height');
+  Utils.addListener(ghost, Utils.animationEndEvents, function () {
+    Utils.remove(ghost);
+  });
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+function build(ref) {
+  findOrCreateContainer(ref);
+
+  var markup = '<div class="noty_body">' + ref.options.text + '</div>' + buildButtons(ref) + (ref.options.progressBar && ref.options.timeout ? '<div class="noty_progressbar"></div>' : '');
+
+  ref.barDom = document.createElement('div');
+  ref.barDom.setAttribute('id', ref.id);
+  Utils.addClass(ref.barDom, 'noty_bar noty_type__' + ref.options.type + ' noty_theme__' + ref.options.theme);
+
+  ref.barDom.innerHTML = markup;
+
+  fire(ref, 'onTemplate');
+}
+
+/**
+ * @param {Noty} ref
+ * @return {boolean}
+ */
+function hasButtons(ref) {
+  return ref.options.buttons && Object.keys(ref.options.buttons).length ? true : false;
+}
+
+/**
+ * @param {Noty} ref
+ * @return {string}
+ */
+function buildButtons(ref) {
+  if (hasButtons(ref)) {
+    var buttons = document.createElement('div');
+    Utils.addClass(buttons, 'noty_buttons');
+
+    Object.keys(ref.options.buttons).forEach(function (key) {
+      buttons.appendChild(ref.options.buttons[key].dom);
+    });
+
+    ref.options.buttons.forEach(function (btn) {
+      buttons.appendChild(btn.dom);
+    });
+    return buttons.outerHTML;
+  }
+  return '';
+}
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+function findOrCreateContainer(ref) {
+
+  if (ref.options.container) {
+    ref.layoutDom = document.querySelector(ref.options.container);
+    console.log(ref.layoutDom);
+    return;
+  }
+
+  var layoutID = 'noty_layout__' + ref.options.layout;
+  ref.layoutDom = document.querySelector('div#' + layoutID);
+
+  if (!ref.layoutDom) {
+    ref.layoutDom = document.createElement('div');
+    ref.layoutDom.setAttribute('id', layoutID);
+    document.querySelector('body').appendChild(ref.layoutDom);
+  }
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+function queueClose(ref) {
+  if (ref.options.timeout) {
+
+    if (ref.options.progressBar && ref.progressDom) {
+      Utils.css(ref.progressDom, {
+        transition: 'width ' + ref.options.timeout + 'ms linear',
+        width: '0%'
+      });
+    }
+
+    ref.closeTimer = setTimeout(function () {
+      ref.close();
+    }, ref.options.timeout);
+  }
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+function dequeueClose(ref) {
+  if (ref.options.timeout && ref.closeTimer) {
+    clearTimeout(ref.closeTimer);
+    ref.closeTimer = 0;
+
+    if (ref.options.progressBar && ref.progressDom) {
+      Utils.css(ref.progressDom, {
+        transition: 'width 0ms linear',
+        width: '100%'
+      });
+    }
+  }
+}
+
+/**
+ * @param {Noty} ref
+ * @param {string} eventName
+ * @return {void}
+ */
+function fire(ref, eventName) {
+  if (ref.listeners.hasOwnProperty(eventName)) {
+    ref.listeners[eventName].forEach(function (cb) {
+      if (typeof cb == 'function') cb.apply(ref);
+    });
+  }
+}
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.NotyButton = undefined;
 
 var _utils = __webpack_require__(0);
@@ -407,7 +679,13 @@ var NotyButton = exports.NotyButton = function NotyButton(html, classes, cb) {
 };
 
 /***/ }),
-/* 2 */
+/* 3 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -417,7 +695,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /* global VERSION */
 
 __webpack_require__(3);
 
@@ -425,11 +703,11 @@ var _utils = __webpack_require__(0);
 
 var Utils = _interopRequireWildcard(_utils);
 
-var _api = __webpack_require__(5);
+var _api = __webpack_require__(1);
 
 var API = _interopRequireWildcard(_api);
 
-var _button = __webpack_require__(1);
+var _button = __webpack_require__(2);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -532,12 +810,16 @@ var Noty = function () {
         }, false);
       }
 
+      Utils.addListener(this.barDom, 'mouseenter', function () {
+        API.fire(_this, 'onHover');
+      }, false);
+
       if (Utils.inArray('button', this.options.closeWith)) {
         Utils.addClass(this.barDom, 'noty_close_with_button');
 
         var closeButton = document.createElement('div');
         Utils.addClass(closeButton, 'noty_close_button');
-        closeButton.innerHTML = 'x';
+        closeButton.innerHTML = '×';
         this.barDom.appendChild(closeButton);
 
         Utils.addListener(closeButton, 'click', function (e) {
@@ -726,6 +1008,11 @@ var Noty = function () {
 
       return new _button.NotyButton(innerHtml, classes, cb, attributes);
     }
+  }, {
+    key: 'version',
+    value: function version() {
+      return "3.0.0";
+    }
   }]);
 
   return Noty;
@@ -737,283 +1024,6 @@ var Noty = function () {
 exports.default = Noty;
 Utils.visibilityChangeFlow();
 module.exports = exports['default'];
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 4 */,
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Defaults = exports.Store = exports.Queues = exports.DefaultMaxVisible = undefined;
-exports.getQueueCounts = getQueueCounts;
-exports.addToQueue = addToQueue;
-exports.removeFromQueue = removeFromQueue;
-exports.queueRender = queueRender;
-exports.ghostFix = ghostFix;
-exports.build = build;
-exports.hasButtons = hasButtons;
-exports.queueClose = queueClose;
-exports.dequeueClose = dequeueClose;
-exports.fire = fire;
-
-var _utils = __webpack_require__(0);
-
-var Utils = _interopRequireWildcard(_utils);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-var DefaultMaxVisible = exports.DefaultMaxVisible = 5;
-
-var Queues = exports.Queues = {
-  global: {
-    maxVisible: DefaultMaxVisible,
-    queue: []
-  }
-};
-
-var Store = exports.Store = {};
-
-var Defaults = exports.Defaults = {
-  type: 'alert',
-  layout: 'topRight',
-  theme: 'mint',
-  text: '',
-  timeout: false,
-  progressBar: true,
-  closeWith: ['click'],
-  animation: {
-    open: 'noty_effects_open',
-    close: 'noty_effects_close'
-  },
-  id: false,
-  force: false,
-  killer: false,
-  queue: 'global',
-  container: false,
-  buttons: [],
-  callbacks: {
-    beforeShow: null,
-    onShow: null,
-    afterShow: null,
-    onClose: null,
-    afterClose: null,
-    onHover: null
-  }
-};
-
-/**
- * @param {string} queueName
- * @return {object}
- */
-function getQueueCounts() {
-  var queueName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'global';
-
-  var count = 0;
-  var max = DefaultMaxVisible;
-
-  if (Queues.hasOwnProperty(queueName)) {
-    max = Queues[queueName].maxVisible;
-    Object.keys(Store).forEach(function (i) {
-      if (Store[i].options.queue == queueName && !Store[i].closed) count++;
-    });
-  }
-
-  return {
-    current: count,
-    maxVisible: max
-  };
-}
-
-/**
- * @param {Noty} ref
- * @return {void}
- */
-function addToQueue(ref) {
-  if (!Queues.hasOwnProperty(ref.options.queue)) Queues[ref.options.queue] = { maxVisible: DefaultMaxVisible, queue: [] };
-
-  Queues[ref.options.queue].queue.push(ref);
-}
-
-/**
- * @param {Noty} ref
- * @return {void}
- */
-function removeFromQueue(ref) {
-  if (Queues.hasOwnProperty(ref.options.queue)) {
-    var queue = [];
-    Object.keys(Queues[ref.options.queue].queue).forEach(function (i) {
-      if (Queues[ref.options.queue].queue[i].id != ref.id) {
-        queue.push(Queues[ref.options.queue].queue[i]);
-      }
-    });
-    Queues[ref.options.queue].queue = queue;
-  }
-}
-
-/**
- * @param {string} queueName
- * @return {void}
- */
-function queueRender() {
-  var queueName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'global';
-
-  if (Queues.hasOwnProperty(queueName)) {
-    var noty = Queues[queueName].queue.shift();
-
-    if (noty) noty.show();
-  }
-}
-
-/**
- * @param {Noty} ref
- * @return {void}
- */
-function ghostFix(ref) {
-  var ghostID = Utils.generateID('ghost');
-  var ghost = document.createElement('div');
-  ghost.setAttribute('id', ghostID);
-  Utils.css(ghost, {
-    height: Utils.outerHeight(ref.barDom) + 'px'
-  });
-
-  ref.barDom.insertAdjacentHTML('afterend', ghost.outerHTML);
-
-  Utils.remove(ref.barDom);
-  ghost = document.getElementById(ghostID);
-  Utils.addClass(ghost, 'noty_fix_effects_height');
-  Utils.addListener(ghost, Utils.animationEndEvents, function () {
-    Utils.remove(ghost);
-  });
-}
-
-/**
- * @param {Noty} ref
- * @return {void}
- */
-function build(ref) {
-  findOrCreateContainer(ref);
-
-  var markup = '<div class="noty_body">' + ref.options.text + '</div>' + buildButtons(ref) + (ref.options.progressBar && ref.options.timeout ? '<div class="noty_progressbar"></div>' : '');
-
-  ref.barDom = document.createElement('div');
-  ref.barDom.setAttribute('id', ref.id);
-  Utils.addClass(ref.barDom, 'noty_bar noty_type__' + ref.options.type + ' noty_theme__' + ref.options.theme);
-
-  ref.barDom.innerHTML = markup;
-
-  fire(ref, 'onTemplate');
-}
-
-/**
- * @param {Noty} ref
- * @return {boolean}
- */
-function hasButtons(ref) {
-  return ref.options.buttons && Object.keys(ref.options.buttons).length ? true : false;
-}
-
-/**
- * @param {Noty} ref
- * @return {string}
- */
-function buildButtons(ref) {
-  if (hasButtons(ref)) {
-    var buttons = document.createElement('div');
-    Utils.addClass(buttons, 'noty_buttons');
-
-    Object.keys(ref.options.buttons).forEach(function (key) {
-      buttons.appendChild(ref.options.buttons[key].dom);
-    });
-
-    ref.options.buttons.forEach(function (btn) {
-      buttons.appendChild(btn.dom);
-    });
-    return buttons.outerHTML;
-  }
-  return '';
-}
-/**
- * @param {Noty} ref
- * @return {void}
- */
-function findOrCreateContainer(ref) {
-
-  if (ref.options.container) {
-    ref.layoutDom = document.querySelector(ref.options.container);
-    return;
-  }
-
-  var layoutID = 'noty_layout__' + ref.options.layout;
-  ref.layoutDom = document.querySelector('div#' + layoutID);
-
-  if (!ref.layoutDom) {
-    ref.layoutDom = document.createElement('div');
-    ref.layoutDom.setAttribute('id', layoutID);
-    document.querySelector('body').appendChild(ref.layoutDom);
-  }
-}
-
-/**
- * @param {Noty} ref
- * @return {void}
- */
-function queueClose(ref) {
-  if (ref.options.timeout) {
-
-    if (ref.options.progressBar && ref.progressDom) {
-      Utils.css(ref.progressDom, {
-        transition: 'width ' + ref.options.timeout + 'ms linear',
-        width: '0%'
-      });
-    }
-
-    ref.closeTimer = setTimeout(function () {
-      ref.close();
-    }, ref.options.timeout);
-  }
-}
-
-/**
- * @param {Noty} ref
- * @return {void}
- */
-function dequeueClose(ref) {
-  if (ref.options.timeout && ref.closeTimer) {
-    clearTimeout(ref.closeTimer);
-    ref.closeTimer = 0;
-
-    if (ref.options.progressBar && ref.progressDom) {
-      Utils.css(ref.progressDom, {
-        transition: 'width 0ms linear',
-        width: '100%'
-      });
-    }
-  }
-}
-
-/**
- * @param {Noty} ref
- * @param {string} eventName
- * @return {void}
- */
-function fire(ref, eventName) {
-  if (ref.listeners.hasOwnProperty(eventName)) {
-    ref.listeners[eventName].forEach(function (cb) {
-      if (typeof cb == 'function') cb.apply(ref);
-    });
-  }
-}
 
 /***/ })
 /******/ ]);

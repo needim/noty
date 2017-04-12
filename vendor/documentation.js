@@ -85,12 +85,13 @@ $(function () {
     notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
     notes['confirm'] = 'Do you want to continue?';
     new Noty({
-      text        : notes[type],
-      type        : type == 'confirm' ? 'alert' : type,
-      theme       : theme,
-      closeWith   : [],
-      container: '.theme-container-' + theme +' .preview-container',
-      buttons: type == 'confirm' ? [
+      text     : notes[type],
+      type     : type == 'confirm' ? 'alert' : type,
+      theme    : theme,
+      closeWith: ['button'],
+      timeout  : false,
+      container: '.theme-container-' + theme + ' .preview-container',
+      buttons  : type == 'confirm' ? [
         Noty.button('YES', 'button', function () {
         }, {id: 'button1', 'data-status': 'ok'}),
 

@@ -7,7 +7,12 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
-
+.row-eq-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
 html {
   color: #222;
   font-size: 1em;
@@ -477,6 +482,14 @@ select {
   background-repeat: repeat;
   padding: 10px 20px 20px 20px;
   border-radius: 2px;
+  position: relative;
+  /*height: 100%;*/
+}
+
+.theme-container h4 span {
+  position: absolute;
+  top: -10px;
+  right: 5px;
 }
 
 .preview-container {
