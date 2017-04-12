@@ -96,11 +96,16 @@
 
             Noty.overrideDefaults({
                 layout   : 'topRight',
-                theme    : 'mint',
+                theme    : 'semanticui',
                 closeWith: ['button'],
                 animation: {
 //                open : 'animated fadeInRight',
 //                close: 'animated fadeOutRight'
+                },
+                callbacks: {
+                  onTemplate: function () {
+                      console.log('template dude', this);
+                  }
                 },
                 force    : false
 //            ,buttons  : [
@@ -113,8 +118,9 @@
 //            ]
             });
 
-            Noty.setMaxVisible(3); // global queue's max visible amount (default is 8)
-            Noty.setMaxVisible(3, 'bottomRight');
+
+            Noty.setMaxVisible(5); // global queue's max visible amount (default is 5)
+            Noty.setMaxVisible(5, 'bottomRight');
 
             var n1 = new Noty({
                 text   : notification_alert,

@@ -35,7 +35,8 @@ export let Defaults = {
     afterShow : null,
     onClose   : null,
     afterClose: null,
-    onHover   : null
+    onHover   : null,
+    onTemplate: null
   }
 };
 

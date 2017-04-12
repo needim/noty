@@ -12,6 +12,9 @@ let libraryName = 'Noty';
 let plugins = [], outputFile;
 
 plugins.push(extractSass);
+plugins.push(new webpack.DefinePlugin({
+  VERSION: JSON.stringify(require("./package.json").version)
+}));
 
 if (env === 'build') {
   plugins.push(new UglifyJsPlugin({minimize: true, sourceMap: true}));

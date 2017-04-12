@@ -1,3 +1,5 @@
+/* global VERSION */
+
 import 'noty.scss';
 import * as Utils from 'utils';
 import * as API from 'api';
@@ -93,12 +95,16 @@ export default class Noty {
       }, false);
     }
 
+    Utils.addListener(this.barDom, 'mouseenter', () => {
+      API.fire(this, 'onHover');
+    }, false);
+
     if (Utils.inArray('button', this.options.closeWith)) {
       Utils.addClass(this.barDom, 'noty_close_with_button');
 
       let closeButton = document.createElement('div');
       Utils.addClass(closeButton, 'noty_close_button');
-      closeButton.innerHTML = 'x';
+      closeButton.innerHTML = '×';
       this.barDom.appendChild(closeButton);
 
       Utils.addListener(closeButton, 'click', (e) => {
@@ -255,6 +261,10 @@ export default class Noty {
    */
   static button (innerHtml, classes = null, cb, attributes = {}) {
     return new NotyButton(innerHtml, classes, cb, attributes);
+  }
+
+  static version () {
+    return VERSION;
   }
 }
 
