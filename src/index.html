@@ -50,8 +50,25 @@ $ <span class="lit">composer</span> require needim/noty
             </div>
 
             <div class="col-xs-12 col-md-12 col-lg-12">
-                <h3>Creating a Notification</h3>
+                <h3>Usage: Creating a Notification</h3>
 <pre class="prettyprint lang-javascript">
+new Noty({
+    ...
+    text: 'Some notification text',
+    ...
+}).show();
+</pre>
+                <h3>ES6 import & Require Usages</h3>
+
+<pre class="prettyprint lang-javascript">
+import Noty from 'noty';
+new Noty({
+    ...
+    text: 'Some notification text',
+    ...
+}).show();
+
+const Noty = require('noty');
 new Noty({
     ...
     text: 'Some notification text',
