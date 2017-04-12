@@ -11,6 +11,7 @@ $corner-space: 20px;
   -webkit-transform: translate(0, 0) translateZ(0) scale(1.0, 1.0);
   transform: translate(0, 0) scale(1.0, 1.0);
   -webkit-font-smoothing: subpixel-antialiased;
+  max-width: 90%;
 }
 
 #noty_layout__top {
