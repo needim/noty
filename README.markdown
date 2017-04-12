@@ -6,6 +6,7 @@
 ![Bower version](https://img.shields.io/bower/v/noty.svg)
 ![npm version](https://img.shields.io/npm/v/noty.svg)
 ![Packagist version](https://img.shields.io/packagist/v/needim/noty.svg)
+![David](https://img.shields.io/david/needim/noty.svg)
 ![devDependency Status](https://img.shields.io/david/dev/needim/noty.svg)
 ![npm](https://img.shields.io/npm/dm/noty.svg?label=npm%20downloads)
 ![Contributors](https://img.shields.io/github/contributors/needim/noty.svg)

@@ -1,0 +1,108 @@
+body {
+  font-family: 'GothamRoundedLight', sans-serif;
+  font-weight: 300;
+  background-color: rgb(255, 253, 250);
+  background-image: url('bg-dot.png');
+  background-size: 41px 40px;
+  background-position: 0 0;
+  background-repeat: repeat;
+}
+
+a {
+  color: inherit;
+  font-family: 'GothamRoundedMedium', sans-serif;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.activity-item i {
+  float: left;
+  margin-top: 3px;
+  font-size: 16px;
+}
+
+div.activity {
+  margin-left: 28px;
+  line-height: 1.4em;
+}
+
+div.activity-item {
+  padding: 7px 12px;
+}
+
+div.activity > span {
+  display: block;
+  font-size: .8em;
+}
+
+#custom_container {
+  border: 2px solid #ccc;
+  width: 500px;
+  max-width: 100%;
+  margin: 40px auto;
+  min-height: 100px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .5);
+  overflow: hidden;
+}
+
+.logo {
+  text-align: center;
+  background: rgb(255, 253, 250);
+  padding: 0 20px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+
+select:focus {
+  outline: none;
+}
+
+select {
+  /* General styling */
+  height: 30px;
+  width: 137px;
+  padding-left: 10px;
+
+  color: #222;
+  border-radius: 3px;
+  border: 0 solid #222;
+  margin: 0 3px;
+
+  /* Removes the default <select> styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Positions background arrow image */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: 115px center;
+}
+
+
+.button {
+  display: inline-block;
+  position: relative;
+  padding: .8em 1.3em;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+  outline: 0;
+  background: #AC8FFD;
+  border: 2px solid #948CE2;
+  color: #fff;
+  text-shadow: none;
+  border-radius: 2px;
+}
+
+.button:hover {
+  color: #fff;
+  background-color: #c0a7fd;
+  border-color: #948CE2;
+}
