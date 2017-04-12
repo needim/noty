@@ -1,13 +1,15 @@
 import * as API from 'api';
 
 // shims
-HTMLElement.prototype.matches =
-    HTMLElement.prototype.matches ||
-    HTMLElement.prototype.matchesSelector ||
-    HTMLElement.prototype.webkitMatchesSelector ||
-    HTMLElement.prototype.mozMatchesSelector ||
-    HTMLElement.prototype.msMatchesSelector ||
-    HTMLElement.prototype.oMatchesSelector;
+if (window.HTMLElement) {
+  HTMLElement.prototype.matches =
+      HTMLElement.prototype.matches ||
+      HTMLElement.prototype.matchesSelector ||
+      HTMLElement.prototype.webkitMatchesSelector ||
+      HTMLElement.prototype.mozMatchesSelector ||
+      HTMLElement.prototype.msMatchesSelector ||
+      HTMLElement.prototype.oMatchesSelector;
+}
 
 export const animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 

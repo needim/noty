@@ -44,9 +44,6 @@ export default class Noty {
   }
 
   show () {
-    //if (this.closed)
-    //  return this;
-
     if (this.options.killer === true) {
       Noty.closeAll();
     } else if (typeof this.options.killer == 'string') {
