@@ -10,32 +10,32 @@
 
                                 <div>
                                     <p>
-                                        We can set button objects with an array like above;
+                                        We can set button objects with an array like below;
                                     </p>
 
-
 <pre class="prettyprint lang-javascript">
-noty({
+var n = new Noty({
   text: 'Do you want to continue? &lt;input id="example" type="text"&gt;',
   buttons: [
-    {addClass: 'btn btn-primary', text: 'Ok', onClick: function($noty) {
-        // this = button element
-        // $noty = $noty element
+    Noty.button('YES', 'btn btn-success', function () {
+        console.log('button 1 clicked');
+    }, {id: 'button1', 'data-status': 'ok'}),
 
-        console.log($noty.$bar.find('input#example').val());
-
-        $noty.close();
-        noty({text: 'You clicked "Ok" button', type: 'success'});
-      }
-    },
-    {addClass: 'btn btn-danger', text: 'Cancel', onClick: function($noty) {
-        $noty.close();
-        noty({text: 'You clicked "Cancel" button', type: 'error'});
-      }
-    }
+    Noty.button('NO', 'btn btn-error', function () {
+        console.log('button 2 clicked');
+        n.close();
+    })
   ]
-});
+}).show();
 </pre>
+
+                                    <blockquote>
+                                        <strong>Noty.button</strong>(<strong class="imp">text</strong>:string, <strong class="imp">classNames</strong>:string, <strong class="imp">cb</strong>:function, <strong class="imp">attributes</strong>:object&lt;optional&gt;);
+                                    </blockquote>
+
+                                    <blockquote>
+                                        <strong>About button styling</strong>: Noty doesn't care about that. You need to pass class names with your styles.
+                                    </blockquote>
 
                                 </div>
 

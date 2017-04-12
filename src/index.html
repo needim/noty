@@ -8,21 +8,15 @@
                 <h1><span class="ps-icon ps-icon-code"></span> Installation</h1>
 
                 <p>
-                    1. Include <strong class="imp">jQuery 1.6+</strong>
+                    Include <strong class="">lib/noty.css</strong> <strong>&</strong> <strong class="">lib/noty.js</strong> or use Bower, NPM or Composer
                 </p>
-                <p>
-                    2. Include <strong class="imp">noty/packaged/jquery.noty.packaged.min.js</strong>.
-                </p>
-                <p>That's It. Your code should then be similar to this:</p>
 
 <pre class="prettyprint lang-javascript">
-&lt;script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"&gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="js/noty/packaged/jquery.noty.packaged.min.js"&gt;&lt;/script&gt;
+&lt;link href="lib/noty.css" rel="stylesheet"&gt;&lt;/script&gt;
+&lt;script src="lib/noty.js" type="text/javascript"&gt;&lt;/script&gt;
 </pre>
                 <blockquote>
-                    NOTY is compatible with <strong class="imp">jQuery 1.6+</strong> for now.
-                    <strong>But if you are using older version then 1.6 you can add promise.js to your header.</strong>
-                    <br>(Thanks to <a href="https://github.com/MrMaksimize" target="_blank">Maksim Pecherskiy</a>)
+                    <strong>NOTY v3</strong> is <strong class="imp">NOT dependent</strong> to <strong class="">jQuery</strong> anymore.
                 </blockquote>
             </div>
 
@@ -38,6 +32,24 @@ $ <span class="lit">bower</span> install noty
                 <h3>Install via <a target="_blank" href="https://www.npmjs.org/">NPM</a></h3>
 <pre class="prettyprint lang-bash">
 $ <span class="lit">npm</span> install noty
+</pre>
+            </div>
+
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <h3>Install via <a target="_blank" href="https://www.getcomposer.org/">Composer</a></h3>
+<pre class="prettyprint lang-bash">
+$ <span class="lit">composer</span> require needim/noty
+</pre>
+            </div>
+
+            <div class="col-xs-12 col-md-12 col-lg-12">
+                <h3>Creating a Notification</h3>
+<pre class="prettyprint lang-javascript">
+new Noty({
+    ...
+    text: 'Some notification text',
+    ...
+}).show();
 </pre>
             </div>
 

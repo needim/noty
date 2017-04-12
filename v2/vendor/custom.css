@@ -1,0 +1,503 @@
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+.small {
+  line-height: 1.5rem;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+@font-face {
+  font-family: "Brandon Text Light";
+  src: url("../fonts/brandon-text-light.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brandon Text Regular";
+  src: url("../fonts/brandon-text-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Brandon Text Bold";
+  src: url("../fonts/brandon-text-bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  font-family: 'Brandon Text Light', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 100%;
+  color: #8c8c8c;
+  font-size: 16px;
+  line-height: 30px;
+  background-color: #2D3134;
+}
+
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  color: #fff;
+  font-family: 'Nunito', 'Brandon Text Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a, i, input, textarea, .primary, button, .mask {
+  transition: all .15s ease;
+}
+
+a {
+  color: #dde4e8;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #fff;
+}
+
+.bold {
+  font-family: 'Brandon Text Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+strong {
+  font-family: 'Brandon Text Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+.profile-bio {
+  width: 50%;
+  margin: 5px auto 10px;
+  color: #444;
+}
+
+a.top-link {
+  margin: 0 20px;
+  color: #444;
+  transition: all .3s ease;
+  width: 110px !important;
+  display: inline-block;
+}
+
+a.top-link:hover {
+  color: #e7543d;
+}
+
+.container-top {
+  padding-top: 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+}
+
+.container-top:after {
+  content: " ";
+  border-bottom: 2px solid rgba(209, 209, 209, 0.26);
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  width: 100%;
+  height: 155px;
+  position: absolute;
+  z-index: -1;
+  top: -20px;
+  left: 0;
+  -webkit-transition: all .4s ease;
+  -moz-transition: all .4s ease;
+  -ms-transition: all .4s ease;
+  -o-transition: all .4s ease;
+  transition: all .4s ease;
+}
+
+.container-top.shown:after,
+.container-top.shown:before {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.container-top:before {
+  content: " ";
+  background-color: #fff;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  border-radius: 100%;
+  width: 100%;
+  height: 155px;
+  position: absolute;
+  z-index: -2;
+  top: -20px;
+  left: 0;
+}
+
+.container-bottom {
+  padding-top: 170px;
+  z-index: 1;
+}
+
+.top-link [class^="ps-icon-"]:before, .top-link [class*=" ps-icon-"]:before {
+  position: relative;
+  top: 7px;
+  margin-right: 4px;
+  font-size: 1.4em;
+}
+
+a.contact-link {
+  margin: 0 4px;
+  color: #ccc;
+  display: inline-block;
+  width: 25px;
+}
+
+.primary, a.contact-link:hover {
+  color: #e7543d;
+}
+
+a.contact-link.wdt img {
+  width: 18px;
+  position: relative;
+  top: -2px;
+}
+
+h3.name {
+  letter-spacing: 1px;
+  font-family: "Nunito", "Brandon Text Light", sans-serif;
+}
+
+h3.top-name {
+  position: absolute;
+  font-family: "Nunito", "Brandon Text Light", sans-serif;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+  letter-spacing: 1px;
+}
+
+
+
+.mt10 {
+  margin-top: 10px;
+}
+
+.mt20 {
+  margin-top: 20px;
+}
+
+.mt30 {
+  margin-top: 30px;
+}
+
+.mb10 {
+  margin-bottom: 10px;
+}
+
+.mb20 {
+  margin-bottom: 20px;
+}
+
+.mb30 {
+  margin-bottom: 30px;
+}
+
+
+
+a.button {
+  display: inline-block;
+  position: relative;
+  padding: .8em 1.3em;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.2;
+  outline: 0;
+  background: #AC8FFD;
+  border: 2px solid #948CE2;
+  color: #fff;
+  text-shadow: none;
+  border-radius: 2px;
+}
+
+a.button:hover {
+  color: #fff;
+  background-color: #c0a7fd;
+  border-color: #948CE2;
+}
+
+/* ---- */
+
+i.fa.fa-heart {
+  color: #AC8FFD;
+}
+
+
+h2 i.fa,
+h2 i.ps-icon {
+  font-size: 16px;
+  margin-right: 14px;
+  line-height: 39px;
+  text-align: center;
+  color: #B7C6C9;
+  background: #fff;
+  border-radius: 50%;
+  border: 4px solid #F4F6F7;
+  display: inline-block;
+  width: 47px;
+}
+
+.rainbow_border{
+  border-image: -webkit-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9,#4CA454,#D49B00) 2%; border-image: -ms-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9,#4CA454,#D49B00) 2%; border-image: -moz-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9,#4CA454,#D49B00) 2%;
+}
+
+.imp {
+  color: #FAF46A;
+  border-radius: 3px;
+}
+
+.left-logo {
+  width: 170px;
+  margin: 20px auto;
+  display: block;
+}
+
+ul.top-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul.top-links li {
+}
+
+ul.top-links li a {
+  color: #8c8c8c;
+  display: block;
+  padding: 2px 10px;
+  font-family: "Nunito", "Brandon Text Regular", sans-serif;
+  text-decoration: none;
+}
+
+ul.top-links li a.active {
+  color: #fff;
+  font-weight: bolder
+}
+
+ul.top-links li a:hover {
+  color: #fff;
+}
+
+blockquote {
+  font-size: 15px;
+  line-height: 1.5em;
+  margin: 40px 0;
+  background: rgba(0,0,0,.075);
+  border-left: 5px solid #222;
+}
+
+.project-info {
+  text-align: center;
+  padding: 0 5px;
+}
+
+pre {
+  display: block;
+  padding: 20px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #dde4e8;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: rgba(22,22,22,.8);
+  border: none;
+  border-radius: 0;
+}
+
+.sharer-btn.text-center.sharer-0 {
+  display: inline-block !important;
+}
+
+.sharer-btn.text-center.sharer-0 label {
+  padding: 2px 13px !important;
+  position: relative;
+  top: 2px !important;
+  background: #eeeeee !important;
+  color: #555555 !important;
+  border-radius: 2px !important;
+}
+
+.sharer-btn.text-center.sharer-0 label span {
+  text-transform: capitalize !important;
+  font-size: .85em !important;
+}
+
+.sharer-btn.text-center.sharer-0 .social.active.bottom {
+  z-index: 9999;
+  position: relative;
+}
+
+span.ps-icon {
+  position: relative;
+  top: 5px;
+}
+
+.top-links span.ps-icon {
+  position: relative;
+  top: 3px;
+  text-align: center;
+  margin-right: 12px;
+  background: #222;
+  border-radius: 5px;
+  width: 25px;
+  height: 25px;
+  padding-top: 1px;
+  display: inline-block;
+}
+
+select:focus {
+  outline: none;
+}
+
+select {
+  /* General styling */
+  height: 30px;
+  width: 137px;
+  padding-left: 10px;
+
+  color: #222;
+  border-radius: 3px;
+  border: 0 solid #222;
+  margin: 0 3px;
+
+  /* Removes the default <select> styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Positions background arrow image */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC');
+  background-repeat: no-repeat;
+  background-position: 115px center;
+}
+
+.custom-container {
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 3px;
+  padding: 10px;
+  min-height: 20px;
+  max-width: 300px;
+}
+
+.theme-container {
+  text-align: center;
+  background: rgba(0,0,0,.2);
+  padding: 10px 20px 20px 20px;
+  border: 3px solid #8c8c86;
+  border-radius: 2px;
+}
+
+.preview-container {
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+.supported-by a {
+  text-decoration: none;
+}
+
+a.imp.issue {
+  background: #FAF46A;
+  color: #000;
+  padding: 0 5px;
+  font-family: "Brandon Text Bold", sans-serif;
+  text-decoration: none;
+}

@@ -8,10 +8,16 @@
             <h1><span class="ps-icon ps-icon-row-setting"></span> Types & Layouts</h1>
 
             <p class="excerpt">
-                <strong>NOTY</strong> has <strong>11</strong> layouts;
-                <span class="imp">top</span>, <span class="imp">topLeft</span>, <span class="imp">topCenter</span>, <span class="imp">topRight</span>, <span class="imp">center</span>, <span class="imp">centerLeft</span>, <span class="imp">centerRight</span>, <span class="imp">bottom</span>, <span class="imp">bottomLeft</span>, <span class="imp">bottomCenter</span>, <span class="imp">bottomRight</span>
-                <br>and 5 types <span class="imp">alert</span>, <span class="imp">success</span>, <span class="imp">warning</span>, <span class="imp">error</span>, <span class="imp">information</span>
+                <strong>NOTY</strong> has <strong>11</strong> layouts;<br> &nbsp;&nbsp;&nbsp;<span class="imp bold">top</span>, <span class="imp bold">topLeft</span>, <span class="imp bold">topCenter</span>, <span class="imp bold">topRight</span>, <span class="imp bold">center</span>, <span class="imp bold">centerLeft</span>, <span class="imp bold">centerRight</span>, <span class="imp bold">bottom</span>, <span class="imp bold">bottomLeft</span>, <span class="imp bold">bottomCenter</span>, <span class="imp bold">bottomRight</span>
+                <br>and 5 types;<br>&nbsp;&nbsp;&nbsp;<span class="imp bold">alert</span>, <span class="imp bold">success</span>, <span class="imp bold">warning</span>, <span class="imp bold">error</span>, <span class="imp bold">info/information</span>
             </p>
+
+            <p class="mt30">Creating a notification;</p>
+<pre class="prettyprint lang-javascript">
+new Noty({
+    text: 'Some notification text',
+}).show();
+</pre>
 
             <p class="mt30">
                 Let's create a notification with layout
@@ -41,7 +47,6 @@
                 </select>
 
                 <a href="#run" class="btn button runner" style="position: relative; top: -3px; margin-left: 10px; text-decoration: none">CREATE</a>
-
             </p>
 
             <p class="mt30">Custom container example for using inline layout;</p>
@@ -50,7 +55,12 @@
             </div>
 
             <p class="mt30">Custom container usage example;</p>
-<pre class="prettyprint lang-javascript"><span class="kwd">var</span><span class="pln"> n </span><span class="pun">=</span><span class="pln"> $</span><span class="pun">(</span><span class="str">'.custom-container'</span><span class="pun">).</span><span class="pln">noty</span><span class="pun">({</span><span class="pln">text</span><span class="pun">:</span><span class="pln"> </span><span class="str">'NOTY - a jquery notification library!'</span><span class="pun">});</span></pre>
+<pre class="prettyprint lang-javascript">
+new Noty({
+    text     : 'Some notification text',
+    container: '.custom-container'
+}).show();
+</pre>
 
         </div>
 

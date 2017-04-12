@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>MaxVisible Option</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="demonstration of some noty capabilities">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'PT Sans', Tahoma, Arial, serif;
+            line-height: 13px
+        }
+
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="buttons.css"/>
+
+</head>
+<body>
+
+<h3>maxVisible: 3</h3>
+<script src="jquery-1.7.2.min.js"></script>
+
+<!-- noty -->
+<script type="text/javascript" src="../js/noty/packaged/jquery.noty.packaged.js"></script>
+
+<script type="text/javascript">
+
+    function generate(type) {
+
+        var n = noty({
+            text        : type,
+            type        : type,
+            dismissQueue: true,
+            modal       : false,
+            maxVisible  : 3,
+            timeout     : 2000,
+            layout      : 'topCenter',
+            theme       : 'relax'
+        });
+
+        console.log('html: ' + n.options.id);
+    }
+
+    function generateAll() {
+        generate('alert');
+        generate('information 1');
+        generate('information 2');
+        generate('information 3');
+        generate('information 4');
+        generate('information 5');
+        generate('information 6');
+        generate('information 7');
+        generate('information 8');
+        generate('information 9');
+        generate('information 10');
+        generate('information 11');
+        generate('information 12');
+        generate('information 13');
+        generate('information 14');
+        generate('information 15');
+        generate('information 16');
+        generate('information 17');
+        generate('information 18');
+        generate('information 19');
+        generate('information 20');
+        generate('error');
+        generate('warning');
+        generate('notification');
+        generate('success');
+    }
+
+    $(document).ready(function () {
+
+        generateAll();
+
+    });
+
+</script>
+</body>
+</html>

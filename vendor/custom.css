@@ -88,40 +88,18 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-@font-face {
-  font-family: "Brandon Text Light";
-  src: url("../fonts/brandon-text-light.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Brandon Text Regular";
-  src: url("../fonts/brandon-text-regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Brandon Text Bold";
-  src: url("../fonts/brandon-text-bold.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
 
 html, body {
-  font-family: 'Brandon Text Light', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'GothamRoundedLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 100%;
-  color: #8c8c8c;
+  color: #2D3134;
   font-size: 16px;
-  line-height: 30px;
-  background-color: #2D3134;
+  line-height: 1.5em;
+  background-color: rgb(255, 253, 250);
 }
 
-
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  color: #fff;
-  font-family: 'Nunito', 'Brandon Text Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'GothamRoundedMedium', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a, i, input, textarea, .primary, button, .mask {
@@ -129,21 +107,21 @@ a, i, input, textarea, .primary, button, .mask {
 }
 
 a {
-  color: #dde4e8;
+  /*color: #dde4e8;*/
   text-decoration: underline;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #fff;
+  /*color: #fff;*/
 }
 
 .bold {
-  font-family: 'Brandon Text Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'GothamRoundedBold', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 strong {
-  font-family: 'Brandon Text Regular', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'GothamRoundedBold', "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 300;
 }
 
@@ -243,12 +221,12 @@ a.contact-link.wdt img {
 
 h3.name {
   letter-spacing: 1px;
-  font-family: "Nunito", "Brandon Text Light", sans-serif;
+  font-family: "GothamRoundedMedium", sans-serif;
 }
 
 h3.top-name {
   position: absolute;
-  font-family: "Nunito", "Brandon Text Light", sans-serif;
+  font-family: "GothamRoundedMedium", sans-serif;
   top: -60px;
   left: 0;
   width: 100%;
@@ -288,8 +266,11 @@ h3.top-name {
 }
 
 
+.noty_bar .button {
+  margin-right: 5px;
+}
 
-a.button {
+.button {
   display: inline-block;
   position: relative;
   padding: .8em 1.3em;
@@ -306,7 +287,7 @@ a.button {
   border-radius: 2px;
 }
 
-a.button:hover {
+.button:hover {
   color: #fff;
   background-color: #c0a7fd;
   border-color: #948CE2;
@@ -337,14 +318,18 @@ h2 i.ps-icon {
   border-image: -webkit-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9,#4CA454,#D49B00) 2%; border-image: -ms-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9,#4CA454,#D49B00) 2%; border-image: -moz-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9,#4CA454,#D49B00) 2%;
 }
 
+.table hr {
+  margin: .5em 0;
+  border-top: 1px solid #eaeaea;
+}
+
 .imp {
-  color: #FAF46A;
-  border-radius: 3px;
+  color: #ff75ed;;
 }
 
 .left-logo {
-  width: 170px;
-  margin: 20px auto;
+  margin: 15px auto;
+  background: #fffdfa;
   display: block;
 }
 
@@ -361,17 +346,18 @@ ul.top-links li a {
   color: #8c8c8c;
   display: block;
   padding: 2px 10px;
-  font-family: "Nunito", "Brandon Text Regular", sans-serif;
+  font-family: "GothamRoundedMedium", sans-serif;
   text-decoration: none;
+  transition: all .3s ease;
 }
 
 ul.top-links li a.active {
-  color: #fff;
+  color: #000;
   font-weight: bolder
 }
 
 ul.top-links li a:hover {
-  color: #fff;
+  color: #000;
 }
 
 blockquote {
@@ -385,6 +371,8 @@ blockquote {
 .project-info {
   text-align: center;
   padding: 0 5px;
+  background: #fffdfa;
+  margin-bottom: 20px;
 }
 
 pre {
@@ -396,7 +384,11 @@ pre {
   color: #dde4e8;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: rgba(22,22,22,.8);
+  background-color: rgb(251, 240, 224);
+  background-image: url('../bg-dot.png');
+  background-size: 31px 30px;
+  background-position: 0 0;
+  background-repeat: repeat;
   border: none;
   border-radius: 0;
 }
@@ -434,7 +426,6 @@ span.ps-icon {
   top: 3px;
   text-align: center;
   margin-right: 12px;
-  background: #222;
   border-radius: 5px;
   width: 25px;
   height: 25px;
@@ -479,9 +470,12 @@ select {
 
 .theme-container {
   text-align: center;
-  background: rgba(0,0,0,.2);
+  background-color: rgb(251, 240, 224);
+  background-image: url('../bg-dot.png');
+  background-size: 31px 30px;
+  background-position: 0 0;
+  background-repeat: repeat;
   padding: 10px 20px 20px 20px;
-  border: 3px solid #8c8c86;
   border-radius: 2px;
 }
 
@@ -494,10 +488,29 @@ select {
   text-decoration: none;
 }
 
-a.imp.issue {
-  background: #FAF46A;
+.imp.issue {
+  border-bottom: 2px solid #FAF46A;
   color: #000;
-  padding: 0 5px;
-  font-family: "Brandon Text Bold", sans-serif;
+  padding: 2px 5px;
   text-decoration: none;
+}
+
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+  h1 > span {
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  h1 {
+    text-align: center;
+    font-size: 30px;
+  }
+  ul.release-list {
+    padding-left: 10px;
+  }
+  ul ul {
+    padding-left: 20px;
+  }
 }

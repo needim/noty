@@ -9,9 +9,6 @@
 
 
                                 <div>
-                                    <p>
-                                        <strong>NOTY</strong> have 5 callback option for now. <strong class="imp">onShow</strong> - <strong class="imp">afterShow</strong> - <strong class="imp">onClose</strong> - <strong class="imp">afterClose</strong> - <strong class="imp">afterCloseClick</strong>
-                                    </p>
 
                                     <h4 class="mt30">
                                         API Methods
@@ -19,27 +16,77 @@
 
 
 <pre class="prettyprint lang-javascript">
-var n = noty({text: 'Hi!'});
+var n = new Noty({text: 'Hi!'});
 
-
-console.log($.noty.get(n.id)); // Returns a NOTY javascript object
 console.log(n); // Returns a NOTY javascript object
 
+n.show(); // Show a NOTY
+n.close(); // Close a NOTY
+n.setText('Hi again!'); // Notification text updater. Important: .noty_body class is required for setText API method.
+n.setType('error'); // Notification type updater
+n.setTheme('newTheme'); // Notification theme updater
+n.stop(); // Clears the timeout
+n.resume(); // Restarts the timeout
+</pre>
 
-$.noty.close(n.id); // Close a NOTY
-n.close(); // same as above
+                                    <blockquote>
+                                        <strong>setText()</strong>, <strong>setType()</strong> and <strong>setTheme()</strong> methods doesn't override NOTY's options.
+                                        <br>If you wanna override those values pass a second parameter as boolean <strong>true</strong>.
+                                    </blockquote>
 
+                                    <h4 class="mt30">
+                                        API Static Methods
+                                    </h4>
 
-$.noty.setText(n.id, 'Hi again!'); // Notification text updater
-n.setText('Hi again!'); // same as above
+<pre class="prettyprint lang-javascript">
+Noty.closeAll(); // Closes all notifications
+Noty.closeAll('myCustomQueueName'); // Closes all notifications with queue named 'myCustomQueueName'
 
+Noty.setMaxVisible(10); // Sets the maxVisible notification count for global queue;
+Noty.setMaxVisible(10, 'myCustomQueueName'); // Sets the maxVisible notification count for 'myCustomQueueName' queue;
+</pre>
 
-$.noty.setType(n.id, 'error'); // Notification type updater
-n.setType('error'); // same as above
+                                    <blockquote>
+                                        Default <strong>maxVisible</strong> value is <strong>5</strong> for all queues.
+                                    </blockquote>
 
+                                    <h4 class="mt30">
+                                        Callbacks
+                                    </h4>
 
-$.noty.clearQueue(); // Clears the notification queue
-$.noty.closeAll(); // Close all notifications
+<pre class="prettyprint lang-javascript">
+new Noty({
+    ...
+    callbacks: {
+        beforeShow: function() {},
+        onShow: function() {},
+        afterShow: function() {},
+        onClose: function() {},
+        afterClose: function() {},
+        onHover: function() {},
+        onTemplate: function() {
+            this.barDom.innerHTML = '&lt;div class="my-custom-template noty_body"&gt;' + this.options.text + '&lt;div&gt;';
+            // Important: .noty_body class is required for setText API method.
+        }
+    }
+    ...
+}).show();
+</pre>
+
+                                    <h4 class="mt30">
+                                        Callbacks Alternative Usage
+                                    </h4>
+
+<pre class="prettyprint lang-javascript">
+new Noty({
+    ...
+}).on('onShow', function() {
+    ...
+}).on('afterShow', function() {
+    ...
+}).show();
+
+// Important: You need to call on() methods before the show() method.
 </pre>
 
                                 </div>

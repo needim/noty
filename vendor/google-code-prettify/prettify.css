@@ -7,7 +7,7 @@
 }
 
 .com {
-  color: #66747B;
+  color: #b1b3b5;
 }
 
 .typ {
@@ -15,15 +15,19 @@
 }
 
 .lit {
-  color: #FACD22;
+  color: #FF9800 !important;
+}
+
+.lit .pln {
+  color: #FF9800 !important;
 }
 
 .pun {
-  color: #F1F2F3;
+  color: #9E9E9E;
 }
 
 .pln {
-  /*color: #F1F2F3;*/
+  color: #af8181;
 }
 
 .tag {
@@ -31,7 +35,7 @@
 }
 
 .atn {
-  color: #E0E2E4;
+  color: #939596;
 }
 
 .atv {

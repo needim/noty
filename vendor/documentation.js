@@ -3,18 +3,13 @@ $(function () {
     window.prettyPrint && prettyPrint();
   }
 
-  noty({
-    text: '<strong>v2.4.0 released!</strong><br> Basic inline timeout <strong>progress bar</strong> added',
-    type: 'information',
-    theme: 'metroui',
-    layout: 'topRight',
-    timeout: 4000,
-    progressBar: true,
-    animation   : {
-      open : 'animated fadeInDown',
-      close: 'animated fadeOutUp'
-    }
-  });
+  new Noty({
+    text   : '<div class="text-center">Wubba, lubba, dub, dub! <strong>v3.0.0 released!</strong></div>',
+    type   : 'information',
+    theme  : 'mint',
+    layout : 'topRight',
+    timeout: 4000
+  }).show();
 
   var $activeLink = $('a[href$="' + window.location.pathname + '"]');
   if ($activeLink) {
@@ -27,141 +22,82 @@ $(function () {
     var notes = [];
 
     var layout = $('select#layout').val();
-    var type   = $('select#type').val();
+    var type = $('select#type').val();
 
-    notes['alert']       = 'Best check yo self, you\'re not looking too good.';
-    notes['error']       = 'Change a few things up and try submitting again.';
-    notes['success']     = 'You successfully read this important alert message.';
+    notes['alert'] = 'Best check yo self, you\'re not looking too good.';
+    notes['error'] = 'Change a few things up and try submitting again.';
+    notes['success'] = 'You successfully read this important alert message.';
     notes['information'] = 'This alert needs your attention, but it\'s not super important.';
-    notes['warning']     = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
-    notes['confirm']     = 'Do you want to continue?';
+    notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
+    notes['confirm'] = 'Do you want to continue?';
 
     e.preventDefault();
 
     var self = $(this);
 
     if (layout == 'inline') {
-      $('.custom-container').noty({
-        text        : notes[type],
-        type        : type,
-        theme       : 'relax',
-        timeout     : 3000,
-        progressBar : true,
-        dismissQueue: true,
-        animation   : {
-          open : 'animated fadeInDown',
-          close: 'animated fadeOutUp'
-        },
-        buttons     : (type != 'confirm') ? false : [
-          {
-            addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {
 
-            // this = button element
-            // $noty = $noty element
+      new Noty({
+        text     : notes[type],
+        type     : type,
+        timeout  : 3000,
+        container: '.custom-container'
+      }).show();
 
-            $noty.close();
-            $('.custom-container').noty({force: true, text: 'You clicked "Ok" button', type: 'success'});
-          }
-          },
-          {
-            addClass: 'btn btn-danger', text: 'Cancel', onClick: function ($noty) {
-            $noty.close();
-            $('.custom-container').noty({force: true, text: 'You clicked "Cancel" button', type: 'error'});
-          }
-          }
-        ]
-      });
       return false;
     }
 
-    noty({
-      text        : notes[type],
-      type        : type,
-      theme       : 'relax',
-      dismissQueue: true,
-      timeout     : 3000,
-      progressBar : true,
-      layout      : layout,
-      animation   : {
-        open : 'animated fadeInDown',
-        close: 'animated fadeOutUp'
-      },
-      buttons     : (type != 'confirm') ? false : [
-        {
-          addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {
+    new Noty({
+      text   : notes[type],
+      type   : type,
+      timeout: 3000,
+      layout : layout
+    }).show();
 
-          // this = button element
-          // $noty = $noty element
-
-          $noty.close();
-          noty({
-            force  : true, theme: 'relax', animation: {
-              open : 'animated fadeInDown',
-              close: 'animated fadeOutUp'
-            }, text: 'You clicked "Ok" button', type: 'success', layout: layout
-          });
-        }
-        },
-        {
-          addClass: 'btn btn-danger', text: 'Cancel', onClick: function ($noty) {
-          $noty.close();
-          noty({
-            force  : true, theme: 'relax', animation: {
-              open : 'animated fadeInDown',
-              close: 'animated fadeOutUp'
-            }, text: 'You clicked "Cancel" button', type: 'error', layout: layout
-          });
-        }
-        }
-      ]
-    });
     return false;
   });
 
   var $themeContainer = $('.theme-container');
   if ($themeContainer.length) {
-    $.each($themeContainer, function (i, v) {
-      var $themeContainer   = $(v);
-      var theme             = $themeContainer.data('theme');
-      var $previewContainer = $themeContainer.find('.preview-container');
 
-      generatePreview($previewContainer, theme, 'alert');
-      generatePreview($previewContainer, theme, 'success');
-      generatePreview($previewContainer, theme, 'warning');
-      generatePreview($previewContainer, theme, 'error');
-      generatePreview($previewContainer, theme, 'information');
-      generatePreview($previewContainer, theme, 'confirm');
+    Noty.setMaxVisible(999999);
+
+    $.each($themeContainer, function (i, v) {
+      var $themeContainer = $(v);
+      var theme = $themeContainer.data('theme');
+
+      generatePreview(theme, 'alert');
+      generatePreview(theme, 'success');
+      generatePreview(theme, 'warning');
+      generatePreview(theme, 'error');
+      generatePreview(theme, 'information');
+      generatePreview(theme, 'confirm');
 
     });
   }
 
-  function generatePreview($container, theme, type) {
-    var notes            = [];
-    notes['alert']       = 'Best check yo self, you\'re not looking too good.';
-    notes['error']       = 'Change a few things up and try submitting again.';
-    notes['success']     = 'You successfully read this important alert message.';
+  function generatePreview (theme, type) {
+    var notes = [];
+    notes['alert'] = 'Best check yo self, you\'re not looking too good.';
+    notes['error'] = 'Change a few things up and try submitting again.';
+    notes['success'] = 'You successfully read this important alert message.';
     notes['information'] = 'This alert needs your attention, but it\'s not super important.';
-    notes['warning']     = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
-    notes['confirm']     = 'Do you want to continue?';
-    $container.noty({
+    notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
+    notes['confirm'] = 'Do you want to continue?';
+    new Noty({
       text        : notes[type],
-      type        : type,
+      type        : type == 'confirm' ? 'alert' : type,
       theme       : theme,
-      dismissQueue: true,
-      force       : true,
       closeWith   : [],
-      maxVisible  : 99999999,
-      animation   : {
-        open  : {height: 'toggle'},
-        close : {height: 'toggle'},
-        easing: 'swing',
-        speed : 500
-      },
-      buttons     : (type != 'confirm') ? false : [
-        {addClass: 'btn btn-primary', text: 'Ok', onClick: function ($noty) {}},
-        {addClass: 'btn btn-danger', text: 'Cancel', onClick: function ($noty) {}}
-      ]
-    });
+      container: '.theme-container-' + theme +' .preview-container',
+      buttons: type == 'confirm' ? [
+        Noty.button('YES', 'button', function () {
+        }, {id: 'button1', 'data-status': 'ok'}),
+
+        Noty.button('NO', 'button', function () {
+        })
+      ] : []
+    }).show();
   }
 
   new Share(".sharer-btn", {

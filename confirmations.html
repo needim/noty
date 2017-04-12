@@ -8,14 +8,16 @@
     <meta name="keywords" content="jquery, notification, plugin, opensource, open, source">
     <meta name="author" content="Nedim Arabacı (http://ned.im)">
 
-    <title>noty - a jQuery Notification Plugin</title>
+    <title>noty - a Notification Plugin</title>
 
     <link href='https://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
 
     <link rel="stylesheet" href="vendor/bootstrap.min.css" />
     <link rel="stylesheet" href="vendor/animate.css" />
     <link rel="stylesheet" href="vendor/ps-icon-pack.css" />
+    <link rel="stylesheet" href="fonts/stylesheet.css" />
     <link rel="stylesheet" href="vendor/custom.css" />
+    <link rel="stylesheet" href="vendor/noty-3.0.0/noty.css" />
     <link rel="stylesheet" href="vendor/google-code-prettify/prettify.css" />
 
 </head>
@@ -28,12 +30,12 @@
 
             <div class="col-md-3">
 
-                <img src="img/projects/noty-v2-logo.png" alt="" class="left-logo">
+                <a href="/">
+                    <img src="img/projects/noty-v3-logo.png" alt="" class="left-logo">
+                </a>
 
                 <div class="project-info mt10 text-muted small">
-                    <strong>NOTY</strong> is a <strong>jQuery plugin</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added
-                    to a queue. (Optional)
-                    <br><br>
+                    <strong>NOTY</strong> is a <strong>notification plugin</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.
                 </div>
 
                 <ul class="top-links">
@@ -68,6 +70,10 @@
                     <!--<a href="/noty/extra.html"> <span class="ps-icon ps-icon-sale-tag"></span> Extra</a>-->
                     <!--</li>-->
                 </ul>
+
+                <blockquote>
+                    <strong>v2.* documentation</strong> is <a href="/noty/v2"><strong>here</strong></a>.
+                </blockquote>
 
                 <div class="mt20 supported-by">
                     <a target="_blank" href="https://www.jetbrains.com?ref=notyjs">
@@ -111,32 +117,32 @@
 
                                 <div>
                                     <p>
-                                        We can set button objects with an array like above;
+                                        We can set button objects with an array like below;
                                     </p>
 
-
                                     <pre class="prettyprint lang-javascript">
-noty({
+var n = new Noty({
   text: 'Do you want to continue? &lt;input id="example" type="text"&gt;',
   buttons: [
-    {addClass: 'btn btn-primary', text: 'Ok', onClick: function($noty) {
-        // this = button element
-        // $noty = $noty element
+    Noty.button('YES', 'btn btn-success', function () {
+        console.log('button 1 clicked');
+    }, {id: 'button1', 'data-status': 'ok'}),
 
-        console.log($noty.$bar.find('input#example').val());
-
-        $noty.close();
-        noty({text: 'You clicked "Ok" button', type: 'success'});
-      }
-    },
-    {addClass: 'btn btn-danger', text: 'Cancel', onClick: function($noty) {
-        $noty.close();
-        noty({text: 'You clicked "Cancel" button', type: 'error'});
-      }
-    }
+    Noty.button('NO', 'btn btn-error', function () {
+        console.log('button 2 clicked');
+        n.close();
+    })
   ]
-});
+}).show();
 </pre>
+
+                                    <blockquote>
+                                        <strong>Noty.button</strong>(<strong class="imp">text</strong>:string, <strong class="imp">classNames</strong>:string, <strong class="imp">cb</strong>:function, <strong class="imp">attributes</strong>:object&lt;optional&gt;);
+                                    </blockquote>
+
+                                    <blockquote>
+                                        <strong>About button styling</strong>: Noty doesn't care about that. You need to pass class names with your styles.
+                                    </blockquote>
 
                                 </div>
 
@@ -155,7 +161,7 @@ noty({
         </div>
 
         <script type="text/javascript" src="vendor/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="vendor/noty-2.4.1/js/noty/packaged/jquery.noty.packaged.js"></script>
+        <script type="text/javascript" src="vendor/noty-3.0.0/noty.js"></script>
         <script type="text/javascript" src="vendor/google-code-prettify/prettify.js"></script>
         <script type="text/javascript" src="vendor/share.min.js"></script>
         <script type="text/javascript" src="vendor/showdown/showdown.min.js"></script>

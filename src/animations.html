@@ -9,47 +9,54 @@
 
 
                                 <div>
-                                    <p>
-                                        1. Using with <a href="http://api.jquery.com/animate/" target="_blank">jQuery animate properties</a>;
-                                    </p>
-
-
-<pre class="prettyprint lang-javascript">
-var n = noty({
-    text: 'NOTY - a jquery notification library!',
-    animation: {
-        open: {height: 'toggle'},
-        close: {height: 'toggle'},
-        easing: 'swing',
-        speed: 500 // opening &amp; closing animation speed
-    }
-});
-</pre>
-
-                                    <blockquote>
-                                        <strong>About Easing</strong><br>
-                                        The remaining parameter of .animate() is a string naming an easing function to use. An easing function specifies the speed at which the animation progresses at different points within the animation. The only easing implementations in the jQuery library are the default, called swing, and one that progresses at a constant pace, called linear. More easing functions are available with the use of plug-ins, most notably the <a href="http://jqueryui.com/" target="_blank">jQuery UI suite</a>.
-                                    </blockquote>
-
 
                                     <p>
-                                        2. Using with class names. (like animate.css)
+                                        Using with class names. (like animate.css)
                                     </p>
 
 <pre class="prettyprint lang-javascript">
-var n = noty({
+new Noty({
     text: 'NOTY - a jquery notification library!',
     animation: {
         open: 'animated bounceInLeft', // Animate.css class names
         close: 'animated bounceOutLeft', // Animate.css class names
-        easing: 'swing', // unavailable - no need
-        speed: 500 // unavailable - no need
     }
-});
+}).show();
+</pre>
+
+                                    <br><br>
+                                    <p>
+                                        Example css animation;
+                                    </p>
+
+<pre class="prettyprint lang-css">
+.noty_effects_open {
+  opacity: 0;
+  transform: translate(50%);
+  animation: noty_anim_in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.noty_effects_close {
+  animation: noty_anim_out 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes noty_anim_in {
+  100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes noty_anim_out {
+  100% {
+    transform: translate(50%);
+    opacity: 0;
+  }
+}
 </pre>
 
                                     <blockquote>
-                                        <strong>easing</strong> and <strong>speed</strong> <span class="imp">has no effect</span> when <strong>string class name</strong> is being used.
+                                        <strong>JavaScript animations</strong> are <strong>deprecated</strong>.
                                     </blockquote>
 
                                 </div>
