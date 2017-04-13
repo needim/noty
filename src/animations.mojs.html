@@ -1,0 +1,69 @@
+//= template/head.html
+
+                    <div id="options">
+
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 col-lg-12">
+
+                                <h1><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations with <strong class="imp">mojs</strong></h1>
+
+
+                                <div>
+                                    <p>
+                                        Get <a target="_blank" href="http://mojs.io?ref=notyjs">mojs</a>, first.
+                                    </p>
+
+                                    <p>
+                                        Example;
+                                    </p>
+
+<pre class="prettyprint lang-javascript">
+new Noty({
+    ...
+    text: 'NOTY - a jquery notification library!',
+    ...
+    animation: {
+        open: function () {
+            var n = this;
+            new mojs.Html({
+                el       : n.barDom,
+                x        : {200: 0, delay: 10, duration: 500, easing: 'cubic.out'},
+                skewY    : {5: 0, delay: 10, duration: 500, easing: 'cubic.out'},
+                isForce3d: true,
+                onComplete: function () {
+                    n.resume(); // reset timeout
+                }
+            }).play();
+        }
+        close: function () {
+            var n = this;
+            new mojs.Html({
+                el        : n.barDom,
+                x         : {0: 500, delay: 10, duration: 500, easing: 'cubic.out'},
+                skewY     : {0: 10, delay: 10, duration: 500, easing: 'cubic.out'},
+                isForce3d : true,
+                onComplete: function () {
+                    n.barDom.parentNode.removeChild(n.barDom); // removing noty's dom from document
+                }
+            }).play();
+        }
+    }
+}).show();
+</pre>
+
+
+                                    <blockquote>
+                                        <strong class="imp">Important:</strong> You need to remove NOTY's dom on <strong>close</strong>.
+                                    </blockquote>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-section mt30 mb30">
+                        Next; <a href="/noty/confirmations.html">Confirm Dialogs</a>
+                    </div>
+
+//= template/foot.html

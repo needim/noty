@@ -114,7 +114,9 @@ var API = _interopRequireWildcard(_api);
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 // shims
-HTMLElement.prototype.matches = HTMLElement.prototype.matches || HTMLElement.prototype.matchesSelector || HTMLElement.prototype.webkitMatchesSelector || HTMLElement.prototype.mozMatchesSelector || HTMLElement.prototype.msMatchesSelector || HTMLElement.prototype.oMatchesSelector;
+if (window.HTMLElement) {
+  HTMLElement.prototype.matches = HTMLElement.prototype.matches || HTMLElement.prototype.matchesSelector || HTMLElement.prototype.webkitMatchesSelector || HTMLElement.prototype.mozMatchesSelector || HTMLElement.prototype.msMatchesSelector || HTMLElement.prototype.oMatchesSelector;
+}
 
 var animationEndEvents = exports.animationEndEvents = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
 
@@ -156,7 +158,7 @@ var deepExtend = exports.deepExtend = function deepExtend(out) {
 
     for (var key in obj) {
       if (obj.hasOwnProperty(key)) {
-        if (Array.isArray(obj[key])) out[key] = obj[key];else if (_typeof(obj[key]) === 'object') out[key] = deepExtend(out[key], obj[key]);else out[key] = obj[key];
+        if (Array.isArray(obj[key])) out[key] = obj[key];else if (_typeof(obj[key]) === 'object' && obj[key] != null) out[key] = deepExtend(out[key], obj[key]);else out[key] = obj[key];
       }
     }
   }
@@ -388,6 +390,8 @@ exports.hasButtons = hasButtons;
 exports.queueClose = queueClose;
 exports.dequeueClose = dequeueClose;
 exports.fire = fire;
+exports.openFlow = openFlow;
+exports.closeFlow = closeFlow;
 
 var _utils = __webpack_require__(0);
 
@@ -527,7 +531,7 @@ function ghostFix(ref) {
 function build(ref) {
   findOrCreateContainer(ref);
 
-  var markup = '<div class="noty_body">' + ref.options.text + '</div>' + buildButtons(ref) + (ref.options.progressBar && ref.options.timeout ? '<div class="noty_progressbar"></div>' : '');
+  var markup = '<div class="noty_body">' + ref.options.text + '</div>' + buildButtons(ref) + '<div class="noty_progressbar"></div>';
 
   ref.barDom = document.createElement('div');
   ref.barDom.setAttribute('id', ref.id);
@@ -566,6 +570,7 @@ function buildButtons(ref) {
   }
   return '';
 }
+
 /**
  * @param {Noty} ref
  * @return {void}
@@ -637,6 +642,36 @@ function fire(ref, eventName) {
       if (typeof cb == 'function') cb.apply(ref);
     });
   }
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+function openFlow(ref) {
+  fire(ref, 'afterShow');
+  queueClose(ref);
+
+  Utils.addListener(ref.barDom, 'mouseenter', function () {
+    dequeueClose(ref);
+  });
+
+  Utils.addListener(ref.barDom, 'mouseleave', function () {
+    queueClose(ref);
+  });
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+function closeFlow(ref) {
+  delete Store[ref.id];
+  fire(ref, 'afterClose');
+
+  if (ref.layoutDom.querySelectorAll('.noty_bar').length == 0 && !ref.options.container) Utils.remove(ref.layoutDom);
+
+  queueRender(ref.options.queue);
 }
 
 /***/ }),
@@ -762,9 +797,6 @@ var Noty = function () {
     value: function show() {
       var _this = this;
 
-      //if (this.closed)
-      //  return this;
-
       if (this.options.killer === true) {
         Noty.closeAll();
       } else if (typeof this.options.killer == 'string') {
@@ -814,6 +846,10 @@ var Noty = function () {
         API.fire(_this, 'onHover');
       }, false);
 
+      if (this.options.timeout) {
+        Utils.addClass(this.barDom, 'noty_has_timeout');
+      }
+
       if (Utils.inArray('button', this.options.closeWith)) {
         Utils.addClass(this.barDom, 'noty_close_with_button');
 
@@ -829,21 +865,27 @@ var Noty = function () {
       }
 
       API.fire(this, 'onShow');
-      Utils.addClass(this.barDom, this.options.animation.open);
 
-      Utils.addListener(this.barDom, Utils.animationEndEvents, function () {
-        Utils.removeClass(_this.barDom, _this.options.animation.open);
-        API.fire(_this, 'afterShow');
-        API.queueClose(_this);
-
-        Utils.addListener(_this.barDom, 'mouseenter', function () {
-          API.dequeueClose(_this);
+      if (this.options.animation.open == null) {
+        var _t = this;
+        setTimeout(function () {
+          // ugly fix for progressbar display bug
+          API.openFlow(_t);
+        }, 100);
+      } else if (typeof this.options.animation.open == 'function') {
+        this.options.animation.open.apply(this);
+        var _t2 = this;
+        setTimeout(function () {
+          // ugly fix for progressbar display bug
+          API.openFlow(_t2);
+        }, 100);
+      } else {
+        Utils.addClass(this.barDom, this.options.animation.open);
+        Utils.addListener(this.barDom, Utils.animationEndEvents, function () {
+          Utils.removeClass(_this.barDom, _this.options.animation.open);
+          API.openFlow(_this);
         });
-
-        Utils.addListener(_this.barDom, 'mouseleave', function () {
-          API.queueClose(_this);
-        });
-      });
+      }
 
       return this;
     }
@@ -860,6 +902,35 @@ var Noty = function () {
       return this;
     }
   }, {
+    key: 'setTimeout',
+    value: function (_setTimeout) {
+      function setTimeout(_x) {
+        return _setTimeout.apply(this, arguments);
+      }
+
+      setTimeout.toString = function () {
+        return _setTimeout.toString();
+      };
+
+      return setTimeout;
+    }(function (ms) {
+      this.stop();
+      this.options.timeout = ms;
+      if (this.options.timeout) {
+        Utils.addClass(this.barDom, 'noty_has_timeout');
+      } else {
+        Utils.removeClass(this.barDom, 'noty_has_timeout');
+      }
+
+      var _t = this;
+      setTimeout(function () {
+        // ugly fix for progressbar display bug
+        _t.resume();
+      }, 100);
+
+      return this;
+    })
+  }, {
     key: 'setText',
     value: function setText(html) {
       var optionsOverride = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
@@ -873,12 +944,16 @@ var Noty = function () {
   }, {
     key: 'setType',
     value: function setType(type) {
+      var _this2 = this;
+
       var optionsOverride = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-      var oldClass = 'noty_type__' + this.options.type;
-      var newClass = 'noty_type__' + type;
-      Utils.removeClass(this.barDom, oldClass);
-      Utils.addClass(this.barDom, newClass);
+      var classList = Utils.classList(this.barDom).split(' ');
+      classList.forEach(function (c) {
+        if (c.substring(0, 11) == 'noty_type__') Utils.removeClass(_this2.barDom, c);
+      });
+
+      Utils.addClass(this.barDom, 'noty_type__' + type);
 
       if (optionsOverride) this.options.type = type;
 
@@ -887,12 +962,16 @@ var Noty = function () {
   }, {
     key: 'setTheme',
     value: function setTheme(theme) {
+      var _this3 = this;
+
       var optionsOverride = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
 
-      var oldClass = 'noty_theme__' + this.options.theme;
-      var newClass = 'noty_theme__' + theme;
-      Utils.removeClass(this.barDom, oldClass);
-      Utils.addClass(this.barDom, newClass);
+      var classList = Utils.classList(this.barDom).split(' ');
+      classList.forEach(function (c) {
+        if (c.substring(0, 12) == 'noty_theme__') Utils.removeClass(_this3.barDom, c);
+      });
+
+      Utils.addClass(this.barDom, 'noty_theme__' + theme);
 
       if (optionsOverride) this.options.theme = theme;
 
@@ -906,7 +985,7 @@ var Noty = function () {
   }, {
     key: 'close',
     value: function close() {
-      var _this2 = this;
+      var _this4 = this;
 
       if (this.closed) return this;
 
@@ -918,23 +997,25 @@ var Noty = function () {
 
       API.fire(this, 'onClose');
 
-      Utils.addClass(this.barDom, this.options.animation.close);
+      if (this.options.animation.close == null) {
+        Utils.remove(this.barDom);
+        API.closeFlow(this);
+      } else if (typeof this.options.animation.close == 'function') {
+        this.options.animation.close.apply(this);
+        API.closeFlow(this);
+      } else {
+        Utils.addClass(this.barDom, this.options.animation.close);
+        Utils.addListener(this.barDom, Utils.animationEndEvents, function () {
+          if (_this4.options.force) {
+            Utils.remove(_this4.barDom);
+          } else {
+            API.ghostFix(_this4);
+          }
+          API.closeFlow(_this4);
+        });
+      }
 
       this.closed = true;
-
-      Utils.addListener(this.barDom, Utils.animationEndEvents, function () {
-        if (_this2.options.force) {
-          Utils.remove(_this2.barDom);
-        } else {
-          API.ghostFix(_this2);
-        }
-        delete API.Store[_this2.id];
-        API.fire(_this2, 'afterClose');
-
-        if (_this2.layoutDom.querySelectorAll('.noty_bar').length == 0 && !_this2.options.container) Utils.remove(_this2.layoutDom);
-
-        API.queueRender(_this2.options.queue);
-      });
 
       return this;
     }
