@@ -52,6 +52,7 @@
         <h2 style="text-align: center">Custom Container</h2>
     </div>
 
+    <script src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
     <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
     <script type="text/javascript" src="bouncejs/bounce.js"></script>
     <script type="text/javascript" src="../lib/noty.js"></script>
@@ -139,13 +140,52 @@
                     });
             };
 
+            var velocityShowExample = function() {
+                var n = this;
+
+                Velocity(n.barDom, {
+                    left: 450,
+                    scaleY: 2
+                }, {
+                    duration: 0
+                });
+                Velocity(n.barDom, {
+                    left: 0,
+                    scaleY: 1
+                }, {
+                    easing: [ 8, 8 ]
+                });
+            };
+
+            var velocityCloseExample = function() {
+                var n = this;
+
+                Velocity(n.barDom, {
+                    left: '+=-50'
+                }, {
+                    easing: [ 8, 8, 2],
+                    duration: 350
+                });
+                Velocity(n.barDom, {
+                    left: 450,
+                    scaleY: .2,
+                    height: 0,
+                    margin: 0
+                }, {
+                    easing: [ 8, 8 ],
+                    complete: function () {
+                        n.barDom.parentNode.removeChild(n.barDom);
+                    }
+                });
+            };
+
             Noty.overrideDefaults({
                 layout   : 'topRight',
                 theme    : 'mint',
                 closeWith: ['button', 'click'],
                 animation: {
-                    open : bouncejsOpenExample,
-                    close: bouncejsCloseExample
+                    open : velocityShowExample,
+                    close: velocityCloseExample
                 }
             });
 
