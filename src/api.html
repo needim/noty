@@ -25,6 +25,7 @@ n.close(); // Close a NOTY
 n.setText('Hi again!'); // Notification text updater. Important: .noty_body class is required for setText API method.
 n.setType('error'); // Notification type updater
 n.setTheme('newTheme'); // Notification theme updater
+n.setTimeout(4500); // false (clears timeout) or integer (clears timer, starts for given value)
 n.stop(); // Clears the timeout
 n.resume(); // Restarts the timeout
 </pre>

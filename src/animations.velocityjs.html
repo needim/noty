@@ -1,0 +1,80 @@
+//= template/head.html
+
+                    <div id="options">
+
+                        <div class="row">
+                            <div class="col-xs-12 col-md-12 col-lg-12">
+
+                                <h1><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations with <strong class="imp">velocity.js</strong></h1>
+
+
+                                <div>
+                                    <p>
+                                        Get <a target="_blank" href="http://velocityjs.org/?ref=notyjs">velocity.js</a>, first.
+                                    </p>
+
+                                    <p>
+                                        <br><button id="run-example-velocity" class="button">RUN EXAMPLE</button>
+                                    </p>
+
+<pre class="prettyprint lang-javascript">
+new Noty({
+    ...
+    text: 'NOTY - animating with velocity!',
+    ...
+    animation: {
+        open: function () {
+            var n = this;
+            Velocity(n.barDom, {
+                left: 450,
+                scaleY: 2
+            }, {
+                duration: 0
+            });
+            Velocity(n.barDom, {
+                left: 0,
+                scaleY: 1
+            }, {
+                easing: [ 8, 8 ]
+            });
+        },
+        close: function () {
+            var n = this;
+            Velocity(n.barDom, {
+                left: '+=-50'
+            }, {
+                easing: [ 8, 8, 2],
+                duration: 350
+            });
+            Velocity(n.barDom, {
+                left: 450,
+                scaleY: .2,
+                height: 0,
+                margin: 0
+            }, {
+                easing: [ 8, 8 ],
+                complete: function () {
+                    n.barDom.parentNode.removeChild(n.barDom);
+                }
+            });
+        }
+    }
+}).show();
+</pre>
+
+
+                                    <blockquote>
+                                        <strong class="imp">Important:</strong> You need to remove NOTY's dom on <strong>close</strong>.
+                                    </blockquote>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-section mt30 mb30">
+                        Next; <a href="/noty/confirmations.html">Confirm Dialogs</a>
+                    </div>
+
+//= template/foot.html

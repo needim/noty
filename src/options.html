@@ -84,18 +84,22 @@ new Noty({
                     </td>
                 </tr>
                 <tr>
-                    <td><strong class="imp">animation.open</strong> <br><small>: string</small></td>
+                    <td><strong class="imp">animation.open</strong> <br><small>: string | null | function</small></td>
                     <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'noty_effects_open'</td>
                     <td class="small">
-                        CSS class name
+                        If <strong>string</strong>, assumed to be CSS class name.<br>
+                        If <strong>null</strong>, no animation at all.<br>
+                        If <strong>function</strong>, runs the function. (v3.0.1+)
                         <hr> You can use animate.css class names or your custom css animations as well.
                     </td>
                 </tr>
                 <tr>
-                    <td data-th="Option"><strong class="imp">animation.close</strong> <br><small>: string</small></td>
+                    <td data-th="Option"><strong class="imp">animation.close</strong> <br><small>: string | null | function</small></td>
                     <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'noty_effects_close'</td>
                     <td class="small">
-                        CSS class name
+                        If <strong>string</strong>, assumed to be CSS class name.<br>
+                        If <strong>null</strong>, no animation at all.<br>
+                        If <strong>function</strong>, runs the function. (v3.0.1+)
                         <hr> You can use animate.css class names or your custom css animations as well.
                     </td>
                 </tr>
@@ -117,7 +121,7 @@ new Noty({
                     <td><strong class="imp">queue</strong> <br><small>: string</small></td>
                     <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'global'</td>
                     <td class="small">
-                        <span class="imp issue bold">NEW</span> Named queue system. Details are below.
+                        <span class="imp issue bold">NEW</span> Named queue system. Details are <a href="/noty/api.html">here</a>.
                     </td>
                 </tr>
                 <tr>

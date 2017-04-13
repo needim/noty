@@ -57,16 +57,19 @@
                         <a href="/noty/layouts.html"> <span class="ps-icon ps-icon-apps"></span> Types & Layouts</a>
                     </li>
                     <li>
-                        <a href="/noty/themes.html"><span class="ps-icon ps-icon-wand"></span> Theme Library</a>
+                        <a href="/noty/themes.html"><span class="ps-icon ps-icon-wand"></span> <span class="theme-library">Theme Library</span></a>
                     </li>
                     <li>
                         <a href="/noty/animations.html"><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations</a>
                         <ul>
                             <li>
-                                <a href="/noty/animations.mojs.html">with <strong>mojs</strong></a>
+                                <a href="/noty/animations.bouncejs.html">with <strong>bounce.js</strong></a>
                             </li>
                             <li>
-                                <a href="/noty/animations.bouncejs.html">with <strong>bounce.js</strong></a>
+                                <a href="/noty/animations.mojs.html">with <strong>mo.js</strong></a>
+                            </li>
+                            <li>
+                                <a href="/noty/animations.velocityjs.html">with <strong>velocity.js</strong></a>
                             </li>
                         </ul>
                     </li>
@@ -205,18 +208,18 @@ new Noty({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">animation.open</strong> <br><small>: string</small></td>
+                                        <td><strong class="imp">animation.open</strong> <br><small>: string | null | function</small></td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'noty_effects_open'</td>
                                         <td class="small">
-                                            CSS class name
+                                            If <strong>string</strong>, assumed to be CSS class name.<br> If <strong>null</strong>, no animation at all.<br> If <strong>function</strong>, runs the function. (v3.0.1+)
                                             <hr> You can use animate.css class names or your custom css animations as well.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td data-th="Option"><strong class="imp">animation.close</strong> <br><small>: string</small></td>
+                                        <td data-th="Option"><strong class="imp">animation.close</strong> <br><small>: string | null | function</small></td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'noty_effects_close'</td>
                                         <td class="small">
-                                            CSS class name
+                                            If <strong>string</strong>, assumed to be CSS class name.<br> If <strong>null</strong>, no animation at all.<br> If <strong>function</strong>, runs the function. (v3.0.1+)
                                             <hr> You can use animate.css class names or your custom css animations as well.
                                         </td>
                                     </tr>
@@ -238,7 +241,7 @@ new Noty({
                                         <td><strong class="imp">queue</strong> <br><small>: string</small></td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'global'</td>
                                         <td class="small">
-                                            <span class="imp issue bold">NEW</span> Named queue system. Details are below.
+                                            <span class="imp issue bold">NEW</span> Named queue system. Details are <a href="/noty/api.html">here</a>.
                                         </td>
                                     </tr>
                                     <tr>
@@ -344,11 +347,14 @@ Noty.overrideDefaults({
 
         </div>
 
+        <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+        <script src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
         <script type="text/javascript" src="vendor/jquery-1.10.2.min.js"></script>
         <script type="text/javascript" src="vendor/noty-3.0.0/noty.js"></script>
         <script type="text/javascript" src="vendor/google-code-prettify/prettify.js"></script>
         <script type="text/javascript" src="vendor/share.min.js"></script>
         <script type="text/javascript" src="vendor/showdown/showdown.min.js"></script>
+        <script type="text/javascript" src="vendor/bounce.min.js"></script>
         <script type="text/javascript" src="vendor/documentation.js"></script>
 
         <script>

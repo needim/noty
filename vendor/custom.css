@@ -290,12 +290,14 @@ h3.top-name {
   color: #fff;
   text-shadow: none;
   border-radius: 2px;
+  text-decoration: none;
 }
 
 .button:hover {
   color: #fff;
   background-color: #c0a7fd;
   border-color: #948CE2;
+  text-decoration: none;
 }
 
 /* ---- */
@@ -516,6 +518,12 @@ select {
   text-decoration: none;
 }
 
+.theme-library {
+  background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 @media only screen
 and (max-width : 600px) {
   .rwd-table th {
@@ -557,5 +565,9 @@ and (max-width : 600px) {
   }
   ul ul {
     padding-left: 20px;
+  }
+
+  .button {
+    margin-bottom: 4px;
   }
 }

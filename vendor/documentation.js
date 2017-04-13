@@ -17,6 +17,169 @@ $(function () {
     $activeLink.addClass('active');
   }
 
+  var velocityShow = function () {
+    var n = this;
+    Velocity(n.barDom, {
+      left  : 450,
+      scaleY: 2
+    }, {
+      duration: 0
+    });
+    Velocity(n.barDom, {
+      left  : 0,
+      scaleY: 1
+    }, {
+      easing: [8, 8]
+    });
+  };
+
+  var velocityClose = function () {
+    var n = this;
+    Velocity(n.barDom, {
+      left: '+=-50'
+    }, {
+      easing  : [8, 8, 2],
+      duration: 350
+    });
+    Velocity(n.barDom, {
+      left  : 450,
+      scaleY: .2,
+      height: 0,
+      margin: 0
+    }, {
+      easing  : [8, 8],
+      complete: function () {
+        n.barDom.parentNode.removeChild(n.barDom);
+      }
+    });
+  };
+
+  var mojsShow = function () {
+    var n = this;
+    new mojs.Html({
+      el        : n.barDom,
+      x         : {200: 0, delay: 10, duration: 500, easing: 'cubic.out'},
+      skewY     : {5: 0, delay: 10, duration: 500, easing: 'cubic.out'},
+      isForce3d : true,
+      onComplete: function () {
+        n.resume(); // reset timeout
+      }
+    }).play();
+  };
+
+  var mojsClose = function () {
+    var n = this;
+    new mojs.Html({
+      el        : n.barDom,
+      x         : {0: 500, delay: 10, duration: 500, easing: 'cubic.out'},
+      skewY     : {0: 10, delay: 10, duration: 500, easing: 'cubic.out'},
+      isForce3d : true,
+      onComplete: function () {
+        n.barDom.parentNode.removeChild(n.barDom); // removing noty's dom from document
+      }
+    }).play();
+  };
+
+  var bouncejsShow = function () {
+    var n = this;
+    new Bounce()
+        .translate({
+          from: {x: 450, y: 0}, to: {x: 0, y: 0},
+          easing                  : "bounce",
+          duration                : 1000,
+          bounces                 : 4,
+          stiffness               : 3
+        })
+        .scale({
+          from: {x: 1.2, y: 1}, to: {x: 1, y: 1},
+          easing                  : "bounce",
+          duration                : 1000,
+          delay                   : 100,
+          bounces                 : 4,
+          stiffness               : 1
+        })
+        .scale({
+          from: {x: 1, y: 1.2}, to: {x: 1, y: 1},
+          easing                  : "bounce",
+          duration                : 1000,
+          delay                   : 100,
+          bounces                 : 6,
+          stiffness               : 1
+        })
+        .applyTo(n.barDom, {
+          onComplete: function () {
+            n.resume();
+          }
+        });
+  };
+
+  var bouncejsClose = function () {
+    var n = this;
+    new Bounce()
+        .translate({
+          from: {x: 0, y: 0}, to: {x: 450, y: 0},
+          easing                : "bounce",
+          duration              : 500,
+          bounces               : 4,
+          stiffness             : 1
+        })
+        .applyTo(n.barDom, {
+          onComplete: function () {
+            n.barDom.parentNode.removeChild(n.barDom);
+          }
+        });
+  };
+
+  var types = ['alert', 'warning', 'success', 'information', 'error'];
+
+  $('#run-example-velocity').on('click', function (e) {
+    e.preventDefault();
+
+    new Noty({
+      text     : 'NOTY - animating with velocity!',
+      type     : types[Math.floor(Math.random() * types.length)],
+      timeout  : 5000,
+      animation: {
+        open : velocityShow,
+        close: velocityClose
+      }
+    }).show();
+
+    return false;
+  });
+
+  $('#run-example-mojs').on('click', function (e) {
+    e.preventDefault();
+
+    new Noty({
+      text     : 'NOTY - animating with mojs!',
+      type     : types[Math.floor(Math.random() * types.length)],
+      timeout  : 5000,
+      animation: {
+        open : mojsShow,
+        close: mojsClose
+      }
+    }).show();
+
+    return false;
+  });
+
+  $('#run-example-bouncejs').on('click', function (e) {
+    e.preventDefault();
+
+    new Noty({
+      text     : 'NOTY - animating with bouncejs!',
+      type     : types[Math.floor(Math.random() * types.length)],
+      timeout  : 5000,
+      animation: {
+        open : bouncejsShow,
+        close: bouncejsClose
+      }
+    }).show();
+
+    return false;
+  });
+
   $('.runner').on('click', function (e) {
 
     var notes = [];
