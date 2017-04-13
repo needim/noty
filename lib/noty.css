@@ -3,11 +3,13 @@
   margin: 0;
   padding: 0;
   z-index: 9999999;
+  -webkit-transform: translateZ(0) scale(1, 1);
+          transform: translateZ(0) scale(1, 1);
   -webkit-backface-visibility: hidden;
-  -webkit-transform: translate(0, 0) translateZ(0) scale(1, 1);
-  -ms-transform: translate(0, 0) scale(1, 1);
-      transform: translate(0, 0) scale(1, 1);
+          backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
+  filter: blur(0);
+  -webkit-filter: blur(0);
   max-width: 90%; }
 
 #noty_layout__top {
@@ -24,8 +26,8 @@
   top: 5%;
   left: 50%;
   width: 325px;
-  -webkit-transform: translate(-50%) translateZ(0) scale(1, 1);
-          transform: translate(-50%) translateZ(0) scale(1, 1); }
+  -webkit-transform: translate(-webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
+          transform: translate(calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 #noty_layout__topRight {
   top: 20px;
@@ -46,8 +48,8 @@
   bottom: 5%;
   left: 50%;
   width: 325px;
-  -webkit-transform: translate(-50%) translateZ(0) scale(1, 1);
-          transform: translate(-50%) translateZ(0) scale(1, 1); }
+  -webkit-transform: translate(-webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
+          transform: translate(calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 #noty_layout__bottomRight {
   bottom: 20px;
@@ -58,22 +60,22 @@
   top: 50%;
   left: 50%;
   width: 325px;
-  -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1, 1);
-          transform: translate(-50%, -50%) translateZ(0) scale(1, 1); }
+  -webkit-transform: translate(-webkit-calc(-50% - .5px), -webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
+          transform: translate(calc(-50% - .5px), calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 #noty_layout__centerLeft {
   top: 50%;
   left: 20px;
   width: 325px;
-  -webkit-transform: translate(0, -50%) translateZ(0) scale(1, 1);
-          transform: translate(0, -50%) translateZ(0) scale(1, 1); }
+  -webkit-transform: translate(0, -webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
+          transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 #noty_layout__centerRight {
   top: 50%;
   right: 20px;
   width: 325px;
-  -webkit-transform: translate(0, -50%) translateZ(0) scale(1, 1);
-          transform: translate(0, -50%) translateZ(0) scale(1, 1); }
+  -webkit-transform: translate(0, -webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
+          transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 .noty_progressbar {
   position: absolute;

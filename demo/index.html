@@ -56,6 +56,30 @@
     <script type="text/javascript">
         (function () {
 
+            Noty.overrideDefaults({
+                layout   : 'topRight',
+                theme    : 'carnival',
+                closeWith: ['button', 'click'],
+                animation: {
+//                open : 'animated fadeInRight',
+//                close: 'animated fadeOutRight'
+                },
+                callbacks: {
+                    onTemplate: function () {
+                        console.log('template dude', this);
+                    }
+                },
+                force    : false
+//            ,buttons  : [
+//                Noty.button('Button 1', null, function () {
+//                    console.log('button 1 clicked');
+//                }, {id: 'button1', 'data-status': 'ok'}),
+//                Noty.button('Button 2', null, function () {
+//                    console.log('button 2 clicked');
+//                })
+//            ]
+            });
+
             document.querySelector('.runner').addEventListener('click', function(e) {
                 e.preventDefault();
 
@@ -90,7 +114,7 @@
                 new Noty({
                     text   : notes[type],
                     type   : type,
-                    timeout: 3000,
+                    timeout: false,
                     layout : layout
                 }).show();
 
@@ -108,65 +132,40 @@
                 notification_error   = '<div class="activity-item"> <i class="fa fa-times-circle text-danger"></i> <div class="activity"> Opps! something bad happend! <span>14 minutes ago</span> </div> </div>';
 
 
-            Noty.overrideDefaults({
-                layout   : 'topRight',
-                theme    : 'mint',
-                closeWith: ['button', 'click'],
-                animation: {
-//                open : 'animated fadeInRight',
-//                close: 'animated fadeOutRight'
-                },
-                callbacks: {
-                    onTemplate: function () {
-                        console.log('template dude', this);
-                    }
-                },
-                force    : false
-//            ,buttons  : [
-//                Noty.button('Button 1', null, function () {
-//                    console.log('button 1 clicked');
-//                }, {id: 'button1', 'data-status': 'ok'}),
-//                Noty.button('Button 2', null, function () {
-//                    console.log('button 2 clicked');
-//                })
-//            ]
-            });
-
-
             Noty.setMaxVisible(5); // global queue's max visible amount (default is 5)
             Noty.setMaxVisible(5, 'bottomRight');
 
-//            var n1 = new Noty({
-//                text   : notification_alert,
-//                type   : 'alert',
-//                timeout: false
-//            }).show();
-//            var n2 = new Noty({
-//                text   : notification_success,
-//                type   : 'success',
-//                timeout: getRandomInt(4000, 10000)
-//            }).show();
-//
-//            var n3 = new Noty({
-//                text   : notification_warning,
-//                type   : 'warning',
-//                timeout: getRandomInt(4000, 10000)
-//            }).show();
-//            var n4 = new Noty({
-//                text   : notification_error,
-//                type   : 'error',
-//                timeout: getRandomInt(4000, 10000)
-//            }).show();
-//            var n5 = new Noty({
-//                text   : notification_info,
-//                type   : 'info',
-//                timeout: getRandomInt(4000, 10000)
-//            }).show();
-//            var n6 = new Noty({
-//                text   : notification_success,
-//                type   : 'success',
-//                timeout: getRandomInt(4000, 10000)
-//            }).show();
+            var n1 = new Noty({
+                text   : notification_alert,
+                type   : 'alert',
+                timeout: false
+            }).show();
+            var n2 = new Noty({
+                text   : notification_success,
+                type   : 'success',
+                timeout: getRandomInt(4000, 10000)
+            }).show();
+
+            var n3 = new Noty({
+                text   : notification_warning,
+                type   : 'warning',
+                timeout: getRandomInt(4000, 10000)
+            }).show();
+            var n4 = new Noty({
+                text   : notification_error,
+                type   : 'error',
+                timeout: getRandomInt(4000, 10000)
+            }).show();
+            var n5 = new Noty({
+                text   : notification_info,
+                type   : 'info',
+                timeout: getRandomInt(4000, 10000)
+            }).show();
+            var n6 = new Noty({
+                text   : notification_success,
+                type   : 'success',
+                timeout: getRandomInt(4000, 10000)
+            }).show();
 
 //            setTimeout(function() {
 //                n1.setText('Opps something is changed!', true);
