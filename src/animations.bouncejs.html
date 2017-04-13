@@ -24,19 +24,52 @@ new Noty({
     ...
     animation: {
         open: function () {
-
+            var n = this;
+            new Bounce()
+                .translate({
+                    from     : {x: 450, y: 0}, to: {x: 0, y: 0},
+                    easing   : "bounce",
+                    duration : 1000,
+                    bounces  : 4,
+                    stiffness: 3
+                })
+                .scale({
+                    from     : {x: 1.2, y: 1}, to: {x: 1, y: 1},
+                    easing   : "bounce",
+                    duration : 1000,
+                    delay    : 100,
+                    bounces  : 4,
+                    stiffness: 1
+                })
+                .scale({
+                    from     : {x: 1, y: 1.2}, to: {x: 1, y: 1},
+                    easing   : "bounce",
+                    duration : 1000,
+                    delay    : 100,
+                    bounces  : 6,
+                    stiffness: 1
+                })
+                .applyTo(n.barDom, {
+                    onComplete: function () {
+                        n.resume();
+                    }
+                });
         }
         close: function () {
             var n = this;
-            new mojs.Html({
-                el        : n.barDom,
-                x         : {0: 500, delay: 10, duration: 500, easing: 'cubic.out'},
-                skewY     : {0: 10, delay: 10, duration: 500, easing: 'cubic.out'},
-                isForce3d : true,
-                onComplete: function () {
-                    n.barDom.parentNode.removeChild(n.barDom); // removing noty's dom from document
-                }
-            }).play();
+            new Bounce()
+                .translate({
+                    from     : {x: 0, y: 0}, to: {x: 450, y: 0},
+                    easing   : "bounce",
+                    duration : 500,
+                    bounces  : 4,
+                    stiffness: 1
+                })
+                .applyTo(n.barDom, {
+                    onComplete: function () {
+                        n.barDom.parentNode.removeChild(n.barDom);
+                    }
+                });
         }
     }
 }).show();
