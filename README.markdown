@@ -31,6 +31,29 @@ Documentation and examples are here: <http://ned.im/noty>
 
 ***
 
+##### Basic Usage
+
+```js
+import Noty from 'noty';
+
+new Noty({
+    text: 'Notification text'
+}).show();
+
+// or 
+
+const Noty = require('noty');
+
+new Noty({
+    text: 'Notification text'
+}).show();
+
+```
+
 ##### Development
 
-npm run dev
+```console
+$ npm run dev
+$ npm run build
+$ npm test
+```
