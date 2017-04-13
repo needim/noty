@@ -51,36 +51,45 @@
         <h2 style="text-align: center">Custom Container</h2>
     </div>
 
+    <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
     <script type="text/javascript" src="../lib/noty.js"></script>
 
     <script type="text/javascript">
         (function () {
 
+            var mojsOpenExample = function () {
+                var n = this;
+                new mojs.Html({
+                    el        : n.barDom,
+                    x         : {200: 0, delay: 10, duration: 500, easing: 'cubic.out'},
+                    skewY     : {5: 0, delay: 10, duration: 500, easing: 'cubic.out'},
+                    isForce3d : true,
+                    onComplete: function () {
+                        n.resume();
+                    }
+                }).play();
+            };
+
+            var mojsCloseExample = function () {
+                var n = this;
+                new mojs.Html({
+                    el        : n.barDom,
+                    x         : {0: 500, delay: 10, duration: 500, easing: 'cubic.out'},
+                    skewY     : {0: 10, delay: 10, duration: 500, easing: 'cubic.out'},
+                    isForce3d : true,
+                    onComplete: function () {
+                        n.barDom.parentNode.removeChild(n.barDom);
+                    }
+                }).play();
+            };
+
             Noty.overrideDefaults({
                 layout   : 'topRight',
-                theme    : 'carnival',
-                closeWith: ['button', 'click'],
-                animation: {
-//                open : 'animated fadeInRight',
-//                close: 'animated fadeOutRight'
-                },
-                callbacks: {
-                    onTemplate: function () {
-                        console.log('template dude', this);
-                    }
-                },
-                force    : false
-//            ,buttons  : [
-//                Noty.button('Button 1', null, function () {
-//                    console.log('button 1 clicked');
-//                }, {id: 'button1', 'data-status': 'ok'}),
-//                Noty.button('Button 2', null, function () {
-//                    console.log('button 2 clicked');
-//                })
-//            ]
+                theme    : 'mint',
+                closeWith: ['button', 'click']
             });
 
-            document.querySelector('.runner').addEventListener('click', function(e) {
+            document.querySelector('.runner').addEventListener('click', function (e) {
                 e.preventDefault();
 
                 var notes = [];
@@ -91,8 +100,6 @@
                 layout = layout.options[layout.selectedIndex].text;
                 type = type.options[type.selectedIndex].text;
 
-                console.log(layout, type);
-
                 notes['alert'] = 'Best check yo self, you\'re not looking too good.';
                 notes['error'] = 'Change a few things up and try submitting again.';
                 notes['success'] = 'You successfully read this important alert message.';
@@ -100,12 +107,11 @@
                 notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
                 notes['confirm'] = 'Do you want to continue?';
 
-
                 if (layout == 'inline') {
                     new Noty({
                         text     : notes[type],
                         type     : type,
-                        timeout  : false,
+                        timeout  : 5000,
                         container: '#custom_container'
                     }).show();
                     return false;
@@ -114,7 +120,7 @@
                 new Noty({
                     text   : notes[type],
                     type   : type,
-                    timeout: false,
+                    timeout: 5000,
                     layout : layout
                 }).show();
 
@@ -172,8 +178,12 @@
 //            }, 1000);
 //
 //            setTimeout(function() {
-//                n1.setType('warning', true);
-//            }, 2000);
+//                n1.setTheme('relax', false);
+//            }, 1000);
+//
+//            setTimeout(function() {
+//                n1.setTheme('semanticui', false);
+//            }, 3000);
 //
 //            setTimeout(function() {
 //                n1.setTheme('relax', true);
