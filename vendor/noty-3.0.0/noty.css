@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   z-index: 9999999;
+  max-width: 90%;
   -webkit-backface-visibility: hidden;
   -webkit-transform: translate(0, 0) translateZ(0) scale(1, 1);
   -ms-transform: translate(0, 0) scale(1, 1);

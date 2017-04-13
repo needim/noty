@@ -509,8 +509,32 @@ select {
 }
 
 @media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px) {
+and (max-width : 600px) {
+  .rwd-table th {
+    display: none;
+  }
+  .rwd-table td {
+    display: block;
+    border-top: none !important;
+  }
+  .rwd-table td:first-child {
+    padding-top: .5em;
+  }
+  .rwd-table td:last-child {
+    padding-bottom: .5em;
+  }
+  .rwd-table hr {
+    border-top: none;
+  }
+  .sharer-btn.text-center.sharer-0 {
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  iframe {
+    margin-top: 5px;
+  }
+
   h1 > span {
     display: block;
     text-align: center;
