@@ -55,7 +55,7 @@ export const deepExtend = function (out) {
       if (obj.hasOwnProperty(key)) {
         if (Array.isArray(obj[key]))
           out[key] = obj[key];
-        else if (typeof obj[key] === 'object')
+        else if (typeof obj[key] === 'object' && obj[key] != null)
           out[key] = deepExtend(out[key], obj[key]);
         else
           out[key] = obj[key];

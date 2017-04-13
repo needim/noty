@@ -150,10 +150,13 @@ export default class Noty {
   }
 
   setType (type, optionsOverride = false) {
-    const oldClass = `noty_type__${this.options.type}`;
-    const newClass = `noty_type__${type}`;
-    Utils.removeClass(this.barDom, oldClass);
-    Utils.addClass(this.barDom, newClass);
+    let classList = Utils.classList(this.barDom).split(' ');
+    classList.forEach((c) => {
+      if (c.substring(0, 11) == 'noty_type__')
+        Utils.removeClass(this.barDom, c);
+    });
+
+    Utils.addClass(this.barDom, `noty_type__${type}`);
 
     if (optionsOverride)
       this.options.type = type;
@@ -162,10 +165,13 @@ export default class Noty {
   }
 
   setTheme (theme, optionsOverride = false) {
-    const oldClass = `noty_theme__${this.options.theme}`;
-    const newClass = `noty_theme__${theme}`;
-    Utils.removeClass(this.barDom, oldClass);
-    Utils.addClass(this.barDom, newClass);
+    let classList = Utils.classList(this.barDom).split(' ');
+    classList.forEach((c) => {
+      if (c.substring(0, 12) == 'noty_theme__')
+        Utils.removeClass(this.barDom, c);
+    });
+
+    Utils.addClass(this.barDom, `noty_theme__${theme}`);
 
     if (optionsOverride)
       this.options.theme = theme;
