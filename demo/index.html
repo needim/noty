@@ -36,9 +36,10 @@
                 </optgroup>
             </select>
             <select name="type" id="type">
+                <option value="random" selected>random</option>
                 <option value="alert">alert</option>
                 <option value="success">success</option>
-                <option value="warning" selected>warning</option>
+                <option value="warning">warning</option>
                 <option value="error">error</option>
                 <option value="information">information</option>
             </select>
@@ -52,6 +53,7 @@
     </div>
 
     <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+    <script type="text/javascript" src="bouncejs/bounce.js"></script>
     <script type="text/javascript" src="../lib/noty.js"></script>
 
     <script type="text/javascript">
@@ -83,10 +85,68 @@
                 }).play();
             };
 
+            var bouncejsOpenExample = function () {
+                var n = this;
+                new Bounce()
+                    .translate({
+                        from     : {x: 450, y: 0},
+                        to       : {x: 0, y: 0},
+                        easing   : "bounce",
+                        duration : 1000,
+                        bounces  : 4,
+                        stiffness: 3
+                    })
+                    .scale({
+                        from     : {x: 1.2, y: 1},
+                        to       : {x: 1, y: 1},
+                        easing   : "bounce",
+                        duration : 1000,
+                        delay    : 100,
+                        bounces  : 4,
+                        stiffness: 1
+                    })
+                    .scale({
+                        from     : {x: 1, y: 1.2},
+                        to       : {x: 1, y: 1},
+                        easing   : "bounce",
+                        duration : 1000,
+                        delay    : 100,
+                        bounces  : 6,
+                        stiffness: 1
+                    })
+                    .applyTo(n.barDom, {
+                        onComplete: function () {
+                            n.resume();
+                        }
+                    });
+            };
+
+            var bouncejsCloseExample = function () {
+                var n = this;
+                new Bounce()
+                    .translate({
+                        from     : {x: 0, y: 0},
+                        to       : {x: 450, y: 0},
+                        easing   : "bounce",
+                        duration : 500,
+                        bounces  : 4,
+                        stiffness: 1
+                    })
+                    .applyTo(n.barDom, {
+                        onComplete: function () {
+                            n.barDom.parentNode.removeChild(n.barDom);
+                        }
+                    });
+            };
+
             Noty.overrideDefaults({
                 layout   : 'topRight',
                 theme    : 'mint',
-                closeWith: ['button', 'click']
+                closeWith: ['button', 'click'],
+                animation: {
+                    open : bouncejsOpenExample,
+                    close: bouncejsCloseExample
+                }
             });
 
             document.querySelector('.runner').addEventListener('click', function (e) {
@@ -100,12 +160,15 @@
                 layout = layout.options[layout.selectedIndex].text;
                 type = type.options[type.selectedIndex].text;
 
+                var types = ['alert', 'error', 'success', 'information', 'warning'];
+                if (type == 'random')
+                    type = types[Math.floor(Math.random() * types.length)];
+
                 notes['alert'] = 'Best check yo self, you\'re not looking too good.';
                 notes['error'] = 'Change a few things up and try submitting again.';
                 notes['success'] = 'You successfully read this important alert message.';
                 notes['information'] = 'This alert needs your attention, but it\'s not super important.';
                 notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
-                notes['confirm'] = 'Do you want to continue?';
 
                 if (layout == 'inline') {
                     new Noty({
@@ -141,37 +204,37 @@
             Noty.setMaxVisible(5); // global queue's max visible amount (default is 5)
             Noty.setMaxVisible(5, 'bottomRight');
 
-            var n1 = new Noty({
-                text   : notification_alert,
-                type   : 'alert',
-                timeout: false
-            }).show();
-            var n2 = new Noty({
-                text   : notification_success,
-                type   : 'success',
-                timeout: getRandomInt(4000, 10000)
-            }).show();
-
-            var n3 = new Noty({
-                text   : notification_warning,
-                type   : 'warning',
-                timeout: getRandomInt(4000, 10000)
-            }).show();
-            var n4 = new Noty({
-                text   : notification_error,
-                type   : 'error',
-                timeout: getRandomInt(4000, 10000)
-            }).show();
-            var n5 = new Noty({
-                text   : notification_info,
-                type   : 'info',
-                timeout: getRandomInt(4000, 10000)
-            }).show();
-            var n6 = new Noty({
-                text   : notification_success,
-                type   : 'success',
-                timeout: getRandomInt(4000, 10000)
-            }).show();
+//            var n1 = new Noty({
+//                text   : notification_alert,
+//                type   : 'alert',
+//                timeout: false
+//            }).show();
+//            var n2 = new Noty({
+//                text   : notification_success,
+//                type   : 'success',
+//                timeout: getRandomInt(4000, 10000)
+//            }).show();
+//
+//            var n3 = new Noty({
+//                text   : notification_warning,
+//                type   : 'warning',
+//                timeout: getRandomInt(4000, 10000)
+//            }).show();
+//            var n4 = new Noty({
+//                text   : notification_error,
+//                type   : 'error',
+//                timeout: getRandomInt(4000, 10000)
+//            }).show();
+//            var n5 = new Noty({
+//                text   : notification_info,
+//                type   : 'info',
+//                timeout: getRandomInt(4000, 10000)
+//            }).show();
+//            var n6 = new Noty({
+//                text   : notification_success,
+//                type   : 'success',
+//                timeout: getRandomInt(4000, 10000)
+//            }).show();
 
 //            setTimeout(function() {
 //                n1.setText('Opps something is changed!', true);
