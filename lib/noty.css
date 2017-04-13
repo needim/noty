@@ -78,6 +78,10 @@
           transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 .noty_progressbar {
+  display: none; }
+
+.noty_has_timeout .noty_progressbar {
+  display: block;
   position: absolute;
   left: 0;
   bottom: 0;

@@ -132,7 +132,7 @@ export function ghostFix (ref) {
 export function build (ref) {
   findOrCreateContainer(ref);
 
-  const markup = `<div class="noty_body">${ref.options.text}</div>${buildButtons(ref)}${ref.options.progressBar && ref.options.timeout ? '<div class="noty_progressbar"></div>' : ''}`;
+  const markup = `<div class="noty_body">${ref.options.text}</div>${buildButtons(ref)}<div class="noty_progressbar"></div>`;
 
   ref.barDom = document.createElement('div');
   ref.barDom.setAttribute('id', ref.id);
@@ -171,6 +171,7 @@ function buildButtons (ref) {
   }
   return '';
 }
+
 /**
  * @param {Noty} ref
  * @return {void}
@@ -243,4 +244,35 @@ export function fire (ref, eventName) {
         cb.apply(ref);
     });
   }
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+export function openFlow (ref) {
+  fire(ref, 'afterShow');
+  queueClose(ref);
+
+  Utils.addListener(ref.barDom, 'mouseenter', () => {
+    dequeueClose(ref);
+  });
+
+  Utils.addListener(ref.barDom, 'mouseleave', () => {
+    queueClose(ref);
+  });
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+export function closeFlow (ref) {
+  delete Store[ref.id];
+  fire(ref, 'afterClose');
+
+  if (ref.layoutDom.querySelectorAll('.noty_bar').length == 0 && !ref.options.container)
+    Utils.remove(ref.layoutDom);
+
+  queueRender(ref.options.queue);
 }
