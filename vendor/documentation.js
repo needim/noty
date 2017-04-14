@@ -56,15 +56,64 @@ $(function () {
 
   var mojsShow = function () {
     var n = this;
-    new mojs.Html({
+    var Timeline = new mojs.Timeline();
+    var body = new mojs.Html({
       el        : n.barDom,
-      x         : {200: 0, delay: 10, duration: 500, easing: 'cubic.out'},
-      skewY     : {5: 0, delay: 10, duration: 500, easing: 'cubic.out'},
+      x         : {500: 0, delay: 0, duration: 500, easing: 'elastic.out'},
       isForce3d : true,
       onComplete: function () {
-        n.resume(); // reset timeout
+        n.resume();
       }
-    }).play();
+    });
+
+    var parent = new mojs.Shape({
+      parent: n.barDom,
+      width      : 200,
+      height     : n.barDom.getBoundingClientRect().height,
+      radius     : 0,
+      x          : {[150]: -150},
+      duration   : 1.2 * 500,
+      isShowStart: true
+    });
+
+    n.barDom.style['overflow'] = 'visible';
+    parent.el.style['overflow'] = 'hidden';
+
+    var burst = new mojs.Burst({
+      parent  : parent.el,
+      count   : 10,
+      top     : n.barDom.getBoundingClientRect().height + 75,
+      degree  : 90,
+      radius  : 75,
+      angle   : {[-90]: 40},
+      children: {
+        fill     : '#EBD761',
+        delay    : 'stagger(500, -50)',
+        radius   : 'rand(8, 25)',
+        direction: -1,
+        isSwirl  : true
+      }
+    });
+
+    const fadeBurst = new mojs.Burst({
+      parent  : parent.el,
+      count   : 2,
+      degree  : 0,
+      angle   : 75,
+      radius  : {0: 100},
+      top     : '90%',
+      children: {
+        fill     : '#EBD761',
+        pathScale: [.65, 1],
+        radius   : 'rand(12, 15)',
+        direction: [-1, 1],
+        delay    : .8 * 500,
+        isSwirl  : true
+      }
+    });
+
+    Timeline.add(body, burst, fadeBurst, parent);
+    Timeline.play();
   };
 
   var mojsClose = function () {
@@ -135,9 +184,17 @@ $(function () {
   $('#run-example-velocity').on('click', function (e) {
     e.preventDefault();
 
+    var type = types[Math.floor(Math.random() * types.length)];
+    var notes = [];
+    notes['alert'] = 'Best check yo self, you\'re not looking too good.';
+    notes['error'] = 'Change a few things up and try submitting again.';
+    notes['success'] = 'You successfully read this important alert message.';
+    notes['information'] = 'This alert needs your attention, but it\'s not super important.';
+    notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
+
     new Noty({
-      text     : 'NOTY - animating with velocity!',
-      type     : types[Math.floor(Math.random() * types.length)],
+      text     : notes[type],
+      type     : type,
       timeout  : 5000,
       animation: {
         open : velocityShow,
@@ -151,9 +208,17 @@ $(function () {
   $('#run-example-mojs').on('click', function (e) {
     e.preventDefault();
 
+    var type = types[Math.floor(Math.random() * types.length)];
+    var notes = [];
+    notes['alert'] = 'Best check yo self, you\'re not looking too good.';
+    notes['error'] = 'Change a few things up and try submitting again.';
+    notes['success'] = 'You successfully read this important alert message.';
+    notes['information'] = 'This alert needs your attention, but it\'s not super important.';
+    notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
+
     new Noty({
-      text     : 'NOTY - animating with mojs!',
-      type     : types[Math.floor(Math.random() * types.length)],
+      text     : notes[type],
+      type     : type,
       timeout  : 5000,
       animation: {
         open : mojsShow,
@@ -167,9 +232,17 @@ $(function () {
   $('#run-example-bouncejs').on('click', function (e) {
     e.preventDefault();
 
+    var type = types[Math.floor(Math.random() * types.length)];
+    var notes = [];
+    notes['alert'] = 'Best check yo self, you\'re not looking too good.';
+    notes['error'] = 'Change a few things up and try submitting again.';
+    notes['success'] = 'You successfully read this important alert message.';
+    notes['information'] = 'This alert needs your attention, but it\'s not super important.';
+    notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
+
     new Noty({
-      text     : 'NOTY - animating with bouncejs!',
-      type     : types[Math.floor(Math.random() * types.length)],
+      text     : notes[type],
+      type     : type,
       timeout  : 5000,
       animation: {
         open : bouncejsShow,
