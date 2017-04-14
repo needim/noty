@@ -1,62 +1,70 @@
 /* global __dirname, require, module */
-'use strict';
+'use strict'
 
-const webpack = require('webpack');
-const path = require('path');
-const env = require('yargs').argv.env;
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const extractSass = new ExtractTextPlugin({filename: 'noty.css'});
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+const webpack = require('webpack')
+const path = require('path')
+const env = require('yargs').argv.env
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const extractSass = new ExtractTextPlugin({filename: 'noty.css'})
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin
 
-let libraryName = 'Noty';
-let plugins = [], outputFile;
+let libraryName = 'Noty'
+let plugins = []
+let outputFile
 
-plugins.push(extractSass);
+plugins.push(extractSass)
 plugins.push(new webpack.DefinePlugin({
-  VERSION: JSON.stringify(require("./package.json").version)
-}));
+  VERSION: JSON.stringify(require('./package.json').version)
+}))
 
 if (env === 'build') {
-  plugins.push(new UglifyJsPlugin({minimize: true, sourceMap: true}));
-  outputFile = libraryName.toLowerCase() + '.min.js';
+  plugins.push(new UglifyJsPlugin({minimize: true, sourceMap: true}))
+  outputFile = libraryName.toLowerCase() + '.min.js'
 } else {
-  outputFile = libraryName.toLowerCase() + '.js';
+  outputFile = libraryName.toLowerCase() + '.js'
 }
 
 const config = {
-  entry  : __dirname + '/src/index.js',
+  entry: path.join(__dirname, '/src/index.js'),
   devtool: 'source-map',
-  output : {
-    path          : __dirname + '/lib',
-    filename      : outputFile,
-    library       : libraryName,
-    libraryTarget : 'umd',
+  output: {
+    path: path.join(__dirname, '/lib'),
+    filename: outputFile,
+    library: libraryName,
+    libraryTarget: 'umd',
     umdNamedDefine: true
   },
-  module : {
+  module: {
     rules: [
       {
-        test   : /\.js$/,
-        loader : 'babel-loader',
-        exclude: /(node_modules|bower_components)/
+        // standard-loader as a preloader
+        enforce: 'pre',
+        test: /\.js?$/,
+        loader: 'standard-loader',
+        exclude: /(node_modules|bower_components)/,
+        options: {
+          error: false,
+          snazzy: true,
+          parser: 'babel-eslint'
+        }
       },
       {
-        test   : /\.js$/,
-        loader : 'eslint-loader',
+        test: /\.js$/,
+        loader: 'babel-loader',
         exclude: /(node_modules|bower_components)/
       },
       {
         test: /\.scss$/,
-        use : extractSass.extract(['css-loader', 'postcss-loader', 'sass-loader']),
+        use: extractSass.extract(['css-loader', 'postcss-loader', 'sass-loader']),
         exclude: /(node_modules|bower_components)/
       }
     ]
   },
   resolve: {
-    modules   : [path.resolve('./src')],
+    modules: [path.resolve('./src')],
     extensions: ['.js', '.scss']
   },
   plugins: plugins
-};
+}
 
-module.exports = config;
+module.exports = config

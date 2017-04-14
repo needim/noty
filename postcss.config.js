@@ -4,4 +4,4 @@ module.exports = {
       browsers: ['last 8 versions']
     })
   ]
-};
+}

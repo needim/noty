@@ -40,7 +40,7 @@ new Noty({
     text: 'Notification text'
 }).show();
 
-// or 
+// or
 
 const Noty = require('noty');
 
@@ -57,3 +57,5 @@ $ npm run dev
 $ npm run build
 $ npm test
 ```
+
+[![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)

@@ -1,244 +1,279 @@
 /* global VERSION */
 
-import 'noty.scss';
-import * as Utils from 'utils';
-import * as API from 'api';
-import { NotyButton } from 'button';
+import 'noty.scss'
+import * as Utils from 'utils'
+import * as API from 'api'
+import { NotyButton } from 'button'
 
 export default class Noty {
+  /**
+   * @param {object} options
+   * @return {Noty}
+   */
   constructor (options = {}) {
-    this.options = Utils.deepExtend({}, API.Defaults, options);
-    this.id = this.options.id || Utils.generateID('bar');
-    this.closeTimer = -1;
-    this.barDom = null;
-    this.layoutDom = null;
-    this.progressDom = null;
-    this.shown = false;
-    this.closed = false;
+    this.options = Utils.deepExtend({}, API.Defaults, options)
+    this.id = this.options.id || Utils.generateID('bar')
+    this.closeTimer = -1
+    this.barDom = null
+    this.layoutDom = null
+    this.progressDom = null
+    this.shown = false
+    this.closed = false
     this.listeners = {
       beforeShow: [],
-      onShow    : [],
-      afterShow : [],
-      onClose   : [],
+      onShow: [],
+      afterShow: [],
+      onClose: [],
       afterClose: [],
-      onHover   : [],
+      onHover: [],
       onTemplate: []
-    };
+    }
 
-    this.on('beforeShow', this.options.callbacks.beforeShow);
-    this.on('onShow', this.options.callbacks.onShow);
-    this.on('afterShow', this.options.callbacks.afterShow);
-    this.on('onClose', this.options.callbacks.onClose);
-    this.on('afterClose', this.options.callbacks.afterClose);
-    this.on('onHover', this.options.callbacks.onHover);
-    this.on('onTemplate', this.options.callbacks.onTemplate);
+    this.on('beforeShow', this.options.callbacks.beforeShow)
+    this.on('onShow', this.options.callbacks.onShow)
+    this.on('afterShow', this.options.callbacks.afterShow)
+    this.on('onClose', this.options.callbacks.onClose)
+    this.on('afterClose', this.options.callbacks.afterClose)
+    this.on('onHover', this.options.callbacks.onHover)
+    this.on('onTemplate', this.options.callbacks.onTemplate)
 
-    return this;
+    return this
   }
 
+  /**
+   * @param {string} eventName
+   * @param {function} cb
+   * @return {Noty}
+   */
   on (eventName, cb = () => {}) {
-    if (typeof cb == 'function' && this.listeners.hasOwnProperty(eventName))
-      this.listeners[eventName].push(cb);
+    if (typeof cb === 'function' && this.listeners.hasOwnProperty(eventName)) {
+      this.listeners[eventName].push(cb)
+    }
 
-    return this;
+    return this
   }
 
+  /**
+   * @return {Noty}
+   */
   show () {
     if (this.options.killer === true) {
-      Noty.closeAll();
-    } else if (typeof this.options.killer == 'string') {
-      Noty.closeAll(this.options.killer);
+      Noty.closeAll()
+    } else if (typeof this.options.killer === 'string') {
+      Noty.closeAll(this.options.killer)
     } else {
-      let queueCounts = API.getQueueCounts(this.options.queue);
+      let queueCounts = API.getQueueCounts(this.options.queue)
 
       if (queueCounts.current >= queueCounts.maxVisible) {
-        API.addToQueue(this);
-        return this;
+        API.addToQueue(this)
+        return this
       }
     }
 
-    API.Store[this.id] = this;
+    API.Store[this.id] = this
 
-    API.fire(this, 'beforeShow');
+    API.fire(this, 'beforeShow')
 
-    API.build(this);
+    API.build(this)
 
-    if (this.options.force)
-      this.layoutDom.insertBefore(this.barDom, this.layoutDom.firstChild);
-    else
-      this.layoutDom.appendChild(this.barDom);
+    if (this.options.force) this.layoutDom.insertBefore(this.barDom, this.layoutDom.firstChild)
+    else this.layoutDom.appendChild(this.barDom)
 
-    this.shown = true;
-    this.closed = false;
+    this.shown = true
+    this.closed = false
 
     // bind button events if any
     if (API.hasButtons(this)) {
       Object.keys(this.options.buttons).forEach((key) => {
-        const btn = this.barDom.querySelector(`#${this.options.buttons[key].id}`);
+        const btn = this.barDom.querySelector(`#${this.options.buttons[key].id}`)
         Utils.addListener(btn, 'click', (e) => {
-          Utils.stopPropagation(e);
-          this.options.buttons[key].cb();
-        });
-      });
+          Utils.stopPropagation(e)
+          this.options.buttons[key].cb()
+        })
+      })
     }
 
-    this.progressDom = this.barDom.querySelector('.noty_progressbar');
+    this.progressDom = this.barDom.querySelector('.noty_progressbar')
 
     if (Utils.inArray('click', this.options.closeWith)) {
-      Utils.addClass(this.barDom, 'noty_close_with_click');
+      Utils.addClass(this.barDom, 'noty_close_with_click')
       Utils.addListener(this.barDom, 'click', (e) => {
-        Utils.stopPropagation(e);
-        this.close();
-      }, false);
+        Utils.stopPropagation(e)
+        this.close()
+      }, false)
     }
 
     Utils.addListener(this.barDom, 'mouseenter', () => {
-      API.fire(this, 'onHover');
-    }, false);
+      API.fire(this, 'onHover')
+    }, false)
 
-    if (this.options.timeout) {
-      Utils.addClass(this.barDom, 'noty_has_timeout');
-    }
+    if (this.options.timeout) Utils.addClass(this.barDom, 'noty_has_timeout')
 
     if (Utils.inArray('button', this.options.closeWith)) {
-      Utils.addClass(this.barDom, 'noty_close_with_button');
+      Utils.addClass(this.barDom, 'noty_close_with_button')
 
-      let closeButton = document.createElement('div');
-      Utils.addClass(closeButton, 'noty_close_button');
-      closeButton.innerHTML = '×';
-      this.barDom.appendChild(closeButton);
+      const closeButton = document.createElement('div')
+      Utils.addClass(closeButton, 'noty_close_button')
+      closeButton.innerHTML = '×'
+      this.barDom.appendChild(closeButton)
 
       Utils.addListener(closeButton, 'click', (e) => {
-        Utils.stopPropagation(e);
-        this.close();
-      }, false);
+        Utils.stopPropagation(e)
+        this.close()
+      }, false)
     }
 
-    API.fire(this, 'onShow');
+    API.fire(this, 'onShow')
 
-    if (this.options.animation.open == null) {
-      const _t = this;
-      setTimeout(function() { // ugly fix for progressbar display bug
-        API.openFlow(_t);
-      }, 100);
-    } else if (typeof this.options.animation.open == 'function') {
-      this.options.animation.open.apply(this);
-      const _t = this;
-      setTimeout(function() { // ugly fix for progressbar display bug
-        API.openFlow(_t);
-      }, 100);
+    if (this.options.animation.open === null) {
+      const _t = this
+      setTimeout(function () { // ugly fix for progressbar display bug
+        API.openFlow(_t)
+      }, 100)
+    } else if (typeof this.options.animation.open === 'function') {
+      this.options.animation.open.apply(this)
+      const _t = this
+      setTimeout(function () { // ugly fix for progressbar display bug
+        API.openFlow(_t)
+      }, 100)
     } else {
-      Utils.addClass(this.barDom, this.options.animation.open);
+      Utils.addClass(this.barDom, this.options.animation.open)
       Utils.addListener(this.barDom, Utils.animationEndEvents, () => {
-        Utils.removeClass(this.barDom, this.options.animation.open);
-        API.openFlow(this);
-      });
+        Utils.removeClass(this.barDom, this.options.animation.open)
+        API.openFlow(this)
+      })
     }
 
-    return this;
+    return this
   }
 
+  /**
+   * @return {Noty}
+   */
   stop () {
-    API.dequeueClose(this);
-    return this;
+    API.dequeueClose(this)
+    return this
   }
 
+  /**
+   * @return {Noty}
+   */
   resume () {
-    API.queueClose(this);
-    return this;
+    API.queueClose(this)
+    return this
   }
 
+  /**
+   * @param {int|boolean} ms
+   * @return {Noty}
+   */
   setTimeout (ms) {
-    this.stop();
-    this.options.timeout = ms;
+    this.stop()
+    this.options.timeout = ms
+
     if (this.options.timeout) {
-      Utils.addClass(this.barDom, 'noty_has_timeout');
+      Utils.addClass(this.barDom, 'noty_has_timeout')
     } else {
-      Utils.removeClass(this.barDom, 'noty_has_timeout');
+      Utils.removeClass(this.barDom, 'noty_has_timeout')
     }
 
-    var _t = this;
-    setTimeout(function() { // ugly fix for progressbar display bug
-      _t.resume();
-    }, 100);
+    const _t = this
+    setTimeout(function () { // ugly fix for progressbar display bug
+      _t.resume()
+    }, 100)
 
-    return this;
+    return this
   }
 
+  /**
+   * @param {string} html
+   * @param {boolean} optionsOverride
+   * @return {Noty}
+   */
   setText (html, optionsOverride = false) {
-    this.barDom.querySelector('.noty_body').innerHTML = html;
+    this.barDom.querySelector('.noty_body').innerHTML = html
 
-    if (optionsOverride)
-      this.options.text = html;
+    if (optionsOverride) this.options.text = html
 
-    return this;
+    return this
   }
 
+  /**
+   * @param {string} type
+   * @param {boolean} optionsOverride
+   * @return {Noty}
+   */
   setType (type, optionsOverride = false) {
-    let classList = Utils.classList(this.barDom).split(' ');
+    let classList = Utils.classList(this.barDom).split(' ')
+
     classList.forEach((c) => {
-      if (c.substring(0, 11) == 'noty_type__')
-        Utils.removeClass(this.barDom, c);
-    });
+      if (c.substring(0, 11) === 'noty_type__') {
+        Utils.removeClass(this.barDom, c)
+      }
+    })
 
-    Utils.addClass(this.barDom, `noty_type__${type}`);
+    Utils.addClass(this.barDom, `noty_type__${type}`)
 
-    if (optionsOverride)
-      this.options.type = type;
+    if (optionsOverride) this.options.type = type
 
-    return this;
+    return this
   }
 
+  /**
+   * @param {string} theme
+   * @param {boolean} optionsOverride
+   * @return {Noty}
+   */
   setTheme (theme, optionsOverride = false) {
-    let classList = Utils.classList(this.barDom).split(' ');
+    let classList = Utils.classList(this.barDom).split(' ')
+
     classList.forEach((c) => {
-      if (c.substring(0, 12) == 'noty_theme__')
-        Utils.removeClass(this.barDom, c);
-    });
+      if (c.substring(0, 12) === 'noty_theme__') {
+        Utils.removeClass(this.barDom, c)
+      }
+    })
 
-    Utils.addClass(this.barDom, `noty_theme__${theme}`);
+    Utils.addClass(this.barDom, `noty_theme__${theme}`)
 
-    if (optionsOverride)
-      this.options.theme = theme;
+    if (optionsOverride) this.options.theme = theme
 
-    return this;
+    return this
   }
 
   /**
    * @return {Noty}
    */
   close () {
-    if (this.closed)
-      return this;
+    if (this.closed) return this
 
     if (!this.shown) { // it's in the queue
-      API.removeFromQueue(this);
-      return this;
+      API.removeFromQueue(this)
+      return this
     }
 
-    API.fire(this, 'onClose');
+    API.fire(this, 'onClose')
 
-    if (this.options.animation.close == null) {
-      Utils.remove(this.barDom);
-      API.closeFlow(this);
-    } else if (typeof this.options.animation.close == 'function') {
-      this.options.animation.close.apply(this);
-      API.closeFlow(this);
+    if (this.options.animation.close === null) {
+      Utils.remove(this.barDom)
+      API.closeFlow(this)
+    } else if (typeof this.options.animation.close === 'function') {
+      this.options.animation.close.apply(this)
+      API.closeFlow(this)
     } else {
-      Utils.addClass(this.barDom, this.options.animation.close);
+      Utils.addClass(this.barDom, this.options.animation.close)
       Utils.addListener(this.barDom, Utils.animationEndEvents, () => {
         if (this.options.force) {
-          Utils.remove(this.barDom);
+          Utils.remove(this.barDom)
         } else {
-          API.ghostFix(this);
+          API.ghostFix(this)
         }
-        API.closeFlow(this);
-      });
+        API.closeFlow(this)
+      })
     }
 
-    this.closed = true;
+    this.closed = true
 
-    return this;
+    return this
   }
 
   // API functions
@@ -250,13 +285,14 @@ export default class Noty {
   static closeAll (queueName = false) {
     Object.keys(API.Store).forEach((id) => {
       if (queueName) {
-        if (API.Store[id].options.queue == queueName)
-          API.Store[id].close();
+        if (API.Store[id].options.queue === queueName) {
+          API.Store[id].close()
+        }
       } else {
-        API.Store[id].close();
+        API.Store[id].close()
       }
-    });
-    return this;
+    })
+    return this
   }
 
   /**
@@ -264,8 +300,8 @@ export default class Noty {
    * @return {Noty}
    */
   static overrideDefaults (obj) {
-    API.Defaults = Utils.deepExtend({}, API.Defaults, obj);
-    return this;
+    API.Defaults = Utils.deepExtend({}, API.Defaults, obj)
+    return this
   }
 
   /**
@@ -274,11 +310,12 @@ export default class Noty {
    * @return {Noty}
    */
   static setMaxVisible (amount = API.DefaultMaxVisible, queueName = 'global') {
-    if (!API.Queues.hasOwnProperty(queueName))
-      API.Queues[queueName] = {maxVisible: amount, queue: []};
+    if (!API.Queues.hasOwnProperty(queueName)) {
+      API.Queues[queueName] = {maxVisible: amount, queue: []}
+    }
 
-    API.Queues[queueName].maxVisible = amount;
-    return this;
+    API.Queues[queueName].maxVisible = amount
+    return this
   }
 
   /**
@@ -289,13 +326,16 @@ export default class Noty {
    * @return {NotyButton}
    */
   static button (innerHtml, classes = null, cb, attributes = {}) {
-    return new NotyButton(innerHtml, classes, cb, attributes);
+    return new NotyButton(innerHtml, classes, cb, attributes)
   }
 
+  /**
+   * @return {string}
+   */
   static version () {
-    return VERSION;
+    return VERSION
   }
 }
 
 // Document visibility change controller
-Utils.visibilityChangeFlow();
+Utils.visibilityChangeFlow()

@@ -1,12 +1,11 @@
-import test from 'ava';
-import browserEnv from 'browser-env';
-require('jsdom-global')();
+import test from 'ava'
+import browserEnv from 'browser-env'
+require('jsdom-global')()
 
-const Noty = require('../lib/noty.js');
+// const Noty = require('../lib/noty.js')
 
-browserEnv();
+browserEnv()
 
-const n = new Noty();
+// const n = new Noty()
 
-test.todo('write tests for dom related topics');
-
+test.todo('write tests for dom related topics')
