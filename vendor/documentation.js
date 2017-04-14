@@ -3,14 +3,6 @@ $(function () {
     window.prettyPrint && prettyPrint();
   }
 
-  new Noty({
-    text   : '<div class="text-center">Wubba, lubba, dub, dub! <strong>v3.0.0 released!</strong></div>',
-    type   : 'information',
-    theme  : 'mint',
-    layout : 'topRight',
-    timeout: 4000
-  }).show();
-
   var $activeLink = $('a[href$="' + window.location.pathname + '"]');
   if ($activeLink) {
     $('.top-links a').removeClass('active');
@@ -178,6 +170,21 @@ $(function () {
           }
         });
   };
+
+
+  setTimeout(function () {
+    new Noty({
+      text   : '<div class="text-center">Wubba, lubba, dub, dub! <strong>v3.0.1 released!</strong></div>',
+      type   : 'information',
+      theme  : 'mint',
+      layout : 'topRight',
+      timeout: 4000,
+      animation: {
+        open: mojsShow,
+        close: mojsClose
+      }
+    }).show();
+  }, 2000);
 
   var types = ['alert', 'warning', 'success', 'information', 'error'];
 
