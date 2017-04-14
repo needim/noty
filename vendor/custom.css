@@ -415,10 +415,12 @@ pre {
 .sharer-btn.text-center.sharer-0 label {
   padding: 2px 13px !important;
   position: relative;
-  top: 2px !important;
-  background: #eeeeee !important;
-  color: #555555 !important;
+  top: 1px !important;
+  background: #AC8FFD !important;
+  color: #fff !important;
   border-radius: 2px !important;
+  height: 33px;
+  line-height: 29px;
 }
 
 .sharer-btn.text-center.sharer-0 label span {
