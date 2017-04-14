@@ -62,15 +62,64 @@
 
             var mojsOpenExample = function () {
                 var n = this;
-                new mojs.Html({
+                var Timeline = new mojs.Timeline();
+                var body = new mojs.Html({
                     el        : n.barDom,
-                    x         : {200: 0, delay: 10, duration: 500, easing: 'cubic.out'},
-                    skewY     : {5: 0, delay: 10, duration: 500, easing: 'cubic.out'},
+                    x         : {500: 0, delay: 0, duration: 500, easing: 'elastic.out'},
                     isForce3d : true,
                     onComplete: function () {
                         n.resume();
                     }
-                }).play();
+                });
+
+                var parent = new mojs.Shape({
+                    parent: n.barDom,
+                    width      : 200,
+                    height     : n.barDom.getBoundingClientRect().height,
+                    radius     : 0,
+                    x          : {[150]: -150},
+                    duration   : 1.2 * 500,
+                    isShowStart: true
+                });
+
+                n.barDom.style['overflow'] = 'visible';
+                parent.el.style['overflow'] = 'hidden';
+
+                var burst = new mojs.Burst({
+                    parent  : parent.el,
+                    count   : 10,
+                    top     : n.barDom.getBoundingClientRect().height + 75,
+                    degree  : 90,
+                    radius  : 75,
+                    angle   : {[-90]: 40},
+                    children: {
+                        fill     : '#EBD761',
+                        delay    : 'stagger(500, -50)',
+                        radius   : 'rand(8, 25)',
+                        direction: -1,
+                        isSwirl  : true
+                    }
+                });
+
+                const fadeBurst = new mojs.Burst({
+                    parent  : parent.el,
+                    count   : 2,
+                    degree  : 0,
+                    angle   : 75,
+                    radius  : {0: 100},
+                    top     : '90%',
+                    children: {
+                        fill     : '#EBD761',
+                        pathScale: [.65, 1],
+                        radius   : 'rand(12, 15)',
+                        direction: [-1, 1],
+                        delay    : .8 * 500,
+                        isSwirl  : true
+                    }
+                });
+
+                Timeline.add(body, burst, fadeBurst, parent);
+                Timeline.play();
             };
 
             var mojsCloseExample = function () {
@@ -140,39 +189,39 @@
                     });
             };
 
-            var velocityShowExample = function() {
+            var velocityShowExample = function () {
                 var n = this;
 
                 Velocity(n.barDom, {
-                    left: 450,
+                    left  : 450,
                     scaleY: 2
                 }, {
                     duration: 0
                 });
                 Velocity(n.barDom, {
-                    left: 0,
+                    left  : 0,
                     scaleY: 1
                 }, {
-                    easing: [ 8, 8 ]
+                    easing: [8, 8]
                 });
             };
 
-            var velocityCloseExample = function() {
+            var velocityCloseExample = function () {
                 var n = this;
 
                 Velocity(n.barDom, {
                     left: '+=-50'
                 }, {
-                    easing: [ 8, 8, 2],
+                    easing  : [8, 8, 2],
                     duration: 350
                 });
                 Velocity(n.barDom, {
-                    left: 450,
+                    left  : 450,
                     scaleY: .2,
                     height: 0,
                     margin: 0
                 }, {
-                    easing: [ 8, 8 ],
+                    easing  : [8, 8],
                     complete: function () {
                         n.barDom.parentNode.removeChild(n.barDom);
                     }
@@ -184,8 +233,8 @@
                 theme    : 'mint',
                 closeWith: ['button', 'click'],
                 animation: {
-                    open : velocityShowExample,
-                    close: velocityCloseExample
+                    open : mojsOpenExample,
+                    close: mojsCloseExample
                 }
             });
 
