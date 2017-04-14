@@ -391,10 +391,11 @@ blockquote {
 }
 
 pre {
+  font-family: 'Fira Mono', Consolas, Lucida Console, monospace;
   display: block;
   padding: 20px;
   margin: 0 0 10px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.42857143;
   color: #dde4e8;
   word-break: break-all;
