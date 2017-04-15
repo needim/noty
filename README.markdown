@@ -44,7 +44,7 @@ It also has various callbacks for the buttons, opening closing the notifications
 - [x] Confirm notifications
 - [x] TTL
 - [x] Progress bar indicator for timed notifications
-- [x] Supports css animations, mojs, bouncejs, velocityjs and other animation libraries
+- [x] Supports css animations, [animate.css](https://github.com/daneden/animate.css), [mojs](https://github.com/legomushroom/mojs), [bounce.js](https://github.com/tictail/bounce.js), [velocity](https://github.com/julianshapiro/velocity) and other animation libraries
 - [x] 2 close options: click, button
 - [x] API & Callbacks
 - [x] Custom templating
