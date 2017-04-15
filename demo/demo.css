@@ -8,7 +8,7 @@ body {
   background-repeat: repeat;
 }
 
-a {
+a, strong {
   color: inherit;
   font-family: 'GothamRoundedMedium', sans-serif;
 }
@@ -46,6 +46,7 @@ div.activity > span {
   border-radius: 5px;
   background: rgba(255, 255, 255, .5);
   overflow: hidden;
+  display: none;
 }
 
 .logo {
@@ -55,7 +56,6 @@ div.activity > span {
   width: 200px;
   margin: 0 auto;
 }
-
 
 select:focus {
   outline: none;
