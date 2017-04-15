@@ -36,8 +36,13 @@
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev",
     "test": "standard && ava",
-    "test:watch": "ava --watch"
+    "test:watch": "ava --watch",
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
+  "pre-commit": [
+    "precommit-msg",
+    "test"
+  ],
   "ava": {
     "files": [
       "./test/*.test.js"
@@ -71,6 +76,7 @@
     "jsdom-global": "2.1.1",
     "node-sass": "^4.1.0",
     "postcss-loader": "^1.0.0",
+    "pre-commit": "^1.2.2",
     "sass-loader": "^4.0.1",
     "standard": "^10.0.2",
     "standard-loader": "^6.0.1",
