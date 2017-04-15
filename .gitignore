@@ -9,3 +9,4 @@ _SpecRunner.html
 /.vscode/
 yarn.lock
 .nyc_output
+coverage

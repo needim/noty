@@ -8,19 +8,23 @@
     <br>
     <a href="http://ned.im/noty"><strong>Documentation &raquo;</strong></a>
   </p>
+
+  <p align="center">
+    <a href="https://github.com/needim/noty/releases"><img src="https://img.shields.io/github/release/needim/noty.svg" alt="GitHub release"></a>
+    <a href="https://bower.io/"><img src="https://img.shields.io/bower/v/noty.svg" alt="Bower version"></a>
+    <a href="https://www.npmjs.com/package/noty"><img src="https://img.shields.io/npm/v/noty.svg" alt="NPM version"></a>
+    <a href="https://packagist.org/packages/needim/noty"><img src="https://img.shields.io/packagist/v/needim/noty.svg" alt="Packagist version"></a>
+    <br>
+    <img src="https://img.shields.io/david/needim/noty.svg" alt="Dependencies">
+    <img src="https://img.shields.io/david/dev/needim/noty.svg" alt="Dev Dependencies">
+    <br>
+    <a href="https://travis-ci.org/needim/noty"><img src="https://img.shields.io/travis/needim/noty/master.svg" alt="Travis"></a>
+    <a href="https://www.npmjs.com/package/noty"><img src="https://img.shields.io/npm/dm/noty.svg?label=npm%20downloads" alt="NPM Downloads"></a>
+    <a href="https://github.com/needim/noty/graphs/contributors"><img src="https://img.shields.io/github/contributors/needim/noty.svg" alt="Contributors"></a>
+  </p>
 </p>
 
 <br>
-
-![GitHub release](https://img.shields.io/github/release/needim/noty.svg)
-![Bower version](https://img.shields.io/bower/v/noty.svg)
-![npm version](https://img.shields.io/npm/v/noty.svg)
-![Packagist version](https://img.shields.io/packagist/v/needim/noty.svg)
-![David](https://img.shields.io/david/needim/noty.svg)
-![devDependency Status](https://img.shields.io/david/dev/needim/noty.svg)
-![Travis branch](https://img.shields.io/travis/needim/noty/master.svg)
-![npm](https://img.shields.io/npm/dm/noty.svg?label=npm%20downloads)
-![Contributors](https://img.shields.io/github/contributors/needim/noty.svg)
 
 
 ## Hi
