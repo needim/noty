@@ -13,6 +13,7 @@
   display: -ms-flexbox;
   display: flex;
 }
+
 html {
   color: #222;
   font-size: 1em;
@@ -87,12 +88,9 @@ textarea {
   resize: vertical;
 }
 
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
 
 html, body {
   font-family: 'GothamRoundedLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -244,7 +242,16 @@ h3.top-name {
   letter-spacing: 1px;
 }
 
+ul.features {
+  list-style: none;
+  margin-left: 5px;
+}
 
+ul.features span {
+  display: inline-block;
+  margin-right: 5px;
+  color: #8BC34A;
+}
 
 .mt10 {
   margin-top: 10px;
@@ -269,7 +276,6 @@ h3.top-name {
 .mb30 {
   margin-bottom: 30px;
 }
-
 
 .noty_bar .button {
   margin-right: 5px;
@@ -306,7 +312,6 @@ i.fa.fa-heart {
   color: #AC8FFD;
 }
 
-
 h2 i.fa,
 h2 i.ps-icon {
   font-size: 16px;
@@ -321,8 +326,10 @@ h2 i.ps-icon {
   width: 47px;
 }
 
-.rainbow_border{
-  border-image: -webkit-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9,#4CA454,#D49B00) 2%; border-image: -ms-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9,#4CA454,#D49B00) 2%; border-image: -moz-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9,#4CA454,#D49B00) 2%;
+.rainbow_border {
+  border-image: -webkit-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9, #4CA454, #D49B00) 2%;
+  border-image: -ms-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9, #4CA454, #D49B00) 2%;
+  border-image: -moz-linear-gradient(left, #E18728, #BE4C39 33%, #9351A6 66%, #4472B9, #4CA454, #D49B00) 2%;
 }
 
 .table hr {
@@ -379,7 +386,7 @@ blockquote {
   font-size: 15px;
   line-height: 1.5em;
   margin: 40px 0;
-  background: rgba(0,0,0,.075);
+  background: rgba(0, 0, 0, .075);
   border-left: 5px solid #222;
 }
 
@@ -528,23 +535,28 @@ select {
 }
 
 @media only screen
-and (max-width : 600px) {
+and (max-width: 600px) {
   .rwd-table th {
     display: none;
   }
+
   .rwd-table td {
     display: block;
     border-top: none !important;
   }
+
   .rwd-table td:first-child {
     padding-top: .5em;
   }
+
   .rwd-table td:last-child {
     padding-bottom: .5em;
   }
+
   .rwd-table hr {
     border-top: none;
   }
+
   .sharer-btn.text-center.sharer-0 {
     width: 100%;
     margin-top: 30px;
@@ -559,13 +571,16 @@ and (max-width : 600px) {
     text-align: center;
     margin-bottom: 10px;
   }
+
   h1 {
     text-align: center;
     font-size: 30px;
   }
+
   ul.release-list {
     padding-left: 10px;
   }
+
   ul ul {
     padding-left: 20px;
   }
