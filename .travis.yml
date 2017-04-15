@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - "7"
+before_script:
+  - npm install -g standard
 branches:
   only:
     - master
