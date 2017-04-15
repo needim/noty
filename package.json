@@ -35,7 +35,7 @@
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev",
-    "test": "standart && ava",
+    "test": "standard && ava",
     "test:watch": "ava --watch"
   },
   "ava": {
