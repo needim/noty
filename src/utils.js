@@ -178,26 +178,95 @@ export function classList (element) {
 }
 
 export function visibilityChangeFlow () {
+  let hidden
+  let visibilityChange
+  if (typeof document.hidden !== 'undefined') { // Opera 12.10 and Firefox 18 and later support
+    hidden = 'hidden'
+    visibilityChange = 'visibilitychange'
+  } else if (typeof document.msHidden !== 'undefined') {
+    hidden = 'msHidden'
+    visibilityChange = 'msvisibilitychange'
+  } else if (typeof document.webkitHidden !== 'undefined') {
+    hidden = 'webkitHidden'
+    visibilityChange = 'webkitvisibilitychange'
+  }
+
+  function onVisibilityChange () {
+    API.PageHidden = document[hidden]
+    handleVisibilityChange()
+  }
+
+  function onBlur () {
+    API.PageHidden = true
+    handleVisibilityChange()
+  }
+
+  function onFocus () {
+    API.PageHidden = false
+    handleVisibilityChange()
+  }
+
+  function handleVisibilityChange () {
+    if (API.PageHidden) stopAll()
+    else resumeAll()
+  }
+
   function stopAll () {
-    Object.keys(API.Store).forEach((id) => {
-      if (API.Store.hasOwnProperty(id)) {
-        setTimeout(function () {
+    setTimeout(function () {
+      Object.keys(API.Store).forEach((id) => {
+        if (API.Store.hasOwnProperty(id)) {
           API.Store[id].stop()
-        }, 100)
-      }
-    })
+        }
+      })
+    }, 100)
   }
 
   function resumeAll () {
-    Object.keys(API.Store).forEach((id) => {
-      if (API.Store.hasOwnProperty(id)) {
-        setTimeout(function () {
+    setTimeout(function () {
+      Object.keys(API.Store).forEach((id) => {
+        if (API.Store.hasOwnProperty(id)) {
           API.Store[id].resume()
-        }, 100)
-      }
-    })
+        }
+      })
+      API.queueRenderAll()
+    }, 100)
   }
 
-  addListener(window, 'blur', stopAll)
-  addListener(window, 'focus', resumeAll)
+  addListener(document, visibilityChange, onVisibilityChange)
+  addListener(window, 'blur', onBlur)
+  addListener(window, 'focus', onFocus)
+}
+
+export function createAudioElements (ref) {
+  if (ref.hasSound) {
+    const audioElement = document.createElement('audio')
+
+    ref.options.sounds.sources.forEach((s) => {
+      const source = document.createElement('source')
+      source.src = s
+      source.type = `audio/${getExtension(s)}`
+      audioElement.appendChild(source)
+    })
+
+    if (ref.barDom) {
+      ref.barDom.appendChild(audioElement)
+    } else {
+      document.querySelector('body').appendChild(audioElement)
+    }
+
+    audioElement.volume = ref.options.sounds.volume
+
+    if (!ref.soundPlayed) {
+      audioElement.play()
+      ref.soundPlayed = true
+    }
+
+    audioElement.onended = function () {
+      remove(audioElement)
+    }
+  }
+}
+
+function getExtension (fileName) {
+  return fileName.match(/\.([^.]+)$/)[1]
 }

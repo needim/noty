@@ -1,5 +1,53 @@
 import * as Utils from 'utils'
 
+export let PageHidden = false
+
+const DocTitleProps = {
+  originalTitle: null,
+  count: 0,
+  changed: false,
+  timer: -1
+}
+
+export const docTitle = {
+  increment: () => {
+    DocTitleProps.count++
+
+    docTitle._update()
+  },
+
+  decrement: () => {
+    DocTitleProps.count--
+
+    if (DocTitleProps.count <= 0) {
+      docTitle._clear()
+      return
+    }
+
+    docTitle._update()
+  },
+
+  _update: () => {
+    let title = document.title
+
+    if (!DocTitleProps.changed) {
+      DocTitleProps.originalTitle = title
+      document.title = `(${DocTitleProps.count}) ${title}`
+      DocTitleProps.changed = true
+    } else {
+      document.title = `(${DocTitleProps.count}) ${DocTitleProps.originalTitle}`
+    }
+  },
+
+  _clear: () => {
+    if (DocTitleProps.changed) {
+      DocTitleProps.count = 0
+      document.title = DocTitleProps.originalTitle
+      DocTitleProps.changed = false
+    }
+  }
+}
+
 export const DefaultMaxVisible = 5
 
 export const Queues = {
@@ -37,6 +85,14 @@ export let Defaults = {
     afterClose: null,
     onHover: null,
     onTemplate: null
+  },
+  sounds: {
+    sources: [],
+    volume: 1,
+    conditions: []
+  },
+  titleCount: {
+    conditions: []
   }
 }
 
@@ -97,6 +153,15 @@ export function queueRender (queueName = 'global') {
 
     if (noty) noty.show()
   }
+}
+
+/**
+ * @return {void}
+ */
+export function queueRenderAll () {
+  Object.keys(Queues).forEach((queueName) => {
+    queueRender(queueName)
+  })
 }
 
 /**
@@ -201,6 +266,8 @@ export function queueClose (ref) {
       })
     }
 
+    clearTimeout(ref.closeTimer)
+
     ref.closeTimer = setTimeout(() => {
       ref.close()
     }, ref.options.timeout)
@@ -214,7 +281,7 @@ export function queueClose (ref) {
 export function dequeueClose (ref) {
   if (ref.options.timeout && ref.closeTimer) {
     clearTimeout(ref.closeTimer)
-    ref.closeTimer = 0
+    ref.closeTimer = -1
 
     if (ref.options.progressBar && ref.progressDom) {
       Utils.css(ref.progressDom, {
@@ -263,7 +330,11 @@ export function closeFlow (ref) {
   delete Store[ref.id]
   fire(ref, 'afterClose')
 
-  if (ref.layoutDom.querySelectorAll('.noty_bar').length === 0 && !ref.options.container) { Utils.remove(ref.layoutDom) }
+  if (ref.layoutDom.querySelectorAll('.noty_bar').length === 0 && !ref.options.container) Utils.remove(ref.layoutDom)
+
+  if (Utils.inArray('docVisible', ref.options.titleCount.conditions) || Utils.inArray('docHidden', ref.options.titleCount.conditions)) {
+    docTitle.decrement()
+  }
 
   queueRender(ref.options.queue)
 }

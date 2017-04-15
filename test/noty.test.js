@@ -34,6 +34,14 @@ const Defaults = {
     afterClose: null,
     onHover: null,
     onTemplate: null
+  },
+  sounds: {
+    sources: [],
+    volume: 1,
+    conditions: []
+  },
+  titleCount: {
+    conditions: []
   }
 }
 

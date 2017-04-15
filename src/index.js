@@ -19,6 +19,8 @@ export default class Noty {
     this.progressDom = null
     this.shown = false
     this.closed = false
+    this.hasSound = (this.options.sounds.sources.length > 0)
+    this.soundPlayed = false
     this.listeners = {
       beforeShow: [],
       onShow: [],
@@ -57,15 +59,24 @@ export default class Noty {
    * @return {Noty}
    */
   show () {
-    if (this.options.killer === true) {
+    if (this.options.killer === true && !API.PageHidden) {
       Noty.closeAll()
-    } else if (typeof this.options.killer === 'string') {
+    } else if (typeof this.options.killer === 'string' && !API.PageHidden) {
       Noty.closeAll(this.options.killer)
     } else {
       let queueCounts = API.getQueueCounts(this.options.queue)
 
-      if (queueCounts.current >= queueCounts.maxVisible) {
+      if (queueCounts.current >= queueCounts.maxVisible || API.PageHidden) {
         API.addToQueue(this)
+
+        if (API.PageHidden && this.hasSound && Utils.inArray('docHidden', this.options.sounds.conditions)) {
+          Utils.createAudioElements(this)
+        }
+
+        if (API.PageHidden && Utils.inArray('docHidden', this.options.titleCount.conditions)) {
+          API.docTitle.increment()
+        }
+
         return this
       }
     }
@@ -76,8 +87,19 @@ export default class Noty {
 
     API.build(this)
 
-    if (this.options.force) this.layoutDom.insertBefore(this.barDom, this.layoutDom.firstChild)
-    else this.layoutDom.appendChild(this.barDom)
+    if (this.options.force) {
+      this.layoutDom.insertBefore(this.barDom, this.layoutDom.firstChild)
+    } else {
+      this.layoutDom.appendChild(this.barDom)
+    }
+
+    if (this.hasSound && !this.soundPlayed && Utils.inArray('docVisible', this.options.sounds.conditions)) {
+      Utils.createAudioElements(this)
+    }
+
+    if (Utils.inArray('docVisible', this.options.titleCount.conditions)) {
+      API.docTitle.increment()
+    }
 
     this.shown = true
     this.closed = false
