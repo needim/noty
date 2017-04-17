@@ -61,7 +61,7 @@
 <script type="text/javascript">
   (function () {
 
-    var mojsOpenExample = function () {
+    var mojsOpenExample = function (promise) {
       var n = this
       var Timeline = new mojs.Timeline()
       var body = new mojs.Html({
@@ -69,7 +69,9 @@
         x: {500: 0, delay: 0, duration: 500, easing: 'elastic.out'},
         isForce3d: true,
         onComplete: function () {
-          n.resume()
+          promise(function(resolve) {
+            resolve()
+          })
         }
       })
 
@@ -123,7 +125,7 @@
       Timeline.play()
     }
 
-    var mojsCloseExample = function () {
+    var mojsCloseExample = function (promise) {
       var n = this
       new mojs.Html({
         el: n.barDom,
@@ -131,7 +133,9 @@
         skewY: {0: 10, delay: 10, duration: 500, easing: 'cubic.out'},
         isForce3d: true,
         onComplete: function () {
-          n.barDom.parentNode.removeChild(n.barDom)
+          promise(function(resolve) {
+            resolve()
+          })
         }
       }).play()
     }
@@ -242,7 +246,7 @@
 
     setTimeout(function() {
       new Noty({
-        text: 'This notification <strong>plays a sound</strong> and <strong>updates the document title</strong> with count <i>if document is hidden</i>',
+        text: 'A) This notification <strong>plays a sound</strong> and <strong>updates the document title</strong> with count <i>if document is hidden</i>',
         type: 'warning',
         layout: 'topRight',
         sounds: {
@@ -252,9 +256,35 @@
         },
         titleCount: {
           conditions: ['docHidden']
-        }
+        },
+        closeWith: [],
+        queue: "Q1",
+        timeout: 3000,
+        killer: true,
+        modal: true
       }).show()
-    }, 4000)
+    }, 2000)
+
+    setTimeout(function() {
+      new Noty({
+        text: 'B) This notification <strong>plays a sound</strong> and <strong>updates the document title</strong> with count <i>if document is hidden</i>',
+        type: 'warning',
+        layout: 'topRight',
+        sounds: {
+          sources: ['sound-example.wav'],
+          volume: .2,
+          conditions: ['docHidden']
+        },
+        titleCount: {
+          conditions: ['docHidden']
+        },
+        closeWith: ['click', 'backdrop'],
+        queue: "Q2",
+        timeout: 2000,
+        killer: "Q1",
+        modal: true
+      }).show()
+    }, 5100)
 
     document.querySelector('.runner').addEventListener('click', function (e) {
       e.preventDefault()
@@ -291,7 +321,8 @@
         text: notes[type],
         type: type,
         timeout: 5000,
-        layout: layout
+        layout: layout,
+        modal: true
       }).show()
 
       return false

@@ -1,6 +1,6 @@
 {
   "name": "noty",
-  "version": "3.0.1",
+  "version": "3.1.0-beta",
   "title": "Noty - Notification Plugin",
   "description": "Noty is a plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)",
   "homepage": "http://ned.im/noty",
@@ -26,54 +26,43 @@
     "name": "Nedim Arabacı",
     "url": "http://ned.im"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://noty.mit-license.org/"
-    }
-  ],
+  "license": "MIT",
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev",
-    "test": "standard && ava",
-    "test:watch": "ava --watch",
+    "test": "standard && grunt test",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
   "pre-commit": [
     "precommit-msg",
     "test"
   ],
-  "ava": {
-    "files": [
-      "./test/*.test.js"
-    ],
-    "concurrency": 10,
-    "failFast": false,
-    "verbose": true
-  },
   "standard": {
     "ignore": [
       "demo/**/*",
-      "lib/**"
+      "lib/**",
+      "test/**"
     ],
     "parser": "babel-eslint"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.6",
-    "ava": "^0.19.1",
-    "babel": "6.5.2",
-    "babel-core": "6.22.1",
-    "babel-eslint": "7.1.1",
-    "babel-loader": "6.2.10",
-    "babel-plugin-add-module-exports": "0.1.2",
-    "babel-preset-es2015": "6.22.0",
-    "browser-env": "^2.0.30",
+    "babel-core": "6.24.1",
+    "babel-eslint": "7.2.2",
+    "babel-loader": "6.4.1",
+    "babel-plugin-add-module-exports": "0.2.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "6.24.1",
     "css-loader": "^0.26.0",
     "eslint": "^3.19.0",
     "eslint-loader": "1.7.1",
-    "extract-text-webpack-plugin": "^2.0.0-beta",
-    "jsdom": "9.12.0",
-    "jsdom-global": "2.1.1",
+    "extract-text-webpack-plugin": "2.1.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-qunit": "^2.0.0",
+    "grunt-exec": "^2.0.0",
+    "grunt-saucelabs": "^9.0.0",
+    "load-grunt-tasks": "^3.5.2",
     "node-sass": "^4.1.0",
     "postcss-loader": "^1.0.0",
     "pre-commit": "^1.2.2",
@@ -81,7 +70,7 @@
     "standard": "^10.0.2",
     "standard-loader": "^6.0.1",
     "style-loader": "^0.13.1",
-    "webpack": "2.2.1",
-    "yargs": "6.6.0"
+    "webpack": "2.4.1",
+    "yargs": "7.0.2"
   }
 }

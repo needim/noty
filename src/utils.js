@@ -170,7 +170,9 @@ export function removeClass (element, name) {
 }
 
 export function remove (element) {
-  element.parentNode.removeChild(element)
+  if (element.parentNode) {
+    element.parentNode.removeChild(element)
+  }
 }
 
 export function classList (element) {

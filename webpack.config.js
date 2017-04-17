@@ -61,7 +61,7 @@ const config = {
     ]
   },
   resolve: {
-    modules: [path.resolve('./src')],
+    modules: [path.resolve('./src'), path.resolve('./node_modules')],
     extensions: ['.js', '.scss']
   },
   plugins: plugins

@@ -1,0 +1,300 @@
+/**
+ * QUnit Ninja Theme by Jamie Hoover v1.1.0
+ * Modified by Nedim Arabacı
+ * https://github.com/Krinkle/qunit-theme-ninja
+ *
+ * Copyright 2013 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * https://jquery.org/license/
+ */
+body {
+  background: #313131;
+  color: #ccc;
+  font: 12px/16px "Lucida Grande", sans-serif;
+  margin: 0 auto;
+  max-width: 1024px;
+  min-width: 800px;
+  padding: 24px;
+  position: relative;
+}
+
+#qunit-header {
+  font-size: 24px;
+  line-height: 1;
+  margin: 0 520px 0 0;
+}
+
+#qunit-header > a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+#qunit-header > a:hover {
+  color: #ccc;
+  text-decoration: underline;
+}
+
+#qunit-testresult {
+  font: 12px/12px "Menlo", monospace;
+  margin: 20px 0;
+  color: antiquewhite;
+}
+
+#qunit-testresult .module-name {
+  font-weight: bold;
+}
+
+#qunit-testresult br {
+  content: '';
+}
+
+#qunit-testresult span:before {
+  content: ' ';
+}
+
+#qunit-testresult span.failed {
+  color: #c33;
+}
+
+#qunit-testresult span.passed {
+  color: #6c6;
+}
+
+div#qunit-testrunner-toolbar {
+  overflow: auto;
+  margin-bottom: 30px;
+}
+
+div#qunit-modulefilter-dropdown {
+  display: block;
+  background: #545454;
+  padding: 10px 0;
+  margin-right: 5px;
+  margin-left: 50px;
+}
+
+#qunit-modulefilter-actions label.clickable {
+  display: block;
+  position: relative;
+}
+
+li.pass {
+  color: #8BC34A;
+}
+
+li.fail {
+  color: #c33;
+}
+
+
+form#qunit-modulefilter {
+  display: inline-block;
+  margin-left: 60px;
+  float: right;
+}
+
+#qunit-testrunner-toolbar label:first-child input {
+  margin-left: 0;
+}
+
+form.qunit-filter {
+  display: inline-block;
+  float: right;
+}
+
+#qunit-testrunner-toolbar input {
+  font: inherit;
+  margin: 0 6px 0 24px;
+}
+
+#qunit-testrunner-toolbar label {
+  display: inline-block;
+}
+
+#qunit-testrunner-toolbar select {
+  position: absolute;
+  right: 24px;
+  top: 22px;
+}
+
+#qunit-modulefilter-container label {
+  display: none;
+}
+
+#qunit-banner {
+  height: 1px;
+  margin: 24px 0;
+}
+
+#qunit-banner.qunit-fail {
+  background-color: #c33;
+}
+
+#qunit-banner.qunit-pass {
+  background-color: #6c6;
+}
+
+#qunit-tests {
+  color: #666;
+  font: 12px/24px "Menlo", monospace;
+  list-style-position: inside;
+  padding: 0;
+}
+
+#qunit-tests b.counts {
+  font-weight: normal;
+}
+
+#qunit-tests b.counts b {
+  font-weight: normal;
+}
+
+#qunit-tests.hidepass li.pass, #qunit-tests.hidepass li.running {
+  display: none;
+}
+
+#qunit-tests li a {
+  color: #00BCD4;
+  padding: 0 6px;
+  text-decoration: none;
+}
+
+p.qunit-source {
+  color: #8c8c8c;
+  font-size: 10px;
+}
+
+#qunit-tests li a:hover {
+  color: #ccc;
+}
+
+#qunit-tests li a:hover,
+#qunit-tests li strong:hover {
+  text-decoration: underline;
+}
+
+#qunit-tests li b.counts {
+  color: #666;
+}
+
+#qunit-tests li .runtime {
+  font-size: smaller;
+  margin-left: 15px;
+}
+
+#qunit-tests li.fail span.test-message {
+  color: #c33;
+}
+
+#qunit-tests li.fail strong {
+  color: #c33;
+}
+
+#qunit-tests li.fail strong b.counts b.failed {
+  color: #c33;
+}
+
+#qunit-tests li.pass b.passed {
+  color: #6c6;
+}
+
+#qunit-tests li.pass span.test-message {
+  color: #6c6;
+}
+
+#qunit-tests li.pass strong {
+  color: #ccc;
+}
+
+#qunit-tests li strong {
+  font-weight: normal;
+}
+
+#qunit-tests li strong:hover {
+  cursor: pointer;
+}
+
+#qunit-tests ol {
+  list-style-position: inside;
+  padding: 0 0 0 22px;
+}
+
+#qunit-tests ol li table {
+  border-collapse: collapse;
+}
+
+#qunit-tests ol li table td pre {
+  background-color: #222;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  color: #ccc;
+  font: inherit;
+  margin: 3px 0 3px 12px;
+  padding: 12px 24px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#qunit-tests ol li table th {
+  font-weight: normal;
+}
+
+#qunit-tests ol li table th, #qunit-tests ol li table td {
+  padding: 0;
+  vertical-align: middle;
+}
+
+#qunit-tests ol li table tr.test-actual {
+  color: #c33;
+}
+
+#qunit-tests ol li table tr.test-diff del {
+  color: #6c6;
+}
+
+#qunit-tests ol li table tr.test-diff del, #qunit-tests ol li table tr.test-diff ins {
+  text-decoration: none;
+}
+
+#qunit-tests ol li table tr.test-diff ins {
+  color: #c33;
+}
+
+#qunit-tests ol li table tr.test-expected {
+  color: #FFEB3B;
+}
+
+#qunit-tests ol li table tr.test-source pre {
+  padding: 12px 24px 12px 0;
+}
+
+#qunit-userAgent {
+  color: #666;
+  font: 9px/9px "Menlo", monospace;
+}
+
+#qunit-fixture {
+  position: absolute;
+  height: 768px;
+  left: -1024px;
+  top: -768px;
+  width: 1024px;
+}
+
+.qunit-collapsed {
+  display: none;
+}
+
+em.qunit-todo-label {
+  color: #795548;
+  margin-right: 10px;
+}
+
+em.qunit-todo-label:after,
+em.qunit-skipped-label:after {
+  content: " -";
+}
+
+em.qunit-skipped-label {
+  margin-right: 10px;
+}

@@ -96,9 +96,11 @@ $corner-space: 20px;
   width: $default-width;
   transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1, 1);
 }
+
 .noty_progressbar {
   display: none;
 }
+
 .noty_has_timeout .noty_progressbar {
   display: block;
   position: absolute;
@@ -123,10 +125,12 @@ $corner-space: 20px;
   opacity: 0;
   transform: translate(50%);
   animation: noty_anim_in .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-fill-mode: forwards;
 }
 
 .noty_effects_close {
   animation: noty_anim_out .5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-fill-mode: forwards;
 }
 
 .noty_fix_effects_height {
@@ -146,32 +150,70 @@ $corner-space: 20px;
   height: 20px;
   text-align: center;
   line-height: 20px;
-  background-color: rgba(0,0,0,.05);
+  background-color: rgba(0, 0, 0, .05);
   border-radius: 2px;
   cursor: pointer;
   transition: all .2s ease-out;
 }
 
 .noty_close_button:hover {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1);
+}
+
+.noty_modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  z-index: 10000;
+  opacity: .3;
+  left: 0;
+  top: 0;
+}
+
+.noty_modal.noty_modal_open {
+  opacity: 0;
+  animation: noty_modal_in .3s ease-out;
+}
+.noty_modal.noty_modal_close {
+  animation: noty_modal_out .3s ease-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes noty_modal_in {
+  100% {
+    opacity: .3;
+  }
+}
+@keyframes noty_modal_out {
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes noty_modal_out {
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes noty_anim_in {
   100% {
-	transform: translate(0);
-	opacity: 1;
+    transform: translate(0);
+    opacity: 1;
   }
 }
+
 @keyframes noty_anim_out {
   100% {
-	transform: translate(50%);
-	opacity: 0;
+    transform: translate(50%);
+    opacity: 0;
   }
 }
 
 @keyframes noty_anim_height {
   100% {
-	height: 0;
+    height: 0;
   }
 }
 

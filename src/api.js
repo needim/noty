@@ -1,6 +1,7 @@
 import * as Utils from 'utils'
 
 export let PageHidden = false
+export let DocModalCount = 0
 
 const DocTitleProps = {
   originalTitle: null,
@@ -93,7 +94,8 @@ export let Defaults = {
   },
   titleCount: {
     conditions: []
-  }
+  },
+  modal: false
 }
 
 /**
@@ -237,6 +239,57 @@ function buildButtons (ref) {
  * @param {Noty} ref
  * @return {void}
  */
+export function handleModal (ref) {
+  if (ref.options.modal) {
+    if (DocModalCount === 0) {
+      createModal(ref)
+    }
+
+    DocModalCount++
+  }
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
+export function handleModalClose (ref) {
+  if (ref.options.modal && DocModalCount > 0) {
+    DocModalCount--
+
+    if (DocModalCount <= 0) {
+      const modal = document.querySelector('.noty_modal')
+
+      if (modal) {
+        Utils.removeClass(modal, 'noty_modal_open')
+        Utils.addClass(modal, 'noty_modal_close')
+        Utils.addListener(modal, Utils.animationEndEvents, () => {
+          Utils.remove(modal)
+        })
+      }
+    }
+  }
+}
+
+/**
+ * @return {void}
+ */
+function createModal () {
+  const body = document.querySelector('body')
+  const modal = document.createElement('div')
+  Utils.addClass(modal, 'noty_modal')
+  body.insertBefore(modal, body.firstChild)
+  Utils.addClass(modal, 'noty_modal_open')
+
+  Utils.addListener(modal, Utils.animationEndEvents, () => {
+    Utils.removeClass(modal, 'noty_modal_open')
+  })
+}
+
+/**
+ * @param {Noty} ref
+ * @return {void}
+ */
 function findOrCreateContainer (ref) {
   if (ref.options.container) {
     ref.layoutDom = document.querySelector(ref.options.container)
@@ -328,7 +381,10 @@ export function openFlow (ref) {
  */
 export function closeFlow (ref) {
   delete Store[ref.id]
+  ref.closing = false
   fire(ref, 'afterClose')
+
+  Utils.remove(ref.barDom)
 
   if (ref.layoutDom.querySelectorAll('.noty_bar').length === 0 && !ref.options.container) Utils.remove(ref.layoutDom)
 
