@@ -61,7 +61,7 @@ export function generateID (prefix = '') {
 
   id += 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
     let r = Math.random() * 16 | 0
-    let v = c === 'x' ? r : (r & 0x3 | 0x8)
+    let v = c === 'x' ? r : r & 0x3 | 0x8
     return v.toString(16)
   })
 
@@ -81,9 +81,11 @@ export let css = (function () {
   let cssProps = {}
 
   function camelCase (string) {
-    return string.replace(/^-ms-/, 'ms-').replace(/-([\da-z])/gi, function (match, letter) {
-      return letter.toUpperCase()
-    })
+    return string
+      .replace(/^-ms-/, 'ms-')
+      .replace(/-([\da-z])/gi, function (match, letter) {
+        return letter.toUpperCase()
+      })
   }
 
   function getVendorProp (name) {
@@ -121,7 +123,9 @@ export let css = (function () {
       for (prop in properties) {
         if (properties.hasOwnProperty(prop)) {
           value = properties[prop]
-          if (value !== undefined && properties.hasOwnProperty(prop)) applyCss(element, prop, value)
+          if (value !== undefined && properties.hasOwnProperty(prop)) {
+            applyCss(element, prop, value)
+          }
         }
       }
     } else {
@@ -176,13 +180,17 @@ export function remove (element) {
 }
 
 export function classList (element) {
-  return (' ' + ((element && element.className) || '') + ' ').replace(/\s+/gi, ' ')
+  return (' ' + ((element && element.className) || '') + ' ').replace(
+    /\s+/gi,
+    ' '
+  )
 }
 
 export function visibilityChangeFlow () {
   let hidden
   let visibilityChange
-  if (typeof document.hidden !== 'undefined') { // Opera 12.10 and Firefox 18 and later support
+  if (typeof document.hidden !== 'undefined') {
+    // Opera 12.10 and Firefox 18 and later support
     hidden = 'hidden'
     visibilityChange = 'visibilitychange'
   } else if (typeof document.msHidden !== 'undefined') {
@@ -214,24 +222,30 @@ export function visibilityChangeFlow () {
   }
 
   function stopAll () {
-    setTimeout(function () {
-      Object.keys(API.Store).forEach((id) => {
-        if (API.Store.hasOwnProperty(id)) {
-          API.Store[id].stop()
-        }
-      })
-    }, 100)
+    setTimeout(
+      function () {
+        Object.keys(API.Store).forEach(id => {
+          if (API.Store.hasOwnProperty(id)) {
+            API.Store[id].stop()
+          }
+        })
+      },
+      100
+    )
   }
 
   function resumeAll () {
-    setTimeout(function () {
-      Object.keys(API.Store).forEach((id) => {
-        if (API.Store.hasOwnProperty(id)) {
-          API.Store[id].resume()
-        }
-      })
-      API.queueRenderAll()
-    }, 100)
+    setTimeout(
+      function () {
+        Object.keys(API.Store).forEach(id => {
+          if (API.Store.hasOwnProperty(id)) {
+            API.Store[id].resume()
+          }
+        })
+        API.queueRenderAll()
+      },
+      100
+    )
   }
 
   addListener(document, visibilityChange, onVisibilityChange)
@@ -243,7 +257,7 @@ export function createAudioElements (ref) {
   if (ref.hasSound) {
     const audioElement = document.createElement('audio')
 
-    ref.options.sounds.sources.forEach((s) => {
+    ref.options.sounds.sources.forEach(s => {
       const source = document.createElement('source')
       source.src = s
       source.type = `audio/${getExtension(s)}`

@@ -30,7 +30,8 @@
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev",
-    "test": "standard && grunt test",
+    "format": "prettier-standard 'src/**/*.js'",
+    "test": "npm run format && standard && grunt test",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
   },
   "pre-commit": [
@@ -66,6 +67,7 @@
     "node-sass": "^4.1.0",
     "postcss-loader": "^1.0.0",
     "pre-commit": "^1.2.2",
+    "prettier-standard": "^3.0.1",
     "sass-loader": "^4.0.1",
     "standard": "^10.0.2",
     "standard-loader": "^6.0.1",

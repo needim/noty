@@ -4,7 +4,7 @@ import 'noty.scss'
 import 'babel-polyfill'
 import * as Utils from 'utils'
 import * as API from 'api'
-import { NotyButton } from 'button'
+import {NotyButton} from 'button'
 
 export default class Noty {
   /**
@@ -22,8 +22,8 @@ export default class Noty {
     this.shown = false
     this.closed = false
     this.closing = false
-    this.killable = (this.options.timeout || this.options.closeWith.length > 0)
-    this.hasSound = (this.options.sounds.sources.length > 0)
+    this.killable = this.options.timeout || this.options.closeWith.length > 0
+    this.hasSound = this.options.sounds.sources.length > 0
     this.soundPlayed = false
     this.listeners = {
       beforeShow: [],
@@ -76,11 +76,18 @@ export default class Noty {
       if (queueCounts.current >= queueCounts.maxVisible || API.PageHidden) {
         API.addToQueue(this)
 
-        if (API.PageHidden && this.hasSound && Utils.inArray('docHidden', this.options.sounds.conditions)) {
+        if (
+          API.PageHidden &&
+          this.hasSound &&
+          Utils.inArray('docHidden', this.options.sounds.conditions)
+        ) {
           Utils.createAudioElements(this)
         }
 
-        if (API.PageHidden && Utils.inArray('docHidden', this.options.titleCount.conditions)) {
+        if (
+          API.PageHidden &&
+          Utils.inArray('docHidden', this.options.titleCount.conditions)
+        ) {
           API.docTitle.increment()
         }
 
@@ -108,7 +115,11 @@ export default class Noty {
       this.layoutDom.appendChild(this.barDom)
     }
 
-    if (this.hasSound && !this.soundPlayed && Utils.inArray('docVisible', this.options.sounds.conditions)) {
+    if (
+      this.hasSound &&
+      !this.soundPlayed &&
+      Utils.inArray('docVisible', this.options.sounds.conditions)
+    ) {
       Utils.createAudioElements(this)
     }
 
@@ -121,9 +132,11 @@ export default class Noty {
 
     // bind button events if any
     if (API.hasButtons(this)) {
-      Object.keys(this.options.buttons).forEach((key) => {
-        const btn = this.barDom.querySelector(`#${this.options.buttons[key].id}`)
-        Utils.addListener(btn, 'click', (e) => {
+      Object.keys(this.options.buttons).forEach(key => {
+        const btn = this.barDom.querySelector(
+          `#${this.options.buttons[key].id}`
+        )
+        Utils.addListener(btn, 'click', e => {
           Utils.stopPropagation(e)
           this.options.buttons[key].cb()
         })
@@ -134,15 +147,25 @@ export default class Noty {
 
     if (Utils.inArray('click', this.options.closeWith)) {
       Utils.addClass(this.barDom, 'noty_close_with_click')
-      Utils.addListener(this.barDom, 'click', (e) => {
-        Utils.stopPropagation(e)
-        this.close()
-      }, false)
+      Utils.addListener(
+        this.barDom,
+        'click',
+        e => {
+          Utils.stopPropagation(e)
+          this.close()
+        },
+        false
+      )
     }
 
-    Utils.addListener(this.barDom, 'mouseenter', () => {
-      API.fire(this, 'onHover')
-    }, false)
+    Utils.addListener(
+      this.barDom,
+      'mouseenter',
+      () => {
+        API.fire(this, 'onHover')
+      },
+      false
+    )
 
     if (this.options.timeout) Utils.addClass(this.barDom, 'noty_has_timeout')
 
@@ -154,21 +177,28 @@ export default class Noty {
       closeButton.innerHTML = '×'
       this.barDom.appendChild(closeButton)
 
-      Utils.addListener(closeButton, 'click', (e) => {
-        Utils.stopPropagation(e)
-        this.close()
-      }, false)
+      Utils.addListener(
+        closeButton,
+        'click',
+        e => {
+          Utils.stopPropagation(e)
+          this.close()
+        },
+        false
+      )
     }
 
     API.fire(this, 'onShow')
 
     if (this.options.animation.open === null) {
-      this.promises.show = new Promise((resolve) => { resolve() })
+      this.promises.show = new Promise(resolve => {
+        resolve()
+      })
     } else if (typeof this.options.animation.open === 'function') {
       this.promises.show = new Promise(this.options.animation.open.bind(this))
     } else {
       Utils.addClass(this.barDom, this.options.animation.open)
-      this.promises.show = new Promise((resolve) => {
+      this.promises.show = new Promise(resolve => {
         Utils.addListener(this.barDom, Utils.animationEndEvents, () => {
           Utils.removeClass(this.barDom, this.options.animation.open)
           resolve()
@@ -178,9 +208,12 @@ export default class Noty {
 
     this.promises.show.then(() => {
       const _t = this
-      setTimeout(() => {
-        API.openFlow(_t)
-      }, 100)
+      setTimeout(
+        () => {
+          API.openFlow(_t)
+        },
+        100
+      )
     })
 
     return this
@@ -218,9 +251,13 @@ export default class Noty {
       }
 
       const _t = this
-      setTimeout(function () { // ugly fix for progressbar display bug
-        _t.resume()
-      }, 100)
+      setTimeout(
+        function () {
+          // ugly fix for progressbar display bug
+          _t.resume()
+        },
+        100
+      )
     }
 
     return this
@@ -250,7 +287,7 @@ export default class Noty {
     if (this.barDom) {
       let classList = Utils.classList(this.barDom).split(' ')
 
-      classList.forEach((c) => {
+      classList.forEach(c => {
         if (c.substring(0, 11) === 'noty_type__') {
           Utils.removeClass(this.barDom, c)
         }
@@ -273,7 +310,7 @@ export default class Noty {
     if (this.barDom) {
       let classList = Utils.classList(this.barDom).split(' ')
 
-      classList.forEach((c) => {
+      classList.forEach(c => {
         if (c.substring(0, 12) === 'noty_theme__') {
           Utils.removeClass(this.barDom, c)
         }
@@ -293,7 +330,8 @@ export default class Noty {
   close () {
     if (this.closed) return this
 
-    if (!this.shown) { // it's in the queue
+    if (!this.shown) {
+      // it's in the queue
       API.removeFromQueue(this)
       return this
     }
@@ -303,12 +341,16 @@ export default class Noty {
     this.closing = true
 
     if (this.options.animation.close === null) {
-      this.promises.close = new Promise((resolve) => { resolve() })
+      this.promises.close = new Promise(resolve => {
+        resolve()
+      })
     } else if (typeof this.options.animation.close === 'function') {
-      this.promises.close = new Promise(this.options.animation.close.bind(this))
+      this.promises.close = new Promise(
+        this.options.animation.close.bind(this)
+      )
     } else {
       Utils.addClass(this.barDom, this.options.animation.close)
-      this.promises.close = new Promise((resolve) => {
+      this.promises.close = new Promise(resolve => {
         Utils.addListener(this.barDom, Utils.animationEndEvents, () => {
           if (this.options.force) {
             Utils.remove(this.barDom)
@@ -337,9 +379,11 @@ export default class Noty {
    * @return {Noty}
    */
   static closeAll (queueName = false) {
-    Object.keys(API.Store).forEach((id) => {
+    Object.keys(API.Store).forEach(id => {
       if (queueName) {
-        if (API.Store[id].options.queue === queueName && API.Store[id].killable) {
+        if (
+          API.Store[id].options.queue === queueName && API.Store[id].killable
+        ) {
           API.Store[id].close()
         }
       } else if (API.Store[id].killable) {

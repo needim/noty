@@ -108,7 +108,7 @@ export function getQueueCounts (queueName = 'global') {
 
   if (Queues.hasOwnProperty(queueName)) {
     max = Queues[queueName].maxVisible
-    Object.keys(Store).forEach((i) => {
+    Object.keys(Store).forEach(i => {
       if (Store[i].options.queue === queueName && !Store[i].closed) count++
     })
   }
@@ -124,7 +124,9 @@ export function getQueueCounts (queueName = 'global') {
  * @return {void}
  */
 export function addToQueue (ref) {
-  if (!Queues.hasOwnProperty(ref.options.queue)) Queues[ref.options.queue] = {maxVisible: DefaultMaxVisible, queue: []}
+  if (!Queues.hasOwnProperty(ref.options.queue)) {
+    Queues[ref.options.queue] = {maxVisible: DefaultMaxVisible, queue: []}
+  }
 
   Queues[ref.options.queue].queue.push(ref)
 }
@@ -136,7 +138,7 @@ export function addToQueue (ref) {
 export function removeFromQueue (ref) {
   if (Queues.hasOwnProperty(ref.options.queue)) {
     const queue = []
-    Object.keys(Queues[ref.options.queue].queue).forEach((i) => {
+    Object.keys(Queues[ref.options.queue].queue).forEach(i => {
       if (Queues[ref.options.queue].queue[i].id !== ref.id) {
         queue.push(Queues[ref.options.queue].queue[i])
       }
@@ -161,7 +163,7 @@ export function queueRender (queueName = 'global') {
  * @return {void}
  */
 export function queueRenderAll () {
-  Object.keys(Queues).forEach((queueName) => {
+  Object.keys(Queues).forEach(queueName => {
     queueRender(queueName)
   })
 }
@@ -199,7 +201,10 @@ export function build (ref) {
 
   ref.barDom = document.createElement('div')
   ref.barDom.setAttribute('id', ref.id)
-  Utils.addClass(ref.barDom, `noty_bar noty_type__${ref.options.type} noty_theme__${ref.options.theme}`)
+  Utils.addClass(
+    ref.barDom,
+    `noty_bar noty_type__${ref.options.type} noty_theme__${ref.options.theme}`
+  )
 
   ref.barDom.innerHTML = markup
 
@@ -223,11 +228,11 @@ function buildButtons (ref) {
     let buttons = document.createElement('div')
     Utils.addClass(buttons, 'noty_buttons')
 
-    Object.keys(ref.options.buttons).forEach((key) => {
+    Object.keys(ref.options.buttons).forEach(key => {
       buttons.appendChild(ref.options.buttons[key].dom)
     })
 
-    ref.options.buttons.forEach((btn) => {
+    ref.options.buttons.forEach(btn => {
       buttons.appendChild(btn.dom)
     })
     return buttons.outerHTML
@@ -321,9 +326,12 @@ export function queueClose (ref) {
 
     clearTimeout(ref.closeTimer)
 
-    ref.closeTimer = setTimeout(() => {
-      ref.close()
-    }, ref.options.timeout)
+    ref.closeTimer = setTimeout(
+      () => {
+        ref.close()
+      },
+      ref.options.timeout
+    )
   }
 }
 
@@ -352,8 +360,10 @@ export function dequeueClose (ref) {
  */
 export function fire (ref, eventName) {
   if (ref.listeners.hasOwnProperty(eventName)) {
-    ref.listeners[eventName].forEach((cb) => {
-      if (typeof cb === 'function') { cb.apply(ref) }
+    ref.listeners[eventName].forEach(cb => {
+      if (typeof cb === 'function') {
+        cb.apply(ref)
+      }
     })
   }
 }
@@ -386,9 +396,17 @@ export function closeFlow (ref) {
 
   Utils.remove(ref.barDom)
 
-  if (ref.layoutDom.querySelectorAll('.noty_bar').length === 0 && !ref.options.container) Utils.remove(ref.layoutDom)
+  if (
+    ref.layoutDom.querySelectorAll('.noty_bar').length === 0 &&
+    !ref.options.container
+  ) {
+    Utils.remove(ref.layoutDom)
+  }
 
-  if (Utils.inArray('docVisible', ref.options.titleCount.conditions) || Utils.inArray('docHidden', ref.options.titleCount.conditions)) {
+  if (
+    Utils.inArray('docVisible', ref.options.titleCount.conditions) ||
+    Utils.inArray('docHidden', ref.options.titleCount.conditions)
+  ) {
     docTitle.decrement()
   }
 
