@@ -10,3 +10,5 @@ _SpecRunner.html
 yarn.lock
 .nyc_output
 coverage
+manifest.json
+service-worker.js

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NOTY v3 Push Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700&amp;subset=latin-ext" rel="stylesheet">
+  <link rel="stylesheet" href="../lib/noty.css"/>
+  <link rel="stylesheet" href="animate.css"/>
+  <link rel="stylesheet" href="fonts/stylesheet.css"/>
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/>
+  <link rel="stylesheet" href="demo.css"/>
+
+  <link rel="manifest" href="../manifest.json">
+</head>
+<body>
+
+<div class="logo">
+  <img src="noty-logo.png" alt="">
+</div>
+
+<div>
+  <p class="mt30" style="text-align: center">
+    <button class="btn button request">REQUEST PERMISSION</button>
+  </p>
+</div>
+
+<div id="logs-wrapper">
+  <pre id="logs"></pre>
+</div>
+
+<script type="text/javascript" src="../lib/noty.js"></script>
+<script type="text/javascript" src="store.everything.min.js"></script>
+
+<script type="text/javascript">
+  (function () {
+
+    function addListener (el, events, cb, useCapture = false) {
+      events = events.split(' ')
+      for (let i = 0; i < events.length; i++) {
+        if (document.addEventListener) {
+          el.addEventListener(events[i], cb, useCapture)
+        } else if (document.attachEvent) {
+          el.attachEvent('on' + events[i], cb)
+        }
+      }
+    }
+
+    var logs = document.querySelector('#logs')
+    var reqBtn = document.querySelector('.request')
+
+    window.NotyPush = Noty.Push()
+      .on('onPermissionGranted', function () {
+        console.log('Perm: granted')
+        logs.innerHTML += 'Perm: granted' + '\n'
+        updateBtn()
+      })
+      .on('onPermissionDenied', function () {
+        console.log('Perm: denied')
+        logs.innerHTML += 'Perm: denied' + '\n'
+        updateBtn()
+      })
+      .on('onSubscriptionSuccess', function (subData) {
+        console.log('Subscription:', subData)
+        logs.innerHTML += 'Subscription: (YOU NEED TO STORE THIS VALUES FOR LATER USE)' + '\n' + JSON.stringify(subData, null, 2) + '\n'
+
+        store.set('subData', subData)
+        updateBtn()
+      })
+      .on('onSubscriptionCancel', function (subData) {
+        console.log('Subscription: canceled')
+        logs.innerHTML += 'Subscription: canceled' + '\n'
+        updateBtn()
+      })
+      .on('onWorkerSuccess', function () {
+        console.log('Worker: installed')
+        logs.innerHTML += 'Worker: installed' + '\n'
+        updateBtn()
+      })
+      .on('onWorkerError', function (err) {
+        console.log('Worker: failed', err)
+        logs.innerHTML += 'Worker: failed' + '\n' + JSON.stringify(err, null, 2) + '\n'
+        updateBtn()
+      })
+      .on('onWorkerNotSupported', function (err) {
+        console.log('Worker: not supported', err)
+        logs.innerHTML += 'Worker: not supported' + '\n'
+        updateBtn()
+      })
+
+    addListener(reqBtn, 'click', function (e) {
+      e.preventDefault()
+
+      var op = reqBtn.attributes['data-op']
+      if (op === 'request') {
+        NotyPush.requestSubscription(true)
+      } else if (op === 'print') {
+        logs.innerHTML += 'Subscription: (YOU NEED TO STORE THIS VALUES FOR LATER USE)' + '\n' + JSON.stringify(store.get('subData'), null, 2) + '\n'
+      }
+
+      return false
+    })
+
+    function updateBtn () {
+      if (window.NotyPush.getPermissionStatus() === 'granted') {
+        if (window.NotyPush.isSWRegistered()) {
+          reqBtn.disabled = false
+          reqBtn.innerHTML = 'Print Subscription Data <br> (granted:sw:ok)'
+          reqBtn.attributes['data-op'] = 'print'
+        } else {
+          reqBtn.disabled = false
+          reqBtn.innerHTML = 'Print Subscription Data <br> (granted:sw:fail)'
+          reqBtn.attributes['data-op'] = 'request'
+        }
+      } else if (window.NotyPush.getPermissionStatus() === 'denied') {
+        reqBtn.innerHTML = 'Push is blocked by user'
+        reqBtn.disabled = true
+      } else if (window.NotyPush.getPermissionStatus() === 'default') {
+        reqBtn.innerHTML = 'Request Subscription'
+        reqBtn.disabled = false
+        reqBtn.attributes['data-op'] = 'request'
+      }
+    }
+
+    updateBtn()
+
+  })()
+</script>
+
+</body>
+</html>

@@ -105,3 +105,15 @@ select {
   background-color: #c0a7fd;
   border-color: #948CE2;
 }
+
+
+.button:disabled {
+  background: #dddddd;
+  color: #333;
+  opacity: .5;
+}
+
+.button:disabled:hover {
+  background: #dddddd;
+  opacity: .5;
+}

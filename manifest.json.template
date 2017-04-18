@@ -1,0 +1,7 @@
+{
+  "name": "NOTY",
+  "short_name": "NOTY",
+  "start_url": "./demo/push.html",
+  "display": "standalone",
+  "gcm_sender_id": "<-your-sender-id>"
+}

@@ -72,6 +72,7 @@
     "standard": "^10.0.2",
     "standard-loader": "^6.0.1",
     "style-loader": "^0.13.1",
+    "web-push": "^3.2.2",
     "webpack": "2.4.1",
     "yargs": "7.0.2"
   }
