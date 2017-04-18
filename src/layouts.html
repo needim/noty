@@ -1,5 +1,5 @@
 //= template/head.html
-                    
+
 <div id="layouts">
 
     <div class="row">
@@ -8,12 +8,18 @@
             <h1><span class="ps-icon ps-icon-row-setting"></span> Types & Layouts</h1>
 
             <p class="excerpt">
-                <strong>NOTY</strong> has <strong>11</strong> layouts;<br> &nbsp;&nbsp;&nbsp;<span class="imp bold">top</span>, <span class="imp bold">topLeft</span>, <span class="imp bold">topCenter</span>, <span class="imp bold">topRight</span>, <span class="imp bold">center</span>, <span class="imp bold">centerLeft</span>, <span class="imp bold">centerRight</span>, <span class="imp bold">bottom</span>, <span class="imp bold">bottomLeft</span>, <span class="imp bold">bottomCenter</span>, <span class="imp bold">bottomRight</span>
-                <br>and 5 types;<br>&nbsp;&nbsp;&nbsp;<span class="imp bold">alert</span>, <span class="imp bold">success</span>, <span class="imp bold">warning</span>, <span class="imp bold">error</span>, <span class="imp bold">info/information</span>
+                <strong>NOTY</strong> has <strong>11</strong> layouts;<br> &nbsp;&nbsp;&nbsp;<span
+                    class="imp bold">top</span>, <span class="imp bold">topLeft</span>, <span
+                    class="imp bold">topCenter</span>, <span class="imp bold">topRight</span>, <span class="imp bold">center</span>,
+                <span class="imp bold">centerLeft</span>, <span class="imp bold">centerRight</span>, <span
+                    class="imp bold">bottom</span>, <span class="imp bold">bottomLeft</span>, <span class="imp bold">bottomCenter</span>,
+                <span class="imp bold">bottomRight</span>
+                <br>and 5 types;<br>&nbsp;&nbsp;&nbsp;<span class="imp bold">alert</span>, <span class="imp bold">success</span>,
+                <span class="imp bold">warning</span>, <span class="imp bold">error</span>, <span class="imp bold">info/information</span>
             </p>
 
             <p class="mt30">Creating a notification;</p>
-<pre class="prettyprint lang-javascript">
+            <pre class="prettyprint lang-javascript">
 new Noty({
     text: 'Some notification text',
 }).show();
@@ -34,7 +40,7 @@ new Noty({
                     <option value="bottomCenter">bottomCenter</option>
                     <option value="bottomRight">bottomRight</option>
                     <optgroup label="Custom Container">
-                      <option value="inline">inline</option>
+                        <option value="inline">inline</option>
                     </optgroup>
                 </select>
                 and type
@@ -46,7 +52,8 @@ new Noty({
                     <option value="information">information</option>
                 </select>
 
-                <a href="#run" class="btn button runner" style="position: relative; top: -3px; margin-left: 10px; text-decoration: none">CREATE</a>
+                <a href="#run" class="btn button runner"
+                   style="position: relative; top: -3px; margin-left: 10px; text-decoration: none">CREATE</a>
             </p>
 
             <p class="mt30">Custom container example for using inline layout;</p>
@@ -55,7 +62,7 @@ new Noty({
             </div>
 
             <p class="mt30">Custom container usage example;</p>
-<pre class="prettyprint lang-javascript">
+            <pre class="prettyprint lang-javascript">
 new Noty({
     text     : 'Some notification text',
     container: '.custom-container'
@@ -63,11 +70,7 @@ new Noty({
 </pre>
 
         </div>
-
-
-
     </div>
-
 </div>
 
 <div class="next-section mt30 mb30">

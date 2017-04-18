@@ -1,19 +1,18 @@
 //= template/head.html
 
-                    <div id="confirmations">
+<div id="confirmations">
 
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
 
-                                <h1><span class="ps-icon ps-icon-headset"></span> Confirm Dialogs</h1>
+            <h1><span class="ps-icon ps-icon-headset"></span> Confirm Dialogs</h1>
 
+            <div>
+                <p>
+                    We can set button objects with an array like below;
+                </p>
 
-                                <div>
-                                    <p>
-                                        We can set button objects with an array like below;
-                                    </p>
-
-<pre class="prettyprint lang-javascript">
+                <pre class="prettyprint lang-javascript">
 var n = new Noty({
   text: 'Do you want to continue? &lt;input id="example" type="text"&gt;',
   buttons: [
@@ -29,22 +28,24 @@ var n = new Noty({
 }).show();
 </pre>
 
-                                    <blockquote>
-                                        <strong>Noty.button</strong>(<strong class="imp">text</strong>:string, <strong class="imp">classNames</strong>:string, <strong class="imp">cb</strong>:function, <strong class="imp">attributes</strong>:object&lt;optional&gt;);
-                                    </blockquote>
+                <blockquote>
+                    <strong>Noty.button</strong>(<strong class="imp">text</strong>:string, <strong class="imp">classNames</strong>:string,
+                    <strong class="imp">cb</strong>:function, <strong class="imp">attributes</strong>:object&lt;optional&gt;);
+                </blockquote>
 
-                                    <blockquote>
-                                        <strong>About button styling</strong>: Noty doesn't care about that. You need to pass class names with your styles.
-                                    </blockquote>
+                <blockquote>
+                    <strong>About button styling</strong>: Noty doesn't care about that. You need to pass class names
+                    with your styles.
+                </blockquote>
 
-                                </div>
+            </div>
 
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</div>
 
-                    <div class="next-section mt30 mb30">
-                        Next; <a href="/noty/api.html">API & Callbacks</a>
-                    </div>
+<div class="next-section mt30 mb30">
+    Next; <a href="/noty/api.html">API & Callbacks</a>
+</div>
 
 //= template/foot.html

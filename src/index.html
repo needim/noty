@@ -1,112 +1,133 @@
 //= template/head.html
-                    
-    <div id="installation">
 
-        <div class="row">
-            <div class="col-xs-12 col-md-12 col-lg-12">
+<div id="installation">
 
-                <h1><span class="ps-icon ps-icon-penknife"></span> Features</h1>
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
 
-                <div>
-                    <ul class="features">
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> Dependency-free
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> UMD
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> Named queue system
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> Has 11 layouts, 5 notification styles, 5+ themes
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> Custom container (inline notifications)
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> Confirm notifications
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> TTL with timeout option
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> Progress bar indicator for timed notifications
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> Supports css animations, <a target="_blank" href="https://github.com/daneden/animate.css">animate.css</a>, <a target="_blank" href="https://github.com/legomushroom/mojs">mojs</a>, <a target="_blank" href="https://github.com/tictail/bounce.js">bounce.js</a>, <a target="_blank" href="https://github.com/julianshapiro/velocity">velocity</a> and other animation libraries
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> 2 close options: click, button
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> API & Callbacks
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> Custom templating
-                        </li>
-                        <li>
-                            <span class="ps-icon ps-icon-checked"></span> Document visibility control (blur, focus)
-                        </li>
-                    </ul>
-                </div>
+            <h1><span class="ps-icon ps-icon-penknife"></span> Features</h1>
 
-                <h1><span class="ps-icon ps-icon-code"></span> Installation</h1>
+            <div>
+                <ul class="features">
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Dependency-free
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Web Push Notifications with Service Worker support
+                        - <strong class="imp issue">v3.1.0-beta</strong>
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> UMD
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Named queue system
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Has 11 layouts, 5 notification styles, 5+ themes
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Custom container (inline notifications)
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Confirm notifications
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> TTL with timeout option
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Progress bar indicator for timed notifications
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Supports css animations, <a target="_blank"
+                                                                                                  href="https://github.com/daneden/animate.css">animate.css</a>,
+                        <a target="_blank" href="https://github.com/legomushroom/mojs">mojs</a>, <a target="_blank"
+                                                                                                    href="https://github.com/tictail/bounce.js">bounce.js</a>,
+                        <a target="_blank" href="https://github.com/julianshapiro/velocity">velocity</a> and other
+                        animation libraries
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> 2 close options: click, button
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> API & Callbacks
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Custom templating
+                    </li>
+                    <li>
+                        <span class="ps-icon ps-icon-checked"></span> Document visibility control (blur, focus)
+                    </li>
+                </ul>
+            </div>
 
-                <p>
-                    Include <strong class="">lib/noty.css</strong> <strong>&</strong> <strong class="">lib/noty.js</strong> or use Bower, NPM, Yarn or Composer
-                </p>
+            <h1><span class="ps-icon ps-icon-code"></span> Installation</h1>
 
-<pre class="prettyprint lang-javascript">
+            <p>
+                Include <strong class="">lib/noty.css</strong> <strong>&</strong> <strong class="">lib/noty.js</strong>
+                or use Bower, NPM, Yarn or Composer
+            </p>
+
+            <pre class="prettyprint lang-javascript">
 &lt;link href="lib/noty.css" rel="stylesheet"&gt;&lt;/script&gt;
 &lt;script src="lib/noty.js" type="text/javascript"&gt;&lt;/script&gt;
 </pre>
-                <blockquote>
-                    <strong>NOTY v3</strong> is <strong class="imp">NOT dependent</strong> to <strong class="">jQuery</strong> anymore.
-                </blockquote>
-            </div>
 
+            <blockquote>
+                <strong>NOTY v3</strong> is <strong class="imp">NOT dependent</strong> to <strong
+                    class="">jQuery</strong> anymore.
+            </blockquote>
+        </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-12">
-                <h3>Install via <a target="_blank" href="http://bower.io/">Bower</a></h3>
-<pre class="prettyprint lang-bash">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <h3>Install via <a target="_blank" href="http://bower.io/">Bower</a></h3>
+
+            <pre class="prettyprint lang-bash">
 $ <span class="lit">bower</span> install noty
 </pre>
-            </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-12">
-                <h3>Install via <a target="_blank" href="https://www.npmjs.org/">NPM</a></h3>
-<pre class="prettyprint lang-bash">
+        </div>
+
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <h3>Install via <a target="_blank" href="https://www.npmjs.org/">NPM</a></h3>
+
+            <pre class="prettyprint lang-bash">
 $ <span class="lit">npm</span> install noty
 </pre>
-            </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-12">
-                <h3>Install via <a target="_blank" href="https://yarnpkg.com/">Yarn</a></h3>
-<pre class="prettyprint lang-bash">
+        </div>
+
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <h3>Install via <a target="_blank" href="https://yarnpkg.com/">Yarn</a></h3>
+
+            <pre class="prettyprint lang-bash">
 $ <span class="lit">yarn</span> add noty
 </pre>
-            </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-12">
-                <h3>Install via <a target="_blank" href="https://www.getcomposer.org/">Composer</a></h3>
-<pre class="prettyprint lang-bash">
+        </div>
+
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <h3>Install via <a target="_blank" href="https://www.getcomposer.org/">Composer</a></h3>
+
+            <pre class="prettyprint lang-bash">
 $ <span class="lit">composer</span> require needim/noty
 </pre>
-            </div>
 
-            <div class="col-xs-12 col-md-12 col-lg-12">
-                <h3>Usage: Creating a Notification</h3>
-<pre class="prettyprint lang-javascript">
+        </div>
+
+        <div class="col-xs-12 col-md-12 col-lg-12">
+            <h3>Usage: Creating a Notification</h3>
+
+            <pre class="prettyprint lang-javascript">
 new Noty({
     ...
     text: 'Some notification text',
     ...
 }).show();
 </pre>
-                <h3>ES6 import & Require Usages</h3>
 
-<pre class="prettyprint lang-javascript">
+            <h3>ES6 import & Require Usages</h3>
+
+            <pre class="prettyprint lang-javascript">
 import Noty from 'noty';
 new Noty({
     ...
@@ -121,16 +142,14 @@ new Noty({
     ...
 }).show();
 </pre>
-            </div>
-
         </div>
-
-
-        <div class="next-section mt30 mb30">
-            Next; <a href="/noty/options.html">Options & Defaults</a>
-        </div>
-
     </div>
+
+    <div class="next-section mt30 mb30">
+        Next; <a href="/noty/options.html">Options & Defaults</a>
+    </div>
+
+</div>
 
 
 //= template/foot.html

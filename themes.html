@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="vendor/ps-icon-pack.css" />
     <link rel="stylesheet" href="fonts/stylesheet.css" />
     <link rel="stylesheet" href="vendor/custom.css" />
-    <link rel="stylesheet" href="vendor/noty-3.0.0/noty.css" />
+    <link rel="stylesheet" href="vendor/noty-3/noty.css" />
     <link rel="stylesheet" href="vendor/google-code-prettify/prettify.css" />
 
 </head>
@@ -34,7 +34,7 @@
                 </a>
 
                 <div class="project-info mt10 text-muted small">
-                    <strong>NOTY</strong> is a <strong>notification plugin</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.
+                    <strong>NOTY</strong> is a <strong>notification library</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.
                 </div>
 
                 <p class="text-center">
@@ -78,6 +78,9 @@
                     <!--<a href="/noty/queuing.html"><span class="ps-icon ps-icon-retweet-1"></span> Queue System</a>-->
                     <!--</li>-->
                     <li>
+                        <a href="/noty/web-push.html"><span class="ps-icon ps-icon-ufo"></span> Web Push Notifications</a>
+                    </li>
+                    <li>
                         <a href="/noty/confirmations.html"><span class="ps-icon ps-icon-headset"></span> Confirm Dialogs</a>
                     </li>
                     <li>
@@ -119,7 +122,7 @@
                         <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="125px" height="35px"></iframe>
                         <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="115px" height="35px"></iframe>
                         <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;type=follow&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
-                        <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=download&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="35px"></iframe>
+                        <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=download&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="190px" height="35px"></iframe>
                         <div class="sharer-btn text-center"></div>
                     </div>
 
@@ -136,11 +139,12 @@
 
                                 <p class="excerpt">
                                     <strong>NOTY</strong> comes with <strong>6</strong> themes;
-                                    <span class="imp bold">relax</span>, <span class="imp bold">mint</span>, <span class="imp bold">sunset</span>, <span class="imp bold">metroui</span>, <span class="imp bold">semanticui</span>, <span class="imp bold">bootstrap-v3</span>,
-                                    <span class="imp bold">bootstrap-v4</span> and the default is <strong>mint</strong>.
+                                    <span class="imp bold">relax</span>, <span class="imp bold">mint</span>, <span class="imp bold">sunset</span>, <span class="imp bold">metroui</span>, <span class="imp bold">semanticui</span>,
+                                    <span class="imp bold">bootstrap-v3</span>, <span class="imp bold">bootstrap-v4</span> and the default is <strong>mint</strong>.
                                 </p>
 
-                                <blockquote>If you want to <span class="bold">submit your theme</span> you can create a pull request on Github.</blockquote>
+                                <blockquote>If you want to <span class="bold">submit your theme</span> you can create a pull request on Github.
+                                </blockquote>
 
                             </div>
 
@@ -209,13 +213,20 @@
                             </div>
 
                             <div class="col-md-6 col-xs-12">
-                                <h4 style="padding: 50% 0; text-align: center">If you want to submit your theme you can create a pull request on Github</h4>
+                                <div class="mt30 theme-container theme-container-nest" data-theme="nest">
+                                    <h4>nest <span class="imp issue bold">NEW v3.1.0-beta</span></h4>
+                                    <p>Works best with force: true option</p>
+                                    <div class="preview-container noty_layout" style="position: relative"></div>
+                                </div>
                             </div>
 
                         </div>
 
                         <div class="row">
                             <div class="col-md-12 mt20">
+
+                                <h4 style="padding: 50px 0; text-align: center">If you want to submit your theme you can create a pull request on GitHub</h4>
+
                                 <p>Example CSS for themes;</p>
 
 
@@ -258,6 +269,7 @@
   border-bottom: 1px solid #A0B55C;
   color: #fff; }
 </pre>
+
                             </div>
 
                         </div>
@@ -277,7 +289,7 @@
         <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
         <script src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
         <script type="text/javascript" src="vendor/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="vendor/noty-3.0.0/noty.js"></script>
+        <script type="text/javascript" src="vendor/noty-3/noty.js"></script>
         <script type="text/javascript" src="vendor/google-code-prettify/prettify.js"></script>
         <script type="text/javascript" src="vendor/share.min.js"></script>
         <script type="text/javascript" src="vendor/showdown/showdown.min.js"></script>

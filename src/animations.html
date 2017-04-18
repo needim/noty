@@ -1,20 +1,19 @@
 //= template/head.html
 
-                    <div id="options">
+<div id="options">
 
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
 
-                                <h1><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations</h1>
+            <h1><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations</h1>
 
+            <div>
 
-                                <div>
+                <p>
+                    Using with class names. (like animate.css)
+                </p>
 
-                                    <p>
-                                        Using with class names. (like animate.css)
-                                    </p>
-
-<pre class="prettyprint lang-javascript">
+                <pre class="prettyprint lang-javascript">
 new Noty({
     text: 'NOTY - a jquery notification library!',
     animation: {
@@ -24,22 +23,22 @@ new Noty({
 }).show();
 </pre>
 
+                <br><br>
 
-                                    <br><br>
+                <h4>Other cool ways</h4>
 
-                                    <h4>Other cool ways</h4>
+                <a href="/noty/animations.bouncejs.html" class="button">Animating with <strong>bounce.js</strong></a>
+                <a href="/noty/animations.mojs.html" class="button">Animating with <strong>mo.js</strong></a>
+                <a href="/noty/animations.velocityjs.html" class="button">Animating with
+                    <strong>velocity.js</strong></a>
 
-                                    <a href="/noty/animations.bouncejs.html" class="button">Animating with <strong>bounce.js</strong></a>
-                                    <a href="/noty/animations.mojs.html" class="button">Animating with <strong>mo.js</strong></a>
-                                    <a href="/noty/animations.velocityjs.html" class="button">Animating with <strong>velocity.js</strong></a>
 
+                <br><br>
+                <p>
+                    Example css animation;
+                </p>
 
-                                    <br><br>
-                                    <p>
-                                        Example css animation;
-                                    </p>
-
-<pre class="prettyprint lang-css">
+                <pre class="prettyprint lang-css">
 .noty_effects_open {
   opacity: 0;
   transform: translate(50%);
@@ -65,18 +64,18 @@ new Noty({
 }
 </pre>
 
-                                    <blockquote>
-                                        <strong>JavaScript animations</strong> are <strong>deprecated</strong>.
-                                    </blockquote>
+                <blockquote>
+                    <strong>JavaScript animations</strong> are <strong>deprecated</strong>.
+                </blockquote>
 
-                                </div>
+            </div>
 
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</div>
 
-                    <div class="next-section mt30 mb30">
-                        Next; <a href="/noty/confirmations.html">Confirm Dialogs</a>
-                    </div>
+<div class="next-section mt30 mb30">
+    Next; <a href="/noty/confirmations.html">Confirm Dialogs</a>
+</div>
 
 //= template/foot.html

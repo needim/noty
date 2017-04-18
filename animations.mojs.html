@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="vendor/ps-icon-pack.css" />
     <link rel="stylesheet" href="fonts/stylesheet.css" />
     <link rel="stylesheet" href="vendor/custom.css" />
-    <link rel="stylesheet" href="vendor/noty-3.0.0/noty.css" />
+    <link rel="stylesheet" href="vendor/noty-3/noty.css" />
     <link rel="stylesheet" href="vendor/google-code-prettify/prettify.css" />
 
 </head>
@@ -34,7 +34,7 @@
                 </a>
 
                 <div class="project-info mt10 text-muted small">
-                    <strong>NOTY</strong> is a <strong>notification plugin</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.
+                    <strong>NOTY</strong> is a <strong>notification library</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.
                 </div>
 
                 <p class="text-center">
@@ -78,6 +78,9 @@
                     <!--<a href="/noty/queuing.html"><span class="ps-icon ps-icon-retweet-1"></span> Queue System</a>-->
                     <!--</li>-->
                     <li>
+                        <a href="/noty/web-push.html"><span class="ps-icon ps-icon-ufo"></span> Web Push Notifications</a>
+                    </li>
+                    <li>
                         <a href="/noty/confirmations.html"><span class="ps-icon ps-icon-headset"></span> Confirm Dialogs</a>
                     </li>
                     <li>
@@ -119,7 +122,7 @@
                         <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="125px" height="35px"></iframe>
                         <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="115px" height="35px"></iframe>
                         <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;type=follow&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
-                        <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=download&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="35px"></iframe>
+                        <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=download&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="190px" height="35px"></iframe>
                         <div class="sharer-btn text-center"></div>
                     </div>
 
@@ -132,7 +135,9 @@
                         <div class="row">
                             <div class="col-xs-12 col-md-12 col-lg-12">
 
-                                <h1><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations with <strong class="imp">mojs</strong></h1>
+                                <h1>
+                                    <span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations with <strong class="imp">mojs</strong>
+                                </h1>
 
 
                                 <div>
@@ -141,7 +146,8 @@
                                     </p>
 
                                     <p>
-                                        <br><button id="run-example-mojs" class="button">RUN EXAMPLE</button>
+                                        <br>
+                                        <button id="run-example-mojs" class="button">RUN EXAMPLE</button>
                                     </p>
 
                                     <pre class="prettyprint lang-javascript">
@@ -150,7 +156,7 @@ new Noty({
     text: 'NOTY - a jquery notification library!',
     ...
     animation: {
-        open: function () {
+        open: function (promise) {
             var n = this;
             var Timeline = new mojs.Timeline();
             var body = new mojs.Html({
@@ -158,7 +164,9 @@ new Noty({
                 x         : {500: 0, delay: 0, duration: 500, easing: 'elastic.out'},
                 isForce3d : true,
                 onComplete: function () {
-                    n.resume();
+                    promise(function(resolve) {
+                        resolve();
+                    })
                 }
             });
 
@@ -211,7 +219,7 @@ new Noty({
             Timeline.add(body, burst, fadeBurst, parent);
             Timeline.play();
         },
-        close: function () {
+        close: function (promise) {
             var n = this;
             new mojs.Html({
                 el        : n.barDom,
@@ -219,7 +227,9 @@ new Noty({
                 skewY     : {0: 10, delay: 10, duration: 500, easing: 'cubic.out'},
                 isForce3d : true,
                 onComplete: function () {
-                    n.barDom.parentNode.removeChild(n.barDom); // removing noty's dom from document
+                    promise(function(resolve) {
+                        resolve();
+                    })
                 }
             }).play();
         }
@@ -229,7 +239,7 @@ new Noty({
 
 
                                     <blockquote>
-                                        <strong class="imp">Important:</strong> You need to remove NOTY's dom on <strong>close</strong>.
+                                        <strong class="imp">Important:</strong> <strong>You need to resolve promises</strong> for this type of usage.
                                     </blockquote>
 
                                 </div>
@@ -251,7 +261,7 @@ new Noty({
         <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
         <script src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
         <script type="text/javascript" src="vendor/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="vendor/noty-3.0.0/noty.js"></script>
+        <script type="text/javascript" src="vendor/noty-3/noty.js"></script>
         <script type="text/javascript" src="vendor/google-code-prettify/prettify.js"></script>
         <script type="text/javascript" src="vendor/share.min.js"></script>
         <script type="text/javascript" src="vendor/showdown/showdown.min.js"></script>

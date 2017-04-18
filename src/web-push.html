@@ -1,0 +1,161 @@
+//= template/head.html
+
+<div id="releases">
+
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
+
+            <h1><span class="ps-icon ps-icon-ufo"></span> Web Push Notifications</h1>
+
+            <div>
+                <p>
+                    With <span class="imp issue bold">v3.1.0-beta</span> push notifications are supported with service worker implementation.
+                </p>
+
+                <h5>
+                    There are some preparation steps
+                </h5>
+
+                <ul class="mt10 mb30">
+                    <li>1) Create a project on the <a target="_blank" href="https://console.firebase.google.com/">Firebase Developer Console</a>.</li>
+                    <li>2) Go to <strong>Project settings</strong> (The cog near the top left corner), click the '<strong>Cloud Messaging</strong>' tab.</li>
+                    <li>3) Note that <strong>Server Key</strong> and <strong>Sender ID</strong>.</li>
+                    <li>4) Create a copy of <a target="_blank" href="https://github.com/needim/noty/blob/master/manifest.json.template">manifest.json.template</a> called <strong>manifest.json</strong> at root folder</li>
+                    <li>5) Replace &lt;your-sender-id&gt; in your new manifest.json with your own Sender ID from the Firebase Developer Console project.</li>
+                    <li>6) Create a copy of <a target="_blank" href="https://github.com/needim/noty/blob/master/service-worker.js.template">service-worker.js.template</a> called <strong>service-worker.js</strong> at root folder</li>
+                    <li>7) Link your manifest &lt;link rel="manifest" href="../manifest.json"&gt;</li>
+                </ul>
+
+                <h5>Now half of the job is done.</h5>
+
+                <p>Let's create a Noty.Push instance.</p>
+
+                <pre class="prettyprint lang-javascript">
+const NotyPush = Noty.Push('/service-worker.js')
+  .on('onPermissionGranted', function () {
+    console.log('Perm: granted')
+  })
+  .on('onPermissionDenied', function () {
+    console.log('Perm: denied')
+  })
+  .on('onSubscriptionSuccess', function (subData) {
+    console.log('Subscription:', subData)
+    // (YOU NEED TO STORE THIS VALUES FOR LATER USE)
+  })
+  .on('onSubscriptionCancel', function (subData) {
+    console.log('Subscription: canceled')
+  })
+  .on('onWorkerSuccess', function () {
+    console.log('Worker: installed')
+  })
+  .on('onWorkerError', function (err) {
+    console.log('Worker: failed', err)
+  })
+  .on('onWorkerNotSupported', function (err) {
+    console.log('Worker: not supported', err)
+  })
+</pre>
+
+                <p>Let's ask user's permission.</p>
+
+                <pre class="prettyprint lang-javascript">
+NotyPush.requestSubscription()
+</pre>
+
+                <p>Now the browser will ask permission. And if the user allows it, the service worker will be registered.</p>
+
+                <p><strong>You need the store subData onSubscriptionSuccess callback for later use.</strong></p>
+
+
+                <br>
+                <h3 class="mt30">Sending push notifications from backend (Node.js)</h3>
+
+                <p>Now that we have subscription information, we can send notifications with <a target="_blank" href="https://github.com/web-push-libs/web-push"><strong>web-push</strong></a> library.</p>
+
+                <br>
+                <p>Let's install <a target="_blank" href="https://github.com/web-push-libs/web-push"><strong>web-push</strong></a> first.</p>
+                <pre class="prettyprint lang-bash">
+$ <span class="lit">npm</span> install web-push
+</pre>
+
+                <p>Create a JavaScript file called sendPushExample.js</p>
+
+                <pre class="prettyprint lang-javascript">
+const webpush = require('web-push')
+
+const vapidKeys = webpush.generateVAPIDKeys()
+
+webpush.setGCMAPIKey('YOUR-SERVER-KEY-FROM-FIREBASE-CONSOLE')
+
+webpush.setVapidDetails(
+  'mailto:your@email.com',
+  vapidKeys.publicKey,
+  vapidKeys.privateKey
+)
+
+// Use your previously saved subscription information
+const pushSubscription = {
+  endpoint: '<-https://android.googleapis.com/gcm/send/dF3pK2rWhOQ..........->',
+  keys: {
+    auth: '<-insert-auth-key-here->',
+    p256dh: '<-insert-p256dh-key-here->'
+  }
+}
+
+// image & actions are optional
+webpush.sendNotification(pushSubscription, JSON.stringify({
+  title: 'Noty title',
+  body: 'Noty body',
+  icon: 'https://your-icon0-url.png',
+  image: 'https://your-image-url.png',
+  url: 'http://ned.im/noty/?ref=webPushTest',
+  actions: [
+    {action: 'actionYes', 'title': 'Yes', 'icon': 'https://your-icon1-url.png'},
+    {action: 'actionNo', 'title': 'No', 'icon': 'https://your-icon2-url.png'}
+  ]
+}))
+</pre>
+
+                <p>After that we can run</p>
+
+                <pre class="prettyprint lang-bash">
+$ <span class="lit">node</span> sendPushExample.js
+</pre>
+
+                <p>
+                    Notification should look like this for Chrome
+                </p>
+
+                <p>
+                    <img src="img/notification-example-chrome.png" alt="notification example for chrome">
+                </p>
+
+
+                <br>
+                <h3 class="mt30">Checking user's current permission</h3>
+
+                <pre class="prettyprint lang-javascript">
+NotyPush.getPermissionStatus() === 'granted'
+NotyPush.getPermissionStatus() === 'default'
+NotyPush.getPermissionStatus() === 'denied'
+
+// In some cases, you may need to check
+// whether your service worker is running.
+NotyPush.isSWRegistered() === true
+
+// You may ask again for permission,
+// If user's permission granted
+// but service worker unregistered or not working.
+</pre>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="next-section mt30 mb30">
+    <!--Next; <a href="/noty/layouts.html">Types & Layouts</a>-->
+</div>
+
+//= template/foot.html

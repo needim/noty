@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="vendor/ps-icon-pack.css" />
     <link rel="stylesheet" href="fonts/stylesheet.css" />
     <link rel="stylesheet" href="vendor/custom.css" />
-    <link rel="stylesheet" href="vendor/noty-3.0.0/noty.css" />
+    <link rel="stylesheet" href="vendor/noty-3/noty.css" />
     <link rel="stylesheet" href="vendor/google-code-prettify/prettify.css" />
 
 </head>
@@ -34,7 +34,7 @@
                 </a>
 
                 <div class="project-info mt10 text-muted small">
-                    <strong>NOTY</strong> is a <strong>notification plugin</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.
+                    <strong>NOTY</strong> is a <strong>notification library</strong> that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.
                 </div>
 
                 <p class="text-center">
@@ -78,6 +78,9 @@
                     <!--<a href="/noty/queuing.html"><span class="ps-icon ps-icon-retweet-1"></span> Queue System</a>-->
                     <!--</li>-->
                     <li>
+                        <a href="/noty/web-push.html"><span class="ps-icon ps-icon-ufo"></span> Web Push Notifications</a>
+                    </li>
+                    <li>
                         <a href="/noty/confirmations.html"><span class="ps-icon ps-icon-headset"></span> Confirm Dialogs</a>
                     </li>
                     <li>
@@ -119,7 +122,7 @@
                         <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="125px" height="35px"></iframe>
                         <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=fork&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="115px" height="35px"></iframe>
                         <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;type=follow&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
-                        <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=download&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="170px" height="35px"></iframe>
+                        <iframe src="http://ned.im/github-buttons/ghbtn.html?user=needim&amp;repo=noty&amp;type=download&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="190px" height="35px"></iframe>
                         <div class="sharer-btn text-center"></div>
                     </div>
 
@@ -144,6 +147,7 @@ new Noty({
 </pre>
 
                                 <br><br>
+
                                 <p>
                                     Available options listed below.
                                 </p>
@@ -155,7 +159,9 @@ new Noty({
                                         <th>Info</th>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">type</strong> <br><small>: string</small></td>
+                                        <td><strong class="imp">type</strong> <br>
+                                            <small>: string</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'alert'</td>
                                         <td data-th="Info" class="small">
                                             alert, success, error, warning, info
@@ -163,7 +169,9 @@ new Noty({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">layout</strong> <br><small>: string</small></td>
+                                        <td><strong class="imp">layout</strong> <br>
+                                            <small>: string</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'topRight'</td>
                                         <td class="small">
                                             top, topLeft, topCenter, topRight, center, centerLeft, centerRight, bottom, bottomLeft, bottomCenter, bottomRight
@@ -171,7 +179,9 @@ new Noty({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">theme</strong> <br><small>: string</small></td>
+                                        <td><strong class="imp">theme</strong> <br>
+                                            <small>: string</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'mint'</td>
                                         <td class="small">
                                             relax, mint, metroui
@@ -179,14 +189,18 @@ new Noty({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">text</strong> <br><small>: string</small></td>
+                                        <td><strong class="imp">text</strong> <br>
+                                            <small>: string</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>''</td>
                                         <td class="small">
                                             This string can contain HTML too. But be careful and don't pass user inputs to this parameter.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">timeout</strong> <br><small>: boolean | int</small></td>
+                                        <td><strong class="imp">timeout</strong> <br>
+                                            <small>: boolean | int</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>false</td>
                                         <td class="small">
                                             false, 1000, 3000, 3500, etc.
@@ -194,7 +208,9 @@ new Noty({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">progressBar</strong> <br><small>: boolean</small></td>
+                                        <td><strong class="imp">progressBar</strong> <br>
+                                            <small>: boolean</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>true</td>
                                         <td class="small">
                                             true, false
@@ -202,114 +218,208 @@ new Noty({
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">closeWith</strong> <br><small>: [...string]</small></td>
+                                        <td><strong class="imp">closeWith</strong> <br>
+                                            <small>: [...string]</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>['click']</td>
                                         <td class="small">
                                             click, button
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">animation.open</strong> <br><small>: string | null | function</small></td>
-                                        <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'noty_effects_open'</td>
+                                        <td><strong class="imp">animation.open</strong> <br>
+                                            <small>: string | null | function</small>
+                                        </td>
+                                        <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'noty_effects_open'
+                                        </td>
                                         <td class="small">
                                             If <strong>string</strong>, assumed to be CSS class name.<br> If <strong>null</strong>, no animation at all.<br> If <strong>function</strong>, runs the function. (v3.0.1+)
                                             <hr> You can use animate.css class names or your custom css animations as well.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td data-th="Option"><strong class="imp">animation.close</strong> <br><small>: string | null | function</small></td>
-                                        <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'noty_effects_close'</td>
+                                        <td><strong class="imp">animation.close</strong> <br>
+                                            <small>: string | null | function</small>
+                                        </td>
+                                        <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'noty_effects_close'
+                                        </td>
                                         <td class="small">
                                             If <strong>string</strong>, assumed to be CSS class name.<br> If <strong>null</strong>, no animation at all.<br> If <strong>function</strong>, runs the function. (v3.0.1+)
                                             <hr> You can use animate.css class names or your custom css animations as well.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">id</strong> <br><small>: string | boolean</small></td>
+                                        <td>
+                                            <strong class="imp">sounds.sources</strong>
+                                            <br>
+                                            <small>: [...string]</small>
+                                        </td>
+                                        <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>[]</td>
+                                        <td class="small">
+                                            <strong class="imp issue">v3.1.0-beta</strong> Array of audio sources e.g 'some.wav'
+                                            <a target="_blank" href="http://caniuse.com/#search=audio">Check browser support</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong class="imp">sounds.volume</strong>
+                                            <br>
+                                            <small>: int</small>
+                                        </td>
+                                        <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>1</td>
+                                        <td class="small">
+                                            <strong class="imp issue">v3.1.0-beta</strong> Integer value between 0-1 e.g 0.5
+                                            <a target="_blank" href="http://caniuse.com/#search=audio">Check browser support</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong class="imp">sounds.conditions</strong>
+                                            <br>
+                                            <small>: [...string]</small>
+                                        </td>
+                                        <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>[]</td>
+                                        <td class="small">
+                                            <strong class="imp issue">v3.1.0-beta</strong> There are two conditions for now: <strong>'docVisible'</strong> & <strong>'docHidden'</strong>.
+                                            <br>You can use one of them or both.
+                                            <a target="_blank" href="http://caniuse.com/#search=audio">Check browser support</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong class="imp">docTitle.conditions</strong>
+                                            <br>
+                                            <small>: [...string]</small>
+                                        </td>
+                                        <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>[]</td>
+                                        <td class="small">
+                                            <strong class="imp issue">v3.1.0-beta</strong> There are two conditions for now: <strong>'docVisible'</strong> & <strong>'docHidden'</strong>.
+                                            <br>You can use one of them or both.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <strong class="imp">modal</strong>
+                                            <br>
+                                            <small>: boolean</small>
+                                        </td>
+                                        <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>false</td>
+                                        <td class="small">
+                                            <strong class="imp issue">v3.1.0-beta</strong> Behaves like v2 but more stable
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong class="imp">id</strong> <br>
+                                            <small>: string | boolean</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>false</td>
                                         <td class="small">
                                             You can use this id with querySelectors. Generated automatically if false.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">force</strong> <br><small>: boolean</small></td>
+                                        <td><strong class="imp">force</strong> <br>
+                                            <small>: boolean</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>false</td>
                                         <td class="small">
                                             DOM insert method depends on this parameter. If false uses append, if true uses prepend.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">queue</strong> <br><small>: string</small></td>
+                                        <td><strong class="imp">queue</strong> <br>
+                                            <small>: string</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>'global'</td>
                                         <td class="small">
                                             <span class="imp issue bold">NEW</span> Named queue system. Details are <a href="/noty/api.html">here</a>.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">killer</strong> <br><small>: boolean | string</small></td>
+                                        <td><strong class="imp">killer</strong> <br>
+                                            <small>: boolean | string</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>false</td>
                                         <td class="small">
                                             If true closes all <strong>visible</strong> notifications and shows itself.<br> If string(queueName) closes all <strong>visible</strong> notification on this queue and shows itself.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">container</strong> <br><small>: boolean | string</small></td>
+                                        <td><strong class="imp">container</strong> <br>
+                                            <small>: boolean | string</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>false</td>
                                         <td class="small">
                                             Custom container selector string. Like '.my-custom-container'. Layout parameter will be ignored.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">buttons</strong> <br><small>: [...Noty.button]</small></td>
+                                        <td><strong class="imp">buttons</strong> <br>
+                                            <small>: [...Noty.button]</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>[]</td>
                                         <td class="small">
                                             An array of Noty.button, for creating confirmation dialogs. Details are <a href="/noty/confirmations.html">here</a>.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">callbacks.beforeShow</strong> <br><small>: function</small></td>
+                                        <td><strong class="imp">callbacks.beforeShow</strong> <br>
+                                            <small>: function</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>() => {}</td>
                                         <td class="small">
                                             Details are <a href="/noty/api.html">here</a>.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">callbacks.onShow</strong> <br><small>: function</small></td>
+                                        <td><strong class="imp">callbacks.onShow</strong> <br>
+                                            <small>: function</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>() => {}</td>
                                         <td class="small">
                                             Details are <a href="/noty/api.html">here</a>.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">callbacks.afterShow</strong> <br><small>: function</small></td>
+                                        <td><strong class="imp">callbacks.afterShow</strong> <br>
+                                            <small>: function</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>() => {}</td>
                                         <td class="small">
                                             Details are <a href="/noty/api.html">here</a>.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">callbacks.onClose</strong> <br><small>: function</small></td>
+                                        <td><strong class="imp">callbacks.onClose</strong> <br>
+                                            <small>: function</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>() => {}</td>
                                         <td class="small">
                                             Details are <a href="/noty/api.html">here</a>.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">callbacks.afterShow</strong> <br><small>: function</small></td>
+                                        <td><strong class="imp">callbacks.afterShow</strong> <br>
+                                            <small>: function</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>() => {}</td>
                                         <td class="small">
                                             Details are <a href="/noty/api.html">here</a>.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">callbacks.onHover</strong> <br><small>: function</small></td>
+                                        <td><strong class="imp">callbacks.onHover</strong> <br>
+                                            <small>: function</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>() => {}</td>
                                         <td class="small">
                                             Details are <a href="/noty/api.html">here</a>.
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong class="imp">callbacks.onTemplate</strong> <br><small>: function</small></td>
+                                        <td><strong class="imp">callbacks.onTemplate</strong> <br>
+                                            <small>: function</small>
+                                        </td>
                                         <td class="small"><span class="bold visible-xs-inline-block">Default:&nbsp;</span>() => {}</td>
                                         <td class="small">
                                             Mainly for DOM manipulations. Details are <a href="/noty/api.html">here</a>.
@@ -351,7 +461,7 @@ Noty.overrideDefaults({
         <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
         <script src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
         <script type="text/javascript" src="vendor/jquery-1.10.2.min.js"></script>
-        <script type="text/javascript" src="vendor/noty-3.0.0/noty.js"></script>
+        <script type="text/javascript" src="vendor/noty-3/noty.js"></script>
         <script type="text/javascript" src="vendor/google-code-prettify/prettify.js"></script>
         <script type="text/javascript" src="vendor/share.min.js"></script>
         <script type="text/javascript" src="vendor/showdown/showdown.min.js"></script>

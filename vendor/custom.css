@@ -515,6 +515,7 @@ select {
 .preview-container {
   max-width: 390px;
   margin: 0 auto;
+  min-height: 200px;
 }
 
 .supported-by a {
@@ -532,6 +533,10 @@ select {
   background: linear-gradient(330deg, #e05252 0%, #99e052 25%, #52e0e0 50%, #9952e0 75%, #e05252 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+div#options .imp.issue {
+  padding: 0;
 }
 
 @media only screen

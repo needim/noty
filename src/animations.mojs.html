@@ -1,29 +1,33 @@
 //= template/head.html
 
-                    <div id="options">
+<div id="options">
 
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
 
-                                <h1><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations with <strong class="imp">mojs</strong></h1>
+            <h1>
+                <span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations with <strong
+                    class="imp">mojs</strong>
+            </h1>
 
 
-                                <div>
-                                    <p>
-                                        Get <a target="_blank" href="http://mojs.io?ref=notyjs">mojs</a>, first.
-                                    </p>
+            <div>
+                <p>
+                    Get <a target="_blank" href="http://mojs.io?ref=notyjs">mojs</a>, first.
+                </p>
 
-                                    <p>
-                                        <br><button id="run-example-mojs" class="button">RUN EXAMPLE</button>
-                                    </p>
+                <p>
+                    <br>
+                    <button id="run-example-mojs" class="button">RUN EXAMPLE</button>
+                </p>
 
-<pre class="prettyprint lang-javascript">
+                <pre class="prettyprint lang-javascript">
 new Noty({
     ...
     text: 'NOTY - a jquery notification library!',
     ...
     animation: {
-        open: function () {
+        open: function (promise) {
             var n = this;
             var Timeline = new mojs.Timeline();
             var body = new mojs.Html({
@@ -31,7 +35,9 @@ new Noty({
                 x         : {500: 0, delay: 0, duration: 500, easing: 'elastic.out'},
                 isForce3d : true,
                 onComplete: function () {
-                    n.resume();
+                    promise(function(resolve) {
+                        resolve();
+                    })
                 }
             });
 
@@ -84,7 +90,7 @@ new Noty({
             Timeline.add(body, burst, fadeBurst, parent);
             Timeline.play();
         },
-        close: function () {
+        close: function (promise) {
             var n = this;
             new mojs.Html({
                 el        : n.barDom,
@@ -92,7 +98,9 @@ new Noty({
                 skewY     : {0: 10, delay: 10, duration: 500, easing: 'cubic.out'},
                 isForce3d : true,
                 onComplete: function () {
-                    n.barDom.parentNode.removeChild(n.barDom); // removing noty's dom from document
+                    promise(function(resolve) {
+                        resolve();
+                    })
                 }
             }).play();
         }
@@ -101,18 +109,19 @@ new Noty({
 </pre>
 
 
-                                    <blockquote>
-                                        <strong class="imp">Important:</strong> You need to remove NOTY's dom on <strong>close</strong>.
-                                    </blockquote>
+                <blockquote>
+                    <strong class="imp">Important:</strong> <strong>You need to resolve promises</strong> for this type
+                    of usage.
+                </blockquote>
 
-                                </div>
+            </div>
 
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</div>
 
-                    <div class="next-section mt30 mb30">
-                        Next; <a href="/noty/confirmations.html">Confirm Dialogs</a>
-                    </div>
+<div class="next-section mt30 mb30">
+    Next; <a href="/noty/confirmations.html">Confirm Dialogs</a>
+</div>
 
 //= template/foot.html

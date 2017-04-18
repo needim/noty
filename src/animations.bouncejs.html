@@ -1,29 +1,33 @@
 //= template/head.html
 
-                    <div id="options">
+<div id="options">
 
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
 
-                                <h1><span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations with <strong class="imp">bounce.js</strong></h1>
+            <h1>
+                <span class="ps-icon ps-icon-blaster"></span> Show & Hide Animations with <strong
+                    class="imp">bounce.js</strong>
+            </h1>
 
 
-                                <div>
-                                    <p>
-                                        Get <a target="_blank" href="http://bouncejs.com?ref=notyjs">bounce.js</a>, first.
-                                    </p>
+            <div>
+                <p>
+                    Get <a target="_blank" href="http://bouncejs.com?ref=notyjs">bounce.js</a>, first.
+                </p>
 
-                                    <p>
-                                        <br><button id="run-example-bouncejs" class="button">RUN EXAMPLE</button>
-                                    </p>
+                <p>
+                    <br>
+                    <button id="run-example-bouncejs" class="button">RUN EXAMPLE</button>
+                </p>
 
-<pre class="prettyprint lang-javascript">
+                <pre class="prettyprint lang-javascript">
 new Noty({
     ...
     text: 'NOTY - a jquery notification library!',
     ...
     animation: {
-        open: function () {
+        open: function (promise) {
             var n = this;
             new Bounce()
                 .translate({
@@ -51,11 +55,13 @@ new Noty({
                 })
                 .applyTo(n.barDom, {
                     onComplete: function () {
-                        n.resume();
+                        promise(function(resolve) {
+                            resolve();
+                        })
                     }
                 });
         },
-        close: function () {
+        close: function (promise) {
             var n = this;
             new Bounce()
                 .translate({
@@ -67,7 +73,9 @@ new Noty({
                 })
                 .applyTo(n.barDom, {
                     onComplete: function () {
-                        n.barDom.parentNode.removeChild(n.barDom);
+                        promise(function(resolve) {
+                            resolve();
+                        })
                     }
                 });
         }
@@ -75,19 +83,19 @@ new Noty({
 }).show();
 </pre>
 
+                <blockquote>
+                    <strong class="imp">Important:</strong> <strong>You need to resolve promises</strong> for this type
+                    of usage.
+                </blockquote>
 
-                                    <blockquote>
-                                        <strong class="imp">Important:</strong> You need to remove NOTY's dom on <strong>close</strong>.
-                                    </blockquote>
+            </div>
 
-                                </div>
+        </div>
+    </div>
+</div>
 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="next-section mt30 mb30">
-                        Next; <a href="/noty/confirmations.html">Confirm Dialogs</a>
-                    </div>
+<div class="next-section mt30 mb30">
+    Next; <a href="/noty/confirmations.html">Confirm Dialogs</a>
+</div>
 
 //= template/foot.html

@@ -1,21 +1,19 @@
 //= template/head.html
 
-                    <div id="api">
+<div id="api">
 
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12 col-lg-12">
+    <div class="row">
+        <div class="col-xs-12 col-md-12 col-lg-12">
 
-                                <h1><span class="ps-icon ps-icon-branch"></span> API & Callbacks</h1>
+            <h1><span class="ps-icon ps-icon-branch"></span> API & Callbacks</h1>
 
+            <div>
 
-                                <div>
+                <h4 class="mt30">
+                    API Methods
+                </h4>
 
-                                    <h4 class="mt30">
-                                        API Methods
-                                    </h4>
-
-
-<pre class="prettyprint lang-javascript">
+                <pre class="prettyprint lang-javascript">
 var n = new Noty({text: 'Hi!'});
 
 console.log(n); // Returns a NOTY javascript object
@@ -30,16 +28,17 @@ n.stop(); // Clears the timeout
 n.resume(); // Restarts the timeout
 </pre>
 
-                                    <blockquote>
-                                        <strong>setText()</strong>, <strong>setType()</strong> and <strong>setTheme()</strong> methods doesn't override NOTY's options.
-                                        <br>If you wanna override those values pass a second parameter as boolean <strong>true</strong>.
-                                    </blockquote>
+                <blockquote>
+                    <strong>setText()</strong>, <strong>setType()</strong> and <strong>setTheme()</strong> methods
+                    doesn't override NOTY's options.
+                    <br>If you wanna override those values pass a second parameter as boolean <strong>true</strong>.
+                </blockquote>
 
-                                    <h4 class="mt30">
-                                        API Static Methods
-                                    </h4>
+                <h4 class="mt30">
+                    API Static Methods
+                </h4>
 
-<pre class="prettyprint lang-javascript">
+                <pre class="prettyprint lang-javascript">
 Noty.closeAll(); // Closes all notifications
 Noty.closeAll('myCustomQueueName'); // Closes all notifications with queue named 'myCustomQueueName'
 
@@ -47,15 +46,15 @@ Noty.setMaxVisible(10); // Sets the maxVisible notification count for global que
 Noty.setMaxVisible(10, 'myCustomQueueName'); // Sets the maxVisible notification count for 'myCustomQueueName' queue;
 </pre>
 
-                                    <blockquote>
-                                        Default <strong>maxVisible</strong> value is <strong>5</strong> for all queues.
-                                    </blockquote>
+                <blockquote>
+                    Default <strong>maxVisible</strong> value is <strong>5</strong> for all queues.
+                </blockquote>
 
-                                    <h4 class="mt30">
-                                        Callbacks
-                                    </h4>
+                <h4 class="mt30">
+                    Callbacks
+                </h4>
 
-<pre class="prettyprint lang-javascript">
+                <pre class="prettyprint lang-javascript">
 new Noty({
     ...
     callbacks: {
@@ -74,11 +73,11 @@ new Noty({
 }).show();
 </pre>
 
-                                    <h4 class="mt30">
-                                        Callbacks Alternative Usage
-                                    </h4>
+                <h4 class="mt30">
+                    Callbacks Alternative Usage
+                </h4>
 
-<pre class="prettyprint lang-javascript">
+                <pre class="prettyprint lang-javascript">
 new Noty({
     ...
 }).on('onShow', function() {
@@ -90,14 +89,14 @@ new Noty({
 // Important: You need to call on() methods before the show() method.
 </pre>
 
-                                </div>
+            </div>
 
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</div>
 
-                    <div class="next-section mt30 mb30">
-                        Next; <a href="/noty/releases.html">Release History</a>
-                    </div>
+<div class="next-section mt30 mb30">
+    Next; <a href="/noty/releases.html">Release History</a>
+</div>
 
 //= template/foot.html
