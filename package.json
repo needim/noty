@@ -1,8 +1,8 @@
 {
   "name": "noty",
   "version": "3.1.0-beta",
-  "title": "Noty - Notification Plugin",
-  "description": "Noty is a plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)",
+  "title": "Noty - Notification library",
+  "description": "Noty is a library that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)",
   "homepage": "http://ned.im/noty",
   "main": "lib/noty.js",
   "keywords": [

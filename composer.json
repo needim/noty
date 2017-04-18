@@ -1,6 +1,6 @@
 {
 	"name": "needim/noty",
-	"description": "Noty is a plugin that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.",
+	"description": "Noty is a library that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog.",
 	"type": "library",
 	"license": "MIT",
 	"homepage": "http://ned.im/noty",

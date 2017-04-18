@@ -1,6 +1,6 @@
 {
   "name": "noty",
-  "description": "Noty - notification plugin",
+  "description": "Noty - Notification library",
   "license": "MIT",
   "homepage": "http://ned.im/noty",
   "main": "dist/noty.js",

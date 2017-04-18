@@ -4,7 +4,7 @@
   </a>
 
   <p align="center">
-    Dependency-free notification plugin.
+    Dependency-free notification library.
     <br>
     <a href="http://ned.im/noty"><strong>Documentation &raquo;</strong></a>
   </p>
@@ -29,7 +29,7 @@
 
 ## Hi
 
-**NOTY** is a notification plugin that makes it easy to create **alert** - **success** - **error** - **warning** - **information** - **confirmation** messages as an alternative the standard alert dialog.
+**NOTY** is a notification library that makes it easy to create **alert** - **success** - **error** - **warning** - **information** - **confirmation** messages as an alternative the standard alert dialog.
 
 The notifications can be positioned at the;
 **top** - **topLeft** - **topCenter** - **topRight** - **center** - **centerLeft** - **centerRight** - **bottom** - **bottomLeft** - **bottomCenter** - **bottomRight**
@@ -41,6 +41,7 @@ It also has various callbacks for the buttons, opening closing the notifications
 ***
 ### Features
 - [x] Dependency-free
+- [x] Web Push Notifications with Service Worker support
 - [x] UMD
 - [x] Named queue system
 - [x] Has 11 layouts, 5 notification styles, 5+ themes
