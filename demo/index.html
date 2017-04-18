@@ -129,8 +129,8 @@
       var n = this
       new mojs.Html({
         el: n.barDom,
-        x: {0: 500, delay: 10, duration: 500, easing: 'cubic.out'},
-        skewY: {0: 10, delay: 10, duration: 500, easing: 'cubic.out'},
+        x: {0: 500, delay: 0, duration: 250, easing: 'cubic.out'},
+        opacity: {1: 0, delay: 0, duration: 250},
         isForce3d: true,
         onComplete: function () {
           promise(function(resolve) {
@@ -235,61 +235,67 @@
 
     Noty.overrideDefaults({
       layout: 'topRight',
-      theme: 'mint',
+      theme: 'nest',
       closeWith: ['click'],
       timeout: 10000,
+      force: true,
       animation: {
         open: mojsOpenExample,
         close: mojsCloseExample
       }
     })
 
-    setTimeout(function() {
-      new Noty({
-        text: 'A) This notification <strong>plays a sound</strong> and <strong>updates the document title</strong> with count <i>if document is hidden</i>',
-        type: 'warning',
-        layout: 'topRight',
-        sounds: {
-          sources: ['sound-example.wav'],
-          volume: .2,
-          conditions: ['docHidden']
-        },
-        titleCount: {
-          conditions: ['docHidden']
-        },
-        closeWith: [],
-        queue: "Q1",
-        timeout: 3000,
-        killer: true,
-        modal: true
-      }).show()
-    }, 2000)
+//    setTimeout(function() {
+//      new Noty({
+//        text: 'A) This notification <strong>plays a sound</strong> and <strong>updates the document title</strong> with count <i>if document is hidden</i>',
+//        type: 'warning',
+//        layout: 'topRight',
+//        sounds: {
+//          sources: ['sound-example.wav'],
+//          volume: .2,
+//          conditions: ['docHidden']
+//        },
+//        titleCount: {
+//          conditions: ['docHidden']
+//        },
+//        closeWith: [],
+//        queue: "Q1",
+//        timeout: 3000,
+//        killer: true,
+//        modal: true
+//      }).show()
+//    }, 2000)
 
-    setTimeout(function() {
-      new Noty({
-        text: 'B) This notification <strong>plays a sound</strong> and <strong>updates the document title</strong> with count <i>if document is hidden</i>',
-        type: 'warning',
-        layout: 'topRight',
-        sounds: {
-          sources: ['sound-example.wav'],
-          volume: .2,
-          conditions: ['docHidden']
-        },
-        titleCount: {
-          conditions: ['docHidden']
-        },
-        closeWith: ['click', 'backdrop'],
-        queue: "Q2",
-        timeout: 2000,
-        killer: "Q1",
-        modal: true
-      }).show()
-    }, 5100)
+//    setTimeout(function() {
+//      new Noty({
+//        text: 'B) This notification <strong>plays a sound</strong> and <strong>updates the document title</strong> with count <i>if document is hidden</i>',
+//        type: 'warning',
+//        layout: 'topRight',
+//        sounds: {
+//          sources: ['sound-example.wav'],
+//          volume: .2,
+//          conditions: ['docHidden']
+//        },
+//        titleCount: {
+//          conditions: ['docHidden']
+//        },
+//        closeWith: ['click', 'backdrop'],
+//        queue: "Q2",
+//        timeout: 2000,
+//        killer: "Q1",
+//        modal: true
+//      }).show()
+//    }, 5100)
+
+    var notes = []
+    notes['alert'] = 'Best check yo self, you\'re not looking too good.'
+    notes['error'] = 'Change a few things up and try submitting again.'
+    notes['success'] = 'You successfully read this important alert message.'
+    notes['information'] = 'This alert needs your attention, but it\'s not super important.'
+    notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.'
 
     document.querySelector('.runner').addEventListener('click', function (e) {
       e.preventDefault()
-
-      var notes = []
 
       var layout = document.querySelector('select#layout')
       var type = document.querySelector('select#type')
@@ -300,12 +306,6 @@
       var types = ['alert', 'error', 'success', 'information', 'warning']
       if (type === 'random')
         type = types[Math.floor(Math.random() * types.length)]
-
-      notes['alert'] = 'Best check yo self, you\'re not looking too good.'
-      notes['error'] = 'Change a few things up and try submitting again.'
-      notes['success'] = 'You successfully read this important alert message.'
-      notes['information'] = 'This alert needs your attention, but it\'s not super important.'
-      notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.'
 
       if (layout === 'inline') {
         new Noty({
@@ -320,9 +320,8 @@
       new Noty({
         text: notes[type],
         type: type,
-        timeout: 5000,
-        layout: layout,
-        modal: true
+        timeout: false,
+        layout: layout
       }).show()
 
       return false

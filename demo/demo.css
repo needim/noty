@@ -46,7 +46,6 @@ div.activity > span {
   border-radius: 5px;
   background: rgba(255, 255, 255, .5);
   overflow: hidden;
-  display: none;
 }
 
 .logo {

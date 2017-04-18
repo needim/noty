@@ -25,7 +25,7 @@ module.exports = function (grunt) {
           maxRetries: 3,
           maxPollRetries: 4,
           urls: ['http://127.0.0.1:3000/test/index.html?hidepassed'],
-          browsers: [
+          browsers: [ // https://wiki.saucelabs.com/display/DOCS/Platform+Configurator
             { // macOS
               'browserName': 'safari',
               'platform': 'OS X 10.11'
