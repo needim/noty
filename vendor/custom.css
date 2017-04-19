@@ -416,6 +416,10 @@ pre {
   border-radius: 0;
 }
 
+.giveaway {
+  background: #ECEAE7 url(../img/projects/logo_JetBrains_4.svg) 107% -19px no-repeat;
+}
+
 .sharer-btn.text-center.sharer-0 {
   display: inline-block !important;
 }
@@ -527,6 +531,10 @@ select {
   color: #000;
   padding: 2px 5px;
   text-decoration: none;
+}
+
+#releases p {
+  margin-top: 15px;
 }
 
 .theme-library {

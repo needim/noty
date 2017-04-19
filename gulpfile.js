@@ -6,6 +6,9 @@ const rigger = require('gulp-rigger')
 const browserSync = require('browser-sync')
 const prettify = require('gulp-jsbeautifier')
 const download = require('gulp-download-stream')
+const rename = require('gulp-rename')
+const jsonTransform = require('gulp-json-transform')
+const Showdown = require('showdown')
 
 const path = {
   build: { // production
@@ -55,7 +58,6 @@ gulp.task('html:build', () => {
     .pipe(rigger())
     .pipe(prettify())
     .pipe(gulp.dest(path.build.html))
-
 })
 
 /* =====================================================
@@ -68,8 +70,40 @@ gulp.task('download:releases', () => {
       'User-Agent': 'NOTY Documentation Page'
     }
   })
+    .pipe(rename('releases.json'))
     .pipe(gulp.dest(path.build.html))
+})
 
+const issueLinker = {
+  type: 'lang',
+  regex: '#[0-9]+',
+  replace: function (match, prefix, content) {
+    return '<a class="imp issue" target="_blank" href="https://github.com/needim/noty/issues/' + match.substr(1) + '">' + match + '</a>'
+  }
+}
+
+gulp.task('html:releases', ['download:releases'], () => {
+  return gulp.src('./releases.json')
+    .pipe(jsonTransform((data, file) => {
+      const convertor = new Showdown.Converter({
+        extensions: [issueLinker],
+        tasklists: true,
+        simpleLineBreaks: true,
+        ghMentions: true
+      })
+      let html = '<ul>'
+      data.forEach((issue, i) => {
+        let entry = '\n\t<li>\n\t\t<h3>' + issue.tag_name + '</h3>'
+        entry += convertor.makeHtml(issue.body)
+        entry += '\n\t</li>'
+        html += entry
+      })
+
+      html += '\n</ul>'
+      return html
+    }))
+    .pipe(rename('releases.html'))
+    .pipe(gulp.dest('./src/template'))
 })
 
 /* =====================================================
@@ -92,4 +126,4 @@ gulp.task('watch', () => {
  DEFAULT TASK
  ===================================================== */
 
-gulp.task('default', ['build', 'download:releases', 'webserver', 'watch'])
+gulp.task('default', ['html:releases', 'build', 'webserver', 'watch'])
