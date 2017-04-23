@@ -332,6 +332,43 @@ $(function () {
     })
   }
 
+  var $minibed1 = $('#noty-options-interactive')
+
+  if ($minibed1.length) {
+    new Minibed({
+      title: 'minibed',
+      container: '#noty-options-interactive',
+      theme: 'dark',
+      editorTheme: 'minibed-dark',
+      external: {
+        js: [
+          '//cdn.rawgit.com/needim/noty/master/lib/noty.js'
+        ],
+        css: [
+          '//cdn.rawgit.com/needim/noty/master/lib/noty.css',
+          'fonts/stylesheet.css',
+          'interactive/base.css'
+        ]
+      },
+      files: {
+        js: [
+          'interactive/minibed-1.js'
+        ],
+        html: [
+        ]
+      },
+      settings: {
+        css: {
+          base: 'none', // normalize, reset, none
+        }
+      },
+      notes: [
+        'Interactive playground is powered by <a href="http://ned.im/minibed"><strong class="imp issue">minibed</strong>.</a>',
+        'You can play with NOTY\'s options️ and see the result.'
+      ]
+    }).show()
+  }
+
   function generatePreview (theme, type) {
     var notes = []
     notes['alert'] = 'Best check yo self, you\'re not looking too good.'

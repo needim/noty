@@ -1,0 +1,8 @@
+html, body {
+  font-family: 'GothamRoundedLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  width: 100%;
+  color: #2D3134;
+  font-size: 16px;
+  line-height: 1.5em;
+  background-color: rgb(255, 253, 250);
+}
