@@ -3,7 +3,7 @@
   "description": "Noty - Notification library",
   "license": "MIT",
   "homepage": "http://ned.im/noty",
-  "main": "dist/noty.js",
+  "main": "lib/noty.js",
   "keywords": [
     "noty",
     "notification",
