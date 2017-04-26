@@ -95,7 +95,8 @@ export let Defaults = {
   titleCount: {
     conditions: []
   },
-  modal: false
+  modal: false,
+  visibilityControl: true
 }
 
 /**

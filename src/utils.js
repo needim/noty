@@ -226,7 +226,9 @@ export function visibilityChangeFlow () {
       function () {
         Object.keys(API.Store).forEach(id => {
           if (API.Store.hasOwnProperty(id)) {
-            API.Store[id].stop()
+            if (API.Store[id].options.visibilityControl) {
+              API.Store[id].stop()
+            }
           }
         })
       },
@@ -239,7 +241,9 @@ export function visibilityChangeFlow () {
       function () {
         Object.keys(API.Store).forEach(id => {
           if (API.Store.hasOwnProperty(id)) {
-            API.Store[id].resume()
+            if (API.Store[id].options.visibilityControl) {
+              API.Store[id].resume()
+            }
           }
         })
         API.queueRenderAll()
