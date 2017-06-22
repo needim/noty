@@ -32,6 +32,7 @@ export default class Noty {
       afterShow: [],
       onClose: [],
       afterClose: [],
+      onClick: [],
       onHover: [],
       onTemplate: []
     }
@@ -44,6 +45,7 @@ export default class Noty {
     this.on('afterShow', this.options.callbacks.afterShow)
     this.on('onClose', this.options.callbacks.onClose)
     this.on('afterClose', this.options.callbacks.afterClose)
+    this.on('onClick', this.options.callbacks.onClick)
     this.on('onHover', this.options.callbacks.onHover)
     this.on('onTemplate', this.options.callbacks.onTemplate)
 
@@ -153,6 +155,7 @@ export default class Noty {
         'click',
         e => {
           Utils.stopPropagation(e)
+          API.fire(this, 'onClick')
           this.close()
         },
         false
