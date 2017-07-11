@@ -5,6 +5,7 @@
   "description": "Noty is a library that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)",
   "homepage": "http://ned.im/noty",
   "main": "lib/noty.js",
+  "types": "index.d.ts",
   "keywords": [
     "noty",
     "notification",
