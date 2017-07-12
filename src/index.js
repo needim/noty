@@ -69,33 +69,36 @@ export default class Noty {
    * @return {Noty}
    */
   show () {
-    if (this.options.killer === true && !API.PageHidden) {
+    if (this.options.killer === true) {
       Noty.closeAll()
-    } else if (typeof this.options.killer === 'string' && !API.PageHidden) {
+    } else if (typeof this.options.killer === 'string') {
       Noty.closeAll(this.options.killer)
-    } else {
-      let queueCounts = API.getQueueCounts(this.options.queue)
+    }
 
-      if (queueCounts.current >= queueCounts.maxVisible || API.PageHidden) {
-        API.addToQueue(this)
+    let queueCounts = API.getQueueCounts(this.options.queue)
 
-        if (
-          API.PageHidden &&
-          this.hasSound &&
-          Utils.inArray('docHidden', this.options.sounds.conditions)
-        ) {
-          Utils.createAudioElements(this)
-        }
+    if (
+      queueCounts.current >= queueCounts.maxVisible ||
+      (API.PageHidden && this.options.visibilityControl)
+    ) {
+      API.addToQueue(this)
 
-        if (
-          API.PageHidden &&
-          Utils.inArray('docHidden', this.options.titleCount.conditions)
-        ) {
-          API.docTitle.increment()
-        }
-
-        return this
+      if (
+        API.PageHidden &&
+        this.hasSound &&
+        Utils.inArray('docHidden', this.options.sounds.conditions)
+      ) {
+        Utils.createAudioElements(this)
       }
+
+      if (
+        API.PageHidden &&
+        Utils.inArray('docHidden', this.options.titleCount.conditions)
+      ) {
+        API.docTitle.increment()
+      }
+
+      return this
     }
 
     API.Store[this.id] = this
@@ -172,6 +175,9 @@ export default class Noty {
     )
 
     if (this.options.timeout) Utils.addClass(this.barDom, 'noty_has_timeout')
+    if (this.options.progressBar) {
+      Utils.addClass(this.barDom, 'noty_has_progressbar')
+    }
 
     if (Utils.inArray('button', this.options.closeWith)) {
       Utils.addClass(this.barDom, 'noty_close_with_button')

@@ -3,6 +3,22 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    usebanner: {
+      taskName: {
+        options: {
+          position: 'top',
+          banner: '/* \n  @package NOTY - Dependency-free notification library \n' +
+          '  @version version: <%= pkg.version %> \n' +
+          '  @contributors https://github.com/needim/noty/graphs/contributors \n' +
+          '  @documentation Examples and Documentation - http://needim.github.com/noty \n' +
+          '  @license Licensed under the MIT licenses: http://www.opensource.org/licenses/mit-license.php \n*/\n',
+          linebreak: true
+        },
+        files: {
+          src: ['lib/noty.js', 'lib/noty.min.js']
+        }
+      }
+    },
     qunit: {
       options: {
         inject: 'test/unit/phantom.js'
@@ -88,6 +104,7 @@ module.exports = function (grunt) {
 
   require('load-grunt-tasks')(grunt)
 
+  grunt.registerTask('banner', 'usebanner')
   grunt.registerTask('test', 'qunit')
   grunt.registerTask('saucelabs', ['qunit', 'connect', 'saucelabs-qunit'])
   grunt.registerTask('default', ['test'])

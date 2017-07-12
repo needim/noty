@@ -1,6 +1,6 @@
 {
   "name": "noty",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "title": "Noty - Notification library",
   "description": "Noty is a library that makes it easy to create alert - success - error - warning - information - confirmation messages as an alternative the standard alert dialog. Each notification is added to a queue. (Optional)",
   "homepage": "http://ned.im/noty",
@@ -30,7 +30,7 @@
   },
   "license": "MIT",
   "scripts": {
-    "build": "webpack --env build",
+    "build": "webpack --env build && grunt banner",
     "dev": "webpack --progress --colors --watch --env dev",
     "format": "prettier-standard 'src/**/*.js'",
     "test": "npm run format && standard && grunt test",
@@ -61,6 +61,7 @@
     "eslint-loader": "1.7.1",
     "extract-text-webpack-plugin": "2.1.0",
     "grunt": "^1.0.1",
+    "grunt-banner": "^0.6.0",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-qunit": "^2.0.0",
     "grunt-exec": "^2.0.0",

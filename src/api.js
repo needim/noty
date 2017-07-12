@@ -97,7 +97,7 @@ export let Defaults = {
     conditions: []
   },
   modal: false,
-  visibilityControl: true
+  visibilityControl: false
 }
 
 /**
