@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://ned.im/noty?ref=readme">
-    <img src="http://ned.im/noty/img/projects/noty-v3-logo.png" width=200 height=70>
+    <img src="http://ned.im/noty/_media/noty-v3-logo.png" width=200 height=70>
   </a>
 
   <p align="center">
