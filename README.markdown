@@ -83,14 +83,18 @@ new Noty({
 $ npm run dev
 $ npm test
 $ npm run build
+$ npm run browserstack
+$ npm run serve-docs
 ```
 
 ##### Development environment
 - [x] Standard
+- [x] Prettier
 - [x] ES6 & Babel & Webpack
 - [x] Sass
 - [x] Autoprefixer
-- [x] AVA
+- [x] QUnit
+- [x] BrowserStack
 - [x] Pre-commit tests
 - [x] Travis CI
 
