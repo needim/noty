@@ -1,0 +1,42 @@
+{
+  "test_framework": "qunit",
+  "test_path": "test/index.html",
+  "browsers": [
+    {
+      "browser": "ie",
+      "browser_version": "10",
+      "os": "Windows",
+      "os_version": "8"
+    },
+    {
+      "browser": "edge",
+      "browser_version": "latest",
+      "os": "Windows",
+      "os_version": "10"
+    },
+    {
+      "browser": "firefox",
+      "browser_version": "latest",
+      "os": "Windows",
+      "os_version": "10"
+    },
+    {
+      "browser": "chrome",
+      "browser_version": "latest",
+      "os": "Windows",
+      "os_version": "10"
+    },
+    {
+      "browser": "opera",
+      "browser_version": "latest",
+      "os": "Windows",
+      "os_version": "10"
+    },
+    {
+      "browser": "safari",
+      "browser_version": "latest",
+      "os": "OS X",
+      "os_version": "El Capitan"
+    }
+  ]
+}

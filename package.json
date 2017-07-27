@@ -34,6 +34,7 @@
     "dev": "webpack --progress --colors --watch --env dev",
     "format": "prettier-standard 'src/**/*.js'",
     "test": "npm run format && standard && grunt test",
+    "browserstack": "node_modules/.bin/browserstack-runner",
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "serve-docs": "docsify start ./docs"
   },
@@ -57,6 +58,7 @@
     "babel-loader": "6.4.1",
     "babel-plugin-add-module-exports": "0.2.1",
     "babel-preset-es2015": "6.24.1",
+    "browserstack-runner": "^0.5.2",
     "css-loader": "^0.26.0",
     "docsify-cli": "^4.1.9",
     "es6-promise": "^4.1.0",
