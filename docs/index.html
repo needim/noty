@@ -14,7 +14,8 @@
         rel="stylesheet">
   <link rel="stylesheet" href="//cdn.rawgit.com/needim/noty/a6cccf80/lib/noty.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script async defer src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <style type="text/css">
     body {
       font-family: "Zilla Slab", Source Sans Pro, Helvetica Neue, Arial, sans-serif;
@@ -126,10 +127,7 @@
           var url = 'https://github.com/needim/noty/blob/master/docs/' + vm.route.file
           var editHtml = '<a class="edit-this-page" href="' + url + '">Edit this page on GitHub<\/a>\n'
           var footer = [
-            '<script async defer src="https://buttons.github.io/buttons.js"><\/script>',
-            '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script>',
-            '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6920776915496505" data-ad-slot="3505344538"><\/ins>',
-            '<script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>'
+            '<ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-format="fluid" data-ad-layout="in-article" data-ad-client="ca-pub-6920776915496505" data-ad-slot="5148224794"></ins>',
           ]
           return html
             + '\n----\n'
@@ -137,6 +135,14 @@
             + editHtml
             + '\n----\n'
             + footer.join('')
+        })
+      },
+
+      function (hook, vm) {
+        hook.doneEach(function () {
+          try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch (err) {}
         })
       }
     ]
