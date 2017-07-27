@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>issue302</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="demonstration of some noty capabilities">
+
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic&amp;subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+
+        html {
+            height: 100%;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'PT Sans', Tahoma, Arial, serif;
+            line-height: 13px
+        }
+
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="buttons.css"/>
+    <link rel="stylesheet" type="text/css" href="animate.css"/>
+
+</head>
+<body>
+
+<div class="container">
+
+    <a href="#" class="open">Click here</a>
+
+</div>
+
+<script src="jquery-1.7.2.min.js"></script>
+
+<!-- noty -->
+<script type="text/javascript" src="../js/noty/packaged/jquery.noty.packaged.js"></script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        var options = {
+            text: 'a',
+            timeout: 500,
+            type: 'success',
+            theme: 'relax',
+            layout: 'topRight',
+            closeWith: ['click'],
+            maxVisible: 10,
+            animation: {
+                open: 'animated bounceInDown', // Animate.css class names
+                close: 'animated bounceOutRight', // Animate.css class names
+                easing: 'swing', // unavailable - no need
+                speed: 500 // unavailable - no need
+            }
+        };
+
+        // missing options such as Theme!!
+        $('.open').click(function(e){
+            console.log(options);
+            e.preventDefault();
+            noty(options);
+        });
+    });
+
+</script>
+</body>
+</html>

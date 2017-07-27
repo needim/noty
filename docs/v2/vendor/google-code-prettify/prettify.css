@@ -1,0 +1,66 @@
+.str {
+  color: #EC7600;
+}
+
+.kwd {
+  color: #93C763;
+}
+
+.com {
+  color: #66747B;
+}
+
+.typ {
+  color: #678CB1;
+}
+
+.lit {
+  color: #FACD22;
+}
+
+.pun {
+  color: #F1F2F3;
+}
+
+.pln {
+  /*color: #F1F2F3;*/
+}
+
+.tag {
+  color: #8AC763;
+}
+
+.atn {
+  color: #E0E2E4;
+}
+
+.atv {
+  color: #EC7600;
+}
+
+.dec {
+  color: purple;
+}
+
+.prettyprint {
+
+}
+
+.prettyprint.linenums {
+  padding: 22px 8px;
+  background-size: 100% 1.7em;
+  box-shadow: inset 40px 0 0 #fbfbfc, inset 41px 0 0 #ececf0, inset 0 1px 0 #fff, 1px 1px 0 #fff, 2px 2px 0 #ddd, 3px 3px 0 #fff, 4px 4px 0 #ddd;
+}
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums {
+  margin: 0 0 0 33px; /* IE indents via margin-left */
+  padding-left: 0;
+}
+
+ol.linenums li {
+  padding-left: 16px;
+  color: #bebec5;
+  line-height: 20px;
+  text-shadow: 0 1px 0 #fff;
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>NOTY - a dependency-free notification library</title>
+  <meta name="description"
+        content="noty is a notification library which is have too many options for display notification">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="keywords" content="notification, library, opensource, open, source">
+  <meta name="author" content="Nedim Arabacı (http://ned.im)">
+  <link rel="stylesheet" href="_assets/vue.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700|Zilla+Slab:300,400,600,700|Fira+Mono"
+        rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.rawgit.com/needim/noty/a6cccf80/lib/noty.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+  <style type="text/css">
+    body {
+      font-family: "Zilla Slab", Source Sans Pro, Helvetica Neue, Arial, sans-serif;
+      letter-spacing: .03em;
+      font-size: 17px;
+    }
+
+    h1, h2, h3, h4, h5, h6, .sidebar-nav, a, .noty_body, nav {
+      font-family: "Nunito", Source Sans Pro, Helvetica Neue, Arial, sans-serif;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .app-nav li ul {
+      padding: 0;
+    }
+
+    .app-sub-sidebar .section-link:before {
+      content: " ";
+    }
+
+    .markdown-section pre > code {
+      font-family: "Fira Mono", "Roboto Mono", Monaco, courier, monospace;
+    }
+
+    .supported-by {
+      padding-left: 15px;
+      margin-top: 20px;
+      display: inline-block;
+    }
+
+    .supported-by a {
+      text-decoration: none;
+      color: #FF75ED;
+    }
+
+    .supported-by img {
+      vertical-align: middle;
+    }
+
+    .button {
+      display: inline-block;
+      position: relative;
+      padding: .8em 1.3em;
+      font-size: 11px;
+      letter-spacing: 1px;
+      font-weight: 800;
+      text-transform: uppercase;
+      line-height: 1.2;
+      outline: 0;
+      background: #AC8FFD;
+      border: 2px solid #948CE2;
+      color: #fff;
+      text-shadow: none;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background-color: #c0a7fd;
+      border-color: #948CE2;
+    }
+
+    a.edit-this-page {
+      float: right;
+      color: #444;
+    }
+
+    .noty_body {
+      font-size: 16px !important;
+    }
+
+    @media screen and (max-width: 500px) {
+      a.edit-this-page {
+        float: none;
+        display: block;
+      }
+
+      .adsbygoogle {
+        display: none !important;
+      }
+    }
+
+  </style>
+</head>
+<body>
+<div id="app"></div>
+</body>
+<script>
+  window.$docsify = {
+    name: '',
+    auto2top: true,
+    loadSidebar: true,
+    maxLevel: 4,
+    subMaxLevel: 3,
+    themeColor: '#FF75ED',
+    executeScript: true,
+    loadNavbar: true,
+    coverpage: false,
+    autoHeader: true,
+    mergeNavbar: true,
+    formatUpdated: '{MM}/{DD} {HH}:{mm}',
+    ga: 'UA-46744044-1',
+    plugins: [
+      function (hook, vm) {
+        hook.beforeEach(function (html) {
+          var url = 'https://github.com/needim/noty/blob/master/docs/' + vm.route.file
+          var editHtml = '<a class="edit-this-page" href="' + url + '">Edit this page on GitHub<\/a>\n'
+          var footer = [
+            '<script async defer src="https://buttons.github.io/buttons.js"><\/script>',
+            '<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"><\/script>',
+            '<ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-6920776915496505" data-ad-slot="3505344538"><\/ins>',
+            '<script>(adsbygoogle = window.adsbygoogle || []).push({});<\/script>'
+          ]
+          return html
+            + '\n----\n'
+            + 'Last modified {docsify-updated} '
+            + editHtml
+            + '\n----\n'
+            + footer.join('')
+        })
+      }
+    ]
+  }
+</script>
+<script src="_assets/docsify.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/emoji.min.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-bash.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
+<script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
+
+<script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+<script src="//cdn.rawgit.com/needim/noty/a6cccf80/lib/noty.min.js"></script>
+<script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
+<script src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
+<script src="_assets/bounce.min.js"></script>
+<script src="_assets/docs.js"></script>
+
+</html>

@@ -34,7 +34,8 @@
     "dev": "webpack --progress --colors --watch --env dev",
     "format": "prettier-standard 'src/**/*.js'",
     "test": "npm run format && standard && grunt test",
-    "precommit-msg": "echo 'Pre-commit checks...' && exit 0"
+    "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
+    "serve-docs": "docsify start ./docs"
   },
   "pre-commit": [
     "precommit-msg",
@@ -43,6 +44,7 @@
   "standard": {
     "ignore": [
       "demo/**/*",
+      "docs/**/*",
       "lib/**",
       "test/**"
     ],
@@ -56,9 +58,10 @@
     "babel-plugin-add-module-exports": "0.2.1",
     "babel-preset-es2015": "6.24.1",
     "css-loader": "^0.26.0",
+    "docsify-cli": "^4.1.9",
     "es6-promise": "^4.1.0",
-    "eslint": "^3.19.0",
-    "eslint-loader": "1.7.1",
+    "eslint": "^4.3.0",
+    "eslint-loader": "1.9.0",
     "extract-text-webpack-plugin": "2.1.0",
     "grunt": "^1.0.1",
     "grunt-banner": "^0.6.0",
