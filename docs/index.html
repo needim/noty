@@ -14,7 +14,6 @@
         rel="stylesheet">
   <link rel="stylesheet" href="//cdn.rawgit.com/needim/noty/a6cccf80/lib/noty.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
   <script async defer src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <style type="text/css">
     body {
@@ -137,7 +136,19 @@
       function (hook, vm) {
         hook.doneEach(function () {
           try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
+            (function (d, script) {
+              script = d.createElement('script')
+              script.type = 'text/javascript'
+              script.async = true
+              script.setAttribute('id', 'gh-buttons')
+              script.onload = function () {
+                console.log('buttons loaded')
+              }
+              script.src = 'https://buttons.github.io/buttons.js'
+              d.getElementsByTagName('head')[0].appendChild(script)
+            }(document));
+
+            (adsbygoogle = window.adsbygoogle || []).push({})
           } catch (err) {}
         })
       }
