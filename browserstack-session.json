@@ -1,0 +1,134 @@
+[
+  {
+    "automation_session": {
+      "name": null,
+      "duration": 48,
+      "os": "Windows",
+      "os_version": "10",
+      "browser_version": "46.0",
+      "browser": "opera",
+      "device": null,
+      "status": "done",
+      "hashed_id": "c259644238854e4628696d8cfea9482b96a78a07",
+      "reason": null,
+      "build_name": "Local run  2017 07 27T17:31:03.314Z",
+      "project_name": "noty",
+      "logs": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/c259644238854e4628696d8cfea9482b96a78a07/logs",
+      "browser_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/c259644238854e4628696d8cfea9482b96a78a07",
+      "public_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/c259644238854e4628696d8cfea9482b96a78a07?auth_token=f87c9cb1ab62bb7b85af973cc2a1b03bd9d35fbc6a9e38b716fe38b01c4c3480",
+      "video_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/c259644238854e4628696d8cfea9482b96a78a07/video-c259644238854e4628696d8cfea9482b96a78a07.mp4?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=L9qIjHCc4zQU%2BuRTWn3EFgmyHhQ%3D\u0026response-content-type=video%2Fmp4",
+      "browser_console_logs_url": "https://www.browserstack.com/s3-upload/bs-selenium-logs-euw/s3-eu-west-1/c259644238854e4628696d8cfea9482b96a78a07/c259644238854e4628696d8cfea9482b96a78a07-console-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=IkOSopxHZ4nSX6QGOtkxYa%2FSp5Y%3D\u0026response-content-type=text%2Fplain",
+      "har_logs_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/c259644238854e4628696d8cfea9482b96a78a07/c259644238854e4628696d8cfea9482b96a78a07-har-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=AW4U9XEaaZxPLERvua8%2FLQlnvY0%3D"
+    }
+  },
+  {
+    "automation_session": {
+      "name": null,
+      "duration": 54,
+      "os": "Windows",
+      "os_version": "10",
+      "browser_version": "59.0",
+      "browser": "chrome",
+      "device": null,
+      "status": "done",
+      "hashed_id": "dc87007925cb5729ac8aa2a6136aab1fb6808cc1",
+      "reason": null,
+      "build_name": "Local run  2017 07 27T17:31:03.314Z",
+      "project_name": "noty",
+      "logs": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/dc87007925cb5729ac8aa2a6136aab1fb6808cc1/logs",
+      "browser_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/dc87007925cb5729ac8aa2a6136aab1fb6808cc1",
+      "public_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/dc87007925cb5729ac8aa2a6136aab1fb6808cc1?auth_token=04d2d0b39bcdbb76153ee28e3acf67099ecbd9a093c6176df9ad892c083663c6",
+      "video_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/dc87007925cb5729ac8aa2a6136aab1fb6808cc1/video-dc87007925cb5729ac8aa2a6136aab1fb6808cc1.mp4?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=A6DNc457B5vqFNxOvP6B%2F0tCYZk%3D\u0026response-content-type=video%2Fmp4",
+      "browser_console_logs_url": "https://www.browserstack.com/s3-upload/bs-selenium-logs-euw/s3-eu-west-1/dc87007925cb5729ac8aa2a6136aab1fb6808cc1/dc87007925cb5729ac8aa2a6136aab1fb6808cc1-console-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=yz1BugMpwOrl2h9i84A6BQtr7Cs%3D\u0026response-content-type=text%2Fplain",
+      "har_logs_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/dc87007925cb5729ac8aa2a6136aab1fb6808cc1/dc87007925cb5729ac8aa2a6136aab1fb6808cc1-har-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=kaUFdYGXBcjY5ZxokYZ7cYjhGpk%3D"
+    }
+  },
+  {
+    "automation_session": {
+      "name": null,
+      "duration": 45,
+      "os": "OS X",
+      "os_version": "El Capitan",
+      "browser_version": "9.1",
+      "browser": "safari",
+      "device": null,
+      "status": "done",
+      "hashed_id": "0c60211cab5840456ac824443e3be99b195597b5",
+      "reason": null,
+      "build_name": "Local run  2017 07 27T17:31:03.314Z",
+      "project_name": "noty",
+      "logs": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/0c60211cab5840456ac824443e3be99b195597b5/logs",
+      "browser_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/0c60211cab5840456ac824443e3be99b195597b5",
+      "public_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/0c60211cab5840456ac824443e3be99b195597b5?auth_token=9daf8b81531fe858108d9d76317b171c7dca69dee3ac3a25e065810fd353b837",
+      "video_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/0c60211cab5840456ac824443e3be99b195597b5/video-0c60211cab5840456ac824443e3be99b195597b5.mp4?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=p32SrCXGkJ15m79Gvxq86P1tzXU%3D\u0026response-content-type=video%2Fmp4",
+      "browser_console_logs_url": "https://www.browserstack.com/s3-upload/bs-selenium-logs-euw/s3-eu-west-1/0c60211cab5840456ac824443e3be99b195597b5/0c60211cab5840456ac824443e3be99b195597b5-console-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=E6AhIFzy%2FHX5QD6%2BUd1T8WPWhXY%3D\u0026response-content-type=text%2Fplain",
+      "har_logs_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/0c60211cab5840456ac824443e3be99b195597b5/0c60211cab5840456ac824443e3be99b195597b5-har-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=CIaBXl9nhoeip5EEktV5Rqrg7vI%3D"
+    }
+  },
+  {
+    "automation_session": {
+      "name": null,
+      "duration": 50,
+      "os": "Windows",
+      "os_version": "10",
+      "browser_version": "54.0",
+      "browser": "firefox",
+      "device": null,
+      "status": "done",
+      "hashed_id": "336cf3a8db5363d7683f01392d4d328fce18838a",
+      "reason": null,
+      "build_name": "Local run  2017 07 27T17:31:03.314Z",
+      "project_name": "noty",
+      "logs": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/336cf3a8db5363d7683f01392d4d328fce18838a/logs",
+      "browser_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/336cf3a8db5363d7683f01392d4d328fce18838a",
+      "public_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/336cf3a8db5363d7683f01392d4d328fce18838a?auth_token=e93ad65f77003c53f0e7392f2bbd38d56811d1d6ce4e1f9f098494caa240ef21",
+      "video_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/336cf3a8db5363d7683f01392d4d328fce18838a/video-336cf3a8db5363d7683f01392d4d328fce18838a.mp4?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=rJTPrYODLubpcgwCqZsW2mXo0JY%3D\u0026response-content-type=video%2Fmp4",
+      "browser_console_logs_url": "https://www.browserstack.com/s3-upload/bs-selenium-logs-euw/s3-eu-west-1/336cf3a8db5363d7683f01392d4d328fce18838a/336cf3a8db5363d7683f01392d4d328fce18838a-console-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=FQCd3lZU3tixlx9j0EiqqjAUnYY%3D\u0026response-content-type=text%2Fplain",
+      "har_logs_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/336cf3a8db5363d7683f01392d4d328fce18838a/336cf3a8db5363d7683f01392d4d328fce18838a-har-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=44zYIcazKHQzvD2F%2BEmhUFjwmHg%3D"
+    }
+  },
+  {
+    "automation_session": {
+      "name": null,
+      "duration": 47,
+      "os": "Windows",
+      "os_version": "10",
+      "browser_version": "15.0",
+      "browser": "edge",
+      "device": null,
+      "status": "done",
+      "hashed_id": "a2bb1f252f478c5b5cd4fdc06158830305120ea2",
+      "reason": null,
+      "build_name": "Local run  2017 07 27T17:31:03.314Z",
+      "project_name": "noty",
+      "logs": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/a2bb1f252f478c5b5cd4fdc06158830305120ea2/logs",
+      "browser_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/a2bb1f252f478c5b5cd4fdc06158830305120ea2",
+      "public_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/a2bb1f252f478c5b5cd4fdc06158830305120ea2?auth_token=c75ad2904602c489145eaf2ce18b8f5723a843cb6c8dcc62a60982dc6109ef27",
+      "video_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/a2bb1f252f478c5b5cd4fdc06158830305120ea2/video-a2bb1f252f478c5b5cd4fdc06158830305120ea2.mp4?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=7Jf1rpd9%2FUvHyI3wSIwdYBsD1JE%3D\u0026response-content-type=video%2Fmp4",
+      "browser_console_logs_url": "https://www.browserstack.com/s3-upload/bs-selenium-logs-euw/s3-eu-west-1/a2bb1f252f478c5b5cd4fdc06158830305120ea2/a2bb1f252f478c5b5cd4fdc06158830305120ea2-console-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=4soYSJ2wA1By7Oohu8047VYYE30%3D\u0026response-content-type=text%2Fplain",
+      "har_logs_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/a2bb1f252f478c5b5cd4fdc06158830305120ea2/a2bb1f252f478c5b5cd4fdc06158830305120ea2-har-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=a%2BVdRuZNZPDx%2BqOg90n3WzIP8lU%3D"
+    }
+  },
+  {
+    "automation_session": {
+      "name": null,
+      "duration": 30,
+      "os": "Windows",
+      "os_version": "8",
+      "browser_version": "10.0",
+      "browser": "ie",
+      "device": null,
+      "status": "done",
+      "hashed_id": "d85b895f81c51f9cd5c72c225c9f155b331902c6",
+      "reason": null,
+      "build_name": "Local run  2017 07 27T17:31:03.314Z",
+      "project_name": "noty",
+      "logs": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/d85b895f81c51f9cd5c72c225c9f155b331902c6/logs",
+      "browser_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/d85b895f81c51f9cd5c72c225c9f155b331902c6",
+      "public_url": "https://www.browserstack.com/automate/builds/7d2483377687d162b9bc20fcaf3cb1bfb8f5bec0/sessions/d85b895f81c51f9cd5c72c225c9f155b331902c6?auth_token=bd85550ce628686d6485062a32cc869abf2dcb7a2b9862b3884ebc7d4283d344",
+      "video_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/d85b895f81c51f9cd5c72c225c9f155b331902c6/video-d85b895f81c51f9cd5c72c225c9f155b331902c6.mp4?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=TZYrsY8GWzdcXP0IrAvQ2LisTQQ%3D\u0026response-content-type=video%2Fmp4",
+      "browser_console_logs_url": "https://www.browserstack.com/s3-upload/bs-selenium-logs-euw/s3-eu-west-1/d85b895f81c51f9cd5c72c225c9f155b331902c6/d85b895f81c51f9cd5c72c225c9f155b331902c6-console-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=yQkCo8qp1BkJU5tXN%2FgEZaGjTzU%3D\u0026response-content-type=text%2Fplain",
+      "har_logs_url": "https://www.browserstack.com/s3-upload/bs-video-logs-euw/s3-eu-west-1/d85b895f81c51f9cd5c72c225c9f155b331902c6/d85b895f81c51f9cd5c72c225c9f155b331902c6-har-logs.txt?AWSAccessKeyId=AKIAIN2TCEEW2SVRV5JA\u0026Expires=1509231864\u0026Signature=LIp46ukF%2FZunjjONYzweREZP73s%3D"
+    }
+  }
+]

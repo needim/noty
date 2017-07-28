@@ -10,4 +10,5 @@
 - [Web Push Notifications](push.md)
 - [Confirm Dialogs](confirm.md)
 - [API & Callbacks](api.md)
+- [Browser Support](browsers.md)
 
