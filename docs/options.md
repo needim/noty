@@ -39,6 +39,7 @@ Available options listed below.
 | **callbacks.afterShow**: function | Default: () => {} | Details are [here](api.md). |
 | **callbacks.onHover**: function | Default: () => {} | Details are [here](api.md). |
 | **callbacks.onTemplate**: function | Default: () => {} | Mainly for DOM manipulations. Details are [here](api.md). |
+| **visibilityControl**: boolean | false | If **true** Noty uses PageVisibility API to handle timeout. To ensure that users do not miss their notifications. |
 
 ### Overriding Options
 
