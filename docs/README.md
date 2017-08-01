@@ -1,4 +1,4 @@
-# NOTY v3
+# ![logo](_media/noty-v3-logo.png)
 
 > A Dependency-free notification library
 

@@ -10,6 +10,7 @@
   <meta name="keywords" content="notification, library, opensource, open, source">
   <meta name="author" content="Nedim Arabacı (http://ned.im)">
   <link rel="stylesheet" href="_assets/vue.css">
+  <link rel="stylesheet" href="_assets/ps-icon-pack.min.css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700|Zilla+Slab:300,400,600,700|Fira+Mono"
         rel="stylesheet">
   <link rel="stylesheet" href="//cdn.rawgit.com/needim/noty/a6cccf80/lib/noty.css">
@@ -22,7 +23,7 @@
       font-size: 17px;
     }
 
-    h1, h2, h3, h4, h5, h6, .sidebar-nav, a, .noty_body, nav, button {
+    h1, h2, h3, h4, h5, h6, .sidebar-nav, .noty_body, .jmgFob, nav, button {
       font-family: "Nunito", Source Sans Pro, Helvetica Neue, Arial, sans-serif !important;
     }
 
@@ -57,7 +58,7 @@
       vertical-align: middle;
     }
 
-    .button {
+    .button, .bas {
       display: inline-block;
       position: relative;
       padding: .8em 1.3em;
@@ -73,6 +74,20 @@
       text-shadow: none;
       border-radius: 2px;
       cursor: pointer;
+    }
+
+    .bas {
+      background: #fff;
+      color: #AC8FFD;
+      border-color: #AC8FFD;
+      text-transform: none;
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .bas:hover {
+      background: #AC8FFD;
+      color: #fff;
     }
 
     .button:hover {
@@ -183,6 +198,14 @@
       text-decoration: none;
     }
 
+    .sidebar li {
+      margin: 0 0 0 24px;
+    }
+
+    .sidebar {
+      padding: 0 0 40px 0;
+    }
+
   </style>
 </head>
 <body>
@@ -223,26 +246,31 @@
       function (hook, vm) {
         hook.doneEach(function () {
           try {
-            (function (d, script) {
-              script = d.createElement('script')
-              script.type = 'text/javascript'
-              script.async = true
-              script.setAttribute('id', 'gh-buttons')
-              script.onload = function () {}
-              script.src = 'https://buttons.github.io/buttons.js'
-              d.getElementsByTagName('head')[0].appendChild(script)
-            }(document));
 
-            (function (d, script) {
-              script = d.createElement('script')
-              script.type = 'text/javascript'
-              script.async = true
-              script.setAttribute('id', '_carbonads_js')
-              script.onload = function () {}
-              script.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=nedimnoty'
-              var p = d.getElementsByClassName('markdown-section')[0]
-              p.insertBefore(script, p.getElementsByTagName('h1')[0].nextSibling)
-            }(document))
+            if (vm.route.path === '/') {
+              (function (d, script) {
+                script = d.createElement('script')
+                script.type = 'text/javascript'
+                script.async = true
+                script.setAttribute('id', 'gh-buttons')
+                script.onload = function () {}
+                script.src = 'https://buttons.github.io/buttons.js'
+                d.getElementsByTagName('head')[0].appendChild(script)
+              }(document));
+            }
+
+            if (vm.route.path !== '/bakers') {
+              (function (d, script) {
+                script = d.createElement('script')
+                script.type = 'text/javascript'
+                script.async = true
+                script.setAttribute('id', '_carbonads_js')
+                script.onload = function () {}
+                script.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=nedimnoty'
+                var p = d.getElementsByClassName('markdown-section')[0]
+                p.insertBefore(script, p.getElementsByTagName('h1')[0].nextSibling)
+              }(document))
+            }
 
           } catch (err) {}
         })
