@@ -66,6 +66,7 @@ export let Defaults = {
   theme: 'mint',
   text: '',
   timeout: false,
+  forceTimer: false,
   progressBar: true,
   closeWith: ['click'],
   animation: {
@@ -379,13 +380,15 @@ export function openFlow (ref) {
   fire(ref, 'afterShow')
   queueClose(ref)
 
-  Utils.addListener(ref.barDom, 'mouseenter', () => {
-    dequeueClose(ref)
-  })
+  if(!ref.options.forceTimer) {
+    Utils.addListener(ref.barDom, 'mouseenter', () => {
+      dequeueClose(ref)
+    })
 
-  Utils.addListener(ref.barDom, 'mouseleave', () => {
-    queueClose(ref)
-  })
+    Utils.addListener(ref.barDom, 'mouseleave', () => {
+      queueClose(ref)
+    })
+  }
 }
 
 /**

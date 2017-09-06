@@ -18,6 +18,7 @@ export default class Noty {
     this.closeTimer = -1
     this.barDom = null
     this.layoutDom = null
+    this.forceTimer = this.options.forceTimer || false
     this.progressDom = null
     this.showing = false
     this.shown = false
