@@ -38,6 +38,27 @@ There are lots of other options in the API to customise the text, animation, but
 
 It also has various callbacks for the buttons, opening closing the notifications and queue control.
 
+### Sponsored By
+<table>
+  <tr>
+    <td vlign="center">
+      <a target="_blank" href="https://pusher.com/?utm_source=needim&utm_medium=paid&utm_campaign=needim">
+        <img src="http://ned.im/noty/_media/pusher_logo_dark.png" width="160" alt="">
+      </a>
+    </td>
+    <td vlign="center">
+      <a target="_blank" href="https://www.jetbrains.com?ref=notyjs">
+        <img src="http://ned.im/noty/_media/logo_JetBrains_4.svg" width="80" alt="">
+      </a>
+    </td>
+    <td vlign="center">
+      <a target="_blank" href="https://www.browserstack.com?ref=notyjs">
+        <img src="http://ned.im/noty/_media/browserstack.svg" width="220" alt="">
+      </a>
+    </td>
+  </tr>
+</table>
+
 ***
 ### Features
 - [x] Dependency-free
