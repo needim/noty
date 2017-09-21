@@ -18,7 +18,6 @@
 <a href="https://bower.io/"><img src="https://img.shields.io/bower/v/noty.svg" alt="Bower version"></a>
 <a href="https://www.npmjs.com/package/noty"><img src="https://img.shields.io/npm/v/noty.svg" alt="NPM version"></a>
 <a href="https://packagist.org/packages/needim/noty"><img src="https://img.shields.io/packagist/v/needim/noty.svg" alt="Packagist version"></a>
-<br>
 <img src="https://img.shields.io/david/needim/noty.svg" alt="Dependencies">
 <img src="https://img.shields.io/david/dev/needim/noty.svg" alt="Dev Dependencies">
 <br>
@@ -27,9 +26,14 @@
 <a href="https://github.com/needim/noty/graphs/contributors"><img src="https://img.shields.io/github/contributors/needim/noty.svg" alt="Contributors"></a>
 </p>
 
-!> v2 Documentation is <a href="/noty/v2">here</a>
+## Sponsored By
 
-## Supported By
+<div class="supported-by">
+    <a target="_blank" href="https://pusher.com/?utm_source=needim&utm_medium=paid&utm_campaign=needim">
+        <img src="_media/pusher_logo_dark.png" width="160" alt="">
+    </a>
+</div>
+
 <div class="supported-by">
     <a target="_blank" href="https://www.jetbrains.com?ref=notyjs">
         <img src="_media/logo_JetBrains_4.svg" width="80" alt="">
@@ -49,6 +53,8 @@ If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>
   <span class="sc-ifAKCX hyFnYR"><svg viewBox="0 0 569 546" version="1.1" xmlns="http://www.w3.org/2000/svg"><title>Patreon logo</title><g><circle data-color="1" id="Oval" cx="362.589996" cy="204.589996" r="204.589996"></circle><rect data-color="2" id="Rectangle" x="0" y="0" width="100" height="545.799988"></rect></g></svg></span>
   Become a Patron!
 </a>
+
+!> v2 Documentation is <a href="/noty/v2">here</a>
 
 ## Features
 

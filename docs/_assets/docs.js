@@ -234,7 +234,7 @@ $('body').on('click', '#example-velocity', function (e) {
 
 setTimeout(function () {
   new Noty({
-    text: '<div class="text-center">Wubba lubba dub dub! <strong>v3.1.1 released!</strong></div>',
+    text: '<div class="text-center">Wubba lubba dub dub! <strong>v3.1.3 released!</strong></div>',
     type: 'information',
     theme: 'mint',
     layout: 'topRight',
