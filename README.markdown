@@ -14,6 +14,7 @@
     <a href="https://bower.io/"><img src="https://img.shields.io/bower/v/noty.svg" alt="Bower version"></a>
     <a href="https://www.npmjs.com/package/noty"><img src="https://img.shields.io/npm/v/noty.svg" alt="NPM version"></a>
     <a href="https://packagist.org/packages/needim/noty"><img src="https://img.shields.io/packagist/v/needim/noty.svg" alt="Packagist version"></a>
+    <a href="https://cdnjs.com/libraries/noty"><img src="https://img.shields.io/cdnjs/v/noty.svg" alt="CDNJS version"></a>
     <br>
     <img src="https://img.shields.io/david/needim/noty.svg" alt="Dependencies">
     <img src="https://img.shields.io/david/dev/needim/noty.svg" alt="Dev Dependencies">
