@@ -8,10 +8,10 @@ module.exports = function (grunt) {
         options: {
           position: 'top',
           banner: '/* \n  @package NOTY - Dependency-free notification library \n' +
-          '  @version version: <%= pkg.version %> \n' +
-          '  @contributors https://github.com/needim/noty/graphs/contributors \n' +
-          '  @documentation Examples and Documentation - http://needim.github.com/noty \n' +
-          '  @license Licensed under the MIT licenses: http://www.opensource.org/licenses/mit-license.php \n*/\n',
+            '  @version version: <%= pkg.version %> \n' +
+            '  @contributors https://github.com/needim/noty/graphs/contributors \n' +
+            '  @documentation Examples and Documentation - https://ned.im/noty \n' +
+            '  @license Licensed under the MIT licenses: http://www.opensource.org/licenses/mit-license.php \n*/\n',
           linebreak: true
         },
         files: {

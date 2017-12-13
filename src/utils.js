@@ -255,7 +255,7 @@ export function visibilityChangeFlow () {
   if (visibilityChange) {
     addListener(document, visibilityChange, onVisibilityChange)
   }
-  
+
   addListener(window, 'blur', onBlur)
   addListener(window, 'focus', onFocus)
 }
