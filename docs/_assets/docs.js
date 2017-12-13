@@ -4,19 +4,19 @@ var velocityShow = function (promise) {
     left: 450,
     scaleY: 2
   }, {
-    duration: 0
-  })
+      duration: 0
+    })
   $.Velocity(n.barDom, {
     left: 0,
     scaleY: 1
   }, {
-    easing: [8, 8],
-    complete: function () {
-      promise(function (resolve) {
-        resolve()
-      })
-    }
-  })
+      easing: [8, 8],
+      complete: function () {
+        promise(function (resolve) {
+          resolve()
+        })
+      }
+    })
 }
 
 var velocityClose = function (promise) {
@@ -24,22 +24,22 @@ var velocityClose = function (promise) {
   $.Velocity(n.barDom, {
     left: '+=-50'
   }, {
-    easing: [8, 8, 2],
-    duration: 350
-  })
+      easing: [8, 8, 2],
+      duration: 350
+    })
   $.Velocity(n.barDom, {
     left: 450,
     scaleY: .2,
     height: 0,
     margin: 0
   }, {
-    easing: [8, 8],
-    complete: function () {
-      promise(function (resolve) {
-        resolve()
-      })
-    }
-  })
+      easing: [8, 8],
+      complete: function () {
+        promise(function (resolve) {
+          resolve()
+        })
+      }
+    })
 }
 
 var mojsShow = function (promise) {
@@ -47,7 +47,7 @@ var mojsShow = function (promise) {
   var Timeline = new mojs.Timeline()
   var body = new mojs.Html({
     el: n.barDom,
-    x: {500: 0, delay: 0, duration: 500, easing: 'elastic.out'},
+    x: { 500: 0, delay: 0, duration: 500, easing: 'elastic.out' },
     isForce3d: true,
     onComplete: function () {
       promise(function (resolve) {
@@ -61,7 +61,7 @@ var mojsShow = function (promise) {
     width: 200,
     height: n.barDom.getBoundingClientRect().height,
     radius: 0,
-    x: {[150]: -150},
+    x: { [150]: -150 },
     duration: 1.2 * 500,
     isShowStart: true
   })
@@ -75,7 +75,7 @@ var mojsShow = function (promise) {
     top: n.barDom.getBoundingClientRect().height + 75,
     degree: 90,
     radius: 75,
-    angle: {[-90]: 40},
+    angle: { [-90]: 40 },
     children: {
       fill: '#EBD761',
       delay: 'stagger(500, -50)',
@@ -90,7 +90,7 @@ var mojsShow = function (promise) {
     count: 2,
     degree: 0,
     angle: 75,
-    radius: {0: 100},
+    radius: { 0: 100 },
     top: '90%',
     children: {
       fill: '#EBD761',
@@ -110,7 +110,7 @@ var mojsClose = function (promise) {
   var n = this
   new mojs.Html({
     el: n.barDom,
-    x: {0: 500, delay: 10, duration: 500, easing: 'cubic.out'},
+    x: { 0: 500, delay: 10, duration: 500, easing: 'cubic.out' },
     isForce3d: true,
     onComplete: function () {
       promise(function (resolve) {
@@ -124,14 +124,14 @@ var bouncejsShow = function (promise) {
   var n = this
   new Bounce()
     .translate({
-      from: {x: 450, y: 0}, to: {x: 0, y: 0},
+      from: { x: 450, y: 0 }, to: { x: 0, y: 0 },
       easing: 'bounce',
       duration: 1000,
       bounces: 4,
       stiffness: 3
     })
     .scale({
-      from: {x: 1.2, y: 1}, to: {x: 1, y: 1},
+      from: { x: 1.2, y: 1 }, to: { x: 1, y: 1 },
       easing: 'bounce',
       duration: 1000,
       delay: 100,
@@ -139,7 +139,7 @@ var bouncejsShow = function (promise) {
       stiffness: 1
     })
     .scale({
-      from: {x: 1, y: 1.2}, to: {x: 1, y: 1},
+      from: { x: 1, y: 1.2 }, to: { x: 1, y: 1 },
       easing: 'bounce',
       duration: 1000,
       delay: 100,
@@ -159,7 +159,7 @@ var bouncejsClose = function (promise) {
   var n = this
   new Bounce()
     .translate({
-      from: {x: 0, y: 0}, to: {x: 450, y: 0},
+      from: { x: 0, y: 0 }, to: { x: 450, y: 0 },
       easing: 'bounce',
       duration: 500,
       bounces: 4,
@@ -245,3 +245,61 @@ setTimeout(function () {
     }
   }).show()
 }, 2000)
+
+function RenderPreviews () {
+  console.log("run")
+
+  Noty.setMaxVisible(999999999);
+
+  $themePreview = $(".theme-previews")
+  $themePreviews = ["mint", "sunset", "relax", "nest", "metroui", "semanticui", "light", "bootstrap-v3", "bootstrap-v4"]
+  if ($themePreview.length != 0) {
+
+    $.each($themePreviews, function (i, theme) {
+
+      $(".theme-preview-" + theme).append($("<h4>" + theme + "</h4>"))
+
+      console.log(theme)
+
+      generatePreview(theme, 'alert')
+      generatePreview(theme, 'success')
+      generatePreview(theme, 'warning')
+      generatePreview(theme, 'error')
+      generatePreview(theme, 'information')
+      generatePreview(theme, 'confirm')
+
+    });
+
+    function generatePreview (theme, type) {
+      var notes = [];
+      notes['alert'] = 'Best check yo self, you\'re not looking too good.';
+      notes['error'] = 'Change a few things up and try submitting again.';
+      notes['success'] = 'You successfully read this important alert message.';
+      notes['information'] = 'This alert needs your attention, but it\'s not super important.';
+      notes['warning'] = '<strong>Warning!</strong> <br /> Best check yo self, you\'re not looking too good.';
+      notes['confirm'] = 'Do you want to continue?';
+      new Noty({
+        text: notes[type],
+        container: ".theme-preview-" + theme,
+        type: type,
+        theme: theme,
+        dismissQueue: true,
+        force: false,
+        closeWith: [],
+        buttons: (type != 'confirm') ? false : [
+          Noty.button('YES', 'btn btn-success', function () {
+            console.log('button 1 clicked');
+          }),
+
+          Noty.button('NO', 'btn btn-error', function () {
+            console.log('button 2 clicked');
+          })
+        ]
+      }).show()
+    }
+
+  } else {
+    console.log("shit")
+  }
+}
+

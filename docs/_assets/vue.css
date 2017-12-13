@@ -971,3 +971,12 @@ pre:after {
   text-align: right;
   top: 0
 }
+
+.flex-grid-thirds {
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.flex-grid-thirds .col {
+  width: 32%;
+}

@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>NOTY - a dependency-free notification library</title>
-  <meta name="description"
-        content="noty is a notification library which is have too many options for display notification">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="description" content="noty is a notification library which is have too many options for display notification">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="keywords" content="notification, library, opensource, open, source">
   <meta name="author" content="Nedim Arabacı (http://ned.im)">
   <link rel="stylesheet" href="_assets/vue.css">
   <link rel="stylesheet" href="_assets/ps-icon-pack.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700|Zilla+Slab:300,400,600,700|Fira+Mono"
-        rel="stylesheet">
-  <link rel="stylesheet" href="//cdn.rawgit.com/needim/noty/a6cccf80/lib/noty.css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700|Zilla+Slab:300,400,600,700|Fira+Mono" rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.rawgit.com/needim/noty/77268c46/lib/noty.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
   <script async defer src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <style type="text/css">
@@ -23,7 +21,17 @@
       font-size: 17px;
     }
 
-    h1, h2, h3, h4, h5, h6, .sidebar-nav, .noty_body, .jmgFob, nav, button {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .sidebar-nav,
+    .noty_body,
+    .jmgFob,
+    nav,
+    button {
       font-family: "Nunito", Source Sans Pro, Helvetica Neue, Arial, sans-serif !important;
     }
 
@@ -39,7 +47,7 @@
       content: " ";
     }
 
-    .markdown-section pre > code {
+    .markdown-section pre>code {
       font-family: "Fira Mono", "Roboto Mono", Monaco, courier, monospace;
     }
 
@@ -58,7 +66,8 @@
       vertical-align: middle;
     }
 
-    .button, .bas {
+    .button,
+    .bas {
       display: inline-block;
       position: relative;
       padding: .8em 1.3em;
@@ -205,11 +214,11 @@
     .sidebar {
       padding: 0 0 40px 0;
     }
-
   </style>
 </head>
+
 <body>
-<div id="app"></div>
+  <div id="app"></div>
 </body>
 <script>
   window.$docsify = {
@@ -253,10 +262,15 @@
                 script.type = 'text/javascript'
                 script.async = true
                 script.setAttribute('id', 'gh-buttons')
-                script.onload = function () {}
+                script.onload = function () { }
                 script.src = 'https://buttons.github.io/buttons.js'
                 d.getElementsByTagName('head')[0].appendChild(script)
               }(document));
+            }
+
+            if (vm.route.path === '/themes') {
+              console.log("wow")
+              RenderPreviews()
             }
 
             if (vm.route.path !== '/bakers') {
@@ -265,14 +279,14 @@
                 script.type = 'text/javascript'
                 script.async = true
                 script.setAttribute('id', '_carbonads_js')
-                script.onload = function () {}
+                script.onload = function () { }
                 script.src = '//cdn.carbonads.com/carbon.js?zoneid=1673&serve=C6AILKT&placement=nedimnoty'
                 var p = d.getElementsByClassName('markdown-section')[0]
                 p.insertBefore(script, p.getElementsByTagName('h1')[0].nextSibling)
               }(document))
             }
 
-          } catch (err) {}
+          } catch (err) { }
         })
       }
     ]
@@ -284,9 +298,8 @@
 <script src="//unpkg.com/docsify/lib/plugins/external-script.min.js"></script>
 <script src="//unpkg.com/docsify/lib/plugins/ga.min.js"></script>
 
-<script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-        crossorigin="anonymous"></script>
-<script src="//cdn.rawgit.com/needim/noty/a6cccf80/lib/noty.min.js"></script>
+<script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="//cdn.rawgit.com/needim/noty/77268c46/lib/noty.min.js"></script>
 <script src="//cdn.jsdelivr.net/mojs/latest/mo.min.js"></script>
 <script src="//cdn.jsdelivr.net/velocity/1.5/velocity.min.js"></script>
 <script src="_assets/bounce.min.js"></script>
