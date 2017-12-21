@@ -4,8 +4,8 @@ import 'noty.scss'
 import Promise from 'es6-promise'
 import * as Utils from 'utils'
 import * as API from 'api'
-import {NotyButton} from 'button'
-import {Push} from 'push'
+import { NotyButton } from 'button'
+import { Push } from 'push'
 
 export default class Noty {
   /**
@@ -14,6 +14,11 @@ export default class Noty {
    */
   constructor (options = {}) {
     this.options = Utils.deepExtend({}, API.Defaults, options)
+
+    if (API.Store[this.options.id]) {
+      return API.Store[this.options.id]
+    }
+
     this.id = this.options.id || Utils.generateID('bar')
     this.closeTimer = -1
     this.barDom = null
@@ -69,6 +74,10 @@ export default class Noty {
    * @return {Noty}
    */
   show () {
+    if (this.showing || this.shown) {
+      return this // preventing multiple show
+    }
+
     if (this.options.killer === true) {
       Noty.closeAll()
     } else if (typeof this.options.killer === 'string') {
@@ -144,7 +153,7 @@ export default class Noty {
         )
         Utils.addListener(btn, 'click', e => {
           Utils.stopPropagation(e)
-          this.options.buttons[key].cb()
+          this.options.buttons[key].cb(this)
         })
       })
     }
@@ -350,7 +359,7 @@ export default class Noty {
 
     this.closing = true
 
-    if (this.options.animation.close === null) {
+    if (this.options.animation.close === null || this.options.animation.close === false) {
       this.promises.close = new Promise(resolve => {
         resolve()
       })
@@ -404,6 +413,31 @@ export default class Noty {
   }
 
   /**
+   * @param {string} queueName
+   * @return {Noty}
+   */
+  static clearQueue (queueName = 'global') {
+    if (API.Queues.hasOwnProperty(queueName)) {
+      API.Queues[queueName].queue = []
+    }
+    return this
+  }
+
+  /**
+   * @return {API.Queues}
+   */
+  static get Queues () {
+    return API.Queues
+  }
+
+  /**
+   * @return {API.PageHidden}
+   */
+  static get PageHidden () {
+    return API.PageHidden
+  }
+
+  /**
    * @param {Object} obj
    * @return {Noty}
    */
@@ -454,4 +488,6 @@ export default class Noty {
 }
 
 // Document visibility change controller
-Utils.visibilityChangeFlow()
+if (typeof window !== 'undefined') {
+  Utils.visibilityChangeFlow()
+}
