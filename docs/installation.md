@@ -32,6 +32,21 @@ $ yarn add noty
 $ composer require needim/noty
 ```
 
+#### For the Laravel
+
+Add to `resources/assets/sass/app.scss`
+```scss
+@import "~noty/src/noty.scss";
+@import "~noty/src/themes/mint.scss";
+```
+
+Add to `resources/assets/js/bootstrap.js`
+```javascript
+window.Noty = require('noty');
+```
+
+Then run `yarn dev` or `npm run dev`
+
 ### Usage: Creating a Notification
 
 ```javascript
