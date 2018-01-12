@@ -4,7 +4,7 @@ Using with class names. (like animate.css)
 
 ```javascript
 new Noty({
-    text: 'NOTY - a jquery notification library!',
+    text: 'NOTY - a dependency-free notification library!',
     animation: {
         open: 'animated bounceInRight', // Animate.css class names
         close: 'animated bounceOutRight' // Animate.css class names
@@ -55,7 +55,7 @@ Example css animation;
 ```javascript
 new Noty({
     ...
-    text: 'NOTY - a jquery notification library!',
+    text: 'NOTY - animating with Bounce.js!',
     ...
     animation: {
         open: function (promise) {
@@ -128,7 +128,7 @@ new Noty({
 ```javascript
 new Noty({
     ...
-    text: 'NOTY - a jquery notification library!',
+    text: 'NOTY - animating with Mo.js!',
     ...
     animation: {
         open: function (promise) {
