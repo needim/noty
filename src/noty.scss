@@ -191,12 +191,6 @@ $noty-corner-space: 20px;
   }
 }
 
-@keyframes noty_modal_out {
-  100% {
-    opacity: 0;
-  }
-}
-
 @keyframes noty_anim_in {
   100% {
     transform: translate(0);
