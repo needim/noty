@@ -191,7 +191,7 @@ $('body').on('click', '#example-runner', function (e) {
 $('body').on('click', '#example-animatecss', function (e) {
   new Noty({
     type: 'warning',
-    text: 'NOTY - a jquery notification library!',
+    text: 'NOTY - a Dependency-free notification library!',
     animation: {
       open: 'animated bounceInRight', // Animate.css class names
       close: 'animated bounceOutRight' // Animate.css class names
@@ -202,7 +202,7 @@ $('body').on('click', '#example-animatecss', function (e) {
 $('body').on('click', '#example-bouncejs', function (e) {
   new Noty({
     type: 'warning',
-    text: 'NOTY - a jquery notification library!',
+    text: 'NOTY - a Dependency-free notification library!',
     animation: {
       open: bouncejsShow,
       close: bouncejsClose
@@ -213,7 +213,7 @@ $('body').on('click', '#example-bouncejs', function (e) {
 $('body').on('click', '#example-mojs', function (e) {
   new Noty({
     type: 'warning',
-    text: 'NOTY - a jquery notification library!',
+    text: 'NOTY - a Dependency-free notification library!',
     animation: {
       open: mojsShow,
       close: mojsClose
@@ -224,7 +224,7 @@ $('body').on('click', '#example-mojs', function (e) {
 $('body').on('click', '#example-velocity', function (e) {
   new Noty({
     type: 'warning',
-    text: 'NOTY - a jquery notification library!',
+    text: 'NOTY - a Dependency-free notification library!',
     animation: {
       open: velocityShow,
       close: velocityClose
