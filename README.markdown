@@ -57,6 +57,11 @@ It also has various callbacks for the buttons, opening closing the notifications
         <img src="http://ned.im/noty/_media/browserstack.svg" width="220" alt="">
       </a>
     </td>
+    <td vlign="center">
+      <a target="_blank" href="https://themeforest.net/user/themesplat/portfolio?ref=ThemeSplat">
+        <img src="http://ned.im/noty/_media/site_splat.svg" width="235" alt="">
+      </a>
+    </td>
   </tr>
 </table>
 

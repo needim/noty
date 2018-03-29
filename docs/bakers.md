@@ -28,6 +28,12 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
         <img src="_media/browserstack.svg" width="220" alt="">
     </a>
 </div>
+<br>
+<div class="supported-by">
+    <a target="_blank" href="https://themeforest.net/user/themesplat/portfolio?ref=ThemeSplat">
+        <img src="_media/site_splat.svg" width="235" alt="">
+    </a>
+</div>
 
 !> **$30 or more per month** <br> I'll put your logo on all my project's websites & GitHub readme pages. (for the period of subscription) (**30k+ unique pageviews**)
 
