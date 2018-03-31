@@ -30,7 +30,7 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
 </div>
 <br>
 <div class="supported-by">
-    <a target="_blank" href="https://themeforest.net/user/themesplat/portfolio?ref=ThemeSplat">
+    <a target="_blank" href="https://goo.gl/ttbzE4">
         <img src="_media/site_splat.svg" width="235" alt="">
     </a>
 </div>

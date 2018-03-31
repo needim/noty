@@ -58,7 +58,7 @@ It also has various callbacks for the buttons, opening closing the notifications
       </a>
     </td>
     <td vlign="center">
-      <a target="_blank" href="https://themeforest.net/user/themesplat/portfolio?ref=ThemeSplat">
+      <a target="_blank" href="https://goo.gl/ttbzE4">
         <img src="http://ned.im/noty/_media/site_splat.svg" width="235" alt="">
       </a>
     </td>
