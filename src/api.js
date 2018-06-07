@@ -75,6 +75,7 @@ export let Defaults = {
   id: false,
   force: false,
   killer: false,
+  overrideQueue: false,
   queue: 'global',
   container: false,
   buttons: [],

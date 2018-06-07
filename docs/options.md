@@ -29,6 +29,7 @@ Available options listed below.
 | **id**: string,boolean | false | You can use this id with querySelectors. Generated automatically if false. |
 | **force**: boolean | false | DOM insert method depends on this parameter. If false uses append, if true uses prepend. |
 | **queue**: string | 'global' | NEW Named queue system. Details are [here](api.md). |
+| **overrideQueue**: boolean | false | If true don't add new notification to queue after reach maximum visible notification count. |
 | **killer**: boolean,string | false | If true closes all **visible** notifications and shows itself. If string(queueName) closes all **visible** notification on this queue and shows itself. |
 | **container**: boolean,string | false | Custom container selector string. Like '.my-custom-container'. Layout parameter will be ignored. |
 | **buttons**: [...Noty.button] | [] | An array of Noty.button, for creating confirmation dialogs. Details are [here](confirm.md). |

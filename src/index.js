@@ -29,6 +29,7 @@ export default class Noty {
     this.closed = false
     this.closing = false
     this.killable = this.options.timeout || this.options.closeWith.length > 0
+    this.overrideQueue = this.options.overrideQueue
     this.hasSound = this.options.sounds.sources.length > 0
     this.soundPlayed = false
     this.listeners = {
@@ -90,7 +91,9 @@ export default class Noty {
       queueCounts.current >= queueCounts.maxVisible ||
       (API.PageHidden && this.options.visibilityControl)
     ) {
-      API.addToQueue(this)
+      if (!this.options.overrideQueue) {
+        API.addToQueue(this)
+      }
 
       if (
         API.PageHidden &&
@@ -359,7 +362,10 @@ export default class Noty {
 
     this.closing = true
 
-    if (this.options.animation.close === null || this.options.animation.close === false) {
+    if (
+      this.options.animation.close === null ||
+      this.options.animation.close === false
+    ) {
       this.promises.close = new Promise(resolve => {
         resolve()
       })

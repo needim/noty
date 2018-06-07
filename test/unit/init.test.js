@@ -287,6 +287,7 @@ $(function () {
         close: null
       },
       force: true,
+      overrideQueue: true,
       sounds: {
         sources: ['audio_file.wav'],
         volume: .3,
@@ -307,6 +308,7 @@ $(function () {
       closeWith: n.options.closeWith,
       animation: n.options.animation,
       force: n.options.force,
+      overrideQueue: n.options.overrideQueue,
       sounds: n.options.sounds,
       titleCount: n.options.titleCount
     }, 'override ok')
