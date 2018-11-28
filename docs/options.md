@@ -38,8 +38,11 @@ Available options listed below.
 | **callbacks.onClose**: function | Default: () => {} | Details are [here](api.md). |
 | **callbacks.afterClose**: function | Default: () => {} | Details are [here](api.md). |
 | **callbacks.onHover**: function | Default: () => {} | Details are [here](api.md). |
+| **callbacks.onClick**: function | Default: () => {} | Only works if `closeWith` = `['click']`. Details are [here](api.md). | 
 | **callbacks.onTemplate**: function | Default: () => {} | Mainly for DOM manipulations. Details are [here](api.md). |
 | **visibilityControl**: boolean | false | If **true** Noty uses PageVisibility API to handle timeout. To ensure that users do not miss their notifications. |
+
+[See a detailed example on Jsfiddle.](https://jsfiddle.net/znyh891t/)
 
 ### Overriding Options
 
