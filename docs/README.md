@@ -54,7 +54,7 @@
 
 <div class="supported-by">
     <a target="_blank" href="https://goo.gl/ttbzE4">
-        <img src="_media/Logo_CasinoTopp.png" width="235" alt="">
+        <img src="_media/Logo_CasinoTopp.png" width="80" alt="">
     </a>
 </div>
 
