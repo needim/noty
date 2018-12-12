@@ -53,7 +53,7 @@
 </div>
 
 <div class="supported-by">
-    <a target="_blank" href="https://goo.gl/ttbzE4">
+    <a target="_blank" href="https://www.casinotopp.net">
         <img src="_media/Logo_CasinoTopp.png" width="80" alt="">
     </a>
 </div>
