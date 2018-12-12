@@ -52,6 +52,12 @@
     </a>
 </div>
 
+<div class="supported-by">
+    <a target="_blank" href="https://goo.gl/ttbzE4">
+        <img src="_media/Logo_CasinoTopp.png" width="235" alt="">
+    </a>
+</div>
+
 ## Became a Patron
 
 If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>
