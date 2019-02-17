@@ -98,9 +98,9 @@ new Noty({
                 .translate({
                     from     : {x: 0, y: 0}, to: {x: 450, y: 0},
                     easing   : "bounce",
-                    duration : 500,
-                    bounces  : 4,
-                    stiffness: 1
+                    duration : 200,
+                    bounces  : 0,
+                    stiffness: 0
                 })
                 .applyTo(n.barDom, {
                     onComplete: function () {
