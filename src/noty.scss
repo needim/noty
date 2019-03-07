@@ -1,6 +1,6 @@
-$noty-primary-color: #333;
-$noty-default-width: 325px;
-$noty-corner-space: 20px;
+$noty-primary-color: #333 !default;
+$noty-default-width: 325px !default;
+$noty-corner-space: 20px !default;
 
 .noty_layout_mixin {
   position: fixed;
@@ -210,13 +210,3 @@ $noty-corner-space: 20px;
     height: 0;
   }
 }
-
-//@import "themes/relax";
-//@import "themes/metroui";
-//@import "themes/mint";
-//@import "themes/sunset";
-//@import "themes/bootstrap-v3";
-//@import "themes/bootstrap-v4";
-//@import "themes/semanticui";
-//@import "themes/nest";
-//@import "themes/light";
