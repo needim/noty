@@ -75,7 +75,7 @@ declare namespace Noty {
 	type Type = 'alert' | 'success' | 'warning' | 'error' | 'info' | 'information';
 	type Theme = 'mint' | 'sunset' | 'relax' | 'metroui' | 'bootstrap-v3' | 'bootstrap-v4' | 'semanticui' | 'nest';
 	type Layout = 'top' | 'topLeft' | 'topCenter' | 'topRight' | 'center' | 'centerLeft' | 'centerRight' | 'bottom' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
-	type Event = 'beforeShow' | 'onShow' | 'afterShow' | 'onClose' | 'afterClose' | 'onHover' | 'onTemplate';
+	type Event = 'beforeShow' | 'onShow' | 'afterShow' | 'onClose' | 'afterClose' | 'onHover' | 'onTemplate' | 'onClick';
 
 	interface Button {
 		new(text: string, classNames: string, cb: Function, attributes: any) : Noty.Button
@@ -106,7 +106,8 @@ declare namespace Noty {
 			onClose?: () => void,
 			afterClose?: () => void,
 			onHover?: () => void,
-			onTemplate?: () => void
+			onTemplate?: () => void,
+			onClick?: () => void
 		};
 		sounds?: {
 			sources?: string[],
