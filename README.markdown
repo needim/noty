@@ -27,7 +27,6 @@
 
 <br>
 
-
 ## Hi
 
 **NOTY** is a notification library that makes it easy to create **alert** - **success** - **error** - **warning** - **information** - **confirmation** messages as an alternative the standard alert dialog.
@@ -40,6 +39,7 @@ There are lots of other options in the API to customise the text, animation, but
 It also has various callbacks for the buttons, opening closing the notifications and queue control.
 
 ### Sponsored By
+
 <table>
   <tr>
     <td vlign="center">
@@ -62,11 +62,18 @@ It also has various callbacks for the buttons, opening closing the notifications
         <img src="http://ned.im/noty/_media/site_splat.svg" width="235" alt="">
       </a>
     </td>
+    <td vlign="center">
+      <a target="_blank" href="https://www.norgescasino.com/">
+        <img src="http://ned.im/noty/_media/norges.png" width="235" alt="">
+      </a>
+    </td>
   </tr>
 </table>
 
-***
+---
+
 ### Features
+
 - [x] Dependency-free
 - [x] Web Push Notifications with Service Worker support
 - [x] UMD
@@ -83,29 +90,31 @@ It also has various callbacks for the buttons, opening closing the notifications
 - [x] Document visibility control (blur, focus)
 
 ### Documentation
+
 Documentation and examples are here: <http://ned.im/noty>
 
-***
+---
 
 ##### Basic Usage
+
 ```js
-import Noty from 'noty';
+import Noty from "noty";
 
 new Noty({
-    text: 'Notification text'
+  text: "Notification text"
 }).show();
 
 // or
 
-const Noty = require('noty');
+const Noty = require("noty");
 
 new Noty({
-    text: 'Notification text'
+  text: "Notification text"
 }).show();
-
 ```
 
 ##### Development
+
 ```console
 $ npm run dev
 $ npm test
@@ -115,6 +124,7 @@ $ npm run serve-docs
 ```
 
 ##### Development environment
+
 - [x] Standard
 - [x] Prettier
 - [x] ES6 & Babel & Webpack
@@ -124,6 +134,5 @@ $ npm run serve-docs
 - [x] BrowserStack
 - [x] Pre-commit tests
 - [x] Travis CI
-
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)

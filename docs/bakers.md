@@ -1,4 +1,4 @@
-# Support my Projects 
+# Support my Projects
 
 Hi! Noty.js and [my other libraries](https://github.com/needim) are MIT licensed open source projects and they are completely free to use.
 However, the amount of effort needed to maintain and develop new features for these projects is not sustainable without proper financial backing.
@@ -9,7 +9,7 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
   Become a Sponsor or Baker!
 </a>
 
-## Current Sponsors 
+## Current Sponsors
 
 <div class="supported-by">
     <a target="_blank" href="https://pusher.com/?utm_source=needim&utm_medium=paid&utm_campaign=needim">
@@ -41,8 +41,13 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
     </a>
 </div>
 
-!> **$30 or more per month** <br> I'll put your logo on all my project's websites & GitHub readme pages. (for the period of subscription) (**30k+ unique pageviews**)
+<div class="supported-by">
+    <a target="_blank" href="https://www.norgescasino.com/">
+        <img src="_media/norges.png" width="250" alt="" style="background: #13092B; padding: 5px;">
+    </a>
+</div>
 
+!> **$30 or more per month** <br> I'll put your logo on all my project's websites & GitHub readme pages. (for the period of subscription) (**30k+ unique pageviews**)
 
 ## Current Bakers
 
@@ -51,4 +56,3 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
 - ...
 
 !> **$1 or more per month** <br> I'll put your name on all my project's websites bakers page & GitHub repo bakers.md. (for the period of subscription)
-
