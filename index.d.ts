@@ -68,18 +68,32 @@ declare class Noty {
 	 */
 	static overrideDefaults: (obj: { [i: string]: any }) => Noty;
 
-	static button: (text: string, classNames: string, cb: Function, attributes?: any) => Noty.Button;
+  static button: (text: string, classNames: string, cb: Function, attributes?: any) => Noty.Button;
+  
+  static Push: (workerPath: string) => Noty.Push;
 }
 
 declare namespace Noty {
 	type Type = 'alert' | 'success' | 'warning' | 'error' | 'info' | 'information';
 	type Theme = 'mint' | 'sunset' | 'relax' | 'metroui' | 'bootstrap-v3' | 'bootstrap-v4' | 'semanticui' | 'nest';
 	type Layout = 'top' | 'topLeft' | 'topCenter' | 'topRight' | 'center' | 'centerLeft' | 'centerRight' | 'bottom' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
-	type Event = 'beforeShow' | 'onShow' | 'afterShow' | 'onClose' | 'afterClose' | 'onHover' | 'onTemplate' | 'onClick';
+  type Event = 'beforeShow' | 'onShow' | 'afterShow' | 'onClose' | 'afterClose' | 'onHover' | 'onTemplate' | 'onClick';
 
 	interface Button {
 		new(text: string, classNames: string, cb: Function, attributes: any) : Noty.Button
-	}
+  }
+  
+  interface Push {
+    new (workerPath: string): Noty.Push;
+    on(eventName: string, cb: Function): Noty.Push;
+    fire(eventName: string, params?: Array<Object>): void;
+    isSupported(): boolean;
+    getPermissionStatus(): NotificationPermission;
+    getEndpoint(subscription: PushSubscription): string;
+    isSWRegistered(): boolean;
+    unregisterWorker(): void;
+    requestSubscription(userVisibleOnly?: boolean): void;
+  }
 
 	interface Options {
 		type?: Noty.Type;
