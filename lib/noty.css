@@ -3,8 +3,7 @@
   margin: 0;
   padding: 0;
   z-index: 9999999;
-  -webkit-transform: translateZ(0) scale(1, 1);
-          transform: translateZ(0) scale(1, 1);
+  transform: translateZ(0) scale(1, 1);
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -26,8 +25,7 @@
   top: 5%;
   left: 50%;
   width: 325px;
-  -webkit-transform: translate(-webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
-          transform: translate(calc(-50% - .5px)) translateZ(0) scale(1, 1); }
+  transform: translate(calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 #noty_layout__topRight {
   top: 20px;
@@ -48,8 +46,7 @@
   bottom: 5%;
   left: 50%;
   width: 325px;
-  -webkit-transform: translate(-webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
-          transform: translate(calc(-50% - .5px)) translateZ(0) scale(1, 1); }
+  transform: translate(calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 #noty_layout__bottomRight {
   bottom: 20px;
@@ -60,22 +57,19 @@
   top: 50%;
   left: 50%;
   width: 325px;
-  -webkit-transform: translate(-webkit-calc(-50% - .5px), -webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
-          transform: translate(calc(-50% - .5px), calc(-50% - .5px)) translateZ(0) scale(1, 1); }
+  transform: translate(calc(-50% - .5px), calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 #noty_layout__centerLeft {
   top: 50%;
   left: 20px;
   width: 325px;
-  -webkit-transform: translate(0, -webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
-          transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1, 1); }
+  transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 #noty_layout__centerRight {
   top: 50%;
   right: 20px;
   width: 325px;
-  -webkit-transform: translate(0, -webkit-calc(-50% - .5px)) translateZ(0) scale(1, 1);
-          transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1, 1); }
+  transform: translate(0, calc(-50% - .5px)) translateZ(0) scale(1, 1); }
 
 .noty_progressbar {
   display: none; }
@@ -93,7 +87,6 @@
 
 .noty_bar {
   -webkit-backface-visibility: hidden;
-  -webkit-transform: translate(0, 0) translateZ(0) scale(1, 1);
   -ms-transform: translate(0, 0) scale(1, 1);
       transform: translate(0, 0) scale(1, 1);
   -webkit-font-smoothing: subpixel-antialiased;
@@ -101,23 +94,17 @@
 
 .noty_effects_open {
   opacity: 0;
-  -webkit-transform: translate(50%);
-      -ms-transform: translate(50%);
-          transform: translate(50%);
-  -webkit-animation: noty_anim_in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-          animation: noty_anim_in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards; }
+  -ms-transform: translate(50%);
+      transform: translate(50%);
+  animation: noty_anim_in 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-fill-mode: forwards; }
 
 .noty_effects_close {
-  -webkit-animation: noty_anim_out 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-          animation: noty_anim_out 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards; }
+  animation: noty_anim_out 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  animation-fill-mode: forwards; }
 
 .noty_fix_effects_height {
-  -webkit-animation: noty_anim_height 75ms ease-out;
-          animation: noty_anim_height 75ms ease-out; }
+  animation: noty_anim_height 75ms ease-out; }
 
 .noty_close_with_click {
   cursor: pointer; }
@@ -134,7 +121,6 @@
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 2px;
   cursor: pointer;
-  -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out; }
 
 .noty_close_button:hover {
@@ -152,62 +138,29 @@
 
 .noty_modal.noty_modal_open {
   opacity: 0;
-  -webkit-animation: noty_modal_in .3s ease-out;
-          animation: noty_modal_in .3s ease-out; }
+  animation: noty_modal_in .3s ease-out; }
 
 .noty_modal.noty_modal_close {
-  -webkit-animation: noty_modal_out .3s ease-out;
-          animation: noty_modal_out .3s ease-out;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards; }
-
-@-webkit-keyframes noty_modal_in {
-  100% {
-    opacity: .3; } }
+  animation: noty_modal_out .3s ease-out;
+  animation-fill-mode: forwards; }
 
 @keyframes noty_modal_in {
   100% {
     opacity: .3; } }
 
-@-webkit-keyframes noty_modal_out {
-  100% {
-    opacity: 0; } }
-
 @keyframes noty_modal_out {
   100% {
     opacity: 0; } }
-
-@keyframes noty_modal_out {
-  100% {
-    opacity: 0; } }
-
-@-webkit-keyframes noty_anim_in {
-  100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
-    opacity: 1; } }
 
 @keyframes noty_anim_in {
   100% {
-    -webkit-transform: translate(0);
-            transform: translate(0);
+    transform: translate(0);
     opacity: 1; } }
-
-@-webkit-keyframes noty_anim_out {
-  100% {
-    -webkit-transform: translate(50%);
-            transform: translate(50%);
-    opacity: 0; } }
 
 @keyframes noty_anim_out {
   100% {
-    -webkit-transform: translate(50%);
-            transform: translate(50%);
+    transform: translate(50%);
     opacity: 0; } }
-
-@-webkit-keyframes noty_anim_height {
-  100% {
-    height: 0; } }
 
 @keyframes noty_anim_height {
   100% {
