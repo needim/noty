@@ -62,7 +62,7 @@
     </a>
 </div>
 
-## Became a Patron
+## Become a Patron
 
 If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>
 <a class="jmgFob" href="https://www.patreon.com/bePatron?u=5075261" data-patreon-widget-type="become-patron-button">
