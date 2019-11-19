@@ -47,7 +47,13 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
     </a>
 </div>
 
-!> **$30 or more per month** <br> I'll put your logo on all my project's websites & GitHub readme pages. (for the period of subscription) (**30k+ unique pageviews**)
+<div class="supported-by">
+    <a target="_blank" href="https://www.bonus.ca/fr/">
+        <img src="_media/bonusfinder.png" width="100" alt="">
+    </a>
+</div>
+
+!> **\$30 or more per month** <br> I'll put your logo on all my project's websites & GitHub readme pages. (for the period of subscription) (**30k+ unique pageviews**)
 
 ## Current Bakers
 
@@ -55,4 +61,4 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
 - Your name
 - ...
 
-!> **$1 or more per month** <br> I'll put your name on all my project's websites bakers page & GitHub repo bakers.md. (for the period of subscription)
+!> **\$1 or more per month** <br> I'll put your name on all my project's websites bakers page & GitHub repo bakers.md. (for the period of subscription)

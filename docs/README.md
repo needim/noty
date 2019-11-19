@@ -62,6 +62,12 @@
     </a>
 </div>
 
+<div class="supported-by">
+    <a target="_blank" href="https://www.bonus.ca/fr/">
+        <img src="_media/bonusfinder.png" width="100" alt="">
+    </a>
+</div>
+
 ## Became a Patron
 
 If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>

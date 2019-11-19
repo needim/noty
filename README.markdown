@@ -1,12 +1,12 @@
 <p align="center">
-  <a href="http://ned.im/noty?ref=readme">
-    <img src="http://ned.im/noty/_media/noty-v3-logo.png" width=200 height=70>
+  <a href="https://ned.im/noty?ref=readme">
+    <img src="https://ned.im/noty/_media/noty-v3-logo.png" width=200 height=70>
   </a>
 
   <p align="center">
     Dependency-free notification library.
     <br>
-    <a href="http://ned.im/noty"><strong>Documentation &raquo;</strong></a>
+    <a href="https://ned.im/noty"><strong>Documentation &raquo;</strong></a>
   </p>
 
   <p align="center">
@@ -44,27 +44,32 @@ It also has various callbacks for the buttons, opening closing the notifications
   <tr>
     <td vlign="center">
       <a target="_blank" href="https://pusher.com/?utm_source=needim&utm_medium=paid&utm_campaign=needim">
-        <img src="http://ned.im/noty/_media/pusher_logo_dark.png" width="160" alt="">
+        <img src="https://ned.im/noty/_media/pusher_logo_dark.png" width="160" alt="">
       </a>
     </td>
     <td vlign="center">
       <a target="_blank" href="https://www.jetbrains.com?ref=notyjs">
-        <img src="http://ned.im/noty/_media/logo_JetBrains_4.svg" width="80" alt="">
+        <img src="https://ned.im/noty/_media/logo_JetBrains_4.svg" width="80" alt="">
       </a>
     </td>
     <td vlign="center">
       <a target="_blank" href="https://www.browserstack.com?ref=notyjs">
-        <img src="http://ned.im/noty/_media/browserstack.svg" width="220" alt="">
+        <img src="https://ned.im/noty/_media/browserstack.svg" width="220" alt="">
       </a>
     </td>
     <td vlign="center">
       <a target="_blank" href="https://goo.gl/ttbzE4">
-        <img src="http://ned.im/noty/_media/site_splat.svg" width="235" alt="">
+        <img src="https://ned.im/noty/_media/site_splat.svg" width="235" alt="">
       </a>
     </td>
     <td vlign="center">
       <a target="_blank" href="https://www.norgescasino.com/">
-        <img src="http://ned.im/noty/_media/norges.png" width="235" alt="">
+        <img src="https://ned.im/noty/_media/norges.png" width="235" alt="" style="background: #13092B; padding: 5px;">
+      </a>
+    </td>
+    <td vlign="center">
+      <a target="_blank" href="https://www.bonus.ca/fr/">
+        <img src="https://ned.im/noty/_media/bonusfinder.png" width="150" alt="">
       </a>
     </td>
   </tr>
