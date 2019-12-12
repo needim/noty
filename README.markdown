@@ -72,6 +72,11 @@ It also has various callbacks for the buttons, opening closing the notifications
         <img src="https://ned.im/noty/_media/bonusfinder.png" width="150" alt="">
       </a>
     </td>
+    <td vlign="center">
+      <a target="_blank" href="https://www.boostmmr.com/">
+        <img src="https://i.ibb.co/99682Vb/boostmmr.jpg" width="220" alt="">
+      </a>
+    </td>
   </tr>
 </table>
 

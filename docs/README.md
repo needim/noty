@@ -68,6 +68,12 @@
     </a>
 </div>
 
+<div class="supported-by">
+    <a target="_blank" href="https://www.boostmmr.com/">
+        <img src="https://i.ibb.co/99682Vb/boostmmr.jpg" width="180" alt="">
+    </a>
+</div>
+
 ## Became a Patron
 
 If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>
