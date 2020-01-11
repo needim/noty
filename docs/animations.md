@@ -123,7 +123,7 @@ new Noty({
 
 ### Animating with mo.js
 
-> Get [mo.js](http://mojs.io/?ref=notyjs), first. Then;
+> Get [mo.js](https://mojs.github.io/), first. Then;
 
 ```javascript
 new Noty({
