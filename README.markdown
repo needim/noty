@@ -43,8 +43,8 @@ It also has various callbacks for the buttons, opening closing the notifications
 <table>
   <tr>
     <td vlign="center">
-      <a target="_blank" href="https://pusher.com/?utm_source=needim&utm_medium=paid&utm_campaign=needim">
-        <img src="https://ned.im/noty/_media/pusher_logo_dark.png" width="160" alt="">
+      <a target="_blank" href="https://infatica.io/">
+        <img src="https://infatica.io/templates/digit-whm-white/images/Logo-black.svg" width="220" alt="">
       </a>
     </td>
     <td vlign="center">
@@ -55,11 +55,6 @@ It also has various callbacks for the buttons, opening closing the notifications
     <td vlign="center">
       <a target="_blank" href="https://www.browserstack.com?ref=notyjs">
         <img src="https://ned.im/noty/_media/browserstack.svg" width="220" alt="">
-      </a>
-    </td>
-    <td vlign="center">
-      <a target="_blank" href="https://goo.gl/ttbzE4">
-        <img src="https://ned.im/noty/_media/site_splat.svg" width="235" alt="">
       </a>
     </td>
     <td vlign="center">
