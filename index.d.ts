@@ -73,7 +73,7 @@ declare class Noty {
 
 declare namespace Noty {
 	type Type = 'alert' | 'success' | 'warning' | 'error' | 'info' | 'information';
-	type Theme = 'mint' | 'sunset' | 'relax' | 'metroui' | 'bootstrap-v3' | 'bootstrap-v4' | 'semanticui' | 'nest';
+	type Theme = string;
 	type Layout = 'top' | 'topLeft' | 'topCenter' | 'topRight' | 'center' | 'centerLeft' | 'centerRight' | 'bottom' | 'bottomLeft' | 'bottomCenter' | 'bottomRight';
 	type Event = 'beforeShow' | 'onShow' | 'afterShow' | 'onClose' | 'afterClose' | 'onHover' | 'onTemplate' | 'onClick';
 
