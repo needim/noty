@@ -27,33 +27,14 @@
 ## Sponsored By
 
 <div class="supported-by">
-    <a target="_blank" href="https://infatica.io/">
-        <img src="https://infatica.io/templates/digit-whm-white/images/Logo-black.svg" width="220" alt="">
-    </a>
-</div>
-
-<div class="supported-by">
-    <a target="_blank" href="https://www.jetbrains.com?ref=notyjs">
-        <img src="_media/logo_JetBrains_4.svg" width="80" alt="">
-    </a>
-</div>
-
-<div class="supported-by">
     <a target="_blank" href="https://www.browserstack.com?ref=notyjs">
         <img src="_media/browserstack.svg" width="220" alt="">
     </a>
 </div>
-<br>
 
 <div class="supported-by">
     <a target="_blank" href="https://www.casinotopp.net">
         <img src="_media/Logo_CasinoTopp.png" width="80" alt="">
-    </a>
-</div>
-
-<div class="supported-by">
-    <a target="_blank" href="https://www.norgescasino.com/">
-        <img src="_media/norges.png" width="250" alt="" style="background: #13092B; padding: 5px;">
     </a>
 </div>
 
@@ -66,6 +47,12 @@
 <div class="supported-by">
     <a target="_blank" href="https://www.boostmmr.com/">
         <img src="https://i.ibb.co/99682Vb/boostmmr.jpg" width="180" alt="">
+    </a>
+</div>
+
+<div class="supported-by">
+    <a target="_blank" href="https://goread.io/buy-instagram-followers">
+        <img src="_media/Favicongoread.png" width="85" alt="Buy Instagram Followers">
     </a>
 </div>
 
