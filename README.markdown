@@ -4,6 +4,8 @@
    This repository is no longer supported, please consider using alternatives.
 </p>
 
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 <p align="center">
   <a href="https://ned.im/noty?ref=readme">
     <img src="https://ned.im/noty/_media/noty-v3-logo.png" width=200 height=70>
