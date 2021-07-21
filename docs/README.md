@@ -56,6 +56,13 @@
     </a>
 </div>
 
+<div class="supported-by">
+    <a target="_blank" href="https://nettikasinot.org" style="background: #2B5FC1;
+    padding: 9px 10px 13px 10px;">
+        <img src="_media/nettikasinot.svg" width="185" alt="Nettikasinot">
+    </a>
+</div>
+
 ## Became a Patron
 
 If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>
