@@ -69,6 +69,12 @@
     </a>
 </div>
 
+<div class="supported-by">
+    <a target="_blank" href="https://casinoshunter.com/online-casinos/real-money/">
+        <img src="_media/casinoshunter-dark.png" width="150" alt="Casinos Hunter">
+    </a>
+</div>
+
 ## Became a Patron
 
 If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>
