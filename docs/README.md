@@ -63,6 +63,12 @@
     </a>
 </div>
 
+<div class="supported-by">
+    <a target="_blank" href="https://www.gambledex.com/">
+        <img src="_media/gambledex.png" width="80" alt="Gambledex">
+    </a>
+</div>
+
 ## Became a Patron
 
 If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>

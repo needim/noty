@@ -48,6 +48,12 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
     </a>
 </div>
 
+<div class="supported-by">
+    <a target="_blank" href="https://www.gambledex.com/">
+        <img src="_media/gambledex.png" width="80" alt="Gambledex">
+    </a>
+</div>
+
 !> **$30 or more per month** <br> I'll put your logo on all my project's websites & GitHub readme pages. (for the period of subscription) (**30k+ unique pageviews**)
 
 ## Current Bakers
