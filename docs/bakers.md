@@ -12,6 +12,12 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
 ## Current Sponsors
 
 <div class="supported-by">
+    <a target="_blank" href="https://writersperhour.com/buy-research-paper">
+        <img src="_media/writers.png" width="150" alt="Writers Per Hour">
+    </a>
+</div>
+
+<div class="supported-by">
     <a target="_blank" href="https://www.browserstack.com?ref=notyjs">
         <img src="_media/browserstack.svg" width="220" alt="">
     </a>
