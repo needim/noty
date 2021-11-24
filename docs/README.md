@@ -87,6 +87,12 @@
     </a>
 </div>
 
+<div class="supported-by">
+    <a target="_blank" href="https://slotsempire.com">
+        <img src="_media/slots-empire.webp" width="150" alt="Online Slots Empire Casino">
+    </a>
+</div>
+
 ## Became a Patron
 
 If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>
