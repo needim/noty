@@ -18,6 +18,12 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
 </div>
 
 <div class="supported-by">
+    <a target="_blank" href="https://www.correctcasinos.com/free-slots/">
+        <img src="_media/correct-casino-logo.svg" width="250" alt="Best Free Slots">
+    </a>
+</div>
+
+<div class="supported-by">
     <a target="_blank" href="https://www.browserstack.com?ref=notyjs">
         <img src="_media/browserstack.svg" width="220" alt="">
     </a>
