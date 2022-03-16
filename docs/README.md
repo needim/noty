@@ -45,18 +45,6 @@
 </div>
 
 <div class="supported-by">
-    <a target="_blank" href="https://www.casinotopp.net">
-        <img src="_media/Logo_CasinoTopp.png" width="80" alt="">
-    </a>
-</div>
-
-<div class="supported-by">
-    <a target="_blank" href="https://www.bonus.ca/fr/">
-        <img src="_media/bonusfinder.png" width="100" alt="">
-    </a>
-</div>
-
-<div class="supported-by">
     <a target="_blank" href="https://www.boostmmr.com/">
         <img src="https://i.ibb.co/99682Vb/boostmmr.jpg" width="180" alt="">
     </a>

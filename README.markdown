@@ -46,43 +46,6 @@ There are lots of other options in the API to customise the text, animation, but
 
 It also has various callbacks for the buttons, opening closing the notifications and queue control.
 
-### Sponsored By
-
-<table>
-  <tr>
-    <td vlign="center">
-      <a target="_blank" href="https://infatica.io/">
-        <img src="https://infatica.io/templates/digit-whm-white/images/Logo-black.svg" width="220" alt="">
-      </a>
-    </td>
-    <td vlign="center">
-      <a target="_blank" href="https://www.jetbrains.com?ref=notyjs">
-        <img src="https://ned.im/noty/_media/logo_JetBrains_4.svg" width="80" alt="">
-      </a>
-    </td>
-    <td vlign="center">
-      <a target="_blank" href="https://www.browserstack.com?ref=notyjs">
-        <img src="https://ned.im/noty/_media/browserstack.svg" width="220" alt="">
-      </a>
-    </td>
-    <td vlign="center">
-      <a target="_blank" href="https://www.norgescasino.com/">
-        <img src="https://ned.im/noty/_media/norges.png" width="235" alt="" style="background: #13092B; padding: 5px;">
-      </a>
-    </td>
-    <td vlign="center">
-      <a target="_blank" href="https://www.bonus.ca/fr/">
-        <img src="https://ned.im/noty/_media/bonusfinder.png" width="150" alt="">
-      </a>
-    </td>
-    <td vlign="center">
-      <a target="_blank" href="https://www.boostmmr.com/">
-        <img src="https://i.ibb.co/99682Vb/boostmmr.jpg" width="220" alt="">
-      </a>
-    </td>
-  </tr>
-</table>
-
 ---
 
 ### Features
