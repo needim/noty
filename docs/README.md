@@ -33,6 +33,12 @@
 </div>
 
 <div class="supported-by">
+    <a target="_blank" href="https://www.mysportsinjury.co.uk/" style="background-color: #191919; padding: 12px 0 18px 0; border-radius: 50px;">
+        <img src="_media/mysports.png" width="200" alt="Live pain free">
+    </a>
+</div>
+
+<div class="supported-by">
     <a target="_blank" href="https://www.correctcasinos.com/free-slots/">
         <img src="_media/correct-casino-logo.svg" width="250" alt="Best Free Slots">
     </a>
