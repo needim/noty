@@ -10,6 +10,11 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
 </a>
 
 ## Current Sponsors
+<div class="supported-by">
+    <a target="_blank" href="https://newcasinobonuses.co.uk">
+        <img src="_media/newcasinobonuses.png" width="150" alt="New Casino Bonuses">
+    </a>
+</div>
 
 <div class="supported-by">
     <a target="_blank" href="https://writersperhour.com/buy-research-paper">
