@@ -44,6 +44,12 @@
 </div>
 
 <div class="supported-by">
+    <a target="_blank" href="https://stayatcasinos.com/" style="background-color: #0D152B ; padding: 12px 12px 18px 12px; border-radius: 50px;">
+        <img src="_media/stay-at-casinos-logo.png" width="200" alt="Stay at casinos">
+    </a>
+</div>
+
+<div class="supported-by">
     <a target="_blank" href="https://www.correctcasinos.com/free-slots/">
         <img src="_media/correct-casino-logo.svg" width="250" alt="Best Free Slots">
     </a>
