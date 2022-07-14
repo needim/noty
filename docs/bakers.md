@@ -10,6 +10,12 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
 </a>
 
 ## Current Sponsors
+<div class="supported-by" style="margin-right: 20px">
+    <a target="_blank" href="https://celltrackingapps.com">
+        <img src="_media/cell-tracking-apps.svg" width="150" alt="phone tracker by number">
+    </a>
+</div>
+
 <div class="supported-by">
     <a target="_blank" href="https://newcasinobonuses.co.uk">
         <img src="_media/newcasinobonuses.png" width="150" alt="New Casino Bonuses">
