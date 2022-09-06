@@ -25,6 +25,13 @@
 </p>
 
 ## Sponsored By
+
+<div class="supported-by" style="margin-right: 20px">
+    <a target="_blank" href="https://idealecasinos.nl/">
+        <img src="_media/ideal_casinos_logo_140_140.svg" width="120" alt="online casinos met ideal">
+    </a>
+</div>
+
 <div class="supported-by" style="margin-right: 20px">
     <a target="_blank" href="https://celltrackingapps.com">
         <img src="_media/cell-tracking-apps.svg" width="150" alt="phone tracker by number">
