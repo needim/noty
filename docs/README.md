@@ -38,6 +38,12 @@
     </a>
 </div>
 
+<div class="supported-by" style="margin-right: 20px">
+    <a target="_blank" href="https://likewave.io/buy-instagram-likes">
+        <img src="_media/kablam_glossy_heart.png" width="90" alt="buy Instagram likes to your sites">
+    </a>
+</div>
+
 <div class="supported-by">
     <a target="_blank" href="https://newcasinobonuses.co.uk">
         <img src="_media/newcasinobonuses.png" width="150" alt="New Casino Bonuses">
