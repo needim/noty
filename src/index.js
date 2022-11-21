@@ -4,8 +4,8 @@ import 'noty.scss'
 import Promise from 'es6-promise'
 import * as Utils from 'utils'
 import * as API from 'api'
-import { NotyButton } from 'button'
-import { Push } from 'push'
+import {NotyButton} from 'button'
+import {Push} from 'push'
 
 export default class Noty {
   /**
@@ -289,7 +289,7 @@ export default class Noty {
    */
   setText (html, optionsOverride = false) {
     if (this.barDom) {
-      this.barDom.querySelector('.noty_body').innerHTML = html
+      this.barDom.querySelector('.noty_body').innerText = html
     }
 
     if (optionsOverride) this.options.text = html
@@ -359,7 +359,10 @@ export default class Noty {
 
     this.closing = true
 
-    if (this.options.animation.close === null || this.options.animation.close === false) {
+    if (
+      this.options.animation.close === null ||
+      this.options.animation.close === false
+    ) {
       this.promises.close = new Promise(resolve => {
         resolve()
       })
