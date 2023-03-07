@@ -23,8 +23,8 @@ You can support my works by <a href="https://www.patreon.com/bePatron?u=5075261"
 </div>
 
 <div class="supported-by" style="margin-right: 20px">
-    <a target="_blank" href="https://likewave.io/buy-instagram-likes">
-        <img src="_media/kablam_glossy_heart.png" width="90" alt="buy Instagram likes to your sites">
+    <a target="_blank" href="https://likewave.io/buy-instagram-views">
+        <img src="_media/kablam_glossy_heart.png" width="90" alt="buy Instagram views">
     </a>
 </div>
 
