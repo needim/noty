@@ -24,47 +24,11 @@
 <a href="https://github.com/needim/noty/graphs/contributors"><img src="https://img.shields.io/github/contributors/needim/noty.svg" alt="Contributors"></a>
 </p>
 
-## Sponsored By
+##  Sponsored By
 
 <div class="supported-by" style="margin-right: 20px">
     <a target="_blank" href="https://idealecasinos.nl/">
         <img src="_media/ideal_casinos_logo_140_140.svg" width="120" alt="online casinos met ideal">
-    </a>
-</div>
-
-<div class="supported-by" style="margin-right: 20px">
-    <a target="_blank" href="https://celltrackingapps.com">
-        <img src="_media/cell-tracking-apps.svg" width="150" alt="phone tracker by number">
-    </a>
-</div>
-
-<div class="supported-by" style="margin-right: 20px">
-    <a target="_blank" href="https://likewave.io/buy-instagram-likes">
-        <img src="_media/kablam_glossy_heart.png" width="90" alt="buy Instagram likes to your sites">
-    </a>
-</div>
-
-<div class="supported-by">
-    <a target="_blank" href="https://newcasinobonuses.co.uk">
-        <img src="_media/newcasinobonuses.png" width="150" alt="New Casino Bonuses">
-    </a>
-</div>
-
-<div class="supported-by">
-    <a target="_blank" href="https://writersperhour.com/buy-research-paper">
-        <img src="_media/writers.png" width="150" alt="Writers Per Hour">
-    </a>
-</div>
-
-<div class="supported-by">
-    <a target="_blank" href="https://www.mysportsinjury.co.uk/" style="background-color: #191919; padding: 12px 0 18px 0; border-radius: 50px;">
-        <img src="_media/mysports.png" width="200" alt="Live pain free">
-    </a>
-</div>
-
-<div class="supported-by">
-    <a target="_blank" href="https://stayatcasinos.com/" style="background-color: #0D152B ; padding: 12px 12px 18px 12px; border-radius: 50px;">
-        <img src="_media/stay-at-casinos-logo.png" width="200" alt="Stay at casinos">
     </a>
 </div>
 
@@ -123,9 +87,7 @@
     </a>
 </div>
 
-
-
-## Became a Patron
+##  Became a Patron
 
 If you enjoy my work and want to support me creating stuff, I'm on Patreon!<br>
 <a class="jmgFob" href="https://www.patreon.com/bePatron?u=5075261" data-patreon-widget-type="become-patron-button">
