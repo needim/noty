@@ -2,6 +2,12 @@
 
 > A Dependency-free notification library
 
+<div style="position:relative;">
+    <iframe src="https://smashing.tools/widget" frameBorder="0" height="257" width="320" style="border-radius: 20px; pointer-events: none; margin: 0"></iframe>
+    <a style="position:absolute; top:0; left:0; display:inline-block; width:320px; height:257px; z-index:5;" target="_blank" href="https://smashing.tools?ref=ned.im">
+    </a>
+</div>
+
 <p>
 <button id="example-runner" class="button">Show me a notification</button>
 </p>
@@ -16,10 +22,7 @@
 <a href="https://bower.io/"><img src="https://img.shields.io/bower/v/noty.svg" alt="Bower version"></a>
 <a href="https://www.npmjs.com/package/noty"><img src="https://img.shields.io/npm/v/noty.svg" alt="NPM version"></a>
 <a href="https://packagist.org/packages/needim/noty"><img src="https://img.shields.io/packagist/v/needim/noty.svg" alt="Packagist version"></a>
-<img src="https://img.shields.io/david/needim/noty.svg" alt="Dependencies">
-<img src="https://img.shields.io/david/dev/needim/noty.svg" alt="Dev Dependencies">
 <br>
-<a href="https://travis-ci.org/needim/noty"><img src="https://img.shields.io/travis/needim/noty/master.svg" alt="Travis"></a>
 <a href="https://www.npmjs.com/package/noty"><img src="https://img.shields.io/npm/dm/noty.svg?label=npm%20downloads" alt="NPM Downloads"></a>
 <a href="https://github.com/needim/noty/graphs/contributors"><img src="https://img.shields.io/github/contributors/needim/noty.svg" alt="Contributors"></a>
 </p>
